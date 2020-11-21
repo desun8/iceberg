@@ -1,0 +1,116 @@
+.btn {
+  --pd-x: 25px;
+  --color: var(--c-deep-blue);
+  --bg-c: #fff;
+  --bdrs: 100px;
+
+  display: inline-grid;
+  grid-auto-flow: column;
+  column-gap: 16px;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 16px var(--pd-x);
+
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: 500;
+
+  color: var(--color);
+  background-color: var(--bg-c);
+  border: 1px solid var(--bg-c);
+  border-radius: var(--bdrs);
+
+  transition-property: color, background-color, border-color;
+  transition-duration: var(--trans-dur);
+}
+
+.btn:not(.btn--no-hover):hover {
+  --color: #fff;
+  --bg-c: var(--c-deep-blue);
+}
+
+.btn--dark {
+  --color: #fff;
+  --bg-c: var(--c-deep-blue);
+}
+
+.btn--dark:not(.btn--no-hover):hover {
+  --color: var(--c-deep-blue);
+  --bg-c: #fff;
+}
+
+.btn--circle {
+  --bdrs: 50%;
+
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+
+.btn--outline {
+  --pd-x: 20px;
+  --color: #fff;
+  --bg-c: var(--color);
+
+  background-color: transparent;
+}
+
+.btn--outline:not(.btn--no-hover):hover {
+  background-color: var(--bg-c);
+}
+
+.btn--outline.btn--dark {
+  --color: var(--c-deep-blue);
+  --bg-c: var(--color);
+}
+
+.btn--outline.btn--dark:not(.btn--no-hover):hover {
+
+}
+
+.btn__icon {
+  fill: currentColor;
+}
+
+.btn__icon--rotate-90 {
+  transform: rotate(-90deg);
+}
+
+.btn__icon--rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* фикс для браузеров, которые не поддерживают grid в button */
+.btn__wrapper {
+  display: inline-grid;
+  grid-auto-flow: column;
+  column-gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--only-mobile) {
+  .btn--dark-sm {
+    --color: #fff;
+    --bg-c: var(--c-deep-blue);
+  }
+
+  .btn__icon {
+    display: none;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .btn:not(.btn--circle) {
+    width: auto;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+
+}

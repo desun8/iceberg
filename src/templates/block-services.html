@@ -1,0 +1,76 @@
+<section class="block-services">
+  <h2 class="block-services__title">Направления нашей Клиники</h2>
+
+  <ul class="block-services__list list-unstyled">
+    <li class="block-services__item">
+      <include
+              src="components/service-card.html"
+              locals='{
+                "img": "__dev-img",
+                "title": "Лечение зубов и эстетика",
+                "describe": "Здоровье и красота на долгие годы. Создаем улыбку Вашей мечты."
+              }'
+      ></include>
+    </li>
+
+    <li class="block-services__item">
+      <include
+              src="components/service-card.html"
+              locals='{
+                "img": "__dev-img",
+                "title": "Травматология",
+                "describe": "Качественная травматология зубов. Изучаем травму перед тем, как начать стоматологическое лечение зуба."
+                }'
+      ></include>
+    </li>
+
+    <li class="block-services__item">
+      <include
+              src="components/service-card.html"
+              locals='{
+                "img": "__dev-img",
+                "title": "Детская стоматология",
+                "describe": "Качественная травматология зубов. Изучаем травму перед тем, как начать стоматологическое лечение зуба."
+                }'
+      ></include>
+    </li>
+
+    <li class="block-services__item">
+      <include
+              src="components/service-card.html"
+              locals='{
+                "img": "__dev-img",
+                "title": "Исправление прикуса",
+                "describe": "Предоставляем возможность открыто улыбаться, уверенно общаться, наслаждаться пищей. Результат долгие годы."
+                }'
+      ></include>
+    </li>
+
+    <li class="block-services__item">
+      <include
+              src="components/service-card.html"
+              locals='{
+                "img": "__dev-img",
+                "title": "Диагностика",
+                "describe": "Проводим обследование на высокоточном оборудовании с  расшифровкой результатов  ведущим врачом-радиологом в клинике."
+                }'
+      ></include>
+    </li>
+
+    <li class="block-services__item">
+      <include
+              src="components/service-card.html"
+              locals='{
+                "img": "__dev-img",
+                "title": "Протезирование",
+                "describe": "Предоставляем возможность открыто улыбаться, уверенно общаться, наслаждаться пищей. Результат долгие годы."
+                }'
+      ></include>
+    </li>
+
+  </ul>
+
+  <button class="block-services__more  btn  btn--dark" type="button">Все услуги</button>
+
+  <include src="service-catalog.html"></include>
+</section>

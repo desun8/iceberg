@@ -1,0 +1,78 @@
+<div class="modal">
+
+  <button class="modal__close" type="button" aria-label="Закрыть меню">╳</button>
+
+  <div class="menu__main">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li class="main-nav__item">
+          <a href="#" class="main-nav__link">Главная</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="#" class="main-nav__link">О нас</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Large Screen -->
+    <include src="components/btn-to-form-2.html" locals='{"class": ""}'></include>
+    <include src="components/btn-to-form-1.html" locals='{
+        "class": "btn--outline",
+        "name": "Онлайн-консультация"
+    }'></include>
+  </div>
+
+  <div class="menu__catalog">
+    <ul class="catalog">
+      <li class="catalog__item">
+        <div class="catalog-card">
+          <div class="catalog-card__bg-img"></div>
+          <span class="catalog-card__name">Лечение зубов и эстетика</span><a href="" class="catalog-card__link"></a>
+        </div>
+      </li>
+      <li class="catalog__item">
+        <div class="catalog-card">
+          <div class="catalog-card__bg-img"></div>
+          <span class="catalog-card__name">Протезирование</span><a href="" class="catalog-card__link"></a>
+        </div>
+      </li>
+      <li class="catalog__item">
+        <div class="catalog-card">
+          <div class="catalog-card__bg-img"></div>
+          <span class="catalog-card__name">Лечение зубов и эстетика</span><a href="" class="catalog-card__link"></a>
+        </div>
+      </li>
+      <li class="catalog__item">
+        <div class="catalog-card">
+          <div class="catalog-card__bg-img"></div>
+          <span class="catalog-card__name">Лечение зубов и эстетика</span><a href="" class="catalog-card__link"></a>
+        </div>
+      </li>
+      <li class="catalog__item">
+        <div class="catalog-card">
+          <div class="catalog-card__bg-img"></div>
+          <span class="catalog-card__name">Лечение зубов и эстетика</span><a href="" class="catalog-card__link"></a>
+        </div>
+      </li>
+      <li class="catalog__item">
+        <div class="catalog-card">
+          <div class="catalog-card__bg-img"></div>
+          <span class="catalog-card__name">Лечение зубов и эстетика</span><a href="" class="catalog-card__link"></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="menu__side">
+    <include src="components/social-list.html"  locals='"class": "social-list--dark"'></include>
+  </div>
+
+
+  <!-- Small Screen -->
+  <include src="components/btn-to-form-2.html" locals='{"class": ""}'></include>
+  <include src="components/btn-to-form-1.html" locals='{
+        "class": "btn--outline",
+        "name": "Онлайн-консультация"
+    }'></include>
+</div>
+

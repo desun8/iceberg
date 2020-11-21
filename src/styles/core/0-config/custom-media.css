@@ -1,0 +1,26 @@
+/* stylelint-disable */
+
+/* mobile first */
+/* @custom-media --mobile-sm (width >= 23.4375em); */
+
+@custom-media --tablet (width >= 48em); /* 768px */
+@custom-media --tablet-lg (width >= 64em); /* 768px */
+@custom-media --desktop (width >= 68.75em); /* 1100 */
+@custom-media --desktop-md (width >= 90em); /* 1440 */
+ @custom-media --desktop-lg (width >= 100em); /* 1600 */
+
+/* @custom-media --desktop-height-sm (height < 43.75em) and (--desktop); */
+/* @custom-media --desktop-height-md (height <= 53em) and (--desktop); */
+
+@custom-media --only-mobile (width < 48em);
+@custom-media --only-sm-screen (width < 68.75em);
+
+@custom-media --w448 (width >= 28em); /* 448 */
+
+/* desktop first */
+/* @custom-media --desktop-md (width <= 90em); */
+/* @custom-media --desktop (width <= 80em); */
+/* @custom-media --desktop-sm (width <= 78.75em); // 1260px */
+/* @custom-media --tablet (width <= 64em); // 1024px */
+/* @custom-media --tablet-sm (width <= 60em); // 960px */
+/* @custom-media --mobile-sm (width <= 23.125em); // 370px */

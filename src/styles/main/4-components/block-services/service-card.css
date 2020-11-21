@@ -1,0 +1,121 @@
+.service-card {
+  --size: var(--card-size);
+
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: calc(var(--size) + 1.565vw);
+  padding: 20px 15px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.service-card__img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.service-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-card__title {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing);
+}
+
+.service-card__describe {
+  line-height: 1.3;
+}
+
+.service-card__link {
+  position: absolute;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--only-sm-screen) {
+  .service-card__link {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+    border: 0;
+  }
+
+  .service-card__link * {
+    display: none;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .service-card__title {
+    font-size: 22px;
+  }
+
+  .service-card__describe {
+    font-size: 14px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .service-card {
+    grid-template-columns: 0.8fr 1.1fr;
+    /*grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));*/
+    grid-auto-flow: column;
+    align-items: center;
+    height: 360px;
+    border-radius: var(--bdrs, 20px);
+    word-break: break-word;
+
+    transition-property: color, background-color;
+    transition-duration: var(--trans-dur);
+  }
+
+  .service-card:hover {
+    color: #fff;
+    background-color: #b77474;
+  }
+
+  .service-card__title {
+    margin-bottom: 15px;
+    font-size: 26px;
+  }
+
+  .service-card__link {
+    right: 30px;
+    bottom: 30px;
+    opacity: 0.1;
+
+    transition-property: opacity;
+    transition-duration: var(--trans-dur);
+  }
+
+  .service-card:hover .service-card__link {
+    opacity: 1;
+  }
+
+  /*.service-card__link::after {*/
+  /*  content: '';*/
+  /*  position: absolute;*/
+  /*  top: -50vw;*/
+  /*  left: -50vw;*/
+  /*  width: 100vw;*/
+  /*  height: 100vw;*/
+  /*}*/
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+
+}

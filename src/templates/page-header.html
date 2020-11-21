@@ -1,0 +1,24 @@
+<header class="page-header">
+  <a href="#" class="page-header__logo">
+    <img src="./images/logo.svg" width="134" height="50" alt="Центр дентальной травматологии">
+  </a>
+  <!--
+    TODO: возможно стоит убрать h1
+    Или добавлять visual-hidden для маленьких экранов
+   -->
+  <h1 class="page-header__title">Центр дентальной травматологии</h1>
+  <a href="tel:+70000000000" class="page-header__btn  btn">+7 (909) 391-32-51</a>
+
+  <!--  <a href="#form-1" class="page-header__btn  btn  btn&#45;&#45;outline">Онлайн-консультация</a>-->
+  <include src="components/btn-to-form-1.html" locals='{
+        "class": "btn--outline page-header__btn",
+        "name": "Онлайн-консультация"
+    }'></include>
+
+  <button class="hamburger  btn  btn--circle" type="button" aria-label="Меню">
+    <span class="hamburger__line"></span>
+    <span class="hamburger__line"></span>
+  </button>
+
+  <a href="#footerAnchor" class="page-header__btn-down  btn  btn--outline  btn--circle" aria-label="Перейти в конец страницы"><svg class="btn__icon" width="9" height="16"><path d="M3.847.68c0-.375.3-.68.67-.68.37 0 .67.305.67.68v14.342c0 .376-.3.68-.67.68a.675.675 0 01-.67-.68V.68z"/><path d="M.196 11.912a.688.688 0 010-.963.663.663 0 01.948 0l3.83 3.89a.688.688 0 010 .962.663.663 0 01-.947 0l-3.83-3.89z"/><path d="M8.804 11.912a.688.688 0 000-.963.663.663 0 00-.948 0l-3.788 3.846a.688.688 0 000 .963.663.663 0 00.947 0l3.789-3.846z"/></svg></a>
+</header>

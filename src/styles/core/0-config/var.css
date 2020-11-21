@@ -1,0 +1,42 @@
+body {
+  --page-gap: 15px;
+  --trsdu: 0.3s; /* TODO: удалить */
+  --trans-dur: 0.3s;
+  
+  /* fonts */
+  --letter-spacing: 0.08px;
+  
+  /* colors */
+  --c-deep-blue: #333570;
+  --c-light-blue: #e9edf8;
+  --c-sky-blue: #abd8fd;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  body {
+    --page-gap: 30px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  body {
+    --page-gap: 30px;
+    --deep-gap: min(10vw, 245px);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  body {
+    --page-gap: 50px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  body {
+    --page-gap: 100px;
+  }
+}
