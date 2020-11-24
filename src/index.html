@@ -19,25 +19,6 @@
 <include src="page-main.html"></include>
 <include src="page-footer.html"></include>
 
-<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-
-<script>
-  let map;
-  const coord = [55.728860, 37.670280];
-
-  DG.then(function () {
-    map = DG.map('map', {
-      center: coord,
-      zoom: 16,
-      scrollWheelZoom: false, // откючение зумма при скроллинге
-      fullscreenControl: false, // скрытие кнопки "во весь экран"
-      zoomControl: false, // скрытие кнопок зумма
-      poi: false
-    });
-
-    DG.marker(coord).addTo(map);
-
-  });
-</script>
+<script src="./main.js" async></script>
 </body>
 </html>

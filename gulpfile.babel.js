@@ -24,6 +24,12 @@ import postcssImport from 'postcss-easy-import';
 // import svgSprite from "gulp-svg-sprite";
 
 // JS
+import { rollup } from 'rollup';
+import nodeResolve from 'rollup-plugin-node-resolve';
+import commonJs from 'rollup-plugin-commonjs';
+import visualizer from 'rollup-plugin-visualizer';
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+// import { terser } from 'rollup-plugin-terser';
 // import uglify from "gulp-uglify";
 // import webpack from "webpack";
 // import webpackStream from "webpack-stream";
@@ -32,6 +38,7 @@ const PATH = {
   html: ['src/index.html', 'src/templates/**/*.html'],
   css: ['src/styles/core.css', 'src/styles/main.css'],
   cssWatch: 'src/styles/**/**/*.css',
+  jsWatch: ['src/main.js', 'src/scripts/**/*.js'],
   images: ['src/images/**/*.{png,jpeg,jpg}'],
 };
 
@@ -73,6 +80,27 @@ function makeStyle(done) {
   done();
 }
 
+// JS
+export function js(done) {
+  rollup({
+    input: './src/main.js',
+    plugins: [
+      nodeResolve(), // подключение модулей node
+      commonJs(), // подключение модулей commonjs
+      sizeSnapshot(), // напишет в консоль размер бандла
+      // terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES
+      visualizer(), // анализатор бандла,
+    ],
+  }).then((bundle) => bundle.write({
+    file: './dist/main.js',
+    format: 'iife',
+    name: 'main',
+    sourcemap: true,
+  }));
+
+  done();
+}
+
 // Image
 function copyImage(done) {
   fs.copy('src/images', 'dist/images')
@@ -89,6 +117,7 @@ const imageTask = gulp.series(copyImage, imageMin);
 function watch(done) {
   gulp.watch(PATH.html, html);
   gulp.watch(PATH.cssWatch, makeStyle);
+  gulp.watch(PATH.jsWatch, js);
   gulp.watch(PATH.images, imageTask);
   done();
 }

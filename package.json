@@ -36,6 +36,7 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "dependencies": {
+    "2gis-maps": "^3.6.1",
     "swiper": "^6.3.5"
   }
 }

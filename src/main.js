@@ -1,3 +1,3 @@
-import html from './index.html';
+import initMap from './scripts/map';
 
-document.querySelector('#content').innerHTML = html;
+initMap();
