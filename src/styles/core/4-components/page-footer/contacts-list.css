@@ -1,0 +1,32 @@
+.contacts-list {
+  margin-bottom: 30px;
+}
+
+.contacts-list__item {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contacts-list__item:last-child {
+  margin-bottom: 0;
+}
+
+.contacts-list__item a {
+  color: inherit;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .contacts-list {
+    margin-bottom: 40px;
+  }
+  
+  .contacts-list__item {
+    font-size: 18px;
+  }
+  
+  .contacts-list .btn {
+    margin-bottom: 25px;
+  }
+}

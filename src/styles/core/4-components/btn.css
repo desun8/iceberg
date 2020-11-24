@@ -3,25 +3,25 @@
   --color: var(--c-deep-blue);
   --bg-c: #fff;
   --bdrs: 100px;
-
+  
   display: inline-grid;
   grid-auto-flow: column;
   column-gap: 16px;
   justify-content: center;
   align-items: center;
-
+  
   width: 100%;
   padding: 16px var(--pd-x);
-
+  
   font-size: 14px;
   line-height: 1.2em;
   font-weight: 500;
-
+  
   color: var(--color);
   background-color: var(--bg-c);
   border: 1px solid var(--bg-c);
   border-radius: var(--bdrs);
-
+  
   transition-property: color, background-color, border-color;
   transition-duration: var(--trans-dur);
 }
@@ -43,7 +43,7 @@
 
 .btn--circle {
   --bdrs: 50%;
-
+  
   width: 50px;
   height: 50px;
   padding: 0;
@@ -53,7 +53,7 @@
   --pd-x: 20px;
   --color: #fff;
   --bg-c: var(--color);
-
+  
   background-color: transparent;
 }
 
@@ -66,12 +66,14 @@
   --bg-c: var(--color);
 }
 
-.btn--outline.btn--dark:not(.btn--no-hover):hover {
-
-}
+/* .btn--outline.btn--dark:not(.btn--no-hover):hover {} */
 
 .btn__icon {
   fill: currentColor;
+}
+
+.btn--no-icon .btn__icon {
+  display: none;
 }
 
 .btn__icon--rotate-90 {
@@ -97,7 +99,7 @@
     --color: #fff;
     --bg-c: var(--c-deep-blue);
   }
-
+  
   .btn__icon {
     display: none;
   }
@@ -107,6 +109,54 @@
 @media screen and (--tablet) {
   .btn:not(.btn--circle) {
     width: auto;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .btn-top {
+    --alpha: 0.4;
+    
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    column-gap: 18px;
+    width: 160px;
+    
+    background-color: rgba(255, 255, 255, var(--alpha));
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(224, 224, 224, var(--alpha));
+    border-radius: 100px;
+  
+    transition-property: color, background-color;
+    transition-duration: var(--trans-dur);
+  }
+  
+  .btn-top__circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid rgba(224, 224, 224, 1);
+    border-radius: 50%;
+  
+    transition-property: background-color;
+    transition-duration: var(--trans-dur);
+  }
+  
+  .btn-top:hover {
+    background-color: rgba(51, 53, 112, var(--alpha));
+    color: #fff;
+  }
+  
+  .btn-top:hover .btn-top__circle {
+    background-color: var(--c-deep-blue);
+    transition-duration: calc(var(--trans-dur) * 2);
   }
 }
 

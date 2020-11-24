@@ -13,6 +13,8 @@
 /* @custom-media --desktop-height-md (height <= 53em) and (--desktop); */
 
 @custom-media --only-mobile (width < 48em);
+@custom-media --only-tablet (48em <= width < 64em);
+@custom-media --only-mobile-tablet (48width < 64em);
 @custom-media --only-sm-screen (width < 68.75em);
 
 @custom-media --w448 (width >= 28em); /* 448 */

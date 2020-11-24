@@ -23,7 +23,8 @@ body {
 @media screen and (--tablet-lg) {
   body {
     --page-gap: 30px;
-    --deep-gap: min(10vw, 245px);
+    --inner-gap: min(6vw, 145px);
+    --deep-gap: calc(var(--page-gap) + var(--inner-gap));
   }
 }
 
@@ -31,6 +32,13 @@ body {
 @media screen and (--desktop) {
   body {
     --page-gap: 50px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  body {
+    --inner-gap: min(8vw, 145px);
   }
 }
 

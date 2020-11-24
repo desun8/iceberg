@@ -23,7 +23,14 @@
 }
 
 .feature-card__body {
+  position: relative;
   padding: 15px;
+}
+
+.feature-card__body .tour-360 {
+  position: absolute;
+  top: -59px;
+  right: 15px;
 }
 
 .feature-card__title {
@@ -44,6 +51,12 @@
   
   .feature-card__body {
     padding: 45px 50px;
+  }
+  
+  .feature-card__body .tour-360 {
+    position: absolute;
+    top: 0;
+    right: 18px;
   }
   
   .feature-card__title {

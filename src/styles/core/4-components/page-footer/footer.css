@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5px;
+}
+
+.footer__item {
+  opacity: 0.4;
+}
+
+.footer__dev:hover {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: var(--trans-dur);
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .footer {
+    padding: 25px 30px;
+  }
+}

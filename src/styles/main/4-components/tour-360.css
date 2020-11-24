@@ -1,0 +1,72 @@
+.tour-360 {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+  width: 50px;
+  color: #fff;
+}
+
+.tour-360__title {
+  position: relative;
+  font-size: 12px;
+  text-align: center;
+}
+
+.tour-360__title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  bottom: 0;
+  right: -5px;
+  
+  background-color: #262626;
+  opacity: 0.4;
+  filter: blur(24px);
+  border-radius: 40px;
+}
+
+.tour-360__btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  color: inherit;
+  background-color: var(--c-deep-blue);
+  border: 1px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tour-360__icon {
+  fill: currentColor;
+  transform: translate3d(-1px, -1px, 0);
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .tour-360 {
+    grid-auto-flow: column;
+    gap: 0;
+    align-items: center;
+    width: auto;
+    color: var(--c-deep-blue);
+  }
+  
+  .tour-360__title {
+    grid-column: 2/3;
+    font-weight: 500;
+  }
+  
+  .tour-360__title::before {
+    content: none;
+  }
+  
+  .tour-360__btn {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+}

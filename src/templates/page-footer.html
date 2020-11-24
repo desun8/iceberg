@@ -1,9 +1,24 @@
 <footer class="page-footer">
   <div id="footerAnchor" class="page-footer__anchor"></div>
 
+  <include src="components/footer-header.html"></include>
   <include src="footer-contacts.html"></include>
   <include src="footer-map.html"></include>
 
   <!-- Small Screen -->
-  <a href="#" class="btn-to-top  btn--circle">⬆️</a>
+  <a href="#" class="page-footer__to-top btn  btn--dark  btn--circle" aria-label="Перейти в конец страницы">
+    <!--   TODO: Сделать через инлайновый спрайт (как минимум 3 раза используется)   -->
+    <svg width="9" height="16" fill="currentColor" style="transform: rotate(180deg);">
+      <path d="M3.847.68c0-.375.3-.68.67-.68.37 0 .67.305.67.68v14.342c0 .376-.3.68-.67.68a.675.675 0 01-.67-.68V.68z"/>
+      <path d="M.196 11.912a.688.688 0 010-.963.663.663 0 01.948 0l3.83 3.89a.688.688 0 010 .962.663.663 0 01-.947 0l-3.83-3.89z"/>
+      <path d="M8.804 11.912a.688.688 0 000-.963.663.663 0 00-.948 0l-3.788 3.846a.688.688 0 000 .963.663.663 0 00.947 0l3.789-3.846z"/>
+    </svg>
+  </a>
+
+  <div class="footer">
+    <a href="#" class="footer__item footer__dev" target="_blank" ref="nofollow noopener">
+      <img src="./images/dev-logo.svg" width="109" height="18" alt="Студия Веб-Альтернатива. Разработчик сайта.">
+    </a>
+    <span class="footer__item footer__copyright">iceberg© 2020</span>
+  </div>
 </footer>

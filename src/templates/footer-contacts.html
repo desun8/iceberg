@@ -1,6 +1,6 @@
 <div class="footer-contacts">
-  <h2>Контакты</h2>
-  <ul class="contacts-list">
+  <h2 class="footer-contacts__title">Контакты</h2>
+  <ul class="contacts-list  list-unstyled">
     <li class="contacts-list__item">
       <a href="tel:+70000000000">+7 (909) 391-32-51</a>
     </li>
@@ -13,8 +13,14 @@
   <include src="components/btn-to-form-2.html" locals='{"class": ""}'></include>
 
   <!-- Large Screen -->
-  <a href="#" class="btn-to-top">
-    <span class="btn-to-top__icon">⬆️</span>
+  <a href="#" class="btn-top" aria-label="Перейти в конец страницы">
+    <span class="btn-top__circle">
+      <svg width="9" height="16" fill="currentColor" style="transform: rotate(180deg);">
+        <path d="M3.847.68c0-.375.3-.68.67-.68.37 0 .67.305.67.68v14.342c0 .376-.3.68-.67.68a.675.675 0 01-.67-.68V.68z"/>
+        <path d="M.196 11.912a.688.688 0 010-.963.663.663 0 01.948 0l3.83 3.89a.688.688 0 010 .962.663.663 0 01-.947 0l-3.83-3.89z"/>
+        <path d="M8.804 11.912a.688.688 0 000-.963.663.663 0 00-.948 0l-3.788 3.846a.688.688 0 000 .963.663.663 0 00.947 0l3.789-3.846z"/>
+      </svg>
+    </span>
     Наверх
   </a>
 </div>

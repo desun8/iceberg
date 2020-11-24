@@ -1,0 +1,90 @@
+.block-quote {
+  position: relative;
+  margin-bottom: 50px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.block-quote__gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(140.39deg, #9cccf8 7.31%, #7dc0ff 59.63%);
+}
+
+.block-quote__bg-img {
+  position: absolute;
+  bottom: -22px;
+  left: -102px;
+  
+  width: 292px;
+  height: 292px;
+  
+  background-image: url("images/icon-consulting.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+  opacity: 0.1;
+}
+
+.block-quote__body {
+  position: relative;
+  padding: 62px var(--page-gap) 50px;
+}
+
+.block-quote__title,
+.block-quote__describe {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.block-quote__title {
+  margin-bottom: 10px;
+}
+
+.block-quote__describe {
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--only-tablet) {
+  .block-quote__body {
+    text-align: center;
+  }
+  
+  .block-quote__body > *:not(.btn) {
+    text-align: left;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .block-quote {
+    margin: 0 var(--page-gap) 150px;
+    padding: 55px var(--inner-gap);
+    border-radius: 20px;
+  }
+  
+  .block-quote__bg-img {
+    left: auto;
+    right: var(--inner-gap);
+    
+    width: 250px;
+    height: 250px;
+    opacity: 1;
+  }
+  
+  .block-quote__body {
+    max-width: 620px;
+    padding: 0;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  .block-quote {
+    margin-bottom: 200px;
+  }
+}

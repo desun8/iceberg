@@ -31,7 +31,7 @@ import postcssImport from 'postcss-easy-import';
 const PATH = {
   html: ['src/index.html', 'src/templates/**/*.html'],
   css: ['src/styles/core.css', 'src/styles/main.css'],
-  cssWatch: 'src/styles/**/*.css',
+  cssWatch: 'src/styles/**/**/*.css',
   images: ['src/images/**/*.{png,jpeg,jpg}'],
 };
 

@@ -1,5 +1,9 @@
 /* COMPONENTS */
+@import "./main/4-components/tour-360.css";
 @import "./main/4-components/block-hero/index.css";
 @import "./main/4-components/block-services/index.css";
 @import "./main/4-components/block-video/index.css";
 @import "./main/4-components/block-features/index.css";
+@import "./main/4-components/block-founder/index.css";
+@import "./main/4-components/block-quote/index.css";
+@import "./main/4-components/block-feedback/index.css";

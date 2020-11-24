@@ -5,3 +5,15 @@
 .features-list__item {
   margin-bottom: 15px;
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .features-list {
+    display: grid;
+    gap: 15px;
+  }
+  
+  .features-list__item {
+    margin-bottom: 0;
+  }
+}

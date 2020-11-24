@@ -13,13 +13,9 @@
 @import "./core/3-utilities/list-unstyled.css";
 
 /* COMPONENTS */
-@import "./core/4-components/btn.css";
-
-/* header */
-@import "./core/4-components/page-header/index.css";
+@import "./core/4-components/header.css"; /* header component */
+@import "./core/4-components/btn.css"; /* btn */
+@import "./core/4-components/page-header/index.css"; /* header */
+@import "./core/4-components/page-footer/index.css"; /* footer */
 
 /* menu */
-
-/* footer */
-
-/* btn */

@@ -1,0 +1,10 @@
+.footer-header .header__logo {
+  grid-column: 1/3;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--only-tablet-mobile) {
+  .footer-header {
+    display: none;
+  }
+}

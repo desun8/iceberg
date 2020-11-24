@@ -2,7 +2,7 @@
   margin-left: calc(var(--page-gap) * -1);
   margin-right: calc(var(--page-gap) * -1);
   padding: 30px var(--page-gap) 50px;
-  background-color: #e9edf8;
+  background-color: var(--c-light-blue);
   text-align: center;
 }
 
