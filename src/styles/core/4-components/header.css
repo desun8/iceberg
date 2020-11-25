@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto auto auto;
   grid-auto-flow: column;
-  column-gap: 20px;
+  grid-column-gap: 20px;
   align-items: center;
   
   padding: 30px 20px;

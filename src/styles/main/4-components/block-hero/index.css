@@ -43,7 +43,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 10px 1fr;
-  column-gap: 10px;
+  grid-column-gap: 10px;
   align-items: center;
   line-height: 2em;
 }

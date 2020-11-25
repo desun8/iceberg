@@ -59,7 +59,7 @@
   .feedback-card {
     display: grid;
     grid-template-columns: 1.27fr 1fr;
-    gap: min(5vw, 90px);
+    grid-gap: min(5vw, 90px);
     align-items: center;
   }
   

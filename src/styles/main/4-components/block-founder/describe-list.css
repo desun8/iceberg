@@ -1,6 +1,6 @@
 .describe-list {
   display: grid;
-  row-gap: 30px;
+  grid-row-gap: 30px;
   margin: 0;
   margin-bottom: 30px;
 }
@@ -27,7 +27,7 @@
     
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-    column-gap: 98px;
+    grid-column-gap: 98px;
   }
   
   .describe-list::before {

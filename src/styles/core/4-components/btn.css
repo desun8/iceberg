@@ -6,7 +6,7 @@
   
   display: inline-grid;
   grid-auto-flow: column;
-  column-gap: 16px;
+  grid-column-gap: 16px;
   justify-content: center;
   align-items: center;
   
@@ -88,7 +88,7 @@
 .btn__wrapper {
   display: inline-grid;
   grid-auto-flow: column;
-  column-gap: 16px;
+  grid-column-gap: 16px;
   justify-content: center;
   align-items: center;
 }
@@ -121,7 +121,7 @@
     grid-auto-flow: column;
     justify-content: start;
     align-items: center;
-    column-gap: 18px;
+    grid-column-gap: 18px;
     width: 160px;
     
     background-color: rgba(255, 255, 255, var(--alpha));
