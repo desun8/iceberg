@@ -12,8 +12,14 @@
     position: relative;
     display: block;
     width: 100%;
-    height: 0;
-    padding-top: calc(600 / 850 * 100%);
+    height: 100%;
+
+    /* TODO: Если нужны пропорции */
+
+    /*height: 0;*/
+
+    /*padding-top: calc(600 / 850 * 100%);*/
+
     overflow: hidden;
   }
 
@@ -22,12 +28,12 @@
     display: grid;
     grid-auto-flow: row;
     gap: 20px;
-    height: auto !important;
     margin-bottom: 0;
   }
 
   .tabs-wrapper .features-list__item {
-    height: auto !important;
+    /*height: auto !important;*/
+    margin-bottom: 0;
   }
 
   /* CARD */
