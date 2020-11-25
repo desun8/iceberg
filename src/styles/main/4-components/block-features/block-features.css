@@ -1,4 +1,5 @@
 .block-features {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   padding: 0 var(--page-gap);
+  overflow: hidden;
 }

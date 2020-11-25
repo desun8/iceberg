@@ -1,0 +1,19 @@
+.swiper-container.feature-slider {
+  overflow: visible;
+}
+
+/* LIST */
+.swiper-container .features-list {
+  display: grid;
+  grid-auto-flow: column;
+  margin-bottom: 15px;
+}
+
+.swiper-container .features-list__item {
+  margin-bottom: 0;
+}
+
+/* CARD */
+.swiper-container .feature-card {
+  height: 100%;
+}

@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.feature-card__img img {
+.feature-card__picture {
   position: absolute;
   top: 0;
   left: 0;
@@ -45,26 +45,27 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
-  .feature-card__img {
-    display: none;
+  .feature-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
   }
-  
+
   .feature-card__body {
     padding: 45px 50px;
   }
-  
+
   .feature-card__body .tour-360 {
     position: absolute;
     top: 0;
     right: 18px;
   }
-  
+
   .feature-card__title {
     margin-bottom: 20px;
     font-size: 28px;
     line-height: 1;
   }
-  
+
   .feature-card__describe {
     font-size: 16px;
     line-height: 1.5;

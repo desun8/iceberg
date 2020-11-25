@@ -27,8 +27,9 @@ import postcssImport from 'postcss-easy-import';
 import { rollup } from 'rollup';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonJs from 'rollup-plugin-commonjs';
-import visualizer from 'rollup-plugin-visualizer';
-import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+// import visualizer from 'rollup-plugin-visualizer';
+// import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+// import rollupCss from 'rollup-plugin-css-only';
 // import { terser } from 'rollup-plugin-terser';
 // import uglify from "gulp-uglify";
 // import webpack from "webpack";
@@ -85,20 +86,21 @@ export function js(done) {
   rollup({
     input: './src/main.js',
     plugins: [
-      nodeResolve(), // подключение модулей node
-      commonJs(), // подключение модулей commonjs
-      sizeSnapshot(), // напишет в консоль размер бандла
+      nodeResolve({ browser: true }), // подключение модулей node
+      commonJs({ sourceMap: false }), // подключение модулей commonjs
+      // sizeSnapshot(), // напишет в консоль размер бандла
       // terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES
-      visualizer(), // анализатор бандла,
+      // visualizer(), // анализатор бандла,
+      // rollupCss({ output: 'bundle.css' }),
     ],
-  }).then((bundle) => bundle.write({
-    file: './dist/main.js',
-    format: 'iife',
-    name: 'main',
-    sourcemap: true,
-  }));
-
-  done();
+  })
+    .then((bundle) => bundle.write({
+      file: './dist/main.js',
+      format: 'iife',
+      name: 'main',
+      sourcemap: false,
+    }))
+    .finally(() => done());
 }
 
 // Image
@@ -131,6 +133,13 @@ function serve(done) {
   done();
 }
 
-const defaultTask = gulp.series(clearDist, html, makeStyle, imageTask, gulp.parallel(watch, serve));
+const defaultTask = gulp.series(
+  clearDist,
+  html,
+  makeStyle,
+  js,
+  imageTask,
+  gulp.parallel(watch, serve),
+);
 
 export default defaultTask;

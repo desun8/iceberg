@@ -1,3 +1,6 @@
+/* LIB */
+@import "./main/1-lib/swiper-bundle.css";
+
 /* COMPONENTS */
 @import "./main/4-components/tour-360.css";
 @import "./main/4-components/block-hero/index.css";

@@ -1,14 +1,17 @@
 <section class="block-features">
-  <!-- TODO: изображение и текст должны быть похорошему независимыми -->
-  <!-- На телефонах одно целое  -->
-  <!-- Но на десктопе они раздельны -->
   <div class="feature-slider">
-    <div class="feature-slider__images"></div>
+    <div class="feature-slider__images">
+      <span class="feature-slider__index"></span>
+      <span class="feature-slider__progress-bar">
+        <span class="feature-slider__progress"></span>
+      </span>
+    </div>
+
     <ul class="features-list  list-unstyled">
       <li class="features-list__item">
         <include
-                src="components/feature-card.html"
-                locals='{
+          src="components/feature-card.html"
+          locals='{
                 "img": "__dev-img",
                 "alt": "описание изображения",
                 "title": "Решаем задачи любой сложности",
@@ -19,9 +22,9 @@
 
       <li class="features-list__item">
         <include
-                src="components/feature-card.html"
-                locals='{
-                "img": "__dev-img",
+          src="components/feature-card.html"
+          locals='{
+                "img": "__dev-img-2",
                 "alt": "описание изображения",
                 "title": "Стоматология для всей семьи",
                 "describe": "Мы работаем как со взрослыми, так и  с малышами. Специалисты сделают всё возможное, чтобы ребёнок не боялся стоматолога и ушёл с приёма в хорошем настроении."
@@ -31,9 +34,9 @@
 
       <li class="features-list__item">
         <include
-                src="components/feature-card.html"
-                locals='{
-                "img": "__dev-img",
+          src="components/feature-card.html"
+          locals='{
+                "img": "__dev-img-3",
                 "alt": "описание изображения",
                 "title": "Атмосфера тепла и уюта",
                 "describe": "Мы позаботились о том, чтобы на высшем уровне было не только лечение, но и оформление клиники. В расслабляющей уютной обстановке вы забудете, что находитесь в стоматологии"
@@ -41,5 +44,7 @@
         ></include>
       </li>
     </ul>
+
+    <div class="feature-slider__pagination  swiper-pagination"></div>
   </div>
 </section>
