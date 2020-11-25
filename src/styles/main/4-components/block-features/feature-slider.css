@@ -73,6 +73,7 @@
     object-position: center;
     border-radius: 10px;
     opacity: 0;
+    pointer-events: none;
 
     transition-property: opacity;
     transition-duration: var(--trans-dur);
