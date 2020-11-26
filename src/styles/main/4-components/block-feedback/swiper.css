@@ -1,0 +1,11 @@
+.swiper-container {
+  overflow: visible;
+}
+
+.swiper-container .feedback-list {
+  margin-bottom: 0;
+}
+
+.swiper-container .feedback-card {
+  margin-bottom: 0;
+}

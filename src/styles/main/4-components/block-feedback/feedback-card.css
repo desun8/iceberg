@@ -20,6 +20,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  pointer-events: none;
 }
 
 .feedback-card__body {
@@ -62,26 +63,26 @@
     grid-gap: min(5vw, 90px);
     align-items: center;
   }
-  
+
   .feedback-card__img {
     width: 100%;
     margin-bottom: 0;
     padding-top: 100%;
   }
-  
+
   .feedback-card__body {
     text-align: left;
   }
-  
+
   .feedback-card__title {
     margin-bottom: 10px;
     font-size: 32px;
   }
-  
+
   .feedback-card__type {
     font-size: 14px;
   }
-  
+
   .feedback-card__text {
     margin-bottom: 60px;
   }

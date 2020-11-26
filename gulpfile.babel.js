@@ -86,7 +86,7 @@ export function js(done) {
   rollup({
     input: './src/main.js',
     plugins: [
-      nodeResolve({ browser: true }), // подключение модулей node
+      nodeResolve(), // подключение модулей node
       commonJs({ sourceMap: false }), // подключение модулей commonjs
       // sizeSnapshot(), // напишет в консоль размер бандла
       // terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES

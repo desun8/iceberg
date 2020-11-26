@@ -1,4 +1,7 @@
 @import "./block-feedback.css";
 @import "./feedback-slider.css";
-@import "./feedback-list.css";
+
+/* @import "./feedback-list.css"; */
+
 @import "./feedback-card.css";
+@import "./swiper.css";

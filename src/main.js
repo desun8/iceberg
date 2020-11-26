@@ -2,6 +2,7 @@ import { mediaQueryEvent } from './scripts/utils/mediaQueryEvent';
 import initMap from './scripts/map';
 import CarouselFeature from './scripts/Carousel/CarouselFeature';
 import TabsFeature from './scripts/Carousel/TabsFeature';
+import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 
 initMap();
 
@@ -30,3 +31,14 @@ const initFeatureCarousel = () => {
 };
 
 initFeatureCarousel();
+
+const initFeedbackCarousel = () => {
+  const elm = document.querySelector('.feedback-slider');
+  const wrapper = elm.querySelector('.feedback-list');
+  const slides = wrapper.querySelectorAll('.feedback-list__item');
+
+  const carouselFeedback = new CarouselFeedback(elm, wrapper, slides);
+  carouselFeedback.init();
+};
+
+initFeedbackCarousel();

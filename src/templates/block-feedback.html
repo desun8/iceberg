@@ -6,8 +6,8 @@
     <ul class="feedback-list  list-unstyled">
       <li class="feedback-list__item">
         <include
-                src="components/feedback-card.html"
-                locals='{
+          src="components/feedback-card.html"
+          locals='{
                 "img": "__dev-img",
                 "alt": "описание изображения",
                 "caption": "подпись к изображению",
@@ -20,9 +20,9 @@
 
       <li class="feedback-list__item">
         <include
-                src="components/feedback-card.html"
-                locals='{
-                "img": "__dev-img",
+          src="components/feedback-card.html"
+          locals='{
+                "img": "__dev-img-2",
                 "alt": "описание изображения",
                 "caption": "подпись к изображению",
                 "title": "Екатерина",
@@ -33,9 +33,9 @@
       </li>
       <li class="feedback-list__item">
         <include
-                src="components/feedback-card.html"
-                locals='{
-                "img": "__dev-img",
+          src="components/feedback-card.html"
+          locals='{
+                "img": "__dev-img-3",
                 "alt": "описание изображения",
                 "caption": "подпись к изображению",
                 "title": "Екатерина",
@@ -47,11 +47,31 @@
     </ul>
 
     <div class="feedback-slider__controls">
-      <button class="feedback-slider__next" type="button">➡️</button>
-      <button class="feedback-slider__prev" type="button">⬅️</button>
-      <div class="feedback-slider__progress">
-        <span class="feedback-slider__current"></span><span class="feedback-slider__total"></span>
-      </div>
+      <div class="feedback-slider__pagination"></div>
+
+      <!--   TODO: Сделать иконки через инлайновый спрайт (как минимум 3 раза используется)   -->
+      <button class="feedback-slider__btn  feedback-slider__btn--prev" type="button" aria-label="Предыдущий слайд">
+        <svg class="icon" width="15" height="15">
+          <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"/>
+          <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"/>
+        </svg>
+
+      </button>
+      <button class="feedback-slider__btn  feedback-slider__btn--next" type="button" aria-label="Следующий слайд">
+        <svg class="icon" width="15" height="15">
+          <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"/>
+          <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"/>
+        </svg>
+        <svg class="circle-progress-bar" width="50" height="50">
+          <circle cx="25" cy="25" r="24.6" fill="transparent" stroke-width="1"></circle>
+        </svg>
+      </button>
+
+      <!--      <button class="feedback-slider__next" type="button">➡️</button>-->
+      <!--      <button class="feedback-slider__prev" type="button">⬅️</button>-->
+      <!--      <div class="feedback-slider__progress">-->
+      <!--        <span class="feedback-slider__current"></span><span class="feedback-slider__total"></span>-->
+      <!--      </div>-->
     </div>
   </div>
 </section>

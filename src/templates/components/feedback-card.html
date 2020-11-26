@@ -1,20 +1,15 @@
 <div class="feedback-card">
   <figure class="feedback-card__img">
-    <!--
-      TODO: Переделать на srcset
-      Ибо на беке будет только резайзиться картинка
-     -->
-    <picture>
-      <!--    Mobile      -->
-      <source type="image/webp" media="(max-width: 500px)" srcset="images/{{ img }}-320.webp">
-      <source media="(max-width: 500px)" srcset="images/{{ img }}-320.jpg">
-      <!--     Other     -->
-      <source type="image/webp" srcset="images/{{ img }}.webp">
-      <!--            <source srcset="images/{{ img }}.jpg">-->
-      <!--    Сюда можно вставлять ссылку на оригинал      -->
-      <img class="feedback-card__picture" src="images/{{ img }}.jpg" width="290" height="290" alt="{{ alt }}"
-           loading="lazy">
-    </picture>
+    <img
+      class="feedback-card__picture"
+      srcset="
+        images/{{ img }}-320.jpg 320w,
+        images/{{ img }}.jpg"
+      src="images/{{ img }}.jpg"
+      width="290"
+      height="290"
+      alt="{{ alt }}"
+      loading="lazy">
     <figcaption>{{ caption }}</figcaption>
   </figure>
 

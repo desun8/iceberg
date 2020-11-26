@@ -13,10 +13,75 @@
   border-radius: 50%;
 }
 
+.feedback-slider__controls {
+  position: absolute;
+  top: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 20px;
+  align-items: center;
+  width: max-content;
+}
+
+.feedback-slider__pagination {
+  grid-column: 2/3;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.feedback-slider__btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  color: var(--c-deep-blue);
+  background-color: #e1e1e8;
+  border-radius: 50%;
+
+  transition-property: color, background-color;
+  transition-duration: var(--trans-dur);
+}
+
+.feedback-slider__btn:hover {
+  color: #fff;
+  background-color: var(--c-deep-blue);
+}
+
+.feedback-slider__btn .icon {
+  fill: currentColor;
+}
+
+.feedback-slider__btn .circle-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(90deg) scale(-1);
+  stroke: currentColor;
+
+  stroke-dashoffset: 1000; /* 1000 = прогресс 0% /--/ 849 = 100% */
+  stroke-dasharray: 1000;
+}
+
+.feedback-slider__btn--next {
+  transform: rotate(180deg);
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
   .feedback-slider__bg-circle {
     right: 50px;
+  }
+
+  .feedback-slider__controls {
+    top: 75vw; /* ~ высота .feedback-card__img */
   }
 }
 
@@ -25,10 +90,28 @@
   .feedback-slider {
     padding: 0 var(--inner-gap);
   }
-  
+
   .feedback-slider__bg-circle {
     top: 8px;
     left: 0;
+  }
+
+  .feedback-slider__controls {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    transform: none;
+
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+  }
+
+  .feedback-slider__pagination {
+    grid-row: 2/3;
+  }
+
+  .feedback-slider__btn--next {
+    grid-column: 1/2;
   }
 }
 
@@ -40,8 +123,13 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
+
 /*@media screen and (--desktop-lg) {*/
+
 /*  .feedback-slider__bg-circle {*/
+
 /*    left: 40px;*/
+
 /*  }*/
+
 /*}*/
