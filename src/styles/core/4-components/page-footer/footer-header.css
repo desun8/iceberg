@@ -3,7 +3,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--only-tablet-mobile) {
+@media screen and (--only-mobile-tablet) {
   .footer-header {
     display: none;
   }

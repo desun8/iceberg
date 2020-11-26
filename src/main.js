@@ -1,8 +1,11 @@
+import './scripts/lib/modernizr'; // Проверяет на поддержку webp и webm
 import { mediaQueryEvent } from './scripts/utils/mediaQueryEvent';
 import initMap from './scripts/map';
 import CarouselFeature from './scripts/Carousel/CarouselFeature';
 import TabsFeature from './scripts/Carousel/TabsFeature';
 import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
+import autoplayVideo from './scripts/utils/autoplayVideo';
+import fullscreen from './scripts/block-video/fullscreen';
 
 initMap();
 
@@ -42,3 +45,12 @@ const initFeedbackCarousel = () => {
 };
 
 initFeedbackCarousel();
+
+// блок видео
+const initVideoBlock = () => {
+  const videoBg = document.querySelector('.block-video__bg-video video');
+  autoplayVideo(videoBg);
+  fullscreen();
+};
+
+initVideoBlock();

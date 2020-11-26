@@ -115,6 +115,11 @@ function imageMin(done) {
 
 const imageTask = gulp.series(copyImage, imageMin);
 
+function copyVideo(done) {
+  fs.copy('src/videos', 'dist/videos')
+    .finally(() => done());
+}
+
 // Core tasks
 function watch(done) {
   gulp.watch(PATH.html, html);
@@ -139,6 +144,7 @@ const defaultTask = gulp.series(
   makeStyle,
   js,
   imageTask,
+  copyVideo,
   gulp.parallel(watch, serve),
 );
 

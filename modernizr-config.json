@@ -1,0 +1,10 @@
+{
+  "minify": false,
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/video",
+    "test/img/webp"
+  ]
+}
