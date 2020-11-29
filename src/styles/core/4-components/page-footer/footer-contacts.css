@@ -20,16 +20,16 @@
     padding: 180px 60px 50px;
     text-align: left;
   }
-  
+
   .footer-contacts__title {
     margin-bottom: 20px;
     font-size: 32px;
   }
-  
+
   .footer-contacts > .btn {
     margin-bottom: 25px;
   }
-  
+
   .footer-contacts .btn-top {
     display: grid;
   }

@@ -1,10 +1,22 @@
-<section class="social-list  {{ class }}">
-  <ul class="social-list__list">
-    <li class="social-list__item">
-      <a href="#" class="social-list__link" target="_blank" ref="nofollow noopener" aria-label="Facebook"></a>
-    </li>
-    <li class="social-list__item">
-      <a href="#" class="social-list__link" target="_blank" ref="nofollow noopener" aria-label="Instagram"></a>
-    </li>
-  </ul>
-</section>
+<!-- TODO: иконки  спрайтом сделать (use) -->
+<ul class="social-list  list-unstyled  {{ class }}">
+  <li class="social-list__item">
+    <a href="#" class="social-list__link  btn  btn--circle  {{ btnClass }}" target="_blank" ref="nofollow noopener"
+       aria-label="Facebook">
+      <svg class="btn__icon" width="9" height="18">
+        <path
+          d="M7.357 2.989H9V.127A21.216 21.216 0 006.606 0C4.237 0 2.614 1.49 2.614 4.23v2.52H0v3.2h2.614V18H5.82V9.95h2.508l.398-3.2H5.82V4.547c0-.924.25-1.557 1.538-1.557z"/>
+      </svg>
+    </a>
+  </li>
+  <li class="social-list__item">
+    <a href="#" class="social-list__link  btn  btn--circle  {{ btnClass }}" target="_blank" ref="nofollow noopener"
+       aria-label="Instagram">
+      <svg class="btn__icon" width="22" height="22">
+        <path fill-rule="evenodd"
+              d="M2 6a4 4 0 014-4h10a4 4 0 014 4v10a4 4 0 01-4 4H6a4 4 0 01-4-4V6zm4-6a6 6 0 00-6 6v10a6 6 0 006 6h10a6 6 0 006-6V6a6 6 0 00-6-6H6zm3.662 8.294a3 3 0 112.763 5.326 3 3 0 01-2.763-5.326zm2.115-2.283a5 5 0 10-1.467 9.892 5 5 0 001.467-9.892z"
+              clip-rule="evenodd"/>
+      </svg>
+    </a>
+  </li>
+</ul>
