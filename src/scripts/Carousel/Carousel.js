@@ -10,7 +10,12 @@ class Carousel {
     this.wrapper = wrapper;
     this.slides = slides;
     this.swiper = undefined;
-    this.params = {};
+    this.params = {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: false,
+      },
+    };
     this.classNames = {
       container: 'swiper-container',
       wrapper: 'swiper-wrapper',

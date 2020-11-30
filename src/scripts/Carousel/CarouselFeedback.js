@@ -68,12 +68,6 @@ class CarouselFeedback extends Carousel {
         delay: this.autoplayDelay,
         disableOnInteraction: false,
       },
-
-      // effect: 'fade',
-      // fadeEffect: {
-      //   crossFade: true,
-      // },
-
       breakpoints: {
         320: {
           spaceBetween: 50,
