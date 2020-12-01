@@ -15,6 +15,21 @@
   padding: 15px 32px 15px;
 }
 
+.nav__sub-item {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.nav__sub-item a {
+  color: inherit;
+}
+
+.nav__sub-item:last-child {
+  margin-bottom: 0;
+}
+
 .nav__accordion .accordion__trigger {
   color: inherit;
   font-size: inherit;
@@ -23,5 +38,6 @@
 }
 
 .nav__accordion .accordion__trigger[aria-expanded='true'] {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  opacity: 0.5;
 }
