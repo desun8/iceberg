@@ -1,0 +1,100 @@
+.accordion {
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*!*border: 2px solid hsl(0, 0%, 82%);*!*/
+  /*border-radius: 7px;*/
+  /*width: 20em;*/
+}
+
+/*.Accordion h3 {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
+
+/*.Accordion.focus {*/
+/*  border-color: hsl(216, 94%, 73%);*/
+/*}*/
+
+/*.Accordion.focus h3 {*/
+/*  background-color: hsl(0, 0%, 97%);*/
+/*}*/
+
+/*.Accordion > * + * {*/
+/*  border-top: 1px solid hsl(0, 0%, 82%);*/
+/*}*/
+
+.accordion__trigger {
+  background: none;
+  /*color: hsl(0, 0%, 13%);*/
+  display: block;
+  /*font-size: 1rem;*/
+  /*font-weight: normal;*/
+  /*margin: 0;*/
+  /*padding: 1em 1.5em;*/
+  position: relative;
+  text-align: left;
+  width: 100%;
+  /*outline: none;*/
+}
+
+/*.Accordion-trigger:focus,*/
+/*.Accordion-trigger:hover {*/
+/*  background: hsl(216, 94%, 94%);*/
+/*}*/
+
+/*.Accordion *:first-child .Accordion-trigger {*/
+/*  border-radius: 5px 5px 0 0;*/
+/*}*/
+
+/*button {*/
+/*  border-style: none;*/
+/*}*/
+
+/*.Accordion button::-moz-focus-inner {*/
+/*  border: 0;*/
+/*}*/
+
+.accordion__title {
+  display: block;
+  pointer-events: none;
+  /*border: transparent 2px solid;*/
+  /*border-radius: 5px;*/
+  /*padding: 0.25em;*/
+  /*outline: none;*/
+}
+
+/*.Accordion-trigger:focus .Accordion-title {*/
+/*  border-color: hsl(216, 94%, 73%);*/
+/*}*/
+
+.accordion__icon {
+  /*border: solid hsl(0, 0%, 62%);*/
+  /*border-width: 0 2px 2px 0;*/
+  /*height: 0.5rem;*/
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  display: flex;
+  align-items: center;
+  
+  pointer-events: none;
+  /*transition-property: transform;*/
+  /*transition-duration: var(--trans-dur);*/
+  /*width: 0.5rem;*/
+}
+
+/*.Accordion-trigger:focus .Accordion-icon,*/
+/*.Accordion-trigger:hover .Accordion-icon {*/
+/*  border-color: hsl(216, 94%, 73%);*/
+/*}*/
+
+.accordion__trigger[aria-expanded="true"] .accordion__icon {
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+/* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+.accordion__panel[hidden] {
+  display: none;
+}
