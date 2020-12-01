@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "2gis-maps": "^3.6.1",
+    "a11y-dialog": "^5.4.2",
     "swiper": "^6.3.5"
   }
 }

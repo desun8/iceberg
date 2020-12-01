@@ -1,0 +1,27 @@
+.nav {
+  margin-bottom: 30px;
+}
+
+.nav__item {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing);
+  
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.nav__item > * {
+  display: block;
+  padding: 15px 32px 15px;
+}
+
+.nav__accordion .accordion__trigger {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+.nav__accordion .accordion__trigger[aria-expanded='true'] {
+  margin-bottom: 15px;
+}

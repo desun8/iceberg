@@ -6,9 +6,15 @@ import TabsFeature from './scripts/Carousel/TabsFeature';
 import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
+import initPageMenu from './scripts/menu';
 
+// меню
+initPageMenu();
+
+// карта
 initMap();
 
+// карусель особенности
 const initFeatureCarousel = () => {
   let carouselFeature;
 
@@ -35,6 +41,7 @@ const initFeatureCarousel = () => {
 
 initFeatureCarousel();
 
+// карусель отзывы
 const initFeedbackCarousel = () => {
   const elm = document.querySelector('.feedback-slider');
   const wrapper = elm.querySelector('.feedback-list');

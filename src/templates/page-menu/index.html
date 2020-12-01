@@ -1,0 +1,22 @@
+<div class="dialog-container  page-menu" id="page-menu" aria-hidden="true">
+  <div tabindex="-1" data-a11y-dialog-hide></div>
+  <div role="dialog" aria-labelledby="page-menu-title">
+    <div role="document">
+      <h1 id="page-menu-title" class="visually-hidden">Меню</h1>
+      <div class="page-menu__body">
+        <!--   Общий компонент     -->
+        <include src="page-menu/header.html"></include>
+        <include src="page-menu/nav.html"></include>
+        <include src="page-menu/catalog.html"></include>
+        <include src="page-menu/btns.html"></include>
+
+        <include
+          src="components/social-list.html"
+          locals='{
+            "class": "page-menu__social"
+          }'
+        ></include>
+      </div>
+    </div>
+  </div>
+</div>
