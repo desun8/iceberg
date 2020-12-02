@@ -148,4 +148,13 @@ const defaultTask = gulp.series(
   gulp.parallel(watch, serve),
 );
 
+export const build = gulp.series(
+  clearDist,
+  html,
+  makeStyle,
+  js,
+  imageTask,
+  copyVideo,
+);
+
 export default defaultTask;
