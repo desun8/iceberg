@@ -121,5 +121,6 @@
     position: absolute;
     bottom: 60px;
     right: 40px;
+    grid-gap: 10px;
   }
 }
