@@ -6,14 +6,18 @@
       <div class="page-menu__body">
         <!--   Общий компонент     -->
         <include src="page-menu/header.html"></include>
-        <include src="page-menu/nav.html"></include>
+        <div class="page-menu__nav">
+          <include src="page-menu/nav.html"></include>
+          <include src="page-menu/btns.html" locals='{"class": "page-menu__btns--md"}'></include>
+        </div>
         <include src="page-menu/catalog.html"></include>
-        <include src="page-menu/btns.html"></include>
+        <include src="page-menu/btns.html" locals='{"class": "page-menu__btns--sm"}'></include>
 
         <include
           src="components/social-list.html"
           locals='{
-            "class": "page-menu__social"
+            "class": "page-menu__social",
+            "btnClass": "btn--dark"
           }'
         ></include>
       </div>

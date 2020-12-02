@@ -11,6 +11,10 @@
   height: 50px;
 }
 
+.social-list__link.btn .btn__icon {
+  display: unset;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .social-list {

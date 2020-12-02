@@ -84,7 +84,7 @@
     
     margin: 0;
     padding: 15px var(--pd-x);
-    background-color: #f8f8f8;
+    background-color: var(--c-light-grey, #f8f8f8);
     text-align: left;
     border-radius: 20px;
     overflow: hidden;

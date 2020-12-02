@@ -8,9 +8,9 @@ a {
   text-decoration: none;
 }
 
-a:visited {
-  color: inherit;
-}
+/*a:visited {*/
+/*  color: inherit;*/
+/*}*/
 
 h1,
 h2,

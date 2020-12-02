@@ -6,7 +6,7 @@
   width: 100%;
   height: calc(var(--size) + 1.565vw);
   padding: 20px 15px;
-  background-color: #f8f8f8;
+  background-color: var(--c-light-grey, #f8f8f8);
   border-radius: 10px;
   overflow: hidden;
 }
