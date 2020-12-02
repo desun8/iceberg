@@ -1,4 +1,4 @@
-import 'scripts/lib/modernizr'; // Проверяет на поддержку webp и webm
+import './scripts/lib/modernizr'; // Проверяет на поддержку webp и webm
 import { mediaQueryEvent } from './scripts/utils/mediaQueryEvent';
 import initMap from './scripts/map';
 import CarouselFeature from './scripts/Carousel/CarouselFeature';
