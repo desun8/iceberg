@@ -1,4 +1,5 @@
 import A11yDialog from 'a11y-dialog';
+import scrollLock from 'scroll-lock';
 import Accordion from './accordion';
 
 const initPageMenu = () => {
@@ -9,6 +10,7 @@ const initPageMenu = () => {
   const dialog = new A11yDialog(element);
 
   const handleShow = () => {
+    scrollLock.disablePageScroll(element);
     btnClose.classList.add('hamburger--close');
 
     if (btnOpen) {
@@ -16,6 +18,7 @@ const initPageMenu = () => {
     }
   };
   const handleHide = () => {
+    scrollLock.enablePageScroll(element);
     btnClose.classList.remove('hamburger--close');
 
     if (btnOpen) {

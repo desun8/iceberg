@@ -7,9 +7,13 @@ import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
 import initPageMenu from './scripts/menu';
+import initPageModal from './scripts/modal';
 
 // меню
 initPageMenu();
+
+// модалка
+initPageModal();
 
 // карта
 initMap();
@@ -38,7 +42,6 @@ const initFeatureCarousel = () => {
 
   mediaQueryEvent(initSmScreen, initMdScreen);
 };
-
 initFeatureCarousel();
 
 // карусель отзывы
@@ -50,7 +53,6 @@ const initFeedbackCarousel = () => {
   const carouselFeedback = new CarouselFeedback(elm, wrapper, slides);
   carouselFeedback.init();
 };
-
 initFeedbackCarousel();
 
 // блок видео
@@ -59,5 +61,4 @@ const initVideoBlock = () => {
   autoplayVideo(videoBg);
   fullscreen();
 };
-
 initVideoBlock();

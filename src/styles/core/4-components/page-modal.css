@@ -1,0 +1,24 @@
+.page-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  overflow: auto;
+  background-color: #fff;
+}
+
+.page-modal__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-modal__content {
+  flex-grow: 1;
+  padding-top: 120px;
+  padding-left: var(--page-gap);
+  padding-right: var(--page-gap);
+  background-color: #fff;
+}

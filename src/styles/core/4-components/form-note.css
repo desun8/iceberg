@@ -1,0 +1,25 @@
+.form-note {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.form-note__title,
+.form-note__text,
+.form-note__list {
+  margin-bottom: 20px;
+}
+
+.form-note__title {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 500;
+}
+
+.form-note__list {
+  display: grid;
+  grid-gap: 15px;
+}
+
+.form-note__item::before {
+  content: '✅ ';
+}

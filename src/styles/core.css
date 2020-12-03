@@ -4,6 +4,7 @@
 
 /* LIB */
 @import "./core/1-lib/a11y-dialog.css";
+@import "./core/1-lib/flatpickr.css";
 
 /* BASE */
 @import "./core/2-base/scaffolding.css";
@@ -21,3 +22,7 @@
 @import "./core/4-components/page-header/index.css"; /* header */
 @import "./core/4-components/page-menu/index.css"; /* menu */
 @import "./core/4-components/page-footer/index.css"; /* footer */
+@import "./core/4-components/page-modal.css";
+@import "./core/4-components/form.css";
+@import "core/4-components/flatpickr.css";
+@import "./core/4-components/form-note.css";

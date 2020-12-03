@@ -95,8 +95,8 @@ export function js(done) {
     ],
   })
     .then((bundle) => bundle.write({
-      file: './dist/main.js',
-      format: 'iife',
+      dir: './dist',
+      format: 'esm',
       name: 'main',
       sourcemap: false,
     }))
