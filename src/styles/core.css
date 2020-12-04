@@ -4,11 +4,12 @@
 
 /* LIB */
 @import "./core/1-lib/a11y-dialog.css";
-@import "./core/1-lib/flatpickr.css";
+@import "./core/1-lib/flatpickr.css"; /* datepicker */
+@import "./core/1-lib/choices.css"; /* select */
 
 /* BASE */
 @import "./core/2-base/scaffolding.css";
-@import "core/2-base/reset.css";
+@import "./core/2-base/reset.css";
 
 /* UTILITIES */
 @import "./core/3-utilities/visually-hidden.css";
@@ -17,12 +18,11 @@
 /* COMPONENTS */
 @import "./core/4-components/accordion.css";
 @import "./core/4-components/btn.css"; /* btn */
-@import "core/4-components/social-list.css";
+@import "./core/4-components/social-list.css";
 @import "./core/4-components/header.css"; /* header component */
 @import "./core/4-components/page-header/index.css"; /* header */
 @import "./core/4-components/page-menu/index.css"; /* menu */
 @import "./core/4-components/page-footer/index.css"; /* footer */
 @import "./core/4-components/page-modal.css";
-@import "./core/4-components/form.css";
-@import "core/4-components/flatpickr.css";
+@import "core/4-components/form/index.css";
 @import "./core/4-components/form-note.css";

@@ -87,7 +87,11 @@ export function js(done) {
     input: './src/main.js',
     plugins: [
       nodeResolve(), // подключение модулей node
-      commonJs({ sourceMap: false }), // подключение модулей commonjs
+      commonJs({
+        // include: /node_modules/,
+        // namedExports: { 'choices.js/src/scripts/constants.js': ['KEY_CODES'] },
+        sourceMap: false,
+      }), // подключение модулей commonjs
       // sizeSnapshot(), // напишет в консоль размер бандла
       // terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES
       // visualizer(), // анализатор бандла,

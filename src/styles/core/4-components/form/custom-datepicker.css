@@ -1,0 +1,15 @@
+.custom-datepicker {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.custom-datepicker::before {
+  content: attr(data-date);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

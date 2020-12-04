@@ -41,6 +41,7 @@
   "dependencies": {
     "2gis-maps": "^3.6.1",
     "a11y-dialog": "^5.4.2",
+    "choices.js": "^9.0.1",
     "flatpickr": "^4.6.6",
     "scroll-lock": "^2.1.4",
     "swiper": "^6.3.5"

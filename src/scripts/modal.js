@@ -1,6 +1,17 @@
 import A11yDialog from 'a11y-dialog';
 import scrollLock from 'scroll-lock';
 import DatePicker from './datePicker';
+import isMobile from './utils/isMobile';
+import Form from './form/Form';
+// import Select from './select';
+
+async function loadSelect(elm) {
+  const module = await import('./select');
+  const Select = module.default;
+
+  // eslint-disable-next-line no-new
+  new Select(elm);
+}
 
 const addForm = () => {
   // Проверяем поддерживает ли браузер тег <template>
@@ -34,6 +45,12 @@ const addFormWithNote = () => {
 
   // initDatePicker(clone.querySelector('.form__datepicker'));
   new DatePicker(clone.querySelector('.form__datepicker'));
+
+  if (isMobile() === false) {
+    console.warn('IS MOBILE');
+    // new Select(clone.querySelector('.form__select'));
+    loadSelect(clone.querySelector('.custom-select'));
+  }
 
   modalContent.appendChild(clone);
   modalContent.appendChild(cloneNote);
@@ -79,7 +96,8 @@ const initPageModal = () => {
   scrollLock.disablePageScroll(element);
 
   // addForm();
-  addFormWithNote();
+  // addFormWithNote();
+  new Form('1');
 };
 
 export default initPageModal;

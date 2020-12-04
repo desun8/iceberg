@@ -75,21 +75,24 @@ class DatePicker {
   }
 
   onReady() {
-    // console.log('onReady -> this');
-    // console.log(this);
+    console.log('onReady -> this');
+    console.log(this);
     const {
       monthElements,
       monthNav,
+      isMobile,
     } = this.flatpickr;
 
-    this.createSpanMonth();
-    monthElements[0].style.display = 'none';
-    const target = monthNav.querySelector('.flatpickr-current-month');
-    if (target) {
-      target.appendChild(this.spanMonth);
-    }
+    if (!isMobile) {
+      this.createSpanMonth();
+      monthElements[0].style.display = 'none';
+      const target = monthNav.querySelector('.flatpickr-current-month');
+      if (target) {
+        target.appendChild(this.spanMonth);
+      }
 
-    this.onMonthChange();
+      this.onMonthChange();
+    }
   }
 
   init() {
