@@ -6,11 +6,11 @@ import TabsFeature from './scripts/Carousel/TabsFeature';
 import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
-import initPageMenu from './scripts/menu';
 import Modal from './scripts/Modal';
+import Menu from './scripts/menu';
 
 // меню
-initPageMenu();
+new Menu();
 
 // модалка
 // initPageModal();

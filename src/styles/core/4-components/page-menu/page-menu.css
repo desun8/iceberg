@@ -39,8 +39,8 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--only-mobile-tablet) {
-  .page-menu__btns--lg {
+@media screen and (--only-sm-screen) {
+  .page-menu__btns--md {
     display: none;
   }
 }
