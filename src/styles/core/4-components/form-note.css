@@ -23,3 +23,10 @@
 .form-note__item::before {
   content: '✅ ';
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .form-note {
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,24 @@
+.simplebar-track.simplebar-vertical {
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: min(80%, 450px);
+  
+  background-color: var(--c-deep-blue);
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  width: 100%;
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar,
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  background-color: #fff;
+}
+
+.simplebar-track.simplebar-vertical,
+.simplebar-track.simplebar-vertical .simplebar-scrollbar,
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  border-radius: 10px;
+}

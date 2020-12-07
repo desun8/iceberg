@@ -70,6 +70,7 @@
 
 .form__textarea {
   border-radius: 20px;
+  resize: none;
 }
 
 .form__agreement {
@@ -80,4 +81,12 @@
 .form__agreement a {
   color: inherit;
   text-decoration: underline;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .form {
+    max-width: 310px;
+    margin: 0;
+  }
 }

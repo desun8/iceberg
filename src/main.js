@@ -1,4 +1,5 @@
 import './scripts/lib/modernizr'; // Проверяет на поддержку webp и webm
+import SimpleBar from 'simplebar';
 import { mediaQueryEvent } from './scripts/utils/mediaQueryEvent';
 import initMap from './scripts/map';
 import CarouselFeature from './scripts/Carousel/CarouselFeature';
@@ -8,12 +9,14 @@ import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
 import initPageMenu from './scripts/menu';
 import initPageModal from './scripts/modal';
+import Modal from './scripts/modal2';
 
 // меню
 initPageMenu();
 
 // модалка
-initPageModal();
+// initPageModal();
+new Modal();
 
 // карта
 initMap();
@@ -62,3 +65,10 @@ const initVideoBlock = () => {
   fullscreen();
 };
 initVideoBlock();
+
+// simplebar
+// const simplebarElms = document.querySelectorAll('.js-simplebar');
+// simplebarElms.forEach((elm) => new SimpleBar(elm, {
+//   autoHide: false,
+//   forceVisible: true,
+// }));

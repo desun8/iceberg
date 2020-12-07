@@ -6,6 +6,7 @@
 @import "./core/1-lib/a11y-dialog.css";
 @import "./core/1-lib/flatpickr.css"; /* datepicker */
 @import "./core/1-lib/choices.css"; /* select */
+@import "./core/1-lib/simplebar.css"; /* select */
 
 /* BASE */
 @import "./core/2-base/scaffolding.css";
@@ -24,5 +25,8 @@
 @import "./core/4-components/page-menu/index.css"; /* menu */
 @import "./core/4-components/page-footer/index.css"; /* footer */
 @import "./core/4-components/page-modal.css";
+@import "./core/4-components/page-modal-footer/index.css";
+@import "./core/4-components/modal.css";
+@import "./core/4-components/simplebar.css";
 @import "core/4-components/form/index.css";
 @import "./core/4-components/form-note.css";
