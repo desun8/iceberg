@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import A11yDialog from 'a11y-dialog';
 import scrollLock from 'scroll-lock';
 import SimpleBar from 'simplebar';
@@ -30,10 +31,12 @@ const toggleFooterModal = (modal, isShow, isConsultation = false) => {
     logo.style.opacity = '0';
     logo.style.visibility = 'hidden';
 
+    const note = modal.querySelector('.page-modal-footer__note');
+
     if (isConsultation) {
-      modal.querySelector('.page-modal-footer__note').style.display = '';
+      note.style.display = '';
     } else {
-      modal.querySelector('.page-modal-footer__note').style.display = 'none';
+      note.style.display = 'none';
     }
   } else {
     modal.classList.remove('is-active');
@@ -41,6 +44,15 @@ const toggleFooterModal = (modal, isShow, isConsultation = false) => {
     logo.style.visibility = '';
   }
 };
+
+const initSimplebar = (parent) => {
+  const elm = parent.querySelector('.js-simplebar');
+  new SimpleBar(elm, {
+    autoHide: false,
+  });
+};
+
+const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight);
 
 class Dialog {
   constructor(element, btnsClose) {
@@ -81,6 +93,10 @@ class Modal {
     this.formAppointment = new Form(APPOINTMENT);
     this.formConsultation = new Form(CONSULTATION);
 
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleCloseDialog = this.handleCloseDialog.bind(this);
+
     this.addEvents();
   }
 
@@ -113,7 +129,7 @@ class Modal {
 
           if (isDesk) {
             toggleFooterModal(modal, true);
-            window.scrollTo(0, document.body.scrollHeight);
+            scrollToBottom();
           }
           break;
         case CONSULTATION:
@@ -122,12 +138,8 @@ class Modal {
 
           if (isDesk) {
             toggleFooterModal(modal, true, true);
-
-            const simplebarElm = document.querySelector('.js-simplebar');
-            new SimpleBar(simplebarElm, {
-              autoHide: false,
-            });
-            window.scrollTo(0, document.body.scrollHeight);
+            initSimplebar(this.footerModal);
+            scrollToBottom();
           }
 
           break;
@@ -146,7 +158,6 @@ class Modal {
   }
 
   handleClose() {
-    console.log('close footer modal');
     toggleFooterModal(this.footerModal, false);
   }
 
@@ -157,13 +168,13 @@ class Modal {
 
   addEvents() {
     this.btnsOpen.forEach((btn) => {
-      btn.addEventListener('click', this.handleOpen.bind(this));
+      btn.addEventListener('click', this.handleOpen);
     });
 
     this.btnsClose.forEach((btn) => {
       const isFooterModal = btn.closest('.page-modal-footer');
 
-      btn.addEventListener('click', isFooterModal ? this.handleClose.bind(this) : this.handleCloseDialog.bind(this));
+      btn.addEventListener('click', isFooterModal ? this.handleClose : this.handleCloseDialog);
     });
   }
 }

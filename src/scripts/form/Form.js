@@ -16,23 +16,21 @@ async function loadSelect(elm) {
 
 const isDesktop = () => !isMobile() && mqDesktop;
 
-class AddForm {
-  static createElm(type) {
+class FormConstructor {
+  static createWrapper(type) {
     const elm = document.createElement('div');
     elm.dataset.type = `form-${type}`;
     return elm;
   }
 
-  static addNote(template) {
-    const note = template.content.querySelector('#template-form-note');
-    const clone = document.importNode(note, true);
-    clone.id = '';
-
-    return clone;
+  static clone(template, selector) {
+    const cloneTarget = template.content.querySelector(selector);
+    const cloneElm = document.importNode(cloneTarget, true);
+    cloneElm.id = '';
+    return cloneElm;
   }
 
-  // TODO: Элемент, в который добавляется форма, отличается на десктопе и телефонах.
-  static add(formType) {
+  static create(formType) {
     if (!('content' in document.createElement('template'))) {
       return;
     }
@@ -48,26 +46,26 @@ class AddForm {
     } else {
       modalContent = document.querySelector('.page-modal__content');
     }
-    // modalContent.innerHTML = '';
 
     const template = document.querySelector('template');
-    const templateForm = template.content.querySelector('#template-form');
 
-    const form = document.importNode(templateForm, true);
+    const form = this.clone(template, '#template-form');
     form.id = `form-${formType}`;
-    const wrapper = this.createElm(formType);
+
+    const wrapper = this.createWrapper(formType);
     wrapper.appendChild(form);
 
     if (formType === CONSULTATION) {
+      const note = this.clone(template, '#template-form-note');
+
       if (noteContainer) {
         noteContainer.innerHTML = '';
-        noteContainer.appendChild(this.addNote(template));
+        noteContainer.appendChild(note);
       } else {
-        wrapper.appendChild(this.addNote(template));
+        wrapper.appendChild(note);
       }
     }
 
-    console.log(wrapper);
     if (formContainer) {
       formContainer.appendChild(wrapper);
     } else {
@@ -81,19 +79,21 @@ class AddForm {
 class Form {
   constructor(formType) {
     this.formType = formType;
-    this.isInit = false;
     this.form = undefined;
   }
 
-  init() {
-    if (!this.isInit) {
-      this.isInit = true;
-      this.form = AddForm.add(this.formType);
+  createForm() {
+    this.form = FormConstructor.create(this.formType);
 
-      new DatePicker(this.form.querySelector('.form__datepicker'));
-      if (isMobile() === false) {
-        loadSelect(this.form.querySelector('.custom-select'));
-      }
+    new DatePicker(this.form.querySelector('.form__datepicker'));
+    if (!isMobile()) {
+      loadSelect(this.form.querySelector('.custom-select'));
+    }
+  }
+
+  init() {
+    if (!this.form) {
+      this.createForm();
     }
   }
 }
