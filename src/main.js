@@ -10,11 +10,11 @@ import Modal from './scripts/Modal';
 import Menu from './scripts/menu';
 
 // меню
-new Menu();
+const menu = new Menu();
 
 // модалка
 // initPageModal();
-new Modal();
+new Modal(menu);
 
 // карта
 initMap();

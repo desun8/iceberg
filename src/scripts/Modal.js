@@ -54,6 +54,20 @@ const initSimplebar = (parent) => {
 
 const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight);
 
+const closeMenu = (btn, cb) => {
+  if (btn.closest('.page-menu')) {
+    cb();
+  }
+};
+
+const setFooterModal = (type, modal, btn, close) => {
+  const isConsultation = type === CONSULTATION;
+  closeMenu(btn, close);
+  toggleFooterModal(modal, true, isConsultation);
+  isConsultation && initSimplebar(modal);
+  scrollToBottom();
+};
+
 class Dialog {
   constructor(element, btnsClose) {
     this.element = element;
@@ -82,7 +96,9 @@ class Dialog {
 }
 
 class Modal {
-  constructor() {
+  constructor(menu) {
+    this.menu = menu;
+
     this.btnsOpen = Array.from(document.querySelectorAll('.js-modal-open'));
     this.btnsClose = Array.from(document.querySelectorAll('.js-modal-close'));
     this.footerModal = document.querySelector('.page-modal-footer');
@@ -128,8 +144,10 @@ class Modal {
           toggleForm(formContainers[APPOINTMENT], formContainers[CONSULTATION]);
 
           if (isDesk) {
-            toggleFooterModal(modal, true);
-            scrollToBottom();
+            // closeMenu(currentTarget, this.menu.close.bind(this.menu));
+            // toggleFooterModal(modal, true);
+            // scrollToBottom();
+            setFooterModal(currentTarget.dataset.type, modal, currentTarget, this.menu.close.bind(this.menu));
           }
           break;
         case CONSULTATION:
@@ -137,9 +155,11 @@ class Modal {
           toggleForm(formContainers[CONSULTATION], formContainers[APPOINTMENT]);
 
           if (isDesk) {
-            toggleFooterModal(modal, true, true);
-            initSimplebar(this.footerModal);
-            scrollToBottom();
+            // closeMenu(currentTarget, this.menu.close.bind(this.menu));
+            // toggleFooterModal(modal, true, true);
+            // initSimplebar(this.footerModal);
+            // scrollToBottom();
+            setFooterModal(currentTarget.dataset.type, modal, currentTarget, this.menu.close.bind(this.menu));
           }
 
           break;
