@@ -82,6 +82,7 @@
     border-color: var(--bg-c);
   }
   
+  .page-modal .simplebar-content,
   .page-modal [data-type='iframe'] {
     height: 100%;
   }

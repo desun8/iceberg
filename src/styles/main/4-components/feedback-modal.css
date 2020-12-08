@@ -46,6 +46,7 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .feedback-modal {
+    padding-bottom: 30px;
     text-align: left;
   }
   
