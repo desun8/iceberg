@@ -1,6 +1,6 @@
 import './scripts/lib/modernizr'; // Проверяет на поддержку webp и webm
 import { mediaQueryEvent } from './scripts/utils/mediaQueryEvent';
-import initMap from './scripts/map';
+import Map from './scripts/map';
 import CarouselFeature from './scripts/Carousel/CarouselFeature';
 import TabsFeature from './scripts/Carousel/TabsFeature';
 import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
@@ -13,11 +13,10 @@ import Menu from './scripts/menu';
 const menu = new Menu();
 
 // модалка
-// initPageModal();
 new Modal(menu);
 
 // карта
-initMap();
+new Map();
 
 // карусель особенности
 const initFeatureCarousel = () => {

@@ -37,7 +37,7 @@
   
   .page-footer__social {
     position: absolute;
-    bottom: 10%;
+    bottom: 40px;
     right: 40px;
     z-index: 1;
   }
