@@ -80,6 +80,14 @@
     max-width: 620px;
     padding: 0;
   }
+  
+  .block-quote__title {
+    font-size: 36px;
+  }
+  
+  .block-quote__describe {
+    font-weight: 500;
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */

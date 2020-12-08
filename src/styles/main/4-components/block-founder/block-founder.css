@@ -1,5 +1,5 @@
-.block-founder {
-}
+/*.block-founder {*/
+/*}*/
 
 .block-founder__img {
   position: relative;
@@ -67,6 +67,7 @@
     grid-column: 1/2;
     grid-row: 1;
     padding: 50px 50px 50px var(--deep-gap);
+    background-color: var(--c-light-blue);
   }
   
   .block-founder__title {

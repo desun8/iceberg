@@ -20,4 +20,8 @@
   .footer {
     padding: 25px 30px;
   }
+  
+  .footer__copyright {
+    font-size: 12px;
+  }
 }

@@ -99,7 +99,7 @@
   .feedback-slider__controls {
     top: auto;
     bottom: 0;
-    left: 0;
+    left: calc(var(--inner-gap) - 25px); /* 25px === btnWidth(50px) / 2 */
     transform: none;
 
     grid-column-gap: 30px;

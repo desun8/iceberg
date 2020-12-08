@@ -59,8 +59,8 @@
 @media screen and (--tablet-lg) {
   .feedback-card {
     display: grid;
-    grid-template-columns: 1.27fr 1fr;
-    grid-gap: min(5vw, 90px);
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: min(5vw, 88px);
     align-items: center;
   }
 
@@ -81,6 +81,7 @@
 
   .feedback-card__type {
     font-size: 14px;
+    letter-spacing: var(--letter-spacing);
   }
 
   .feedback-card__text {

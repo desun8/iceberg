@@ -26,6 +26,7 @@ body {
     --page-gap: 30px;
     --inner-gap: min(6vw, 145px);
     --deep-gap: calc(var(--page-gap) + var(--inner-gap));
+    --gap-feedback: 5vw;
   }
 }
 
@@ -40,6 +41,7 @@ body {
 @media screen and (--desktop-md) {
   body {
     --inner-gap: min(8vw, 145px);
+    --gap-feedback: 10vw;
   }
 }
 
@@ -47,5 +49,6 @@ body {
 @media screen and (--desktop-lg) {
   body {
     --page-gap: 100px;
+    --gap-feedback: min(16vw, 290px);
   }
 }

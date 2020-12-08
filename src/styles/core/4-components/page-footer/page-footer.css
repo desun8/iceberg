@@ -55,7 +55,8 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .page-footer {
-    height: max(840px, 94vh);
+    /*height: max(840px, 94vh);*/
+    min-height: 100vh;
   }
   
   .page-footer .footer {
