@@ -95,25 +95,27 @@ class TabsFeature extends Carousel {
     this.autoplay();
   }
 
-  setEventClick(isRemove = false) {
+  setEvents(isRemove = false) {
     this.slides.forEach((item, index) => {
       // eslint-disable-next-line no-param-reassign
       item.dataset.index = `${index}`;
 
       if (isRemove) {
         item.removeEventListener('click', this.handleClick);
+        item.removeEventListener('mouseenter', this.handleClick, { passive: true });
       } else {
         item.addEventListener('click', this.handleClick);
+        item.addEventListener('mouseenter', this.handleClick, { passive: true });
       }
     });
   }
 
-  addEventClick() {
-    this.setEventClick();
+  addEvents() {
+    this.setEvents();
   }
 
-  removeEventClick() {
-    this.setEventClick(true);
+  removeEvents() {
+    this.setEvents(true);
   }
 
   // Отображаем изображение, которое соответсвует индексу с текущим слайдом
@@ -143,13 +145,13 @@ class TabsFeature extends Carousel {
     this.cloneImgElms();
     this.changeSlide(this.index);
     this.autoplay();
-    this.addEventClick();
+    this.addEvents();
   }
 
   destroy() {
     this.clearInterval();
     this.removeClassNames();
-    this.removeEventClick();
+    this.removeEvents();
   }
 }
 
