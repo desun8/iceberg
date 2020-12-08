@@ -30,6 +30,10 @@
     background-color: var(--c-light-blue);
   }
   
+  .page-modal-footer__form [data-active="false"] {
+    display: none;
+  }
+  
   .page-modal-footer__note {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);

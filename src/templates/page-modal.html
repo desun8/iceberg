@@ -5,15 +5,30 @@
       <h1 id="page-modal-title" class="visually-hidden"></h1>
       <div class="page-modal__body">
         <div class="page-modal__header  header">
-          <img class="header__logo" src="./images/logo.svg" width="134" height="50" alt="Центр дентальной травматологии">
+          <img class="header__logo" src="./images/logo.svg" width="134" height="50"
+               alt="Центр дентальной травматологии">
 
-          <button class="page-menu__close  hamburger  btn  btn--circle  js-modal-close" type="button" aria-label="Закрыть модальное окно">
+          <button class="page-menu__close  hamburger  btn  btn--circle  js-modal-close" type="button"
+                  aria-label="Закрыть модальное окно">
             <span class="hamburger__line"></span>
             <span class="hamburger__line"></span>
           </button>
         </div>
 
-        <div class="page-modal__content"></div>
+        <button
+          class="page-modal__close  page-modal__close--md  page-menu__close  hamburger  btn  btn--circle  js-modal-close"
+          type="button" aria-label="Закрыть модальное окно">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+
+        <div class="page-modal__content  js-simplebar">
+
+          <div data-type="feedback"  data-active="false"></div>
+          <div data-type="iframe"  data-active="false">
+            <iframe width="853" height="480" src="https://my.matterport.com/show/?m=8n2Ybid9ShJ" allowfullscreen allow="xr-spatial-tracking" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>

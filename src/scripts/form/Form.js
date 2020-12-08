@@ -20,6 +20,7 @@ class FormConstructor {
   static createWrapper(type) {
     const elm = document.createElement('div');
     elm.dataset.type = `form-${type}`;
+    elm.dataset.active = 'false';
     return elm;
   }
 

@@ -5,24 +5,63 @@ import SimpleBar from 'simplebar';
 import isMobile from './utils/isMobile';
 import { isDesktop as mqDesktop } from './utils/mediaQueryEvent';
 import Form, { APPOINTMENT, CONSULTATION } from './form/Form';
+import Feedback from './Feedback';
 
 const MODAL_TYPES = {
   form: 'form',
   feedback: 'feedback',
+  iframe: 'iframe',
 };
 
 const isDesktop = () => !isMobile() && mqDesktop;
-
-const toggleForm = (formShow, formHide) => {
-  if (formShow) {
-    formShow.style.display = '';
-  }
-
-  if (formHide) {
-    formHide.style.display = 'none';
+// TODO: Удалить?
+const toggleElmVisible = (elm, type) => {
+  switch (type) {
+    case 'show':
+      elm.style.display = '';
+      break;
+    case 'hide':
+      elm.style.display = 'none';
+      break;
+    default:
+      elm.style.display = '';
+      break;
   }
 };
 
+// Переключение видимости между модалками (типами - формы, отзыв, iframe)
+const hideElms = (parent, visibleElm) => {
+  const elements = parent.querySelectorAll('[data-active]');
+  elements.forEach((elm) => {
+    if (elm === visibleElm) {
+      elm.dataset.active = 'true';
+    } else {
+      elm.dataset.active = 'false';
+    }
+  });
+};
+// TODO: Удалить?
+const hideForm = (...rest) => {
+  if (rest.length) {
+    rest.forEach((elm) => {
+      if (elm) {
+        toggleElmVisible(elm, 'hide');
+      }
+    });
+  }
+};
+// TODO: Удалить?
+const toggleForm = (formShow, formHide) => {
+  if (formShow) {
+    toggleElmVisible(formShow, 'show');
+  }
+
+  if (formHide) {
+    toggleElmVisible(formHide, 'hide');
+  }
+};
+
+// TODO: Переименовать в более понятное название например - toggleVisibileFooterModal
 const toggleFooterModal = (modal, isShow, isConsultation = false) => {
   const logo = document.querySelector('.page-footer .header__logo');
 
@@ -45,8 +84,8 @@ const toggleFooterModal = (modal, isShow, isConsultation = false) => {
   }
 };
 
-const initSimplebar = (parent) => {
-  const elm = parent.querySelector('.js-simplebar');
+const initSimplebar = (parent, target = undefined) => {
+  const elm = target || parent.querySelector('.js-simplebar');
   new SimpleBar(elm, {
     autoHide: false,
   });
@@ -80,12 +119,14 @@ class Dialog {
     this.btnsClose.forEach((btn) => {
       btn.classList.add('hamburger--close');
     });
+    scrollLock.disablePageScroll(this.element);
   }
 
   handleHide() {
     this.btnsClose.forEach((btn) => {
       btn.classList.remove('hamburger--close');
     });
+    scrollLock.enablePageScroll(this.element);
   }
 
   initDialog() {
@@ -109,6 +150,10 @@ class Modal {
     this.formAppointment = new Form(APPOINTMENT);
     this.formConsultation = new Form(CONSULTATION);
 
+    this.formContainers = undefined;
+    this.feedbackContainer = this.pageModal.querySelector('[data-type="feedback"]');
+    this.iframeContainer = this.pageModal.querySelector('[data-type="iframe"]');
+
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleCloseDialog = this.handleCloseDialog.bind(this);
@@ -125,55 +170,90 @@ class Modal {
     // • Отзыв
     if (currentTarget.matches('.js-form-open')) {
       type = MODAL_TYPES.form;
+    } else if (currentTarget.matches('.js-feedback-open')) {
+      type = MODAL_TYPES.feedback;
     } else {
-      type = currentTarget.matches('.js-feedback-open') ? MODAL_TYPES.feedback : '';
+      type = currentTarget.matches('.js-iframe-open') ? MODAL_TYPES.iframe : '';
     }
 
     if (type === MODAL_TYPES.form) {
+      // toggleElmVisible(this.feedbackContainer, 'hide');
+
       const isDesk = isDesktop();
       const modal = isDesk ? this.footerModal : this.pageModal;
 
-      const formContainers = {
-        [APPOINTMENT]: modal.querySelector('div[data-type="form-appointment"]'),
-        [CONSULTATION]: modal.querySelector('div[data-type="form-consultation"]'),
-      };
+      // const formContainers = {
+      //   [APPOINTMENT]: modal.querySelector('div[data-type="form-appointment"]'),
+      //   [CONSULTATION]: modal.querySelector('div[data-type="form-consultation"]'),
+      // };
+
+      // this.formContainers = { ...formContainers };
 
       switch (currentTarget.dataset.type) {
         case APPOINTMENT:
           this.formAppointment.init();
-          toggleForm(formContainers[APPOINTMENT], formContainers[CONSULTATION]);
-
-          if (isDesk) {
-            // closeMenu(currentTarget, this.menu.close.bind(this.menu));
-            // toggleFooterModal(modal, true);
-            // scrollToBottom();
-            setFooterModal(currentTarget.dataset.type, modal, currentTarget, this.menu.close.bind(this.menu));
-          }
+          hideElms(modal, modal.querySelector('div[data-type="form-appointment"]'));
+          // toggleForm(formContainers[APPOINTMENT], formContainers[CONSULTATION]);
           break;
         case CONSULTATION:
           this.formConsultation.init();
-          toggleForm(formContainers[CONSULTATION], formContainers[APPOINTMENT]);
-
-          if (isDesk) {
-            // closeMenu(currentTarget, this.menu.close.bind(this.menu));
-            // toggleFooterModal(modal, true, true);
-            // initSimplebar(this.footerModal);
-            // scrollToBottom();
-            setFooterModal(currentTarget.dataset.type, modal, currentTarget, this.menu.close.bind(this.menu));
-          }
-
+          hideElms(modal, modal.querySelector('div[data-type="form-consultation"]'));
+          // toggleForm(formContainers[CONSULTATION], formContainers[APPOINTMENT]);
           break;
 
         default:
           break;
       }
+
+      if (isDesk) {
+        setFooterModal(
+          currentTarget.dataset.type,
+          modal,
+          currentTarget,
+          this.menu.close.bind(this.menu),
+        );
+      }
+    }
+
+    if (type === MODAL_TYPES.feedback) {
+      // if (this.formContainers) {
+      //   const formContainers = {
+      //     [APPOINTMENT]: this.pageModal.querySelector('div[data-type="form-appointment"]'),
+      //     [CONSULTATION]: this.pageModal.querySelector('div[data-type="form-consultation"]'),
+      //   };
+      //
+      //   const forms = [];
+      //   for (const key in formContainers) {
+      //     if (Object.prototype.hasOwnProperty.call(formContainers, key)) {
+      //       const elm = formContainers[key];
+      //       if (elm) {
+      //         forms.push(elm);
+      //       }
+      //     }
+      //   }
+      //   hideForm(...forms);
+      // }
+
+      hideElms(this.pageModal, this.feedbackContainer);
+
+      const { id } = currentTarget.dataset;
+      Feedback.add(this.feedbackContainer, id);
+
+      if (isDesktop()) {
+        initSimplebar(this.pageModal);
+      }
+
+      // toggleElmVisible(this.feedbackContainer, 'show');
+    }
+
+    if (type === MODAL_TYPES.iframe) {
+      hideElms(this.pageModal, this.iframeContainer);
     }
 
     // Если это не модалка формы для десктопа десктоп,
     // то показывается диалог и блокируется скролл
     if (!(type === MODAL_TYPES.form && isDesktop())) {
       this.dialog.show();
-      scrollLock.disablePageScroll(this.pageModal);
     }
   }
 
@@ -183,7 +263,6 @@ class Modal {
 
   handleCloseDialog() {
     this.dialog.hide();
-    scrollLock.enablePageScroll(this.pageModal);
   }
 
   addEvents() {
