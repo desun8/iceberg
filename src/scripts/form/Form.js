@@ -73,6 +73,7 @@ class FormConstructor {
       modalContent.appendChild(wrapper);
     }
 
+    // eslint-disable-next-line consistent-return
     return form;
   }
 }
@@ -86,6 +87,7 @@ class Form {
   createForm() {
     this.form = FormConstructor.create(this.formType);
 
+    // eslint-disable-next-line no-new
     new DatePicker(this.form.querySelector('.form__datepicker'));
     if (!isMobile()) {
       loadSelect(this.form.querySelector('.custom-select'));

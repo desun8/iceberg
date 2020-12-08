@@ -12,57 +12,22 @@ const MODAL_TYPES = {
   feedback: 'feedback',
   iframe: 'iframe',
 };
-
 const isDesktop = () => !isMobile() && mqDesktop;
-// TODO: Удалить?
-const toggleElmVisible = (elm, type) => {
-  switch (type) {
-    case 'show':
-      elm.style.display = '';
-      break;
-    case 'hide':
-      elm.style.display = 'none';
-      break;
-    default:
-      elm.style.display = '';
-      break;
-  }
-};
-
 // Переключение видимости между модалками (типами - формы, отзыв, iframe)
-const hideElms = (parent, visibleElm) => {
+const showElm = (parent, visibleElm) => {
   const elements = parent.querySelectorAll('[data-active]');
   elements.forEach((elm) => {
     if (elm === visibleElm) {
+      // eslint-disable-next-line no-param-reassign
       elm.dataset.active = 'true';
     } else {
+      // eslint-disable-next-line no-param-reassign
       elm.dataset.active = 'false';
     }
   });
 };
-// TODO: Удалить?
-const hideForm = (...rest) => {
-  if (rest.length) {
-    rest.forEach((elm) => {
-      if (elm) {
-        toggleElmVisible(elm, 'hide');
-      }
-    });
-  }
-};
-// TODO: Удалить?
-const toggleForm = (formShow, formHide) => {
-  if (formShow) {
-    toggleElmVisible(formShow, 'show');
-  }
-
-  if (formHide) {
-    toggleElmVisible(formHide, 'hide');
-  }
-};
-
-// TODO: Переименовать в более понятное название например - toggleVisibileFooterModal
-const toggleFooterModal = (modal, isShow, isConsultation = false) => {
+// Для десктопа
+const toggleVisibilityFooterModal = (modal, isShow, isConsultation = false) => {
   const logo = document.querySelector('.page-footer .header__logo');
 
   if (isShow) {
@@ -83,26 +48,24 @@ const toggleFooterModal = (modal, isShow, isConsultation = false) => {
     logo.style.visibility = '';
   }
 };
-
 const initSimplebar = (parent, target = undefined) => {
   const elm = target || parent.querySelector('.js-simplebar');
+  // eslint-disable-next-line no-new
   new SimpleBar(elm, {
     autoHide: false,
   });
 };
-
 const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight);
-
 const closeMenu = (btn, cb) => {
   if (btn.closest('.page-menu')) {
     cb();
   }
 };
-
 const setFooterModal = (type, modal, btn, close) => {
   const isConsultation = type === CONSULTATION;
   closeMenu(btn, close);
-  toggleFooterModal(modal, true, isConsultation);
+  toggleVisibilityFooterModal(modal, true, isConsultation);
+  // eslint-disable-next-line no-unused-expressions
   isConsultation && initSimplebar(modal);
   scrollToBottom();
 };
@@ -136,6 +99,51 @@ class Dialog {
   }
 }
 
+class Open {
+  static form(modalPage, modalFooter, formAppointment, formConsultation, btn, cbCloseMenu) {
+    const isScreenSm = isDesktop();
+    const modal = isScreenSm ? modalFooter : modalPage;
+    const { type } = btn.dataset;
+
+    switch (type) {
+      case APPOINTMENT:
+        formAppointment.init();
+        showElm(modal, modal.querySelector('div[data-type="form-appointment"]'));
+        break;
+      case CONSULTATION:
+        formConsultation.init();
+        showElm(modal, modal.querySelector('div[data-type="form-consultation"]'));
+        break;
+      default:
+        break;
+    }
+
+    if (isScreenSm) {
+      setFooterModal(
+        type,
+        modal,
+        btn,
+        cbCloseMenu,
+      );
+    }
+  }
+
+  static feedback(modalPage, container, btn) {
+    showElm(modalPage, container);
+
+    const { id } = btn.dataset;
+    Feedback.add(container, id);
+
+    if (isDesktop()) {
+      initSimplebar(modalPage);
+    }
+  }
+
+  static iframe(modalPage, container) {
+    showElm(modalPage, container);
+  }
+}
+
 class Modal {
   constructor(menu) {
     this.menu = menu;
@@ -150,7 +158,6 @@ class Modal {
     this.formAppointment = new Form(APPOINTMENT);
     this.formConsultation = new Form(CONSULTATION);
 
-    this.formContainers = undefined;
     this.feedbackContainer = this.pageModal.querySelector('[data-type="feedback"]');
     this.iframeContainer = this.pageModal.querySelector('[data-type="iframe"]');
 
@@ -163,11 +170,12 @@ class Modal {
 
   handleOpen(e) {
     const { currentTarget } = e;
-    let type = '';
+    let type;
 
     // Определяем тип модалки (разница на декстопе):
-    // • Форма
-    // • Отзыв
+    // • ФОРМА
+    // • ОТЗЫВ
+    // • IFRAME
     if (currentTarget.matches('.js-form-open')) {
       type = MODAL_TYPES.form;
     } else if (currentTarget.matches('.js-feedback-open')) {
@@ -177,77 +185,22 @@ class Modal {
     }
 
     if (type === MODAL_TYPES.form) {
-      // toggleElmVisible(this.feedbackContainer, 'hide');
-
-      const isDesk = isDesktop();
-      const modal = isDesk ? this.footerModal : this.pageModal;
-
-      // const formContainers = {
-      //   [APPOINTMENT]: modal.querySelector('div[data-type="form-appointment"]'),
-      //   [CONSULTATION]: modal.querySelector('div[data-type="form-consultation"]'),
-      // };
-
-      // this.formContainers = { ...formContainers };
-
-      switch (currentTarget.dataset.type) {
-        case APPOINTMENT:
-          this.formAppointment.init();
-          hideElms(modal, modal.querySelector('div[data-type="form-appointment"]'));
-          // toggleForm(formContainers[APPOINTMENT], formContainers[CONSULTATION]);
-          break;
-        case CONSULTATION:
-          this.formConsultation.init();
-          hideElms(modal, modal.querySelector('div[data-type="form-consultation"]'));
-          // toggleForm(formContainers[CONSULTATION], formContainers[APPOINTMENT]);
-          break;
-
-        default:
-          break;
-      }
-
-      if (isDesk) {
-        setFooterModal(
-          currentTarget.dataset.type,
-          modal,
-          currentTarget,
-          this.menu.close.bind(this.menu),
-        );
-      }
+      Open.form(
+        this.pageModal,
+        this.footerModal,
+        this.formAppointment,
+        this.formConsultation,
+        currentTarget,
+        this.menu.close.bind(this.menu),
+      );
     }
 
     if (type === MODAL_TYPES.feedback) {
-      // if (this.formContainers) {
-      //   const formContainers = {
-      //     [APPOINTMENT]: this.pageModal.querySelector('div[data-type="form-appointment"]'),
-      //     [CONSULTATION]: this.pageModal.querySelector('div[data-type="form-consultation"]'),
-      //   };
-      //
-      //   const forms = [];
-      //   for (const key in formContainers) {
-      //     if (Object.prototype.hasOwnProperty.call(formContainers, key)) {
-      //       const elm = formContainers[key];
-      //       if (elm) {
-      //         forms.push(elm);
-      //       }
-      //     }
-      //   }
-      //   hideForm(...forms);
-      // }
-
-      hideElms(this.pageModal, this.feedbackContainer);
-
-      const { id } = currentTarget.dataset;
-      Feedback.add(this.feedbackContainer, id);
-
-      if (isDesktop()) {
-        initSimplebar(this.pageModal);
-      }
-
-      // toggleElmVisible(this.feedbackContainer, 'show');
+      Open.feedback(this.pageModal, this.feedbackContainer, currentTarget);
     }
 
     if (type === MODAL_TYPES.iframe) {
-      hideElms(this.pageModal, this.iframeContainer);
+      Open.iframe(this.pageModal, this.iframeContainer);
     }
 
     // Если это не модалка формы для десктопа десктоп,
@@ -258,7 +211,7 @@ class Modal {
   }
 
   handleClose() {
-    toggleFooterModal(this.footerModal, false);
+    toggleVisibilityFooterModal(this.footerModal, false);
   }
 
   handleCloseDialog() {
