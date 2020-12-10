@@ -20,6 +20,8 @@ class DatePicker {
       onChange: this.hook(this.onChange),
     };
 
+    this.placeholder = 'Дата';
+
     this.init();
   }
 
@@ -28,6 +30,10 @@ class DatePicker {
   }
 
   formatDate(string) {
+    if (!string) {
+      return this.placeholder;
+    }
+
     const opts = {
       day: 'numeric',
       month: 'short',
@@ -93,6 +99,10 @@ class DatePicker {
 
       this.onMonthChange();
     }
+  }
+
+  clear() {
+    this.flatpickr.clear();
   }
 
   init() {

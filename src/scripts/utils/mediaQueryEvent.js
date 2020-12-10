@@ -4,7 +4,7 @@ const consoleStyle = (background) => `
   padding: 1em;
   font-weight: 700`;
 
-export const isDesktop = !smallScreen.matches;
+export const mqIsDesktop = !smallScreen.matches;
 
 export const mediaQueryEvent = (cbMobile, cbDesktop) => {
   const handleTabletChange = (e) => {

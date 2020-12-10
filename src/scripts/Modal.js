@@ -2,17 +2,15 @@
 import A11yDialog from 'a11y-dialog';
 import scrollLock from 'scroll-lock';
 import SimpleBar from 'simplebar';
-import isMobile from './utils/isMobile';
-import { isDesktop as mqDesktop } from './utils/mediaQueryEvent';
-import Form, { APPOINTMENT, CONSULTATION } from './form/Form';
+import FormConstructor, { APPOINTMENT, CONSULTATION } from './form/FormConstructor';
 import Feedback from './Feedback';
+import isDesktop from './utils/isDesktop';
 
 const MODAL_TYPES = {
   form: 'form',
   feedback: 'feedback',
   iframe: 'iframe',
 };
-const isDesktop = () => !isMobile() && mqDesktop;
 // Переключение видимости между модалками (типами - формы, отзыв, iframe)
 const showElm = (parent, visibleElm) => {
   const elements = parent.querySelectorAll('[data-active]');
@@ -155,8 +153,8 @@ class Modal {
 
     this.dialog = new Dialog(this.pageModal, this.btnsClose).dialog;
 
-    this.formAppointment = new Form(APPOINTMENT);
-    this.formConsultation = new Form(CONSULTATION);
+    this.formAppointment = new FormConstructor(APPOINTMENT);
+    this.formConsultation = new FormConstructor(CONSULTATION);
 
     this.feedbackContainer = this.pageModal.querySelector('[data-type="feedback"]');
     this.iframeContainer = this.pageModal.querySelector('[data-type="iframe"]');

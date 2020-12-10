@@ -43,6 +43,8 @@
     "a11y-dialog": "^5.4.2",
     "choices.js": "^9.0.1",
     "flatpickr": "^4.6.6",
+    "inputmask": "^5.0.5",
+    "postcss-hover-media-feature": "^1.0.0",
     "scroll-lock": "^2.1.4",
     "simplebar": "^5.3.0",
     "swiper": "^6.3.5"

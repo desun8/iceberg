@@ -1,5 +1,5 @@
 import DG from '2gis-maps';
-import { isDesktop } from './utils/mediaQueryEvent';
+import { mqIsDesktop } from './utils/mediaQueryEvent';
 
 class Map {
   constructor() {
@@ -7,7 +7,7 @@ class Map {
     this.coords = [55.728860, 37.670280];
     this.marker = DG.icon({
       iconUrl: 'images/icons/map-marker.svg',
-      iconSize: isDesktop ? [80, 80] : [38, 38],
+      iconSize: mqIsDesktop ? [80, 80] : [38, 38],
       iconAnchor: [22, 94],
       popupAnchor: [-3, -76],
     });

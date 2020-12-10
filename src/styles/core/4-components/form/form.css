@@ -27,7 +27,7 @@
   font-size: 14px;
   line-height: 1.5;
   
-  border: 0;
+  border: 1px solid rgba(51, 53, 112, 0.4);
   border-radius: 100px;
 }
 
@@ -37,6 +37,14 @@
   line-height: inherit;
 }
 
+.form__elm.has-error {
+  color: var(--c-red);
+  background-color: #fff;
+  border-color: var(--c-red);
+}
+
+.form__input,
+.form__textarea,
 .form__select,
 .form__datepicker {
   appearance: none;
@@ -88,5 +96,9 @@
   .form {
     max-width: 310px;
     margin: 0;
+  }
+  
+  .form__submit {
+    justify-self: start;
   }
 }

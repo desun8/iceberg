@@ -15,6 +15,7 @@ import posthtmlInclude from 'posthtml-include';
 import postCss from 'gulp-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssImport from 'postcss-easy-import';
+import postcssHoverMediaFeature from 'postcss-hover-media-feature';
 // import postcssCustomMedia from "postcss-custom-media";
 // import cssNano from 'cssnano';
 
@@ -66,6 +67,7 @@ function html(done) {
 function makeStyle(done) {
   const plugins = [
     postcssImport(),
+    postcssHoverMediaFeature(),
     postcssPresetEnv({ stage: 0 }),
   ];
 
