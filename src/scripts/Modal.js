@@ -26,24 +26,24 @@ const showElm = (parent, visibleElm) => {
 };
 // Для десктопа
 const toggleVisibilityFooterModal = (modal, isShow, isConsultation = false) => {
-  const logo = document.querySelector('.page-footer .header__logo');
+  const footerHeader = document.querySelector('.footer-header');
 
   if (isShow) {
     modal.classList.add('is-active');
-    logo.style.opacity = '0';
-    logo.style.visibility = 'hidden';
+    footerHeader.classList.add('is-small');
 
     const note = modal.querySelector('.page-modal-footer__note');
 
     if (isConsultation) {
+      modal.classList.add('is-full');
       note.style.display = '';
     } else {
+      modal.classList.remove('is-full');
       note.style.display = 'none';
     }
   } else {
     modal.classList.remove('is-active');
-    logo.style.opacity = '';
-    logo.style.visibility = '';
+    footerHeader.classList.remove('is-small');
   }
 };
 const initSimplebar = (parent, target = undefined) => {

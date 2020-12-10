@@ -25,7 +25,7 @@
   
   font-family: inherit;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.3;
   
   border: 1px solid rgba(51, 53, 112, 0.4);
   border-radius: 100px;
@@ -98,7 +98,43 @@
     margin: 0;
   }
   
+  .form__title {
+    margin-bottom: 5px;
+    font-size: 32px;
+    letter-spacing: var(--letter-spacing);
+  }
+  
   .form__submit {
     justify-self: start;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--h900) {
+  .form__textarea {
+    min-height: calc(242em / 16 * 1.3); /* em * line-height */
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-sm) {
+  .form__title {
+    margin-bottom: 0;
+    font-size: 26px;
+  }
+  
+  .form__elm {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .custom-datepicker,
+  .form__datepicker {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .custom-datepicker {
+    padding: 0;
   }
 }

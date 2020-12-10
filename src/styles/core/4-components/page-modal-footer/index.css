@@ -8,7 +8,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
     
     display: grid;
@@ -23,10 +22,15 @@
     opacity: 1;
   }
   
+  .page-modal-footer.is-active.is-full {
+    right: 0;
+  }
+  
   .page-modal-footer__form {
     display: grid;
+    grid-template-rows: auto 1fr;
     grid-gap: 24px;
-    padding: 100px 60px;
+    padding: 55px 60px;
     background-color: var(--c-light-blue);
   }
   

@@ -72,7 +72,7 @@
 
   .header__btn-down,
   .header__social {
-    bottom: -75vh;
+    bottom: calc(-100vh + (110px + 40px + 20px)); /* 100vh - (social-height + bottom + magic-number) */
   }
 
   .header__btn-down {
@@ -82,12 +82,5 @@
   .header__social {
     position: absolute;
     right: 40px;
-  }
-}
-
-@media screen and (min-height: 920px) {
-  .header__btn-down,
-  .header__social {
-    bottom: -80vh;
   }
 }

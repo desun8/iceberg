@@ -16,6 +16,14 @@
 @media screen and (--desktop) {
   .footer-header {
     padding-bottom: 0;
-    /*margin-bottom: 40px;*/
+  }
+  
+  .footer-header.is-small {
+    left: auto;
+  }
+  
+  .footer-header.is-small .header__logo {
+    opacity: 0;
+    visibility: hidden;
   }
 }

@@ -54,11 +54,6 @@
   .page-menu__body {
     display: grid;
     grid-template-columns: minmax(250px, min(28%, 450px)) 1fr;
-    /*align-items: center;*/
-    /*grid-template-areas:*/
-    /*  'nav catalog'*/
-    /*  'btns catalog';*/
-    
     margin-bottom: 0;
     padding-left: 60px;
     padding-right: 170px;
@@ -86,25 +81,11 @@
     margin-bottom: 30px;
   }
   
-  /*.page-menu__nav {*/
-  /*  grid-area: nav;*/
-  /*  align-self: end;*/
-  /*}*/
-  
-  /*.page-menu__catalog {*/
-  /*  grid-area: catalog;*/
-  /*}*/
-  
   .page-menu__btns--sm {
     display: none;
   }
   
   .page-menu__btns {
-    /*grid-area: btns;*/
-    /*align-self: start;*/
-    
-    /*justify-content: start;*/
-    
     padding-left: 0;
     padding-right: 0;
   }
@@ -119,7 +100,7 @@
   
   .page-menu__social {
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     right: 40px;
     grid-gap: 10px;
   }
