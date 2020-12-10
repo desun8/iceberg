@@ -2,7 +2,7 @@
 import A11yDialog from 'a11y-dialog';
 import scrollLock from 'scroll-lock';
 import SimpleBar from 'simplebar';
-import FormConstructor, { APPOINTMENT, CONSULTATION } from './form/FormConstructor';
+import Form, { APPOINTMENT, CONSULTATION } from './form/Form';
 import Feedback from './Feedback';
 import isDesktop from './utils/isDesktop';
 
@@ -153,8 +153,8 @@ class Modal {
 
     this.dialog = new Dialog(this.pageModal, this.btnsClose).dialog;
 
-    this.formAppointment = new FormConstructor(APPOINTMENT);
-    this.formConsultation = new FormConstructor(CONSULTATION);
+    this.formAppointment = new Form(APPOINTMENT);
+    this.formConsultation = new Form(CONSULTATION);
 
     this.feedbackContainer = this.pageModal.querySelector('[data-type="feedback"]');
     this.iframeContainer = this.pageModal.querySelector('[data-type="iframe"]');
