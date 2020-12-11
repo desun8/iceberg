@@ -7,19 +7,19 @@
   background-color: var(--c-deep-blue);
 }
 
-.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
   left: 0;
   right: 0;
   width: 100%;
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar,
-.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
   background-color: #fff;
 }
 
 .simplebar-track.simplebar-vertical,
 .simplebar-track.simplebar-vertical .simplebar-scrollbar,
-.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
   border-radius: 10px;
 }

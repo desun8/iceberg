@@ -8,19 +8,22 @@
 @media screen and (--desktop) {
   .menu-catalog {
     --bd: 1px solid var(--c-light-grey);
-    
+
+    position: relative;
+    z-index: 15;
+
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 50vh);
     grid-gap: 0;
-    
+
     padding: 0;
     border-left: var(--bd);
   }
-  
+
   .menu-catalog__item {
     border-right: var(--bd);
   }
-  
+
   .menu-catalog__item:nth-child(-n+3) {
     border-bottom: var(--bd);
   }

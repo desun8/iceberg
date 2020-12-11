@@ -1,11 +1,19 @@
-.swiper-container {
+.feedback-slider.swiper-container {
   overflow: visible;
 }
 
-.swiper-container .feedback-list {
+.feedback-slider.swiper-container .feedback-list {
   margin-bottom: 0;
 }
 
-.swiper-container .feedback-card {
+.feedback-slider.swiper-container .feedback-card {
   margin-bottom: 0;
+}
+
+/*
+  TODO: возможно надо будет убрать.
+  Данный фикс только если слайды сменяются через фейд
+*/
+.feedback-slider.swiper-container .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0 !important;
 }

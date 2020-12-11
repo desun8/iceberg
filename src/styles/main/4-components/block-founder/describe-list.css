@@ -1,8 +1,7 @@
 .describe-list {
   display: grid;
   grid-row-gap: 30px;
-  margin: 0;
-  margin-bottom: 30px;
+  margin: 0 0 30px;
 }
 
 .describe-list__title {
@@ -24,27 +23,27 @@
   .describe-list {
     position: relative;
     padding-top: 20px;
-    
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(50% - 98px), 1fr));  /* 50% - grid-column-gap */
     grid-column-gap: 98px;
   }
-  
+
   .describe-list::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    
+
     height: 1px;
     background-color: var(--c-deep-blue);
   }
-  
+
   .describe-list__title {
     margin-bottom: 8px;
   }
-  
+
   .describe-list__describe {
     font-size: 12px;
   }

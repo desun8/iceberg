@@ -20,7 +20,7 @@
 @custom-media --w448 (width >= 28em); /* 448 */
 
 @custom-media --h900 (height >= 56.25em); /* 900 */
-@custom-media --desktop-sm  (--desktop) and (height < 57.5em); /* 760 */
+@custom-media --desktop-sm  (--desktop) and (height < 47.5em); /* 760 */
 
 /* desktop first */
 /* @custom-media --desktop-md (width <= 90em); */

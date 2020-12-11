@@ -51,21 +51,21 @@
     width: 270px;
     height: 250px;
   }
-  
+
   .no-webp .catalog__img {
     background-image: image-set(
       "./images/icon-list--md.png" 1x,
       "./images/icon-list@2x--md.png" 2x
     );
   }
-  
+
   .webp .catalog__img {
     background-image: image-set(
       "./images/icon-list--md.webp" 1x,
       "./images/icon-list@2x--md.webp" 2x
     );
   }
-  
+
   .catalog__title {
     font-size: 22px;
   }
@@ -75,67 +75,68 @@
 @media screen and (--tablet-lg) {
   .catalog {
     --pd-x: 5vw;
-  
+
     position: relative;
     display: grid;
     grid-template-columns: 560px 1fr;
     grid-auto-flow: column;
     align-items: center;
-    
+
     margin: 0;
     padding: 15px var(--pd-x);
     background-color: var(--c-light-grey, #f8f8f8);
     text-align: left;
     border-radius: 20px;
     overflow: hidden;
-  
+
     transition-property: color;
     transition-duration: var(--trans-dur);
   }
-  
+
   .catalog:hover {
     color: #fff;
   }
-  
+
   .catalog__gradient {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    
+
     display: block;
     background: linear-gradient(176.17deg, #9cccf8 27.76%, #7dc0ff 54.82%);
+    border-radius: inherit;
     opacity: 0;
-    
+
     transition-property: opacity;
     transition-duration: var(--trans-dur);
   }
-  
+
   .catalog:hover .catalog__gradient {
     opacity: 1;
   }
-  
+
   .catalog__img,
   .catalog__body {
     z-index: 2;
   }
-  
+
   .catalog__img {
     grid-column: 2/3;
     justify-self: end;
     margin: 0;
   }
-  
+
   .catalog__body {
     grid-column: 1/2;
   }
-  
+
   .catalog__title {
     margin-bottom: 15px;
     font-size: 32px;
   }
-  
+
   .catalog__describe {
     font-size: 16px;
   }
@@ -146,7 +147,7 @@
   .catalog {
     --pd-x: 10vw;
   }
-  
+
   .catalog::before,
   .catalog::after {
     content: '';
@@ -154,19 +155,19 @@
     top: 0;
     bottom: 0;
     z-index: 1;
-    
+
     width: 276px;
     height: 100%;
-    
+
     background-repeat: no-repeat;
     background-position: -50% 50%;
   }
-  
+
   .catalog::after {
     right: 0;
     transform: scale(-1);
   }
-  
+
   .no-webp .catalog::before,
   .no-webp .catalog::after {
     background-image: image-set(
@@ -174,7 +175,7 @@
       "./images/catalog-bg@2x.png" 2x
     );
   }
-  
+
   .webp .catalog::before,
   .webp .catalog::after {
     background-image: image-set(

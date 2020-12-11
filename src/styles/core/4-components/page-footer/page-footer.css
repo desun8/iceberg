@@ -7,7 +7,7 @@
 
 .page-footer__anchor {
   position: absolute;
-  top: -100px;
+  top: 0;
 }
 
 .page-footer__to-top {
@@ -34,7 +34,7 @@
   .page-footer__to-top {
     display: none;
   }
-  
+
   .page-footer__social {
     position: absolute;
     bottom: 40px;
@@ -58,7 +58,7 @@
     /*height: max(840px, 94vh);*/
     min-height: 100vh;
   }
-  
+
   .page-footer .footer {
     position: relative;
     z-index: 2;

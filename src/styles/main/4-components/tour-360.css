@@ -23,7 +23,7 @@
   left: -5px;
   bottom: 0;
   right: -5px;
-  
+
   background-color: #262626;
   opacity: 0.4;
   filter: blur(24px);
@@ -55,22 +55,22 @@
     width: auto;
     color: var(--c-deep-blue);
   }
-  
+
   .tour-360__wrapper {
     grid-auto-flow: column;
     grid-gap: 0;
     align-items: center;
   }
-  
+
   .tour-360__title {
     grid-column: 2/3;
     font-weight: 500;
   }
-  
+
   .tour-360__title::before {
     content: none;
   }
-  
+
   .tour-360__btn {
     background-color: transparent;
     border: 0;

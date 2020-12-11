@@ -12,7 +12,7 @@ const MODAL_TYPES = {
   iframe: 'iframe',
 };
 // Переключение видимости между модалками (типами - формы, отзыв, iframe)
-const showElm = (parent, visibleElm) => {
+const showModalElm = (parent, visibleElm) => {
   const elements = parent.querySelectorAll('[data-active]');
   elements.forEach((elm) => {
     if (elm === visibleElm) {
@@ -25,27 +25,6 @@ const showElm = (parent, visibleElm) => {
   });
 };
 // Для десктопа
-const toggleVisibilityFooterModal = (modal, isShow, isConsultation = false) => {
-  const footerHeader = document.querySelector('.footer-header');
-
-  if (isShow) {
-    modal.classList.add('is-active');
-    footerHeader.classList.add('is-small');
-
-    const note = modal.querySelector('.page-modal-footer__note');
-
-    if (isConsultation) {
-      modal.classList.add('is-full');
-      note.style.display = '';
-    } else {
-      modal.classList.remove('is-full');
-      note.style.display = 'none';
-    }
-  } else {
-    modal.classList.remove('is-active');
-    footerHeader.classList.remove('is-small');
-  }
-};
 const initSimplebar = (parent, target = undefined) => {
   const elm = target || parent.querySelector('.js-simplebar');
   // eslint-disable-next-line no-new
@@ -53,20 +32,59 @@ const initSimplebar = (parent, target = undefined) => {
     autoHide: false,
   });
 };
-const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight);
-const closeMenu = (btn, cb) => {
-  if (btn.closest('.page-menu')) {
-    cb();
+// фикс проблемы safari для ifram'а (в данном случае - matterport) в фуллскрине
+// (в данном случае .page-header был поверх ifram'а в фуллскрине)
+const pageHeader = document.querySelector('.page-header');
+const togglePageHeader = (isReset) => {
+  pageHeader.style.zIndex = isReset ? '' : 0;
+};
+
+class FooterModal {
+  static toggleVisibility(modal, isShow, isConsultation = false) {
+    const footerHeader = document.querySelector('.footer-header');
+    const footerMap = document.querySelector('.footer-map'); // firefox backdrop-filter fix
+
+    if (isShow) {
+      modal.classList.add('is-active');
+      footerHeader.classList.add('is-small');
+
+      const note = modal.querySelector('.page-modal-footer__note');
+
+      if (isConsultation) {
+        modal.classList.add('is-full');
+        note.style.display = '';
+        footerMap.classList.add('is-blur'); // firefox backdrop-filter fix
+      } else {
+        modal.classList.remove('is-full');
+        note.style.display = 'none';
+        footerMap.classList.remove('is-blur'); // firefox backdrop-filter fix
+      }
+    } else {
+      modal.classList.remove('is-active');
+      footerHeader.classList.remove('is-small');
+      footerMap.classList.remove('is-blur'); // firefox backdrop-filter fix
+    }
   }
-};
-const setFooterModal = (type, modal, btn, close) => {
-  const isConsultation = type === CONSULTATION;
-  closeMenu(btn, close);
-  toggleVisibilityFooterModal(modal, true, isConsultation);
-  // eslint-disable-next-line no-unused-expressions
-  isConsultation && initSimplebar(modal);
-  scrollToBottom();
-};
+
+  static scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  static closeMenu(btn, cb) {
+    if (btn.closest('.page-menu')) {
+      cb();
+    }
+  }
+
+  static setup(type, modal, btn, close) {
+    const isConsultation = type === CONSULTATION;
+    this.closeMenu(btn, close);
+    this.toggleVisibility(modal, true, isConsultation);
+    // eslint-disable-next-line no-unused-expressions
+    isConsultation && initSimplebar(modal);
+    this.scrollToBottom();
+  }
+}
 
 class Dialog {
   constructor(element, btnsClose) {
@@ -81,6 +99,7 @@ class Dialog {
       btn.classList.add('hamburger--close');
     });
     scrollLock.disablePageScroll(this.element);
+    document.documentElement.classList.add('dialog-open'); // firefox backdrop-filter fix
   }
 
   handleHide() {
@@ -88,6 +107,7 @@ class Dialog {
       btn.classList.remove('hamburger--close');
     });
     scrollLock.enablePageScroll(this.element);
+    document.documentElement.classList.remove('dialog-open'); // firefox backdrop-filter fix
   }
 
   initDialog() {
@@ -106,18 +126,18 @@ class Open {
     switch (type) {
       case APPOINTMENT:
         formAppointment.init();
-        showElm(modal, modal.querySelector('div[data-type="form-appointment"]'));
+        showModalElm(modal, modal.querySelector('div[data-type="form-appointment"]'));
         break;
       case CONSULTATION:
         formConsultation.init();
-        showElm(modal, modal.querySelector('div[data-type="form-consultation"]'));
+        showModalElm(modal, modal.querySelector('div[data-type="form-consultation"]'));
         break;
       default:
         break;
     }
 
     if (isScreenSm) {
-      setFooterModal(
+      FooterModal.setup(
         type,
         modal,
         btn,
@@ -127,7 +147,7 @@ class Open {
   }
 
   static feedback(modalPage, container, btn) {
-    showElm(modalPage, container);
+    showModalElm(modalPage, container);
 
     const { id } = btn.dataset;
     Feedback.add(container, id);
@@ -138,7 +158,11 @@ class Open {
   }
 
   static iframe(modalPage, container) {
-    showElm(modalPage, container);
+    showModalElm(modalPage, container);
+
+    if (isDesktop()) {
+      togglePageHeader(false);
+    }
   }
 }
 
@@ -150,6 +174,7 @@ class Modal {
     this.btnsClose = Array.from(document.querySelectorAll('.js-modal-close'));
     this.footerModal = document.querySelector('.page-modal-footer');
     this.pageModal = document.querySelector('#page-modal');
+    this.pageModalBody = this.pageModal.querySelector('.page-modal__body');
 
     this.dialog = new Dialog(this.pageModal, this.btnsClose).dialog;
 
@@ -158,6 +183,8 @@ class Modal {
 
     this.feedbackContainer = this.pageModal.querySelector('[data-type="feedback"]');
     this.iframeContainer = this.pageModal.querySelector('[data-type="iframe"]');
+
+    this.type = undefined;
 
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -168,21 +195,19 @@ class Modal {
 
   handleOpen(e) {
     const { currentTarget } = e;
-    let type;
-
     // Определяем тип модалки (разница на декстопе):
     // • ФОРМА
     // • ОТЗЫВ
     // • IFRAME
     if (currentTarget.matches('.js-form-open')) {
-      type = MODAL_TYPES.form;
+      this.type = MODAL_TYPES.form;
     } else if (currentTarget.matches('.js-feedback-open')) {
-      type = MODAL_TYPES.feedback;
+      this.type = MODAL_TYPES.feedback;
     } else {
-      type = currentTarget.matches('.js-iframe-open') ? MODAL_TYPES.iframe : '';
+      this.type = currentTarget.matches('.js-iframe-open') ? MODAL_TYPES.iframe : '';
     }
 
-    if (type === MODAL_TYPES.form) {
+    if (this.type === MODAL_TYPES.form) {
       Open.form(
         this.pageModal,
         this.footerModal,
@@ -193,27 +218,31 @@ class Modal {
       );
     }
 
-    if (type === MODAL_TYPES.feedback) {
+    if (this.type === MODAL_TYPES.feedback) {
       Open.feedback(this.pageModal, this.feedbackContainer, currentTarget);
     }
 
-    if (type === MODAL_TYPES.iframe) {
+    if (this.type === MODAL_TYPES.iframe) {
       Open.iframe(this.pageModal, this.iframeContainer);
     }
 
     // Если это не модалка формы для десктопа десктоп,
     // то показывается диалог и блокируется скролл
-    if (!(type === MODAL_TYPES.form && isDesktop())) {
+    if (!(this.type === MODAL_TYPES.form && isDesktop())) {
       this.dialog.show();
     }
   }
 
   handleClose() {
-    toggleVisibilityFooterModal(this.footerModal, false);
+    FooterModal.toggleVisibility(this.footerModal, false);
   }
 
   handleCloseDialog() {
     this.dialog.hide();
+
+    if (this.type === MODAL_TYPES.iframe && isDesktop()) {
+      togglePageHeader(true);
+    }
   }
 
   addEvents() {
@@ -225,6 +254,10 @@ class Modal {
       const isFooterModal = btn.closest('.page-modal-footer');
 
       btn.addEventListener('click', isFooterModal ? this.handleClose : this.handleCloseDialog);
+    });
+
+    this.pageModalBody.addEventListener('click', ({ currentTarget, target }) => {
+      if (currentTarget === target) this.handleCloseDialog();
     });
   }
 }

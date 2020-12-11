@@ -7,7 +7,7 @@ import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
 import Modal from './scripts/Modal';
-import Menu from './scripts/menu';
+import Menu from './scripts/Menu';
 
 // меню
 const menu = new Menu();

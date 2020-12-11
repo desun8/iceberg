@@ -4,9 +4,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  
+
   display: none;
-  
+
   background-color: #fff;
 }
 
@@ -33,17 +33,17 @@
   .success-message {
     background-color: var(--c-light-blue);
   }
-  
+
   .success-message__wrapper {
     height: 100%;
   }
-  
+
   .success-message__title {
     margin-bottom: 40px;
     font-size: 32px;
     font-weight: 700;
   }
-  
+
   .success-message__btn {
     align-self: start;
   }

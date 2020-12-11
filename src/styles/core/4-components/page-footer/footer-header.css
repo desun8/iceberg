@@ -17,11 +17,11 @@
   .footer-header {
     padding-bottom: 0;
   }
-  
+
   .footer-header.is-small {
     left: auto;
   }
-  
+
   .footer-header.is-small .header__logo {
     opacity: 0;
     visibility: hidden;

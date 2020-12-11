@@ -5,7 +5,7 @@
   bottom: 0;
   right: 0;
   z-index: 99;
-  
+
   background-color: #fff;
   overflow: auto;
 }
@@ -50,7 +50,7 @@
   .page-menu {
     overflow: hidden;
   }
-  
+
   .page-menu__body {
     display: grid;
     grid-template-columns: minmax(250px, min(28%, 450px)) 1fr;
@@ -59,45 +59,45 @@
     padding-right: 170px;
     padding-right: 130px;
   }
-  
+
   .page-menu__header {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
   }
-  
+
   .page-menu__nav,
   .page-menu__catalog,
   .page-menu__btns {
     margin-bottom: 0;
   }
-  
+
   .page-menu__nav {
     padding-top: 30vh;
   }
-  
+
   .page-menu__nav .nav {
     margin-bottom: 30px;
   }
-  
+
   .page-menu__btns--sm {
     display: none;
   }
-  
+
   .page-menu__btns {
     padding-left: 0;
     padding-right: 0;
   }
-  
+
   .page-menu__btns .btn {
     width: max-content;
   }
-  
+
   .page-menu__btns .btn:first-child {
     width: 240px;
   }
-  
+
   .page-menu__social {
     position: absolute;
     bottom: 40px;

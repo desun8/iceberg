@@ -4,7 +4,7 @@
   font-size: 22px;
   font-weight: 500;
   letter-spacing: var(--letter-spacing);
-  
+
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -46,22 +46,24 @@
     margin-bottom: 30px;
     border: 0;
   }
-  
+
   .nav__item:last-child {
     margin-bottom: 0;
   }
-  
+
   .nav__item > * {
     width: max-content;
     padding: 0;
   }
-  
+
   .nav__accordion .accordion__trigger {
     width: max-content;
     padding-right: 12px;
   }
-  
+
   /*.nav__accordion .accordion__icon {*/
+
   /*  margin-left: 10px;*/
+
   /*}*/
 }

@@ -2,10 +2,10 @@ body {
   --page-gap: 15px;
   --trsdu: 0.3s; /* TODO: удалить */
   --trans-dur: 0.3s;
-  
+
   /* fonts */
   --letter-spacing: 0.08px;
-  
+
   /* colors */
   --c-light-grey: #f8f8f8;
   --c-deep-blue: #333570;

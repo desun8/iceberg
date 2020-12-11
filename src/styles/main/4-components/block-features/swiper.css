@@ -1,19 +1,19 @@
-.swiper-container.feature-slider {
+.feature-slider.swiper-container {
   overflow: visible;
 }
 
 /* LIST */
-.swiper-container .features-list {
+.feature-slider.swiper-container .features-list {
   display: grid;
   grid-auto-flow: column;
   margin-bottom: 15px;
 }
 
-.swiper-container .features-list__item {
+.feature-slider.swiper-container .features-list__item {
   margin-bottom: 0;
 }
 
 /* CARD */
-.swiper-container .feature-card {
+.feature-slider.swiper-container .feature-card {
   height: 100%;
 }

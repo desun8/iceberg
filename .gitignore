@@ -1,3 +1,7 @@
 /node_modules/
 /.idea/
 /dist/
+/stats.html
+/src/styles/core/3-utilities/wrapper.css
+/src/styles/core/2-base/inert.css
+/src/styles/@root.scss

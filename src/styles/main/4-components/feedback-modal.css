@@ -49,16 +49,16 @@
     padding-bottom: 30px;
     text-align: left;
   }
-  
+
   .feedback-modal__picture {
     display: none;
   }
-  
+
   .feedback-modal__name {
     margin-bottom: 10px;
     font-size: 32px;
   }
-  
+
   .feedback-modal__type {
     font-size: 14px;
     line-height: 1.2;
