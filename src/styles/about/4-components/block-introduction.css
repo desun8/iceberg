@@ -1,0 +1,26 @@
+.block-introduction {
+  padding: 70px var(--page-gap);
+}
+
+.block-introduction__text {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.block-introduction__text:last-of-type {
+  margin-bottom: 0;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .block-introduction {
+    padding-top: 125px;
+    padding-bottom: 125px;
+  }
+  
+  .block-introduction__text {
+    max-width: 610px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+  }
+}

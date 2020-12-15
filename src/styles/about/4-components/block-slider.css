@@ -1,0 +1,111 @@
+.block-slider {
+  margin-bottom: 40px;
+  padding: 0 var(--page-gap);
+}
+
+.block-slider .swiper-wrapper {
+  margin-bottom: 20px;
+}
+
+.block-slider .swiper-slide .wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  margin-bottom: 20px;
+  padding-top: calc(150 / 290 * 100%);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.block-slider .swiper-slide .wrapper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%);
+  opacity: 0.4;
+  border-radius: 0 0 5px 5px;
+}
+
+.block-slider .swiper-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.block-slider .swiper-slide figcaption {
+  /*padding-top: 20px;*/
+  color: inherit;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.block-slider .swiper-controls {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .block-slider .swiper-slide .wrapper {
+    padding-top: calc(886 / 1722 * 100%);
+    border-radius: 20px;
+  }
+  
+  .block-slider .swiper-slide figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    color: #fff;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .block-slider .swiper-container {
+    position: relative;
+  }
+  
+  .block-slider .swiper-wrapper {
+    z-index: unset;
+  }
+  
+  .block-slider .btn-slider {
+    position: absolute;
+    top: 50%;
+    left: 38px;
+    transform: translateY(-50%);
+  }
+  
+  .block-slider .btn-slider--next {
+    left: auto;
+    right: 38px;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  .block-slider .btn-slider .circle-progress-bar {
+    display: none;
+  }
+  
+  .block-slider .swiper-pagination {
+    display: none;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  .block-slider {
+    margin-bottom: 150px;
+  }
+}

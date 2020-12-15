@@ -20,6 +20,7 @@
     "eslint-plugin-import": "^2.22.1",
     "fs-extra": "^9.0.1",
     "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.0",
     "gulp-posthtml": "^3.0.5",
     "gulp-sourcemaps": "^3.0.0",

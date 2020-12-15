@@ -1,0 +1,48 @@
+.block-hero {
+  min-height: 100vh;
+  padding: 140px var(--page-gap) 40px;
+  background: #f4f4f7;
+}
+
+.block-hero__title {
+  margin-bottom: 5px;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: center;
+}
+
+.block-hero__text {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.block-hero__slider {
+  --vh: calc(568 * 0.01);
+  --h: 258; /* высота по макету 🤷🏻‍♂️ */
+  height: calc(var(--h) / var(--vh) * 1vh);
+  margin-left: calc(var(--page-gap) * -1);
+  margin-right: calc(var(--page-gap) * -1);
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .block-hero {
+    padding-top: 150px;
+    background: linear-gradient(180deg, #f2f2f6 0%, #dddde2 100%);
+  }
+  
+  .block-hero__title {
+    margin-bottom: 15px;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  .block-hero__text {
+    font-size: 24px;
+    letter-spacing: var(--letter-spacing);
+  }
+}

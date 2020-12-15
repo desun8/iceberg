@@ -1,0 +1,60 @@
+<section class="block-slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <figure class="swiper-slide">
+        <div class="wrapper">
+          <img
+            srcset="
+            images/__dev-img-320.jpg 320w,
+            images/__dev-img.jpg"
+            src="images/__dev-img.jpg"
+            alt="">
+        </div>
+        <figcaption>An elephant at sunset</figcaption>
+      </figure>
+      <figure class="swiper-slide">
+        <div class="wrapper">
+          <img
+            srcset="
+            images/__dev-img-2-320.jpg 320w,
+            images/__dev-img-2.jpg"
+            src="images/__dev-img-2.jpg"
+            alt="">
+        </div>
+        <figcaption>An elephant at sunset</figcaption>
+      </figure>
+      <figure class="swiper-slide">
+        <div class="wrapper">
+          <img
+            srcset="
+            images/__dev-img-3-320.jpg 320w,
+            images/__dev-img-3.jpg"
+            src="images/__dev-img-3.jpg"
+            alt="">
+        </div>
+        <figcaption>An elephant at sunset</figcaption>
+      </figure>
+    </div>
+
+    <div class="swiper-controls">
+      <div class="swiper-pagination"></div>
+      <!--   TODO: Сделать иконки через инлайновый спрайт (как минимум 3 раза используется)   -->
+      <button class="btn-slider  btn-slider--prev" type="button" aria-label="Предыдущий слайд">
+        <svg class="btn-slider__icon" width="15" height="15">
+          <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"/>
+          <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"/>
+        </svg>
+
+      </button>
+      <button class="btn-slider  btn-slider--next" type="button" aria-label="Следующий слайд">
+        <svg class="btn-slider__icon" width="15" height="15">
+          <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"/>
+          <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"/>
+        </svg>
+        <svg class="circle-progress-bar" width="50" height="50">
+          <circle cx="25" cy="25" r="24.6" fill="transparent" stroke-width="1"></circle>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

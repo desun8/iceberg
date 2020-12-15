@@ -1,24 +1,19 @@
 // Core
 import gulp from 'gulp';
-// import rename from "gulp-rename";
 import browserSync from 'browser-sync';
 import sourceMaps from 'gulp-sourcemaps';
 import fs from 'fs-extra';
-// import path from "path";
+import plumber from 'gulp-plumber';
 
 // HTML
 import posthtml from 'gulp-posthtml';
 import posthtmlInclude from 'posthtml-include';
-// import fileInclude from "gulp-file-include";
 // Css
-// import sass from "gulp-sass";
 import postCss from 'gulp-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssImport from 'postcss-easy-import';
 import postcssHoverMediaFeature from 'postcss-hover-media-feature';
-// import postcssCustomMedia from "postcss-custom-media";
-// import cssNano from 'cssnano';
-
+// import tailwindcss from 'tailwindcss';
 // Img
 // import imgMin from "gulp-imagemin";
 // import imgMinPngquant from "imagemin-pngquant";
@@ -38,9 +33,9 @@ import commonJs from 'rollup-plugin-commonjs';
 
 const PATH = {
   html: ['src/index.html', 'src/templates/**/*.html'],
-  css: ['src/styles/core.css', 'src/styles/main.css'],
+  css: ['src/styles/core.css', 'src/styles/main.css', 'src/styles/about.css'],
   cssWatch: 'src/styles/**/**/*.css',
-  jsWatch: ['src/main.js', 'src/scripts/**/*.js'],
+  jsWatch: ['./src/main.js', './src/about.js', 'src/scripts/**/*.js'],
   images: ['src/images/**/*.{png,jpeg,jpg}'],
 };
 
@@ -56,28 +51,42 @@ function html(done) {
   ];
   const options = {};
 
-  gulp.src('src/index.html')
-    // .pipe(tap((file) => path = file.path))
+  gulp.src('src/*.html')
+    .pipe(plumber())
     .pipe(posthtml(plugins, options))
     .pipe(gulp.dest('dist'));
   done();
 }
 
 // CSS
+// function wrapPipe(taskFn) {
+//   return function (done) {
+//     const onSuccess = function () {
+//       done();
+//     };
+//     const onError = function (err) {
+//       done(err);
+//     };
+//     const outStream = taskFn(onSuccess, onError);
+//     if (outStream && typeof outStream.on === 'function') {
+//       outStream.on('end', onSuccess);
+//     }
+//   };
+// }
 function makeStyle(done) {
   const plugins = [
     postcssImport(),
+    // tailwindcss(),
     postcssHoverMediaFeature(),
     postcssPresetEnv({ stage: 0 }),
   ];
 
   gulp
     .src(PATH.css)
+    .pipe(plumber())
     .pipe(sourceMaps.init())
-    // .pipe(sass().on('error', sass.logError))
     .pipe(postCss(plugins))
     .pipe(sourceMaps.write('.'))
-    // .pipe(rename('style.css'))
     .pipe(gulp.dest('dist'));
 
   done();
@@ -86,7 +95,7 @@ function makeStyle(done) {
 // JS
 export function js(done) {
   rollup({
-    input: './src/main.js',
+    input: ['./src/main.js', './src/about.js'],
     plugins: [
       nodeResolve(), // подключение модулей node
       commonJs({

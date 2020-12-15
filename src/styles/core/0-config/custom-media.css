@@ -15,7 +15,7 @@
 @custom-media --only-mobile (width < 48em);
 @custom-media --only-tablet (48em <= width < 64em);
 @custom-media --only-mobile-tablet (width < 64em);
-@custom-media --only-sm-screen (width < 68.75em);
+@custom-media --only-sm-screen (width < 68.75em); /* 1100 */
 
 @custom-media --w448 (width >= 28em); /* 448 */
 

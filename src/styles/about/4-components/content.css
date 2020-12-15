@@ -1,0 +1,27 @@
+.content__title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.content__text {
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.content__text:last-of-type {
+  margin-bottom: 30px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .content__title {
+    margin-bottom: 35px;
+    font-size: 32px;
+  }
+  
+  .content__text {
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+}

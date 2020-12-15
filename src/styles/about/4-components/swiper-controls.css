@@ -1,0 +1,15 @@
+.swiper-controls {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-controls .swiper-pagination {
+  position: static;
+  min-width: 34px;
+  font-size: 14px;
+  font-weight: 500;
+  grid-column: 2/3;
+}

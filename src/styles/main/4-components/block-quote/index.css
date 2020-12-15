@@ -14,14 +14,18 @@
   background: linear-gradient(140.39deg, #9cccf8 7.31%, #7dc0ff 59.63%);
 }
 
+.block-quote--purple .block-quote__gradient {
+  background: linear-gradient(208.78deg, #6b6eb8 50.26%, #333570 137.14%);
+}
+
 .block-quote__bg-img {
   position: absolute;
   bottom: -22px;
   left: -102px;
-
+  
   width: 292px;
   height: 292px;
-
+  
   background-image: url("images/icon-consulting.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -53,7 +57,7 @@
   .block-quote__body {
     text-align: center;
   }
-
+  
   .block-quote__body > *:not(.btn) {
     text-align: left;
   }
@@ -66,25 +70,25 @@
     padding: 55px var(--inner-gap);
     border-radius: 20px;
   }
-
+  
   .block-quote__bg-img {
     left: auto;
     right: var(--inner-gap);
-
+    
     width: 250px;
     height: 250px;
     opacity: 1;
   }
-
+  
   .block-quote__body {
     max-width: 620px;
     padding: 0;
   }
-
+  
   .block-quote__title {
     font-size: 36px;
   }
-
+  
   .block-quote__describe {
     font-weight: 500;
   }

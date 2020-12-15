@@ -1,0 +1,39 @@
+/* LIB */
+@import "./main/1-lib/swiper-bundle.css";
+
+/* COMPONENTS */
+@import "./about/4-components/swiper-controls.css";
+@import "./about/4-components/content.css";
+@import "./about/4-components/block-hero/block-hero.css";
+@import "./about/4-components/block-hero/hero-slider.css";
+@import "./about/4-components/block-introduction.css";
+@import "./about/4-components/block-team/block-team.css";
+@import "./about/4-components/block-team/team-slider.css";
+@import "./about/4-components/block-specialization.css";
+@import "./about/4-components/block-social-project.css";
+@import "./about/4-components/block-steps/block-steps.css";
+@import "./about/4-components/block-steps/steps-slider.css";
+@import "./main/4-components/block-quote/index.css";
+@import "./about/4-components/block-quote.css";
+@import "./about/4-components/block-slider.css";
+
+.page-header .hamburger {
+  --color: #fff;
+  --bg-c: var(--c-deep-blue);
+}
+
+/* TODO: Лучше переделать. Все зависит от того, как будет на беке собираться шаблон */
+.page-header button[data-type="consultation"] {
+  --color: var(--c-deep-blue);
+  --bg-c: var(--c-deep-blue);
+}
+
+.page-header .header__btn-down {
+  --color: var(--c-deep-blue);
+  --bg-c: var(--c-deep-blue);
+}
+
+.page-header .social-list__link {
+  --color: #fff;
+  --bg-c: var(--c-deep-blue);
+}

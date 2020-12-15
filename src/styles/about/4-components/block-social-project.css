@@ -1,0 +1,97 @@
+.block-social-project {
+  margin-bottom: 90px;
+  padding-left: var(--page-gap);
+  padding-right: var(--page-gap);
+}
+
+.block-social-project__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .block-social-project {
+    display: grid;
+    grid-template-columns: 620px;
+    grid-gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 180px;
+    padding: 110px var(--deep-gap);
+  }
+  
+  .block-social-project .content {
+    padding-left: min(3vw, 56px);
+    padding-right: min(3vw, 56px);
+  }
+  
+  .block-social-project__img {
+    position: relative;
+    margin: 0;
+    padding-top: 60%;
+  }
+  
+  
+  .block-social-project__img img {
+    display: none;
+  }
+  
+  .block-social-project .bg-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    
+    width: 100%;
+    height: 100%;
+    
+    background-image: url('./images/logo-spasizub.svg');
+    background-repeat: no-repeat;
+    background-size: 68%;
+    background-position: center;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .block-social-project {
+    grid-template-columns: 1fr min(45%, 500px);
+    grid-gap: 100px;
+    padding-left: 0;
+  }
+  
+  .block-social-project__img {
+    width: 100%;
+    height: 100%;
+    padding-top: 0;
+  }
+  
+  .block-social-project .bg-img {
+    background-size: cover;
+  }
+  
+  .block-social-project__img img {
+    display: none;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  .block-social-project .bg-img {
+    width: 110%;
+    height: 155%;
+    transform: translate3d(-54%, -50%, 0);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  .block-social-project .bg-img {
+    width: 110%;
+    height: 177.174%;
+    transform: translate3d(-60%, -50%, 0);
+  }
+}

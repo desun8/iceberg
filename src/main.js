@@ -1,22 +1,13 @@
 import './scripts/lib/modernizr'; // Проверяет на поддержку webp и webm
 import { mediaQueryEvent } from './scripts/utils/mediaQueryEvent';
-import Map from './scripts/map';
 import CarouselFeature from './scripts/Carousel/CarouselFeature';
 import TabsFeature from './scripts/Carousel/TabsFeature';
 import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
-import Modal from './scripts/Modal';
-import Menu from './scripts/Menu';
+import core from './core';
 
-// меню
-const menu = new Menu();
-
-// модалка
-new Modal(menu);
-
-// карта
-new Map();
+core();
 
 // карусель особенности
 const initFeatureCarousel = () => {
