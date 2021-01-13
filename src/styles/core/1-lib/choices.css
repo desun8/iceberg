@@ -371,7 +371,11 @@
 }
 
 .choices__placeholder {
-  opacity: 0.5;
+  opacity: 0.6;
+}
+
+.has-error .choices__placeholder {
+  opacity: 1;
 }
 
 /*=====  End of Choices  ======*/

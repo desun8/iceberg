@@ -15,6 +15,10 @@
   fill: #fff;
 }
 
+.has-error .custom-select__icon {
+  fill: #a0a3c2;
+}
+
 .choices.is-open + .custom-select__icon {
   transform: translateY(-50%) rotate(-180deg);
 }

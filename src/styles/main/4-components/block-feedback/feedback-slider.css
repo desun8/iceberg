@@ -53,6 +53,11 @@
   background-color: var(--c-deep-blue);
 }
 
+.feedback-slider__btn--next .icon,
+.feedback-slider__btn--prev .icon {
+  transform: translateX(2px);
+}
+
 .feedback-slider__btn .icon {
   fill: currentColor;
 }
@@ -117,6 +122,10 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-md) {
+  .feedback-slider {
+    --inner-gap: min(6.5vw, 122px);
+  }
+
   .feedback-slider__bg-circle {
     left: min(2.2vw, 40px);
   }

@@ -54,6 +54,9 @@ class CarouselFeedback extends Carousel {
     const pagination = {
       el: this.elm.querySelector('.feedback-slider__pagination'),
       type: 'fraction',
+      renderFraction(currentClass, totalClass) {
+        return `<span class="${currentClass}"></span> \\ <span class="${totalClass}"></span>`;
+      },
     };
 
     const navigation = {

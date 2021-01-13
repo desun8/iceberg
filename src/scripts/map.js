@@ -4,7 +4,7 @@ import { mqIsDesktop } from './utils/mediaQueryEvent';
 class Map {
   constructor() {
     this.map = undefined;
-    this.coords = [55.728860, 37.670280];
+    this.coords = [55.80918971707443, 37.48324268700438];
     this.marker = DG.icon({
       iconUrl: 'images/icons/map-marker.svg',
       iconSize: mqIsDesktop ? [80, 80] : [38, 38],

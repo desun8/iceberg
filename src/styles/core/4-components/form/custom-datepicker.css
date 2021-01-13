@@ -13,3 +13,7 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
+
+.custom-datepicker.has-placeholder:not(.has-error)::before {
+  opacity: 0.6;
+}

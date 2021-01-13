@@ -72,6 +72,11 @@
   fill: currentColor;
 }
 
+.btn__icon--lg {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
 .btn--no-icon .btn__icon {
   display: none;
 }

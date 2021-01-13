@@ -44,6 +44,7 @@
 @media screen and (--desktop) {
   .nav__item {
     margin-bottom: 30px;
+    font-weight: 700;
     border: 0;
   }
 

@@ -7,7 +7,7 @@ class Submit {
     // обязательные поля устанавливаются через data-required
     const requiredElms = inputs.filter((input) => input.dataset.required === 'true');
     // название типа для валидации хранится в data-name
-    const isInvalid = requiredElms.some((elm) => Validation.check(elm.dataset.name, elm) === false);
+    const isInvalid = !!requiredElms.filter((elm) => Validation.check(elm.dataset.name, elm) === false).length;
     return !isInvalid;
   }
 

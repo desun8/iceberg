@@ -91,7 +91,7 @@
 
     /* margin-left: min(5vw, 245px); */
     margin-left: var(--deep-gap);
-    padding: 0;
+    padding: 8.3333vh 0 0;
   }
 
   .block-hero__body .btn {
@@ -101,6 +101,11 @@
   .block-hero__title,
   .block-hero__text {
     text-align: left;
+  }
+  
+  .block-hero__text,
+  .block-hero__list {
+    font-weight: 300;
   }
 
   .block-hero__list-item::before {

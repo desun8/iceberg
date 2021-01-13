@@ -78,6 +78,13 @@ class DatePicker {
     const { value } = _input;
     const parent = _input.parentElement;
     parent.dataset.date = this.formatDate(value);
+
+    // меняем opacity
+    if (parent.dataset.date === this.placeholder) {
+      parent.classList.add('has-placeholder');
+    } else {
+      parent.classList.remove('has-placeholder');
+    }
   }
 
   onReady() {

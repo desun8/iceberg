@@ -38,7 +38,7 @@
 .hamburger__line {
   display: block;
   width: 16px;
-  height: 2px;
+  height: 1.3px;
   background-color: var(--color);
   border-radius: 1px;
 
@@ -48,7 +48,7 @@
 }
 
 .hamburger__line:first-child {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .hamburger__line:last-child {

@@ -37,6 +37,10 @@
   line-height: inherit;
 }
 
+.form__elm:not(.has-error)::placeholder {
+  opacity: 0.6;
+}
+
 .form__elm.has-error {
   color: var(--c-red);
   background-color: #fff;
