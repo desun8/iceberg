@@ -54,6 +54,9 @@ class CarouselAbout extends NewCarousel {
     const pagination = {
       el: this.elm.querySelector('.swiper-pagination'),
       type: 'fraction',
+      renderFraction(currentClass, totalClass) {
+        return `<span class="${currentClass}"></span> \\ <span class="${totalClass}"></span>`;
+      },
     };
 
     const navigation = {

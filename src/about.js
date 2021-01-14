@@ -24,3 +24,20 @@ const initCarousels = () => {
 };
 
 initCarousels();
+
+const fullscreenCertificate = () => {
+  const btn = document.querySelector('.js-open-certificate');
+  const img = document.querySelector('.certificate-original-img');
+
+  const handleClick = () => {
+    img.src = img.dataset.src;
+    img.style.display = 'block';
+    img.style.border = '0';
+    img.style.borderRadius = '0';
+    img.requestFullscreen();
+  };
+
+  btn.addEventListener('click', handleClick);
+};
+
+fullscreenCertificate();
