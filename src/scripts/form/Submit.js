@@ -14,17 +14,17 @@ class Submit {
   static fetch(url, formData) {
     const params = {
       method: 'POST',
-      mode: 'no-cors', // TODO: удалить при натягивании
+      // mode: 'no-cors', // TODO: удалить при натягивании
       body: formData,
     };
 
     // TODO: раскомментировать при натягивании
-    // const handleErrors = (response) => {
-    //   if (!response.ok) {
-    //     throw Error(response.statusText);
-    //   }
-    //   return response;
-    // };
+    const handleErrors = (response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    };
     // TODO: можно удалить. Либо закомментировать и оставить для тестов
     // const handleSuccess = (response) => {
     //   console.log('форма отправилась');
@@ -34,7 +34,7 @@ class Submit {
 
     fetch(url, params)
       // TODO: раскомментировать при натягивании
-      // .then(handleErrors)
+      .then(handleErrors)
       // .then(handleSuccess)
       .catch((error) => console.error('Форма не отправилась', error));
   }
@@ -64,9 +64,10 @@ class Submit {
   // }
 
   // eslint-disable-next-line consistent-return
-  static send(inputs = [], url, captchaKey) {
+  static send(inputs = [], url, captchaKey, formType) {
     if (this.isValid(inputs)) {
       const formData = Formdata.create(inputs);
+      formData.append('iblock', formType);
 
       // проверка значений formData
       // for (const pair of formData.entries()) {

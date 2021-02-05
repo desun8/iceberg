@@ -41,8 +41,9 @@ class FormSetup {
     this.datepickerInstance = datepickerInstance;
     this.selectInstance = selectInstance;
 
-    this.captchaKey = '6LeDFv8ZAAAAADvO8QeneqiQyoJE0f9UOIRvt8uG';
-    this.submitUrl = this.$elm.form.action || 'ajax.php';
+    this.captchaKey = '6Ld-J0kaAAAAAP8EVz9EvYDlSEbbPUOEwi-WDfwG';
+    this.submitUrl = this.$elm.form.action || '/ajax/form.php';
+    this.formType = this.$elm.form.dataset.type;
 
     this.init();
   }
@@ -88,7 +89,7 @@ class FormSetup {
     // });
 
     (async () => {
-      await Submit.send(this.inputs, this.submitUrl, this.captchaKey);
+      await Submit.send(this.inputs, this.submitUrl, this.captchaKey, this.formType);
       // console.log('await Submit.send end');
 
       // Если отправка прошла без ошибок,
