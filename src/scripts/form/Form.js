@@ -45,6 +45,7 @@ class Constructor {
 
     const form = this.clone(template, '#template-form');
     form.id = `form-${formType}`;
+    form.dataset.type = `${formType.toUpperCase()}_FORM`;
 
     const successMessage = this.clone(template, '#template-form-success');
 
