@@ -23,7 +23,8 @@ class Submit {
       if (!response.ok) {
         throw Error(response.statusText);
       }
-      return response;
+
+      return response.json();
     };
     // TODO: можно удалить. Либо закомментировать и оставить для тестов
     // const handleSuccess = (response) => {
