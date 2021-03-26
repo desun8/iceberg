@@ -33,7 +33,7 @@ import commonJs from 'rollup-plugin-commonjs';
 
 const PATH = {
   html: ['src/index.html', 'src/templates/**/*.html'],
-  css: ['src/styles/core.css', 'src/styles/main.css', 'src/styles/about.css', 'src/styles/sitemap.css'],
+  css: ['src/styles/core.css', 'src/styles/main.css', 'src/styles/about.css', 'src/styles/sitemap.css', 'src/styles/personal-data.css'],
   cssWatch: 'src/styles/**/**/*.css',
   jsWatch: ['./src/main.js', './src/about.js', 'src/scripts/**/*.js'],
   images: ['src/images/**/*.{png,jpeg,jpg}'],

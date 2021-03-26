@@ -1,0 +1,26 @@
+.personal-data {
+  max-width: 1325px;
+  margin-bottom: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  /*font-size: 24px;*/
+  letter-spacing: var(--letter-spacing);
+}
+
+.personal-data__wrapper {
+  max-width: 1065px;
+  margin: 0 auto;
+}
+
+.personal-data p {
+  margin-bottom: 1em;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .personal-data {
+    margin-bottom: 160px;
+    font-size: 24px;
+  }
+}
