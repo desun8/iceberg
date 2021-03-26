@@ -1,0 +1,20 @@
+.sitemap-breadcrumbs {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing);
+}
+
+.sitemap-breadcrumbs::before {
+  content: url("./images/icons/home.svg");
+  margin-right: 15px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .sitemap-breadcrumbs {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}

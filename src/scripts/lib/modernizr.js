@@ -23,10 +23,8 @@
  * of control over the experience.
 */
 
-;(function(scriptGlobalObject, window, document, undefined){
-
-  var tests = [];
-  
+(function (scriptGlobalObject, window, document, undefined) {
+  const tests = [];
 
   /**
    * ModernizrProto is the constructor for Modernizr
@@ -34,58 +32,53 @@
    * @class
    * @access public
    */
-  var ModernizrProto = {
+  const ModernizrProto = {
     _version: '3.11.3',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
     _config: {
-      'classPrefix': '',
-      'enableClasses': true,
-      'enableJSClass': true,
-      'usePrefixes': true
+      classPrefix: '',
+      enableClasses: true,
+      enableJSClass: true,
+      usePrefixes: true,
     },
 
     // Queue of tests
     _q: [],
 
     // Stub these for people who are listening
-    on: function(test, cb) {
+    on(test, cb) {
       // I don't really think people should do this, but we can
       // safe guard it a bit.
       // -- NOTE:: this gets WAY overridden in src/addTest for actual async tests.
       // This is in case people listen to synchronous tests. I would leave it out,
       // but the code to *disallow* sync tests in the real version of this
       // function is actually larger than this.
-      var self = this;
-      setTimeout(function() {
+      const self = this;
+      setTimeout(() => {
         cb(self[test]);
       }, 0);
     },
 
-    addTest: function(name, fn, options) {
-      tests.push({name: name, fn: fn, options: options});
+    addTest(name, fn, options) {
+      tests.push({ name, fn, options });
     },
 
-    addAsyncTest: function(fn) {
-      tests.push({name: null, fn: fn});
-    }
+    addAsyncTest(fn) {
+      tests.push({ name: null, fn });
+    },
   };
 
-  
-
   // Fake some of Object.create so we can force non test results to be non "own" properties.
-  var Modernizr = function() {};
+  let Modernizr = function () {};
   Modernizr.prototype = ModernizrProto;
 
   // Leak modernizr globally when you `require` it rather than force it here.
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
-  
-
-  var classes = [];
-  
+  const classes = [];
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -100,8 +93,6 @@
     return typeof obj === type;
   }
 
-  ;
-
   /**
    * Run through all tests and detect their support in the current UA.
    *
@@ -109,15 +100,15 @@
    * @returns {void}
    */
   function testRunner() {
-    var featureNames;
-    var feature;
-    var aliasIdx;
-    var result;
-    var nameIdx;
-    var featureName;
-    var featureNameSplit;
+    let featureNames;
+    let feature;
+    let aliasIdx;
+    let result;
+    let nameIdx;
+    let featureName;
+    let featureNameSplit;
 
-    for (var featureIdx in tests) {
+    for (const featureIdx in tests) {
       if (tests.hasOwnProperty(featureIdx)) {
         featureNames = [];
         feature = tests[featureIdx];
@@ -169,7 +160,6 @@
       }
     }
   }
-  ;
 
   /**
    * docElement is a convenience wrapper to grab the root element of the document
@@ -177,8 +167,7 @@
    * @access private
    * @returns {HTMLElement|SVGElement} The root element of the document
    */
-  var docElement = document.documentElement;
-  
+  const docElement = document.documentElement;
 
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -186,9 +175,7 @@
    * @access private
    * @returns {boolean}
    */
-  var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-
-  
+  const isSVG = docElement.nodeName.toLowerCase() === 'svg';
 
   /**
    * setClasses takes an array of class names and adds them to the root element
@@ -200,8 +187,8 @@
   // Pass in an and array of class names, e.g.:
   //  ['no-webp', 'borderradius', ...]
   function setClasses(classes) {
-    var className = docElement.className;
-    var classPrefix = Modernizr._config.classPrefix || '';
+    let { className } = docElement;
+    const classPrefix = Modernizr._config.classPrefix || '';
 
     if (isSVG) {
       className = className.baseVal;
@@ -210,14 +197,14 @@
     // Change `no-js` to `js` (independently of the `enableClasses` option)
     // Handle classPrefix on this too
     if (Modernizr._config.enableJSClass) {
-      var reJS = new RegExp('(^|\\s)' + classPrefix + 'no-js(\\s|$)');
-      className = className.replace(reJS, '$1' + classPrefix + 'js$2');
+      const reJS = new RegExp(`(^|\\s)${classPrefix}no-js(\\s|$)`);
+      className = className.replace(reJS, `$1${classPrefix}js$2`);
     }
 
     if (Modernizr._config.enableClasses) {
       // Add the new classes
       if (classes.length > 0) {
-        className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+        className += ` ${classPrefix}${classes.join(` ${classPrefix}`)}`;
       }
       if (isSVG) {
         docElement.className.baseVal = className;
@@ -226,8 +213,6 @@
       }
     }
   }
-
-  ;
 
   /**
    * createElement is a convenience wrapper around document.createElement. Since we
@@ -244,15 +229,13 @@
       // This is the case in IE7, where the type of createElement is "object".
       // For this reason, we cannot call apply() as Object is not a Function.
       return document.createElement(arguments[0]);
-    } else if (isSVG) {
+    } if (isSVG) {
       return document.createElementNS.call(document, 'http://www.w3.org/2000/svg', arguments[0]);
-    } else {
-      return document.createElement.apply(document, arguments);
     }
+    return document.createElement.apply(document, arguments);
   }
 
-  ;
-/*!
+  /*!
 {
   "name": "HTML5 Video",
   "property": "video",
@@ -268,8 +251,8 @@
     "videoforeverybody"
   ]
 }
-!*/
-/* DOC
+! */
+  /* DOC
 Detects support for the video element, as well as testing what types of content it supports.
 
 Subproperties are provided to describe support for `ogg`, `h264`, `h265`, `webm`, `vp9`, `hls` and `av1` formats, e.g.:
@@ -286,11 +269,11 @@ Modernizr.video.ogg     // 'probably'
   // Note: in some older browsers, "no" was a return value instead of empty string.
   //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
   //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
-  (function() {
-    var elem = createElement('video');
+  (function () {
+    const elem = createElement('video');
 
-    Modernizr.addTest('video', function() {
-      var bool = false;
+    Modernizr.addTest('video', () => {
+      let bool = false;
       try {
         bool = !!elem.canPlayType;
         if (bool) {
@@ -303,7 +286,7 @@ Modernizr.video.ogg     // 'probably'
 
     // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
     try {
-      if (!!elem.canPlayType) {
+      if (elem.canPlayType) {
         Modernizr.addTest('video.ogg', elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, ''));
 
         // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
@@ -315,8 +298,7 @@ Modernizr.video.ogg     // 'probably'
         Modernizr.addTest('video.av1', elem.canPlayType('video/mp4; codecs="av01"').replace(/^no$/, ''));
       }
     } catch (e) {}
-  })();
-
+  }());
 
   /**
    * hasOwnProp is a shim for hasOwnProperty that is needed for Safari 2.0 support
@@ -330,27 +312,23 @@ Modernizr.video.ogg     // 'probably'
    */
 
   // hasOwnProperty shim by kangax needed for Safari 2.0 support
-  var hasOwnProp;
+  let hasOwnProp;
 
-  (function() {
-    var _hasOwnProperty = ({}).hasOwnProperty;
+  (function () {
+    const _hasOwnProperty = ({}).hasOwnProperty;
     /* istanbul ignore else */
     /* we have no way of testing IE 5.5 or safari 2,
      * so just assume the else gets hit */
     if (!is(_hasOwnProperty, 'undefined') && !is(_hasOwnProperty.call, 'undefined')) {
-      hasOwnProp = function(object, property) {
+      hasOwnProp = function (object, property) {
         return _hasOwnProperty.call(object, property);
       };
-    }
-    else {
-      hasOwnProp = function(object, property) { /* yes, this can give false positives/negatives, but most of the time we don't care about those */
+    } else {
+      hasOwnProp = function (object, property) { /* yes, this can give false positives/negatives, but most of the time we don't care about those */
         return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
       };
     }
-  })();
-
-  
-
+  }());
 
   // _l tracks listeners for async tests, as well as tests that execute after the initial run
   ModernizrProto._l = {};
@@ -379,7 +357,7 @@ Modernizr.video.ogg     // 'probably'
    * });
    * ```
    */
-  ModernizrProto.on = function(feature, cb) {
+  ModernizrProto.on = function (feature, cb) {
     // Create the list of listeners if it doesn't exist
     if (!this._l[feature]) {
       this._l[feature] = [];
@@ -391,7 +369,7 @@ Modernizr.video.ogg     // 'probably'
     // If it's already been resolved, trigger it on next tick
     if (Modernizr.hasOwnProperty(feature)) {
       // Next Tick
-      setTimeout(function() {
+      setTimeout(() => {
         Modernizr._trigger(feature, Modernizr[feature]);
       }, 0);
     }
@@ -410,16 +388,17 @@ Modernizr.video.ogg     // 'probably'
    * result of a feature detection function
    * @returns {void}
    */
-  ModernizrProto._trigger = function(feature, res) {
+  ModernizrProto._trigger = function (feature, res) {
     if (!this._l[feature]) {
       return;
     }
 
-    var cbs = this._l[feature];
+    const cbs = this._l[feature];
 
     // Force async
-    setTimeout(function() {
-      var i, cb;
+    setTimeout(() => {
+      let i; let
+        cb;
       for (i = 0; i < cbs.length; i++) {
         cb = cbs[i];
         cb(res);
@@ -501,18 +480,16 @@ Modernizr.video.ogg     // 'probably'
    * just a convenience to let you write more readable code.
    */
   function addTest(feature, test) {
-
     if (typeof feature === 'object') {
-      for (var key in feature) {
+      for (const key in feature) {
         if (hasOwnProp(feature, key)) {
-          addTest(key, feature[ key ]);
+          addTest(key, feature[key]);
         }
       }
     } else {
-
       feature = feature.toLowerCase();
-      var featureNameSplit = feature.split('.');
-      var last = Modernizr[featureNameSplit[0]];
+      const featureNameSplit = feature.split('.');
+      let last = Modernizr[featureNameSplit[0]];
 
       // Again, we don't check for parent test existence. Get that right, though.
       if (featureNameSplit.length === 2) {
@@ -553,13 +530,11 @@ Modernizr.video.ogg     // 'probably'
   }
 
   // After all the tests are run, add self to the Modernizr prototype
-  Modernizr._q.push(function() {
+  Modernizr._q.push(() => {
     ModernizrProto.addTest = addTest;
   });
 
-  
-
-/*!
+  /*!
 {
   "name": "Webp",
   "async": true,
@@ -585,8 +560,8 @@ Modernizr.video.ogg     // 'probably'
     "href": "https://blog.chromium.org/2011/11/lossless-and-transparency-encoding-in.html?m=1"
   }]
 }
-!*/
-/* DOC
+! */
+  /* DOC
 Tests for lossy, non-alpha webp support.
 
 Tests for all forms of webp support (lossless, lossy, alpha, and animated)..
@@ -598,34 +573,31 @@ Tests for all forms of webp support (lossless, lossy, alpha, and animated)..
 
 */
 
-
-  Modernizr.addAsyncTest(function() {
-
-    var webpTests = [{
-      'uri': 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=',
-      'name': 'webp'
+  Modernizr.addAsyncTest(() => {
+    const webpTests = [{
+      uri: 'data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=',
+      name: 'webp',
     }, {
-      'uri': 'data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==',
-      'name': 'webp.alpha'
+      uri: 'data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA==',
+      name: 'webp.alpha',
     }, {
-      'uri': 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA',
-      'name': 'webp.animation'
+      uri: 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA',
+      name: 'webp.animation',
     }, {
-      'uri': 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=',
-      'name': 'webp.lossless'
+      uri: 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=',
+      name: 'webp.lossless',
     }];
 
-    var webp = webpTests.shift();
+    const webp = webpTests.shift();
     function test(name, uri, cb) {
-
-      var image = new Image();
+      const image = new Image();
 
       function addResult(event) {
         // if the event is from 'onload', check the see if the image's width is
         // 1 pixel (which indicates support). otherwise, it fails
 
-        var result = event && event.type === 'load' ? image.width === 1 : false;
-        var baseTest = name === 'webp';
+        const result = event && event.type === 'load' ? image.width === 1 : false;
+        const baseTest = name === 'webp';
 
         // if it is the base test, and the result is false, just set a literal false
         // rather than use the Boolean constructor
@@ -643,18 +615,15 @@ Tests for all forms of webp support (lossless, lossy, alpha, and animated)..
     }
 
     // test for webp support in general
-    test(webp.name, webp.uri, function(e) {
+    test(webp.name, webp.uri, (e) => {
       // if the webp test loaded, test everything else.
       if (e && e.type === 'load') {
-        for (var i = 0; i < webpTests.length; i++) {
+        for (let i = 0; i < webpTests.length; i++) {
           test(webpTests[i].name, webpTests[i].uri);
         }
       }
     });
-
   });
-
-
 
   // Run each test
   testRunner();
@@ -666,14 +635,10 @@ Tests for all forms of webp support (lossless, lossy, alpha, and animated)..
   delete ModernizrProto.addAsyncTest;
 
   // Run the things that are supposed to run after the tests
-  for (var i = 0; i < Modernizr._q.length; i++) {
+  for (let i = 0; i < Modernizr._q.length; i++) {
     Modernizr._q[i]();
   }
 
   // Leak Modernizr namespace
   scriptGlobalObject.Modernizr = Modernizr;
-
-
-;
-
-})(window, window, document);
+}(window, window, document));

@@ -1,16 +1,17 @@
 body {
   --page-gap: 15px;
   --trans-dur: 0.3s;
-
+  
   /* fonts */
   --letter-spacing: 0.08px;
-
+  
   /* colors */
   --c-light-grey: #f8f8f8;
   --c-deep-blue: #333570;
   --c-light-blue: #e9edf8;
   --c-sky-blue: #abd8fd;
   --c-red: #f66;
+  --c-pink: #ff9090;
 }
 
 /* noinspection CssInvalidMediaFeature */

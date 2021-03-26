@@ -1,0 +1,14 @@
+.page-title {
+  margin-bottom: 60px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .page-title {
+    font-size: 55px;
+    font-weight: 700;
+  }
+}
