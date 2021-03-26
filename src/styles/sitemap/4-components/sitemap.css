@@ -27,6 +27,7 @@
   margin-bottom: 22px;
   font-size: 18px;
   letter-spacing: var(--letter-spacing);
+  text-decoration: underline;
 }
 
 .sitemap-list__item::marker {
@@ -35,10 +36,6 @@
 
 .sitemap-list__item:last-child {
   margin-bottom: 0;
-}
-
-.sitemap-list__item a {
-  text-decoration: underline;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -63,5 +60,10 @@
   .sitemap-list__item {
     margin-bottom: 28px;
     font-size: 24px;
+  }
+  
+  .sitemap-list__item:hover {
+    color: var(--c-pink);
+    transition: color var(--trans-dur);
   }
 }
