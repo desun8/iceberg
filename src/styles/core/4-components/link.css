@@ -1,0 +1,7 @@
+.link {
+  transition: color var(--trans-dur);
+}
+
+.link:hover {
+  color: var(--c-pink);
+}

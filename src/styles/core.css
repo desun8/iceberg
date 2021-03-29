@@ -18,6 +18,7 @@
 
 /* COMPONENTS */
 @import "./core/4-components/accordion.css";
+@import "./core/4-components/link.css";
 @import "./core/4-components/btn.css"; /* btn */
 @import "./core/4-components/btn-slider.css"; /* btn */
 @import "./core/4-components/social-list.css";

@@ -1,5 +1,7 @@
 /node_modules/
 /.idea/
+.DS_STORE
+*.zip
 /dist/
 /stats.html
 /src/styles/core/3-utilities/wrapper.css
