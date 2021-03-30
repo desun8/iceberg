@@ -3,6 +3,7 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import sourceMaps from 'gulp-sourcemaps';
 import fs from 'fs-extra';
+import rename from 'gulp-rename';
 import plumber from 'gulp-plumber';
 
 // HTML
@@ -13,6 +14,8 @@ import postCss from 'gulp-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssImport from 'postcss-easy-import';
 import postcssHoverMediaFeature from 'postcss-hover-media-feature';
+import purgecss from '@fullhuman/postcss-purgecss';
+import cssnano from 'cssnano';
 // import tailwindcss from 'tailwindcss';
 // Img
 // import imgMin from "gulp-imagemin";
@@ -32,8 +35,8 @@ import commonJs from 'rollup-plugin-commonjs';
 // import webpackStream from "webpack-stream";
 
 const PATH = {
-  html: ['src/index.html', 'src/templates/**/*.html'],
-  css: ['src/styles/core.css', 'src/styles/main.css', 'src/styles/about.css', 'src/styles/sitemap.css', 'src/styles/personal-data.css'],
+  html: ['src/index.html', 'src/*.html', 'src/templates/**/*.html'],
+  css: ['src/styles/*.css'],
   cssWatch: 'src/styles/**/**/*.css',
   jsWatch: ['./src/main.js', './src/about.js', 'src/scripts/**/*.js'],
   images: ['src/images/**/*.{png,jpeg,jpg}'],
@@ -59,24 +62,9 @@ function html(done) {
 }
 
 // CSS
-// function wrapPipe(taskFn) {
-//   return function (done) {
-//     const onSuccess = function () {
-//       done();
-//     };
-//     const onError = function (err) {
-//       done(err);
-//     };
-//     const outStream = taskFn(onSuccess, onError);
-//     if (outStream && typeof outStream.on === 'function') {
-//       outStream.on('end', onSuccess);
-//     }
-//   };
-// }
 function makeStyle(done) {
   const plugins = [
     postcssImport(),
-    // tailwindcss(),
     postcssHoverMediaFeature(),
     postcssPresetEnv({ stage: 0 }),
   ];
@@ -87,6 +75,35 @@ function makeStyle(done) {
     .pipe(sourceMaps.init())
     .pipe(postCss(plugins))
     .pipe(sourceMaps.write('.'))
+    .pipe(gulp.dest('dist'));
+
+  done();
+}
+
+export function optimizeStyle(done) {
+  const plugins = [
+    postcssImport(),
+    postcssHoverMediaFeature(),
+    postcssPresetEnv({ stage: 0 }),
+    purgecss({
+      content: ['./dist/*.html', './dist/*.js'],
+    }),
+    cssnano({
+      preset: ['default', {
+        discardComments: {
+          removeAll: true,
+        },
+      }],
+    }),
+  ];
+
+  gulp
+    .src(PATH.css)
+    .pipe(plumber())
+    .pipe(postCss(plugins))
+    .pipe(rename({
+      suffix: '.min',
+    }))
     .pipe(gulp.dest('dist'));
 
   done();
@@ -156,8 +173,8 @@ function serve(done) {
 const defaultTask = gulp.series(
   clearDist,
   html,
-  makeStyle,
   js,
+  makeStyle,
   imageTask,
   copyVideo,
   gulp.parallel(watch, serve),
@@ -166,10 +183,11 @@ const defaultTask = gulp.series(
 export const build = gulp.series(
   clearDist,
   html,
-  makeStyle,
   js,
+  makeStyle,
   imageTask,
   copyVideo,
+  optimizeStyle,
 );
 
 export default defaultTask;
