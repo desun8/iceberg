@@ -8,7 +8,8 @@
   <title>Айсберг</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
   <link rel="stylesheet" href="./core.css">
   <link rel="stylesheet" href="./team.css">
@@ -21,15 +22,58 @@
 <include src="page-menu/index.html"></include>
 
 <main class="page-main">
-  <h1 class="page-title">Карта сайта</h1>
+  <h1 class="page-title">Наша команда</h1>
 
+  <section id="app-team" class="team team-container">
+    <p class="team__describe">Нас объединяет общая движущая сила - желание помогать людям и сделать стоматологическую
+      травматологию в России лучшей в мире.</p>
 
+    <ul class="team-tabs  list-unstyled">
+      <li class="team-tabs__item">
+        <button
+          v-on:click="handleClickTab"
+          v-bind:class="{'is-active': selectedTab === '1'}"
+          class="team-tabs__btn"
+          type="button"
+          value="1">Все
+        </button>
+      </li>
+      <li class="team-tabs__item">
+        <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '2'}" class="team-tabs__btn"
+                type="button" value="2">Ортодонт
+        </button>
+      </li>
+      <li class="team-tabs__item">
+        <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '3'}" class="team-tabs__btn"
+                type="button" value="3">Терапевт
+        </button>
+      </li>
+      <li class="team-tabs__item">
+        <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '4'}" class="team-tabs__btn"
+                type="button" value="4">Пародонтолог
+        </button>
+      </li>
+      <li class="team-tabs__item">
+        <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '5'}" class="team-tabs__btn"
+                type="button" value="5">Ортопед
+        </button>
+      </li>
+    </ul>
+
+    <div class="employees-list">
+      <div v-for="employee in filteredEmployees" v-bind:key="employee.name" class="employees-list__item">
+        <employee-card v-bind:employee="employee"></employee-card>
+      </div>
+    </div>
+
+<!--    <app-team></app-team>-->
+  </section>
 </main>
 
 <include src="page-footer.html"></include>
 <include src="page-modal.html"></include>
 
-<!--<script src="./main.js" type="module" async></script>-->
+<script src="team.js" type="module" async></script>
 
 <include src="template.html"></include>
 </body>

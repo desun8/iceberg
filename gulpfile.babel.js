@@ -5,6 +5,7 @@ import sourceMaps from 'gulp-sourcemaps';
 import fs from 'fs-extra';
 import rename from 'gulp-rename';
 import plumber from 'gulp-plumber';
+import path from 'path';
 
 // HTML
 import posthtml from 'gulp-posthtml';
@@ -26,6 +27,9 @@ import cssnano from 'cssnano';
 import { rollup } from 'rollup';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonJs from 'rollup-plugin-commonjs';
+import replace from 'rollup-plugin-replace';
+import typescript from '@rollup/plugin-typescript';
+import alias from '@rollup/plugin-alias';
 // import visualizer from 'rollup-plugin-visualizer';
 // import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 // import rollupCss from 'rollup-plugin-css-only';
@@ -35,10 +39,10 @@ import commonJs from 'rollup-plugin-commonjs';
 // import webpackStream from "webpack-stream";
 
 const PATH = {
-  html: ['src/index.html', 'src/*.html', 'src/templates/**/*.html'],
+  html: ['src/*.html', 'src/templates/**/*.html'],
   css: ['src/styles/*.css'],
   cssWatch: 'src/styles/**/**/*.css',
-  jsWatch: ['./src/main.js', './src/about.js', 'src/scripts/**/*.js'],
+  jsWatch: ['./src/*.{js,ts}', 'src/scripts/**/*.{js,ts}'],
   images: ['src/images/**/*.{png,jpeg,jpg}'],
 };
 
@@ -112,14 +116,24 @@ export function optimizeStyle(done) {
 // JS
 export function js(done) {
   rollup({
-    input: ['./src/main.js', './src/about.js'],
+    input: ['./src/main.js', './src/about.js', './src/team.ts'],
     plugins: [
+      alias({
+        entries: {
+          vue: path.resolve('./node_modules/vue/dist/vue.esm.js'),
+        },
+      }),
       nodeResolve(), // подключение модулей node
       commonJs({
         // include: /node_modules/,
         // namedExports: { 'choices.js/src/scripts/constants.js': ['KEY_CODES'] },
         sourceMap: false,
       }), // подключение модулей commonjs
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('development'),
+        'process.env.VUE_ENV': JSON.stringify('browser'),
+      }),
+      typescript(),
       // sizeSnapshot(), // напишет в консоль размер бандла
       // terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES
       // visualizer(), // анализатор бандла,

@@ -1,0 +1,15 @@
+.employees-list {
+  display: grid;
+  gap: 54px;
+  margin-bottom: 100px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .employees-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 122px;
+  
+    max-width: 1008px;
+  }
+}

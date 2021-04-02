@@ -1,0 +1,53 @@
+.employee-card {
+  display: grid;
+  gap: 25px;
+}
+
+.employee-card__body {
+  display: grid;
+  grid-template-areas:
+    'name link'
+    'specialization link';
+  row-gap: 4px;
+  column-gap: 15px;
+}
+
+.employee-card__name {
+  grid-area: name;
+  
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.employee-card__specialization {
+  grid-area: specialization;
+  
+  font-size: 18px;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.employee-card__link {
+  grid-area: link;
+  justify-self: end;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ebecf1;
+}
+
+.employee-card__link .icon {
+  width: 12px;
+  height: 12px;
+  background-color: var(--c-deep-blue);
+  mask-image: url("images/icons/_chevron-center.svg");
+  mask-repeat: no-repeat;
+  mask-position: -1px center;
+  mask-size: contain;
+  transform: rotate(180deg);
+}

@@ -1,0 +1,38 @@
+.team-tabs {
+  --margin-x: calc(var(--page-gap) * -1);
+  
+  display: grid;
+  grid-auto-flow: column;
+  gap: 14px;
+  
+  margin-bottom: 54px;
+  margin-left: var(--margin-x);
+  margin-right: var(--margin-x);
+  overflow: auto;
+}
+
+.team-tabs__item:first-child {
+  padding-left: var(--page-gap);
+}
+
+.team-tabs__item:last-child {
+  padding-right: var(--page-gap);
+}
+
+.team-tabs__btn {
+  padding: 18px 48px;
+  color: var(--c-deep-blue);
+  background-color: var(--c-sky-blue);
+  
+  line-height: 1.4;
+  text-transform: capitalize;
+  border-radius: 15px;
+  
+  transition-property: color, background-color;
+  transition-duration: var(--trans-dur);
+}
+
+.team-tabs__btn.is-active {
+  color: #fff;
+  background-color: var(--c-deep-blue);
+}

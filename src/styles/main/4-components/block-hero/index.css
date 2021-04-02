@@ -2,7 +2,7 @@
   min-height: 100vh;
   margin-bottom: 50px;
   padding-top: 120%;
-  background-color: var(--c-sky-blue);
+  background-color: var(--c-sky-blue__old);
 }
 
 .block-hero__video {
