@@ -1,6 +1,19 @@
-.team {}
+.team {
+}
 
 .team__describe {
   margin-bottom: 40px;
   text-align: center;
 }
+
+.team__filter {
+  --margin-x: calc(var(--page-gap) * -1);
+  
+  margin-left: var(--margin-x);
+  margin-right: var(--margin-x);
+}
+
+.team__filter.js-simplebar .simplebar-track {
+  display: none;
+}
+
