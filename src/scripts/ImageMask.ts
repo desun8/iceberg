@@ -1,4 +1,4 @@
-import { autobind } from "./team/decorators/autobind";
+import { autobind } from "./decorators/autobind";
 
 enum CssVar {
   PosImg = "--pos-img",

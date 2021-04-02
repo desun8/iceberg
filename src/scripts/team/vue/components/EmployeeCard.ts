@@ -1,5 +1,5 @@
 import Vue, { PropType } from "vue";
-import { Employee } from "./types";
+import { Employee } from "../types";
 import EmployeePicture from "./EmployeePicture";
 
 const EmployeeCard = Vue.extend({

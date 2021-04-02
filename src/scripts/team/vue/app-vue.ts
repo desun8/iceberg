@@ -1,6 +1,6 @@
 import Vue from "vue";
 import { Employee } from "./types";
-import EmployeeCard from "./EmployeeCard";
+import EmployeeCard from "./components/EmployeeCard";
 
 const testData: Employee[] = [
   {

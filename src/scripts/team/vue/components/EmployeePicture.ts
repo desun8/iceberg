@@ -1,6 +1,6 @@
 import Vue, { PropType } from "vue";
-import { Images } from "./types";
-import ImageMask from "../ImageMask";
+import { Images } from "../types";
+import ImageMask from "../../../ImageMask";
 
 const EmployeePicture = Vue.extend({
   props: {
