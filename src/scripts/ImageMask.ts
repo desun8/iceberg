@@ -66,12 +66,10 @@ export default class ImageMask {
         case State.Default:
           this.rootElm.style.setProperty(CssVar.PosImg, Position.ImgDefault);
           this.rootElm.style.setProperty(CssVar.PosMask, Position.MaskDefault);
-          console.log("default");
           break;
         case State.Mask:
           this.rootElm.style.setProperty(CssVar.PosImg, Position.ImgMove);
           this.rootElm.style.setProperty(CssVar.PosMask, Position.MaskMove);
-          console.log("mask");
           break;
       }
     }
@@ -137,7 +135,6 @@ export default class ImageMask {
   }
 
   private init() {
-    console.log("Image mask init");
     this.rootElm.dataset.init = "true";
 
     this.rootElm.addEventListener("touchstart", this.handleTouchStart, false);
