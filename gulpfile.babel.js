@@ -15,6 +15,7 @@ import postCss from 'gulp-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssImport from 'postcss-easy-import';
 import postcssHoverMediaFeature from 'postcss-hover-media-feature';
+import postcssEasings from 'postcss-easings';
 import purgecss from '@fullhuman/postcss-purgecss';
 import cssnano from 'cssnano';
 // import tailwindcss from 'tailwindcss';
@@ -69,6 +70,7 @@ function html(done) {
 function makeStyle(done) {
   const plugins = [
     postcssImport(),
+    postcssEasings(),
     postcssHoverMediaFeature(),
     postcssPresetEnv({ stage: 0 }),
   ];
@@ -87,6 +89,7 @@ function makeStyle(done) {
 export function optimizeStyle(done) {
   const plugins = [
     postcssImport(),
+    postcssEasings(),
     postcssHoverMediaFeature(),
     postcssPresetEnv({ stage: 0 }),
     purgecss({
