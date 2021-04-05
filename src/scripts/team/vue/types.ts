@@ -1,3 +1,5 @@
+import ScrollTriggerInstance = gsap.plugins.ScrollTriggerInstance;
+
 export type Images = [string, string];
 
 export type Employee = {
@@ -18,9 +20,10 @@ export type EmployeeWithKey = {
 }
 
 export type Data = {
-  selectedTab: string,
-  viewStep: number,
-  view: number,
-  employeeItems: Employee[],
-  observer: null | IntersectionObserver,
+  selectedTab: string;
+  viewStep: number;
+  view: number;
+  employeeItems: Employee[];
+  observer: null | IntersectionObserver;
+  scrollTriggerInstance: ScrollTriggerInstance | null;
 }

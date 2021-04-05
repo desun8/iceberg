@@ -1,10 +1,14 @@
 import Vue from "vue";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { Data, EmployeeWithKey } from "./types";
 import { testData } from "./testData";
 import EmployeeCard from "./components/EmployeeCard";
+import isDesktop from "../../utils/isDesktop";
 
-const INITIAL_VIEW_SIZE = 6
+gsap.registerPlugin(ScrollTrigger);
+
+const INITIAL_VIEW_SIZE = 6;
 
 export default () => new Vue({
   el: "#app-team",
@@ -18,6 +22,7 @@ export default () => new Vue({
       view: INITIAL_VIEW_SIZE,
       employeeItems: testData,
       observer: null,
+      scrollTriggerInstance: null,
     };
   },
   computed: {
@@ -42,6 +47,13 @@ export default () => new Vue({
       }
 
       const newArr = this.filteredEmployees.slice(0, this.view);
+
+      if (isDesktop()) {
+        setTimeout(() => {
+          this.createScrollAnimation();
+        }, 100);
+      }
+
       return newArr;
     },
   },
@@ -134,6 +146,36 @@ export default () => new Vue({
 
       this.observing();
     },
+
+    createScrollAnimation() {
+      if (this.scrollTriggerInstance !== null) {
+        this.scrollTriggerInstance.kill();
+      }
+
+      let proxy = {skew: 0};
+      let skewSetter = gsap.quickSetter(".employees-list__item", "skewY", "deg"); // fast
+      let clamp = gsap.utils.clamp(-4, 4); // don't let the skew go beyond 20 degrees.
+
+      this.scrollTriggerInstance = ScrollTrigger.create({
+        onUpdate: (self) => {
+          let skew = clamp(self.getVelocity() / -300);
+          // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+          if (Math.abs(skew) > Math.abs(proxy.skew)) {
+            proxy.skew = skew;
+            gsap.to(proxy, {
+              skew: 0,
+              duration: 0.8,
+              // ease: "sine.in",
+              overwrite: true,
+              onUpdate: () => skewSetter(proxy.skew),
+            });
+          }
+        },
+      });
+
+      // make the right edge "stick" to the scroll bar. force3D: true improves performance
+      gsap.set(".employees-list__item", {transformOrigin: "right center", force3D: true});
+    },
   },
 
   watch: {
@@ -147,5 +189,9 @@ export default () => new Vue({
 
   mounted() {
     this.createObserver();
+
+    if (isDesktop()) {
+      this.createScrollAnimation();
+    }
   },
 })
