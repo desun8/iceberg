@@ -62,13 +62,19 @@
       </ul>
     </div>
 
-    <div class="employees-list">
-      <div v-for="employee in filteredEmployees" v-bind:key="employee.name" class="employees-list__item">
+    <transition-group v-on:enter="enterAnimation" v-on:leave="leaveAnimation" tag="div" class="employees-list" appear>
+      <div
+        v-for="(employee, index) in employees"
+        v-bind:key="employee.key"
+        v-bind:data-index="index + 1"
+        class="employees-list__item"
+      >
         <employee-card v-bind:employee="employee"></employee-card>
       </div>
-    </div>
 
-    <!--    <app-team></app-team>-->
+      <div key="trigger" ref="showMoreTrigger" class="js-show-more-trigger"></div>
+    </transition-group>
+
   </section>
 </main>
 

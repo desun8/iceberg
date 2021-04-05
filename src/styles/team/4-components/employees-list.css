@@ -1,15 +1,35 @@
 .employees-list {
+  position: relative;
   display: grid;
   gap: 54px;
   margin-bottom: 100px;
 }
 
+.js-show-more-trigger {
+  position: absolute;
+  top: 100%;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .employees-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
   .employees-list {
-    grid-template-columns: repeat(2, 1fr);
     gap: 122px;
-  
     max-width: 1008px;
+    margin-bottom: 122px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .employees-list__item:nth-child(2n) {
+    position: relative;
+    top: -100px;
   }
 }
