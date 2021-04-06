@@ -6,7 +6,7 @@
   z-index: 10;
 
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: auto 1fr repeat(4, auto);
   grid-auto-flow: column;
   grid-column-gap: 20px;
   align-items: center;
@@ -29,7 +29,7 @@
 }
 
 .header .hamburger {
-  grid-column: 5/6;
+  grid-column: 6/6;
 }
 
 .header__btn-down {

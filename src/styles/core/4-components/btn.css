@@ -1,7 +1,7 @@
 .btn {
   --pd-x: 25px;
   --color: var(--c-deep-blue);
-  --bg-c: #fff;
+  --bg-c: var(--c-sky-blue);
   --bdrs: 100px;
 
   display: inline-grid;
@@ -39,6 +39,16 @@
 .btn--dark:not(.btn--no-hover):hover {
   --color: var(--c-deep-blue);
   --bg-c: #fff;
+}
+
+.btn--pink {
+  --color: #fff;
+  --bg-c: var(--c-pink);
+}
+
+.btn--pink:not(.btn--no-hover):hover {
+  /*--color: var(--c-deep-blue);*/
+  --bg-c: var(--c-deep-blue);
 }
 
 .btn--circle {

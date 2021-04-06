@@ -6,31 +6,30 @@
     TODO: возможно стоит убрать h1
     Или добавлять visual-hidden для маленьких экранов
    -->
-  <h1 class="header__title">Центр дентальной травматологии</h1>
+  <span class="header__title">Центр дентальной травматологии</span>
+
+  <a href="" class="header__btn  btn  btn--circle" aria-label="Версия для слабовидящих">
+    <!--    <span class="btn__icon"></span>-->
+    <svg class="btn__icon" width="21" height="14" fill="none">
+      <path
+        d="M20.867 6.284C20.679 6.027 16.209 0 10.5 0 4.79 0 .32 6.027.133 6.284a.693.693 0 000 .817c.188.256 4.658 6.284 10.367 6.284 5.709 0 10.179-6.028 10.367-6.284a.692.692 0 000-.817zM10.5 12c-4.205 0-7.848-4-8.926-5.308 1.077-1.31 4.712-5.307 8.926-5.307 4.205 0 7.847 4 8.926 5.308C18.349 8.002 14.714 12 10.5 12z"/>
+      <path
+        d="M10.5 2.538a4.159 4.159 0 00-4.154 4.154 4.159 4.159 0 004.154 4.154 4.159 4.159 0 004.154-4.154A4.159 4.159 0 0010.5 2.538zm0 6.924a2.772 2.772 0 01-2.77-2.77 2.772 2.772 0 012.77-2.769 2.772 2.772 0 012.769 2.77 2.772 2.772 0 01-2.77 2.769z"/>
+    </svg>
+  </a>
   <a href="tel:+70000000000" class="header__btn  btn">+7 (909) 391-32-51</a>
 
   <include
     src="components/btn-to-form-1.html"
     locals='{
-      "class": "btn--outline  btn--no-icon header__btn",
+      "class": "btn--no-icon header__btn",
       "name": "Онлайн-консультация"
     }'></include>
 
-  <button class="hamburger  btn  btn--circle  js-menu-open" type="button" aria-label="Меню">
+  <button class="hamburger  btn  btn--circle  btn--pink  js-menu-open" type="button" aria-label="Меню">
     <span class="hamburger__line"></span>
     <span class="hamburger__line"></span>
   </button>
-
-<!--  <a href="#footerAnchor" class="header__btn-down  btn  btn&#45;&#45;outline  btn&#45;&#45;circle"-->
-<!--     aria-label="Перейти в конец страницы">-->
-<!--    <svg class="btn__icon" width="9" height="16">-->
-<!--      <path d="M3.847.68c0-.375.3-.68.67-.68.37 0 .67.305.67.68v14.342c0 .376-.3.68-.67.68a.675.675 0 01-.67-.68V.68z"/>-->
-<!--      <path-->
-<!--        d="M.196 11.912a.688.688 0 010-.963.663.663 0 01.948 0l3.83 3.89a.688.688 0 010 .962.663.663 0 01-.947 0l-3.83-3.89z"/>-->
-<!--      <path-->
-<!--        d="M8.804 11.912a.688.688 0 000-.963.663.663 0 00-.948 0l-3.788 3.846a.688.688 0 000 .963.663.663 0 00.947 0l3.789-3.846z"/>-->
-<!--    </svg>-->
-<!--  </a>-->
 
   <include
     src="components/social-list.html"
