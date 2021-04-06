@@ -12,6 +12,10 @@ body {
   font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
   body {
