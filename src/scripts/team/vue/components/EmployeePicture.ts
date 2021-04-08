@@ -21,7 +21,7 @@ const EmployeePicture = Vue.extend({
 
   template: `
     <div ref="root" class="employee-picture">
-    <span class="employee-picture__icon"></span>
+    <span class="employee-picture__icon" aria-hidden="true"></span>
     <img
         ref="defaultImg"
         v-bind:src="images[0]"
