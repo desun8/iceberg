@@ -1,0 +1,30 @@
+.examples-list {
+  display: grid;
+  gap: 15px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .examples-list {
+    --cols: 2;
+
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 30px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .examples-list {
+    --cols: 3;
+
+    gap: 40px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .examples-list {
+    gap: 55px;
+  }
+}

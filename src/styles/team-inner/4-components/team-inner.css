@@ -1,0 +1,244 @@
+.team-inner {
+  position: relative;
+  margin-bottom: 78px;
+}
+
+.team-inner__top {
+  position: relative;
+}
+
+.team-inner__backward-link {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: none;
+  grid-auto-flow: column;
+  gap: 10px;
+  align-items: center;
+
+  font-size: 14px;
+}
+
+.team-inner__backward-link::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  mask-image: url("images/icons/_arrow.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transform: rotate(90deg);
+}
+
+.team-inner__title {
+  margin-bottom: 38px;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 600;
+  text-align: center;
+}
+
+.team-inner-bg-container {
+  --pos-x: calc(var(--page-gap) * -1);
+  --top: -70px;
+
+  position: absolute;
+  top: calc(var(--top) + 20vw);
+  left: var(--pos-x);
+  right: var(--pos-x);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.team-inner-bg {
+  --rotate: 0deg;
+  --scale: 0.8;
+  --picture-height: calc(486 / 440 * 1vw);
+  --top: calc(var(--picture-height) * 1);
+  --translate-x: -50%;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(var(--translate-x)) rotate(var(--rotate)) scale(var(--scale));
+}
+
+.team-inner-bg--lg {
+  display: none;
+}
+
+.team-inner-bg__main {
+  filter: drop-shadow(10px 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.team-inner-bg__second {
+  filter: drop-shadow(10px 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-sm) {
+  .team-inner-bg-container {
+    --top: -15px;
+  }
+
+  .team-inner-bg {
+    --scale: 0.9;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-md) {
+  .team-inner-bg-container {
+    --top: 30px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-lg) {
+  .team-inner-bg-container {
+    --top: 90px;
+  }
+
+  .team-inner-bg {
+    --scale: 1.2;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--pre-tablet) {
+  .team-inner-bg {
+    --scale: 0;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .team-inner {
+    position: static;
+  }
+
+  .team-inner-bg-container {
+    --pos-x: 0;
+
+    top: -400px;
+    z-index: -1;
+  }
+
+  .team-inner-bg {
+    --rotate: 25deg;
+    --scale: 1;
+    --translate-x: 0;
+    --left: 90%;
+
+    left: calc(var(--left) - 700px);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (min-width: 800px) {
+  /*.team-inner-bg {*/
+
+  /*  left: 56%;*/
+
+  /*}*/
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .team-inner-bg-container {
+    top: -300px;
+  }
+
+  .team-inner-bg {
+    --left: 97%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .team-inner__backward-link {
+    display: inline-grid;
+  }
+
+  .team-inner-bg:not(.team-inner-bg--lg) {
+    display: none;
+  }
+
+  .team-inner-bg-container {
+    top: -570px;
+  }
+
+  .team-inner-bg--lg {
+    display: block;
+  }
+
+  .team-inner-bg--lg {
+    --rotate: 0;
+    --scale: 0.7;
+    --left: 88%;
+  }
+
+  .team-inner__title {
+    margin-bottom: 75px;
+    font-size: 48px;
+    line-height: 1.2;
+    text-align: left;
+    letter-spacing: var(--letter-spacing);
+  }
+
+  .team-inner__header {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .team-inner__examples {
+    max-width: 1722px;
+    margin: 0 auto;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  .team-inner-bg-container {
+    top: -400px;
+  }
+
+  .team-inner-bg {
+    --scale: 0.85;
+    --left: 93%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  .team-inner .page-title {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .team-inner-bg-container {
+    top: -360px;
+  }
+
+  .team-inner-bg {
+    --scale: 1;
+    --left: 96%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-fullhd) {
+  .team-inner-bg {
+    --left: 86%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (min-width: 2000px) {
+  .team-inner-bg {
+    --left: 90%;
+  }
+}

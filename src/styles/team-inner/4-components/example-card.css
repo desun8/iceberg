@@ -1,0 +1,303 @@
+.example-card {
+  --shadow-alpha: 0;
+
+  position: relative;
+  padding: 42px 15px 40px;
+  background-color: var(--c-sky-blue);
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, var(--shadow-alpha));
+
+  transition-property: color, background-color, box-shadow;
+  transition-duration: var(--trans-dur);
+}
+
+.example-card.is-hover {
+  --shadow-alpha: 0.1;
+}
+
+.example-card:hover {
+  color: #fff;
+  background-color: var(--c-deep-blue-darken);
+}
+
+.example-card:hover .example-card__icon {
+  background-color: #fff;
+}
+
+.example-card:hover .example-card__hover-bg {
+  --bg-c: var(--c-deep-blue);
+  opacity: 1;
+}
+
+.example-card__picture,
+.example-card__body {
+  position: relative;
+  z-index: 2;
+}
+
+.example-card__picture {
+  display: grid;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.example-card__img-container {
+  position: relative;
+}
+
+.example-card__img-container::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+
+  padding: 5px 18px;
+  color: var(--c-deep-blue);
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+.example-card__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.example-card__body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+}
+
+.example-card__title {
+  margin-bottom: 14px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.example-card__link {
+  justify-self: center;
+  width: auto;
+}
+
+.example-card__icon {
+  position: absolute;
+  z-index: 1;
+
+  background-color: var(--c-deep-blue);
+  mask-repeat: no-repeat;
+  mask-position: right center;
+  mask-size: contain;
+
+  transition: background-color var(--trans-dur);
+}
+
+.example-card__icon--teeth {
+  right: -33px;
+  bottom: 19px;
+
+  width: 139px;
+  height: 121px;
+  mask-image: url("images/icons/employee-case-teeth.svg");
+  mask-size: 75%;
+}
+
+.example-card__icon--apple {
+  right: -17px;
+
+  /*bottom: 26px;*/
+  bottom: 6px;
+
+  width: 115px;
+  height: 132px;
+  mask-image: url("images/icons/employee-case-apple.svg");
+  mask-size: 70%;
+}
+
+.example-card__icon--castle {
+  right: -25px;
+
+  /*bottom: 37px;*/
+  bottom: 6px;
+
+  width: 115px;
+  height: 155px;
+  mask-image: url("images/icons/employee-case-castle.svg");
+  mask-size: 65%;
+}
+
+.example-card__icon--cup {
+  right: -15px;
+
+  /*bottom: 31px;*/
+  bottom: 10px;
+
+  width: 120px;
+  height: 92px;
+  mask-image: url("images/icons/employee-case-cup.svg");
+  mask-size: 65%;
+}
+
+.example-card__icon--flower {
+  /*right: -18px;*/
+  right: 0;
+
+  /*bottom: 32px;*/
+  bottom: 8px;
+
+  width: 120px;
+  height: 115px;
+  mask-image: url("images/icons/employee-case-flower.svg");
+  mask-size: 50%;
+}
+
+.example-card__icon--hand {
+  /*right: 15px;*/
+  right: 8px;
+
+  /*bottom: -12px;*/
+  bottom: -25px;
+
+  width: 78px;
+  height: 122px;
+  mask-image: url("images/icons/employee-case-hand.svg");
+  mask-size: 75%;
+}
+
+.example-card__hover-bg {
+  --bg-c: var(--c-sky-blue);
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--trans-dur) 0s;
+}
+
+.example-card__hover-bg .bg-wave {
+  position: absolute;
+  width: 300px;
+  height: 290px;
+
+  background-color: var(--bg-c);
+  mask-image: url("images/bg-wave.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: background-color var(--trans-dur) 0s;
+}
+
+.example-card__hover-bg .bg-wave--1 {
+  left: -88px;
+  bottom: -90px;
+}
+
+.example-card__hover-bg .bg-wave--2 {
+  right: -70px;
+  bottom: 100px;
+}
+
+.example-card__hover-bg .bg-wave--3 {
+  right: -40px;
+  bottom: 70px;
+}
+
+.example-card__hover-bg .bg-wave--4 {
+  right: -10px;
+  bottom: 40px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-md) {
+  .example-card__icon--hand {
+    right: 15px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .example-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .example-card {
+    padding: 42px 25px 40px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  .example-card {
+    padding: 60px 58px 50px;
+  }
+
+  .example-card__icon--teeth {
+    right: -9px;
+    bottom: 28px;
+    width: 148px;
+    height: 130px;
+    mask-size: contain;
+  }
+
+  .example-card__icon--apple {
+    right: 23px;
+    bottom: 40px;
+
+    width: 104px;
+    height: 120px;
+    mask-size: contain;
+  }
+
+  .example-card__icon--castle {
+    right: 21px;
+    bottom: 40px;
+
+    width: 102px;
+    height: 138px;
+    mask-size: contain;
+  }
+
+  .example-card__icon--cup {
+    right: -9px;
+    bottom: 30px;
+
+    width: 134px;
+    height: 102px;
+    mask-size: contain;
+  }
+
+  .example-card__icon--flower {
+    right: 0;
+    bottom: 19px;
+
+    width: 140px;
+    height: 134px;
+    mask-size: contain;
+  }
+
+  .example-card__icon--hand {
+    right: 16px;
+    bottom: -23px;
+
+    width: 102px;
+    height: 160px;
+    mask-size: contain;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  .example-card__icon--hand {
+    right: 36px;
+  }
+}

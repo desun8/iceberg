@@ -1,0 +1,39 @@
+.employee-detail {
+  margin-bottom: 52px;
+}
+
+.employee-detail__picture {
+  margin-bottom: 170px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .employee-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .employee-detail__picture {
+    position: sticky;
+    top: 5%;
+    margin-bottom: 0;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .employee-detail {
+    margin-bottom: 138px;
+  }
+
+  .employee-detail .employee-picture {
+    --aspect-ratio: calc(660 / 546 * 100%);
+  }
+
+  .employee-detail .employee-picture__image {
+    height: 100%;
+    object-fit: cover;
+  }
+}

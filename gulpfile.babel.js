@@ -119,7 +119,7 @@ export function optimizeStyle(done) {
 // JS
 export function js(done) {
   rollup({
-    input: ['./src/main.js', './src/about.js', './src/team.ts'],
+    input: ['./src/main.js', './src/about.js', './src/team.ts', './src/team-inner.ts'],
     plugins: [
       alias({
         entries: {
