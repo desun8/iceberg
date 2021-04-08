@@ -1,14 +1,40 @@
 import Vue from "vue";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { Data, EmployeeWithKey } from "./types";
+import { Data, Employee, EmployeeWithKey } from "./types";
 import { testData } from "./testData";
 import EmployeeCard from "./components/EmployeeCard";
 import isDesktop from "../../utils/isDesktop";
+import Persistence from "../../Persistence";
 
 gsap.registerPlugin(ScrollTrigger);
 
+export enum Storage {
+  View = "view",
+  Items = "employee-items",
+  Type = "selected-type",
+  Scroll = "scroll-position"
+}
+
 const INITIAL_VIEW_SIZE = 6;
+const INITIAL_TYPE = "1";
+
+const shouldRestore: boolean = (() => {
+  const referrer: string = document.referrer;
+
+  // TODO: заменить на название подраздела.
+  // Например url - site.ru/employee/volchkova
+  // Название подраздела - "employee". Его и ищем.
+  const searchPhrase = /team-inner/;
+
+  // TODO: удалить
+  console.log(`Restore data from storage? ${referrer.search(searchPhrase) !== -1}`);
+
+  return referrer.search(searchPhrase) !== -1;
+})();
+
+const initialView = (shouldRestore && Persistence.get(Storage.View)) || INITIAL_VIEW_SIZE;
+const initialType = (shouldRestore && Persistence.get(Storage.Type)) || INITIAL_TYPE;
 
 export default () => new Vue({
   el: "#app-team",
@@ -17,18 +43,27 @@ export default () => new Vue({
   },
   data(): Data {
     return {
-      selectedTab: "1",
+      selectedType: initialType,
       viewStep: INITIAL_VIEW_SIZE,
-      view: INITIAL_VIEW_SIZE,
-      employeeItems: testData,
+      view: +initialView,
       observer: null,
       scrollTriggerInstance: null,
     };
   },
+
   computed: {
+    employeeItems(): Employee[] {
+      if (shouldRestore && Persistence.get(Storage.Items)) {
+        return JSON.parse(Persistence.get(Storage.Items) as string) as Employee[];
+      }
+
+      Persistence.set(Storage.Items, JSON.stringify(testData));
+      return testData;
+    },
+
     filteredEmployees(): EmployeeWithKey[] | [] {
       return (this.employeeItems.filter((item) => {
-        const isCorrect = item.types.some((type: string) => type === this.selectedTab);
+        const isCorrect = item.types.some((type: string) => type === this.selectedType);
 
         // Если элемент подходит по типу,
         // то генерируем "key".
@@ -60,17 +95,19 @@ export default () => new Vue({
 
   methods: {
     setView(newVal: number) {
+      Persistence.set(Storage.View, newVal);
       this.view = newVal;
     },
 
-    setSelectedTab(newValue: string) {
-      this.selectedTab = newValue;
+    setSelectedType(newValue: string) {
+      Persistence.set(Storage.Type, newValue);
+      this.selectedType = newValue;
       this.setView(this.viewStep);
     },
 
     handleClickTab(event: MouseEvent) {
       const value = (event.currentTarget as HTMLButtonElement).value;
-      this.setSelectedTab(value);
+      this.setSelectedType(value);
     },
 
     enterAnimation(el: any, done: () => void) {
@@ -179,7 +216,7 @@ export default () => new Vue({
   },
 
   watch: {
-    selectedTab(currValue, prevValue) {
+    selectedType(currValue, prevValue) {
       if (currValue !== prevValue) {
         this.unobserving();
         this.observing();
@@ -192,6 +229,14 @@ export default () => new Vue({
 
     if (isDesktop()) {
       this.createScrollAnimation();
+    }
+
+    if (shouldRestore) {
+      const scrollPosition = Persistence.get(Storage.Scroll);
+
+      if (scrollPosition) {
+        document.documentElement.scrollTop = +scrollPosition;
+      }
     }
   },
 })
