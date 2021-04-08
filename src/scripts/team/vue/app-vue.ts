@@ -154,7 +154,7 @@ export default () => new Vue({
 
       let proxy = {skew: 0};
       let skewSetter = gsap.quickSetter(".employees-list__item", "skewY", "deg"); // fast
-      let clamp = gsap.utils.clamp(-4, 4); // don't let the skew go beyond 20 degrees.
+      let clamp = gsap.utils.clamp(-1, 1); // don't let the skew go beyond 20 degrees.
 
       this.scrollTriggerInstance = ScrollTrigger.create({
         onUpdate: (self) => {
