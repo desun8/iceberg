@@ -10,7 +10,7 @@ enum CssVar {
 enum Position {
   ImgDefault = "0",
   ImgMove = "-100",
-  MaskDefault = "100",
+  MaskDefault = "105",
   MaskMove = "0",
 }
 
