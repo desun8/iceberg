@@ -1,0 +1,23 @@
+.example-card-list {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.example-card-list__title {
+  display: inline;
+  font-weight: 500;
+}
+
+.example-card-list__describe {
+  display: inline;
+  margin-left: 0;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .example-card-list {
+    margin-bottom: 60px;
+  }
+}

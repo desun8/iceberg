@@ -1,13 +1,14 @@
 body {
   --page-gap: 15px;
   --trans-dur: 0.3s;
-  
+
   /* fonts */
   --letter-spacing: 0.08px;
-  
+
   /* colors */
   --c-light-grey: #f8f8f8;
   --c-deep-blue: #3c3d75;
+  --c-deep-blue-darken: #33386f;
   --c-light-blue: #e9edf8;
   --c-sky-blue: #edf0f8;
   --c-sky-blue__old: #abd8fd;

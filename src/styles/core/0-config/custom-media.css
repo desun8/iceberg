@@ -1,13 +1,17 @@
 /* stylelint-disable */
 
 /* mobile first */
-/* @custom-media --mobile-sm (width >= 23.4375em); */
+@custom-media --mobile-sm (width >= 23.4375em); /* 375px */
+@custom-media --mobile-md (width >= 25.625em); /* 410px */
+@custom-media --mobile-lg (width >= 28em); /* 448 */
+@custom-media --pre-tablet (width >= 34em); /* 554 */
 
 @custom-media --tablet (width >= 48em); /* 768px */
 @custom-media --tablet-lg (width >= 64em); /* 768px */
 @custom-media --desktop (width >= 68.75em); /* 1100 */
 @custom-media --desktop-md (width >= 90em); /* 1440 */
- @custom-media --desktop-lg (width >= 100em); /* 1600 */
+@custom-media --desktop-lg (width >= 100em); /* 1600 */
+@custom-media --desktop-fullhd (width >= 120em); /* 1920 */
 
 /* @custom-media --desktop-height-sm (height < 43.75em) and (--desktop); */
 /* @custom-media --desktop-height-md (height <= 53em) and (--desktop); */

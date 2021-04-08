@@ -1,0 +1,28 @@
+.describe-list {
+  display: grid;
+  gap: 36px;
+}
+
+/*.describe-list__item {}*/
+
+.describe-list__title {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.describe-list__describe {
+  margin-left: 0;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .describe-list {
+    gap: 40px;
+  }
+
+  .describe-list__title {
+    margin-bottom: 16px;
+    font-size: 22px;
+  }
+}

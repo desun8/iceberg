@@ -21,7 +21,9 @@ const EmployeeCard = Vue.extend({
     <article class="employee-card">
       <employee-picture 
           v-bind:images="employee.images" 
-          v-bind:name="employee.name">
+          v-bind:name="employee.name"
+          v-bind:href="employee.url"
+      >
       </employee-picture>
 
       <div class="employee-card__body">

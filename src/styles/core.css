@@ -15,6 +15,7 @@
 /* UTILITIES */
 @import "./core/3-utilities/visually-hidden.css";
 @import "./core/3-utilities/list-unstyled.css";
+@import "./core/3-utilities/truncate.css";
 
 /* COMPONENTS */
 @import "./core/4-components/accordion.css";
