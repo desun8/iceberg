@@ -20,17 +20,14 @@ const INITIAL_VIEW_SIZE = 6;
 const INITIAL_TYPE = "1";
 
 const shouldRestore: boolean = (() => {
-  const referrer: string = document.referrer;
-
-  // TODO: заменить на название подраздела.
-  // Например url - site.ru/employee/volchkova
-  // Название подраздела - "employee". Его и ищем.
-  const searchPhrase = /team-inner/;
+  let restore = Persistence.get("restore") === "true";
 
   // TODO: удалить
-  console.log(`Restore data from storage? ${referrer.search(searchPhrase) !== -1}`);
+  if (restore) {
+    console.log("Страница команды. Восстанавливаем состояние.");
+  }
 
-  return referrer.search(searchPhrase) !== -1;
+  return restore;
 })();
 
 const initialView = (shouldRestore && Persistence.get(Storage.View)) || INITIAL_VIEW_SIZE;
@@ -57,7 +54,6 @@ export default () => new Vue({
         return JSON.parse(Persistence.get(Storage.Items) as string) as Employee[];
       }
 
-      Persistence.set(Storage.Items, JSON.stringify(testData));
       return testData;
     },
 
@@ -202,7 +198,6 @@ export default () => new Vue({
             gsap.to(proxy, {
               skew: 0,
               duration: 0.8,
-              // ease: "sine.in",
               overwrite: true,
               onUpdate: () => skewSetter(proxy.skew),
             });
@@ -225,18 +220,21 @@ export default () => new Vue({
   },
 
   mounted() {
-    this.createObserver();
-
-    if (isDesktop()) {
-      this.createScrollAnimation();
-    }
-
     if (shouldRestore) {
       const scrollPosition = Persistence.get(Storage.Scroll);
 
       if (scrollPosition) {
         document.documentElement.scrollTop = +scrollPosition;
       }
+    }
+
+    Persistence.clear();
+    Persistence.set(Storage.Items, JSON.stringify(this.employeeItems));
+
+    this.createObserver();
+
+    if (isDesktop()) {
+      this.createScrollAnimation();
     }
   },
 })

@@ -6,6 +6,10 @@ class Persistence {
   static set(key: string, value: any) {
     sessionStorage.setItem(key, value);
   }
+
+  static clear() {
+    sessionStorage.clear();
+  }
 }
 
 export default Persistence;
