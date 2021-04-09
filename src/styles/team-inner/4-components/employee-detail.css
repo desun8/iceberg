@@ -7,6 +7,27 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-sm) {
+  .employee-detail__picture {
+    margin-bottom: 200px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-md) {
+  .employee-detail__picture {
+    margin-bottom: 230px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-lg) {
+  .employee-detail__picture {
+    margin-bottom: 260px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
   .employee-detail {
     display: grid;

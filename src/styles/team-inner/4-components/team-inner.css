@@ -43,7 +43,7 @@
 
 .team-inner-bg-container {
   --pos-x: calc(var(--page-gap) * -1);
-  --top: -70px;
+  --top: -10px;
 
   position: absolute;
   top: calc(var(--top) + 20vw);
@@ -55,7 +55,7 @@
 
 .team-inner-bg {
   --rotate: 0deg;
-  --scale: 0.8;
+  --scale: 0.7;
   --picture-height: calc(486 / 440 * 1vw);
   --top: calc(var(--picture-height) * 1);
   --translate-x: -50%;
@@ -80,7 +80,18 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--mobile-sm) {
   .team-inner-bg-container {
-    --top: -15px;
+    --top: 60px;
+  }
+
+  .team-inner-bg {
+    --scale: 0.8;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--mobile-md) {
+  .team-inner-bg-container {
+    --top: 110px;
   }
 
   .team-inner-bg {
@@ -89,20 +100,13 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--mobile-md) {
-  .team-inner-bg-container {
-    --top: 30px;
-  }
-}
-
-/* noinspection CssInvalidMediaFeature */
 @media screen and (--mobile-lg) {
   .team-inner-bg-container {
-    --top: 90px;
+    --top: 190px;
   }
 
   .team-inner-bg {
-    --scale: 1.2;
+    --scale: 1;
   }
 }
 
