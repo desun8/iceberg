@@ -19,6 +19,12 @@
   align-items: center;
 
   font-size: 14px;
+  opacity: 0.6;
+  transition: opacity var(--trans-dur);
+}
+
+.team-inner__backward-link:hover {
+  opacity: 1;
 }
 
 .team-inner__backward-link::before {
