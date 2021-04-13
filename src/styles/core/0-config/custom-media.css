@@ -9,7 +9,7 @@
 @custom-media --tablet (width >= 48em); /* 768px */
 @custom-media --tablet-lg (width >= 64em); /* 768px */
 @custom-media --desktop (width >= 68.75em); /* 1100 */
-@custom-media --desktop-md (width >= 90em); /* 1440 */
+@custom-media --desktop-md (width >= 88em); /* 1408 */
 @custom-media --desktop-lg (width >= 100em); /* 1600 */
 @custom-media --desktop-fullhd (width >= 120em); /* 1920 */
 

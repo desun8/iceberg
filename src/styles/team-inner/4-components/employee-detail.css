@@ -3,28 +3,30 @@
 }
 
 .employee-detail__picture {
+  --mb: 170px;
+
   position: relative;
-  margin-bottom: 170px;
+  margin-bottom: var(--mb);
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--mobile-sm) {
   .employee-detail__picture {
-    margin-bottom: 200px;
+    --mb: 200px;
   }
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--mobile-md) {
   .employee-detail__picture {
-    margin-bottom: 230px;
+    --mb: 230px;
   }
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--mobile-lg) {
   .employee-detail__picture {
-    margin-bottom: 260px;
+    --mb: 260px;
   }
 }
 
