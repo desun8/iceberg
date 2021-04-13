@@ -3,6 +3,7 @@
 }
 
 .employee-detail__picture {
+  position: relative;
   margin-bottom: 170px;
 }
 
