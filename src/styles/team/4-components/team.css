@@ -2,6 +2,9 @@
 }
 
 .team__describe {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -17,3 +20,11 @@
   display: none;
 }
 
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .team__filter {
+    --margin-x: auto;
+  
+    max-width: 1060px;
+  }
+}

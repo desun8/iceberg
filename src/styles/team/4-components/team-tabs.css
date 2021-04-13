@@ -45,7 +45,19 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
   .team-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
     margin-bottom: 184px;
+  }
+  
+  .team-tabs__item:first-child {
+    padding-left: 0;
+  }
+  
+  .team-tabs__item:last-child {
+    padding-right: 0;
   }
   
   .team-tabs__btn {
