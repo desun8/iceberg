@@ -91,10 +91,14 @@ export default class ImageMask {
   }
 
   @autobind
-  private handleTouchEnd(event: TouchEvent) {
+  private handleTouchMove(event: TouchEvent) {
     this.touchEnd = event.changedTouches[0].clientX;
 
-    this.swipe();
+    if (Math.abs(this.touchStart - this.touchEnd) > 30 && event.cancelable) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.swipe();
+    }
   }
 
   @autobind
@@ -138,7 +142,7 @@ export default class ImageMask {
     this.rootElm.dataset.init = "true";
 
     this.rootElm.addEventListener("touchstart", this.handleTouchStart, false);
-    this.rootElm.addEventListener("touchend", this.handleTouchEnd, false);
+    this.rootElm.addEventListener("touchmove", this.handleTouchMove, false);
 
     this.rootElm.addEventListener("pointermove", this.handlePointerMove, false);
     this.rootElm.addEventListener("pointerenter", this.handlePointerEnter, false);
