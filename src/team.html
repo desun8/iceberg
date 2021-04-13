@@ -33,29 +33,29 @@
         <li class="team-tabs__item">
           <button
             v-on:click="handleClickTab"
-            v-bind:class="{'is-active': selectedTab === '1'}"
+            v-bind:class="{'is-active': selectedType === '1'}"
             class="team-tabs__btn"
             type="button"
             value="1">Все
           </button>
         </li>
         <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '2'}" class="team-tabs__btn"
+          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '2'}" class="team-tabs__btn"
                   type="button" value="2">Ортодонт
           </button>
         </li>
         <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '3'}" class="team-tabs__btn"
+          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '3'}" class="team-tabs__btn"
                   type="button" value="3">Терапевт
           </button>
         </li>
         <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '4'}" class="team-tabs__btn"
+          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '4'}" class="team-tabs__btn"
                   type="button" value="4">Пародонтолог
           </button>
         </li>
         <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedTab === '5'}" class="team-tabs__btn"
+          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '5'}" class="team-tabs__btn"
                   type="button" value="5">Ортопед
           </button>
         </li>

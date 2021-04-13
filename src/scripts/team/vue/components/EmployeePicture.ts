@@ -15,6 +15,9 @@ const EmployeePicture = Vue.extend({
     href: {
       type: String,
       required: true,
+    },
+    onClick: {
+      type: Function
     }
   },
 
@@ -25,7 +28,7 @@ const EmployeePicture = Vue.extend({
 
   template: `
     <div ref="root" class="employee-picture">
-      <a v-bind:href="href" class="employee-picture__link" aria-hidden="true"></a>
+      <a v-on:click="onClick" v-bind:href="href" class="employee-picture__link" aria-hidden="true"></a>
       <span class="employee-picture__icon" aria-hidden="true"></span>
       <img 
           ref="defaultImg"

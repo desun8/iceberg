@@ -20,10 +20,9 @@ export type EmployeeWithKey = {
 }
 
 export type Data = {
-  selectedTab: string;
+  selectedType: string;
   viewStep: number;
   view: number;
-  employeeItems: Employee[];
   observer: null | IntersectionObserver;
   scrollTriggerInstance: ScrollTriggerInstance | null;
 }

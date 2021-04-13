@@ -74,3 +74,18 @@ html.js-pointer-mouse .employee-card__body {
 html.js-pointer-mouse .employee-card__link {
   opacity: 0;
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .employee-card {
+    position: relative;
+  }
+
+  .employee-card__body {
+    position: static;
+  }
+
+  .employee-card__link {
+    opacity: 0;
+  }
+}
