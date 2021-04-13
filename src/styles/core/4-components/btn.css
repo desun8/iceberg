@@ -1,5 +1,5 @@
 .btn {
-  --pd-x: 25px;
+  --pd-x: 42px;
   --color: var(--c-deep-blue);
   --bg-c: var(--c-sky-blue);
   --bdrs: 100px;
@@ -29,6 +29,10 @@
 .btn:not(.btn--no-hover):hover {
   --color: #fff;
   --bg-c: var(--c-deep-blue);
+}
+
+.btn--tight {
+  --pd-x: 25px;
 }
 
 .btn--dark {
