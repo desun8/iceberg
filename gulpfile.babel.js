@@ -26,15 +26,17 @@ import cssnano from 'cssnano';
 
 // JS
 import { rollup } from 'rollup';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import commonJs from 'rollup-plugin-commonjs';
-import replace from 'rollup-plugin-replace';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import commonJs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
 import alias from '@rollup/plugin-alias';
-// import visualizer from 'rollup-plugin-visualizer';
-// import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import visualizer from 'rollup-plugin-visualizer';
+import { terser } from 'rollup-plugin-terser';
+import progress from 'rollup-plugin-progress';
+import sizes from 'rollup-plugin-sizes';
+
 // import rollupCss from 'rollup-plugin-css-only';
-// import { terser } from 'rollup-plugin-terser';
 // import uglify from "gulp-uglify";
 // import webpack from "webpack";
 // import webpackStream from "webpack-stream";
@@ -121,6 +123,7 @@ export function js(done) {
   rollup({
     input: ['./src/main.js', './src/about.js', './src/team.ts', './src/team-inner.ts'],
     plugins: [
+      progress({ clearLine: true }),
       alias({
         entries: {
           vue: path.resolve('./node_modules/vue/dist/vue.esm.js'),
@@ -137,9 +140,9 @@ export function js(done) {
         'process.env.VUE_ENV': JSON.stringify('browser'),
       }),
       typescript(),
-      // sizeSnapshot(), // напишет в консоль размер бандла
-      // terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES
-      // visualizer(), // анализатор бандла,
+      sizes(),
+      terser(), // минификатор совместимый с ES2015+, форк и наследник UglifyES
+      visualizer(), // анализатор бандла,
       // rollupCss({ output: 'bundle.css' }),
     ],
   })
