@@ -26,3 +26,10 @@ export type Data = {
   observer: null | IntersectionObserver;
   scrollTriggerInstance: ScrollTriggerInstance | null;
 }
+
+export enum Storage {
+  View = "view",
+  Items = "employee-items",
+  Type = "selected-type",
+  Scroll = "scroll-position"
+}

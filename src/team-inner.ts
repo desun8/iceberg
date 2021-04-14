@@ -1,5 +1,5 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import core from "./core";
 import ImageMask from "./scripts/ImageMask";
 

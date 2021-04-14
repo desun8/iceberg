@@ -1,20 +1,13 @@
 import Vue from "vue";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import gsap from "gsap";
-import { Data, Employee, EmployeeWithKey } from "./types";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Data, Employee, EmployeeWithKey, Storage } from "./types";
 import { testData } from "./testData";
 import EmployeeCard from "./components/EmployeeCard";
 import isDesktop from "../../utils/isDesktop";
 import Persistence from "../../Persistence";
 
 gsap.registerPlugin(ScrollTrigger);
-
-export enum Storage {
-  View = "view",
-  Items = "employee-items",
-  Type = "selected-type",
-  Scroll = "scroll-position"
-}
 
 const INITIAL_VIEW_SIZE = 6;
 const INITIAL_TYPE = "1";

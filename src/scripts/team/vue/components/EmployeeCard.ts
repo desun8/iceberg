@@ -1,8 +1,7 @@
 import Vue, { PropType } from "vue";
-import { Employee } from "../types";
+import { Employee, Storage } from "../types";
 import EmployeePicture from "./EmployeePicture";
 import Persistence from "../../../Persistence";
-import { Storage } from "../app-vue";
 
 const EmployeeCard = Vue.extend({
   components: {
