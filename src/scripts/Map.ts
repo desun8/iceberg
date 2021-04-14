@@ -2,6 +2,10 @@ import DG from '2gis-maps';
 import { mqIsDesktop } from './utils/mediaQueryEvent';
 
 class Map {
+  private map: DG | undefined;
+  private coords: number[];
+  private marker: DG;
+
   constructor() {
     this.map = undefined;
     this.coords = [55.80918971707443, 37.48324268700438];

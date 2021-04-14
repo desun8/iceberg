@@ -4,9 +4,7 @@ import isDesktop from '../utils/isDesktop';
 import DatePicker from './DatePicker';
 import Select from './Select';
 import FormSetup from './FormSetup';
-
-export const APPOINTMENT = 'appointment'; // прием
-export const CONSULTATION = 'consultation'; // консультация
+import { CONSULTATION } from './FormType';
 
 class Constructor {
   static createWrapper(type) {

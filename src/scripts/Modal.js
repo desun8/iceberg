@@ -2,8 +2,7 @@
 import A11yDialog from 'a11y-dialog';
 import scrollLock from 'scroll-lock';
 import SimpleBar from 'simplebar';
-import Form, { APPOINTMENT, CONSULTATION } from './form/Form';
-import Feedback from './Feedback';
+import { APPOINTMENT, CONSULTATION } from './form/FormType';
 import isDesktop from './utils/isDesktop';
 
 const MODAL_TYPES = {
@@ -150,8 +149,10 @@ class Open {
     showModalElm(modalPage, container);
 
     const { id } = btn.dataset;
-    Feedback.add(container, id);
-
+    // dynamic
+    import('./Feedback').then(({ default: Feedback }) => {
+      Feedback.add(container, id);
+    });
     if (isDesktop()) {
       initSimplebar(modalPage);
     }
@@ -178,8 +179,8 @@ class Modal {
 
     this.dialog = new Dialog(this.pageModal, this.btnsClose).dialog;
 
-    this.formAppointment = new Form(APPOINTMENT);
-    this.formConsultation = new Form(CONSULTATION);
+    this.formAppointment = null;
+    this.formConsultation = null;
 
     this.feedbackContainer = this.pageModal.querySelector('[data-type="feedback"]');
     this.iframeContainer = this.pageModal.querySelector('[data-type="iframe"]');
@@ -208,18 +209,29 @@ class Modal {
     }
 
     if (this.type === MODAL_TYPES.form) {
-      Open.form(
-        this.pageModal,
-        this.footerModal,
-        this.formAppointment,
-        this.formConsultation,
-        currentTarget,
-        this.menu.close.bind(this.menu),
-      );
+      import('./form/Form').then(({ default: Form }) => {
+        this.formAppointment = new Form(APPOINTMENT);
+        this.formConsultation = new Form(CONSULTATION);
+
+        if (this.formAppointment !== null && this.formConsultation !== null) {
+          Open.form(
+            this.pageModal,
+            this.footerModal,
+            this.formAppointment,
+            this.formConsultation,
+            currentTarget,
+            this.menu.close.bind(this.menu),
+          );
+        }
+      });
     }
 
     if (this.type === MODAL_TYPES.feedback) {
-      Open.feedback(this.pageModal, this.feedbackContainer, currentTarget);
+      Open.feedback(
+        this.pageModal,
+        this.feedbackContainer,
+        currentTarget,
+      );
     }
 
     if (this.type === MODAL_TYPES.iframe) {
@@ -229,7 +241,7 @@ class Modal {
     // Если это не модалка формы для десктопа десктоп,
     // то показывается диалог и блокируется скролл
     if (!(this.type === MODAL_TYPES.form && isDesktop())) {
-      this.dialog.show();
+      this.dialog.show(); // new Dialog
     }
   }
 
@@ -256,7 +268,10 @@ class Modal {
       btn.addEventListener('click', isFooterModal ? this.handleClose : this.handleCloseDialog);
     });
 
-    this.pageModalBody.addEventListener('click', ({ currentTarget, target }) => {
+    this.pageModalBody.addEventListener('click', ({
+      currentTarget,
+      target,
+    }) => {
       if (currentTarget === target) this.handleCloseDialog();
     });
   }
