@@ -1,29 +1,32 @@
 // eslint-disable-next-line max-classes-per-file
-import isMobile from '../utils/isMobile';
-import isDesktop from '../utils/isDesktop';
-import DatePicker from './DatePicker';
-import Select from './Select';
-import FormSetup from './FormSetup';
-import { CONSULTATION } from './FormType';
+import isMobile from "../utils/isMobile";
+import isDesktop from "../utils/isDesktop";
+import DatePicker from "./DatePicker";
+import Select from "./Select";
+import FormSetup from "./FormSetup";
+import { CONSULTATION } from "./FormType";
+import { loadRecaptcha } from "./loadRecaptcha";
+
+loadRecaptcha();
 
 class Constructor {
   static createWrapper(type) {
-    const elm = document.createElement('div');
+    const elm = document.createElement("div");
     elm.dataset.type = `form-${type}`;
-    elm.dataset.active = 'false';
-    elm.style.position = 'relative'; // для блока с сообщением об отправке
+    elm.dataset.active = "false";
+    elm.style.position = "relative"; // для блока с сообщением об отправке
     return elm;
   }
 
   static clone(template, selector) {
     const cloneTarget = template.content.querySelector(selector);
     const cloneElm = document.importNode(cloneTarget, true);
-    cloneElm.id = '';
+    cloneElm.id = "";
     return cloneElm;
   }
 
   static create(formType) {
-    if (!('content' in document.createElement('template'))) {
+    if (!("content" in document.createElement("template"))) {
       return;
     }
 
@@ -32,30 +35,30 @@ class Constructor {
     let noteContainer;
     // Десктоп
     if (isDesktop()) {
-      modalContent = document.querySelector('.page-modal-footer');
-      formContainer = modalContent.querySelector('.page-modal-footer__form');
-      noteContainer = modalContent.querySelector('.page-modal-footer__note .modal__body');
+      modalContent = document.querySelector(".page-modal-footer");
+      formContainer = modalContent.querySelector(".page-modal-footer__form");
+      noteContainer = modalContent.querySelector(".page-modal-footer__note .modal__body");
     } else {
-      modalContent = document.querySelector('.page-modal__content');
+      modalContent = document.querySelector(".page-modal__content");
     }
 
-    const template = document.querySelector('template');
+    const template = document.querySelector("template");
 
-    const form = this.clone(template, '#template-form');
+    const form = this.clone(template, "#template-form");
     form.id = `form-${formType}`;
     form.dataset.type = `${formType.toUpperCase()}_FORM`;
 
-    const successMessage = this.clone(template, '#template-form-success');
+    const successMessage = this.clone(template, "#template-form-success");
 
     const wrapper = this.createWrapper(formType);
     wrapper.appendChild(form);
     wrapper.appendChild(successMessage);
 
     if (formType === CONSULTATION) {
-      const note = this.clone(template, '#template-form-note');
+      const note = this.clone(template, "#template-form-note");
 
       if (noteContainer) {
-        noteContainer.innerHTML = '';
+        noteContainer.innerHTML = "";
         noteContainer.appendChild(note);
       } else {
         wrapper.appendChild(note);
@@ -87,9 +90,9 @@ class Form {
   create() {
     this.form = Constructor.create(this.formType);
 
-    this.datepickerInstance = new DatePicker(this.form.querySelector('.form__datepicker'));
+    this.datepickerInstance = new DatePicker(this.form.querySelector(".form__datepicker"));
     if (!isMobile()) {
-      this.selectInstance = new Select(this.form.querySelector('.custom-select'));
+      this.selectInstance = new Select(this.form.querySelector(".custom-select"));
     }
   }
 
@@ -102,4 +105,5 @@ class Form {
     }
   }
 }
+
 export default Form;

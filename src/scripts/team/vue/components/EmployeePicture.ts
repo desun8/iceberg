@@ -1,6 +1,5 @@
 import Vue, { PropType } from "vue";
 import { Images } from "../types";
-import ImageMask from "../../../ImageMask";
 
 const EmployeePicture = Vue.extend({
   props: {
@@ -23,7 +22,12 @@ const EmployeePicture = Vue.extend({
 
   mounted() {
     const {root, defaultImg, maskImg} = this.$refs;
-    new ImageMask(root as HTMLDivElement, defaultImg as HTMLImageElement, maskImg as HTMLImageElement);
+
+    setTimeout(() =>
+      import("../../../ImageMask").then(({default: ImageMask}) => {
+        new ImageMask(root as HTMLDivElement, defaultImg as HTMLImageElement, maskImg as HTMLImageElement);
+      }), 200);
+    // new ImageMask(root as HTMLDivElement, defaultImg as HTMLImageElement, maskImg as HTMLImageElement);
   },
 
   template: `

@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import core from "./core";
-import ImageMask from "./scripts/ImageMask";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,7 +26,10 @@ const exampleLinkHover = () => {
 const addPictureMask = () => {
   const element = document.querySelector(".employee-picture") as HTMLDivElement;
   if (element) {
-    new ImageMask(element);
+    setTimeout(() =>
+      import("./scripts/ImageMask").then(({default: ImageMask}) => {
+        new ImageMask(element);
+      }), 200);
   }
 };
 
