@@ -40,14 +40,16 @@ const EmployeePicture = Vue.extend({
           v-bind:alt="\`Фотография $\{name}.\`"
           class="employee-picture__image"
           width="440"
-          height="486">
+          height="486"
+          loading="lazy">
       <img
           ref="maskImg"
           v-bind:src="images[1]"
           v-bind:alt="\`Фотография $\{name}.\`"
           class="employee-picture__image  employee-picture__image--mask"
           width="440"
-          height="486">
+          height="486"
+          loading="lazy">
     </div>`,
 });
 

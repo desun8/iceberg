@@ -141,11 +141,11 @@ export default class ImageMask {
   private init() {
     this.rootElm.dataset.init = "true";
 
-    this.rootElm.addEventListener("touchstart", this.handleTouchStart, false);
-    this.rootElm.addEventListener("touchmove", this.handleTouchMove, false);
+    this.rootElm.addEventListener("touchstart", this.handleTouchStart, {passive: true});
+    this.rootElm.addEventListener("touchmove", this.handleTouchMove, {passive: true});
 
-    this.rootElm.addEventListener("pointermove", this.handlePointerMove, false);
-    this.rootElm.addEventListener("pointerenter", this.handlePointerEnter, false);
-    this.rootElm.addEventListener("pointerleave", this.handlePointerLeave, false);
+    this.rootElm.addEventListener("pointermove", this.handlePointerMove, {passive: true});
+    this.rootElm.addEventListener("pointerenter", this.handlePointerEnter, {passive: true});
+    this.rootElm.addEventListener("pointerleave", this.handlePointerLeave, {passive: true});
   }
 }

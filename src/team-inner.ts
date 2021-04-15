@@ -15,11 +15,11 @@ const exampleLinkHover = () => {
 
     link.addEventListener("mouseenter", () => {
       parent.classList.add(HOVER_CLASS);
-    }, false);
+    }, {passive: true});
 
     link.addEventListener("mouseleave", () => {
       parent.classList.remove(HOVER_CLASS);
-    }, false);
+    }, {passive: true});
   });
 };
 
@@ -52,4 +52,3 @@ const examplesEnterAnimation = () => {
 exampleLinkHover();
 addPictureMask();
 examplesEnterAnimation();
-

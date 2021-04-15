@@ -35,7 +35,7 @@ export default () => {
   };
 
   const removeHandle = () => {
-    window.removeEventListener("pointermove", handlePointerMove, false);
+    window.removeEventListener("pointermove", handlePointerMove);
   };
 
   const handlePointerMove = (event: PointerEvent) => {
@@ -45,5 +45,5 @@ export default () => {
     setTimeout(removeHandle, 0);
   };
 
-  window.addEventListener("pointermove", handlePointerMove, false);
+  window.addEventListener("pointermove", handlePointerMove, {passive: true});
 }
