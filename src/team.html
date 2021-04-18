@@ -59,7 +59,15 @@
       </ul>
     </div>
 
-    <transition-group v-on:enter="enterAnimation" v-on:leave="leaveAnimation" tag="div" class="employees-list" appear>
+    <div v-if="!employees" class="preloader">
+      <div class="preloader__container">
+        <div class="preloader__dot  preloader__dot--1"></div>
+        <div class="preloader__dot  preloader__dot--2"></div>
+        <div class="preloader__dot  preloader__dot--3"></div>
+      </div>
+    </div>
+
+    <transition-group v-else v-on:enter="enterAnimation" v-on:leave="leaveAnimation" tag="div" class="employees-list" appear>
       <div
         v-for="(employee, index) in employees"
         v-bind:key="employee.key"

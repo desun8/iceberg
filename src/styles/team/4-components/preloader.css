@@ -1,0 +1,116 @@
+@keyframes jump-jump-1 {
+  0%,
+  70% {
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+  }
+
+  100% {
+    /*box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);*/
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1);
+  }
+}
+
+@keyframes jump-jump-2 {
+  0%,
+  40% {
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+  }
+
+  100% {
+    /*box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);*/
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1);
+  }
+}
+
+@keyframes jump-jump-3 {
+  0%,
+  10% {
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    transform: scale(0);
+  }
+
+  100% {
+    /*box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);*/
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1);
+  }
+}
+
+.preloader {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+}
+
+.preloader__container {
+  position: absolute;
+  top: 0;
+  left: calc(50% - (220px / 2));
+  width: 220px;
+  height: 220px;
+}
+
+.preloader__dot {
+  --size: 30px;
+  --animation: jump-jump-1;
+
+  position: absolute;
+  top: calc(50% - (var(--size) / 2));
+  left: calc(50% - (var(--size) / 2));
+  width: var(--size);
+  height: var(--size);
+  background: #fff;
+  border-radius: 50%;
+  animation: var(--animation) 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite alternate;
+  animation-fill-mode: both;
+}
+
+.preloader__dot--1 {
+  --size: 30px;
+  --animation: jump-jump-1;
+
+  z-index: 3;
+}
+
+.preloader__dot--2 {
+  --size: 60px;
+  --animation: jump-jump-2;
+
+  z-index: 2;
+}
+
+.preloader__dot--3 {
+  --size: 90px;
+  --animation: jump-jump-3;
+
+  z-index: 1;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .preloader {
+    width: 512px;
+    height: 512px;
+    margin: 0 auto;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .preloader__dot--1 {
+    --size: 60px;
+  }
+
+  .preloader__dot--2 {
+    --size: 120px;
+  }
+
+  .preloader__dot--3 {
+    --size: 180px;
+  }
+}
