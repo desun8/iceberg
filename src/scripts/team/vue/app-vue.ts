@@ -255,9 +255,11 @@ export default () => new Vue({
     Persistence.set(Storage.Items, JSON.stringify(this.employeeItems));
 
     this.createObserver();
+  },
 
+  updated() {
     if (isDesktop()) {
       this.createScrollAnimation();
     }
-  },
+  }
 })
