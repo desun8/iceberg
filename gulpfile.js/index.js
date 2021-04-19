@@ -15,69 +15,68 @@ const {
   stylesWatch
 } = require('./styles');
 const {
-  scripts,
-  scriptsWatch
-} = require('./scripts');
-const {
   media,
   mediaWatch
 } = require('./media');
 const { criticalCss } = require('./criticalCss');
 
-function startMsg(cb) {
+function startMsg(done) {
   log('Begin task...🚀🚀🚀');
-  cb();
+  done();
 }
 
-function finishMsg(cb) {
+function finishMsg(done) {
   log('Finish! 🎉🎉🎉');
-  cb();
+  done();
 }
 
-function clear(cb) {
-  fs.emptyDir('dist', cb);
+function clear(done) {
+  fs.emptyDir('dist', done);
 }
 
-function serve(cb) {
+function copyMock(done) {
+  fs.copy('src/mockServiceWorker.js', 'dist/mockServiceWorker.js', done)
+}
+
+function serve(done) {
   browserSync.init({
     server: 'dist',
     open: false,
   });
 
-  browserSync.watch('dist/**/*.*', browserSync.reload());
+  browserSync.watch('dist/')
+    .on('change', browserSync.reload);
 
-  cb();
+  done();
 }
 
-function watch(cb) {
+function watchTask(done) {
   htmlWatch();
   stylesWatch();
-  scriptsWatch();
   mediaWatch();
 
-  cb();
+  done();
 }
 
 if (process.env.NODE_ENV === 'production') {
-  exports.start = series(clear, parallel(watch, serve));
+  exports.start = series(clear, copyMock, parallel(watchTask, serve));
 } else {
-  exports.start = series(clear, parallel(watch, serve));
+  exports.start = series(clear, copyMock, parallel(watchTask, serve));
 }
 
 exports.build = series(
   startMsg,
   clear,
+  copyMock,
   html,
   styles,
-  scripts,
   media,
-  finishMsg
+  finishMsg,
 );
 
 exports['critical-css'] = criticalCss;
-exports.serve = serve;
 
-exports.default = function (cb) {
+exports.default = function (done) {
   console.log('Привет 🐼');
-  cb();
+  done();
 };

@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp start",
-    "perfomance-check": "NODE_ENV='production' gulp start",
-    "build": "NODE_ENV='production' gulp build",
-    "serve": "gulp serve",
+    "rollup-watch": "rollup -c -w",
+    "rollup-build": "NODE_ENV='production' rollup -c",
+    "gulp-dev": "gulp start",
+    "start": "npm-run-all --parallel gulp-dev rollup-watch",
+    "perfomance-check": "NODE_ENV='production' npm-run-all --parallel gulp-dev rollup-watch",
+    "build": "NODE_ENV='production' gulp build && npm run rollup-build",
     "critical-css": "gulp critical-css"
   },
   "author": "",
@@ -16,6 +18,7 @@
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-replace": "^2.4.2",
     "@rollup/plugin-typescript": "^8.2.1",
@@ -35,6 +38,8 @@
     "gulp-posthtml": "^3.0.5",
     "gulp-sourcemaps": "^3.0.0",
     "modernizr": "^3.11.3",
+    "msw": "^0.28.1",
+    "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "postcss": "^8.2.1",
     "postcss-easings": "^3.0.1",
@@ -65,5 +70,8 @@
     "simplebar": "^5.3.0",
     "swiper": "^6.3.5",
     "vue": "^2.6.12"
+  },
+  "msw": {
+    "workerDirectory": "src"
   }
 }
