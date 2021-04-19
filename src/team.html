@@ -15,75 +15,84 @@
   <link rel="stylesheet" href="team.css">
 </head>
 <body>
-<include src="page-header.html"></include>
 <include src="page-menu/index.html"></include>
 
-<main class="page-main">
-  <h1 class="page-title">Наша команда</h1>
+<div id="scroll-container">
+  <include src="page-header.html"></include>
 
-  <section id="app-team" class="team team-container">
-    <p class="team__describe">Нас объединяет общая движущая сила - желание помогать людям и сделать стоматологическую
-      травматологию в России лучшей в мире.</p>
+  <main class="page-main">
+    <h1 class="page-title">Наша команда</h1>
 
-    <div class="team__filter js-simplebar">
-      <ul class="team-tabs  list-unstyled">
-        <li class="team-tabs__item">
-          <button
-            v-on:click="handleClickTab"
-            v-bind:class="{'is-active': selectedType === '1'}"
-            class="team-tabs__btn"
-            type="button"
-            value="1">Все
-          </button>
-        </li>
-        <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '2'}" class="team-tabs__btn"
-                  type="button" value="2">Ортодонт
-          </button>
-        </li>
-        <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '3'}" class="team-tabs__btn"
-                  type="button" value="3">Терапевт
-          </button>
-        </li>
-        <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '4'}" class="team-tabs__btn"
-                  type="button" value="4">Пародонтолог
-          </button>
-        </li>
-        <li class="team-tabs__item">
-          <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '5'}" class="team-tabs__btn"
-                  type="button" value="5">Ортопед
-          </button>
-        </li>
-      </ul>
-    </div>
+    <section id="app-team" class="team team-container">
+      <p class="team__describe">Нас объединяет общая движущая сила - желание помогать людям и сделать стоматологическую
+        травматологию в России лучшей в мире.</p>
 
-    <div v-if="employees.length === 0" class="preloader">
-      <div class="preloader__container">
-        <div class="preloader__dot  preloader__dot--1"></div>
-        <div class="preloader__dot  preloader__dot--2"></div>
-        <div class="preloader__dot  preloader__dot--3"></div>
-      </div>
-    </div>
-
-    <transition-group v-else v-on:enter="enterAnimation" v-on:leave="leaveAnimation" tag="div" class="employees-list" appear>
-      <div
-        v-for="(employee, index) in employees"
-        v-bind:key="employee.key"
-        v-bind:data-index="index + 1"
-        class="employees-list__item"
-      >
-        <employee-card v-bind:employee="employee"></employee-card>
+      <div class="team__filter js-simplebar">
+        <ul class="team-tabs  list-unstyled">
+          <li class="team-tabs__item">
+            <button
+              v-on:click="handleClickTab"
+              v-bind:class="{'is-active': selectedType === '1'}"
+              class="team-tabs__btn"
+              type="button"
+              value="1">Все
+            </button>
+          </li>
+          <li class="team-tabs__item">
+            <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '2'}"
+                    class="team-tabs__btn"
+                    type="button" value="2">Ортодонт
+            </button>
+          </li>
+          <li class="team-tabs__item">
+            <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '3'}"
+                    class="team-tabs__btn"
+                    type="button" value="3">Терапевт
+            </button>
+          </li>
+          <li class="team-tabs__item">
+            <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '4'}"
+                    class="team-tabs__btn"
+                    type="button" value="4">Пародонтолог
+            </button>
+          </li>
+          <li class="team-tabs__item">
+            <button v-on:click="handleClickTab" v-bind:class="{'is-active': selectedType === '5'}"
+                    class="team-tabs__btn"
+                    type="button" value="5">Ортопед
+            </button>
+          </li>
+        </ul>
       </div>
 
-      <div key="trigger" ref="showMoreTrigger" class="js-show-more-trigger"></div>
-    </transition-group>
+      <div v-if="employees.length === 0" class="preloader">
+        <div class="preloader__container">
+          <div class="preloader__dot  preloader__dot--1"></div>
+          <div class="preloader__dot  preloader__dot--2"></div>
+          <div class="preloader__dot  preloader__dot--3"></div>
+        </div>
+      </div>
 
-  </section>
-</main>
+      <transition-group v-else v-on:enter="enterAnimation" v-on:leave="leaveAnimation" tag="div" class="employees-list"
+                        appear>
+        <div
+          v-for="(employee, index) in employees"
+          v-bind:key="employee.key"
+          v-bind:data-index="index + 1"
+          class="employees-list__item"
+        >
+          <employee-card v-bind:employee="employee"></employee-card>
+        </div>
 
-<include src="page-footer.html"></include>
+        <div key="trigger" ref="showMoreTrigger" class="js-show-more-trigger"></div>
+      </transition-group>
+
+    </section>
+  </main>
+
+  <include src="page-footer.html"></include>
+</div>
+
 <include src="page-modal.html"></include>
 
 <script src="mockServiceWorker.js" type="module"></script>
