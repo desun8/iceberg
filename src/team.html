@@ -59,7 +59,7 @@
       </ul>
     </div>
 
-    <div v-if="!employees" class="preloader">
+    <div v-if="employees.length === 0" class="preloader">
       <div class="preloader__container">
         <div class="preloader__dot  preloader__dot--1"></div>
         <div class="preloader__dot  preloader__dot--2"></div>
@@ -86,6 +86,7 @@
 <include src="page-footer.html"></include>
 <include src="page-modal.html"></include>
 
+<script src="mockServiceWorker.js" type="module"></script>
 <script src="team.js" type="module" async></script>
 
 <include src="template.html"></include>

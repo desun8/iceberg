@@ -2,10 +2,13 @@ import Vue from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Data, Employee, EmployeeWithKey, Storage } from "./types";
-import { testData } from "./testData";
 import EmployeeCard from "./components/EmployeeCard";
 import isDesktop from "../../utils/isDesktop";
 import Persistence from "../../Persistence";
+import { worker } from "../../../mocks/browser";
+
+// TODO: удалить для прода
+worker.start();
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,19 +41,16 @@ export default () => new Vue({
       view: +initialView,
       observer: null,
       scrollTriggerInstance: null,
+      employeeItems: null,
     };
   },
 
   computed: {
-    employeeItems(): Employee[] {
-      if (shouldRestore && Persistence.get(Storage.Items)) {
-        return JSON.parse(Persistence.get(Storage.Items) as string) as Employee[];
+    filteredEmployees(): EmployeeWithKey[] | [] {
+      if (this.employeeItems === null) {
+        return [];
       }
 
-      return testData;
-    },
-
-    filteredEmployees(): EmployeeWithKey[] | [] {
       return (this.employeeItems.filter((item) => {
         const isCorrect = item.types.some((type: string) => type === this.selectedType);
 
@@ -70,19 +70,35 @@ export default () => new Vue({
         return this.filteredEmployees;
       }
 
-      const newArr = this.filteredEmployees.slice(0, this.view);
-
-      if (isDesktop()) {
-        setTimeout(() => {
-          this.createScrollAnimation();
-        }, 100);
-      }
-
-      return newArr;
+      return this.filteredEmployees.slice(0, this.view);
     },
   },
 
   methods: {
+    fetchEmployees() {
+      if (shouldRestore && Persistence.get(Storage.Items)) {
+        console.log("восстановление данных из sessionStorage");
+        const getSessionData = new Promise((resolve) => {
+          resolve("done");
+        });
+
+        return getSessionData.then(() => JSON.parse(Persistence.get(Storage.Items) as string) as Employee[]);
+      }
+
+      const handleErrors = (response: Response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        return response.json();
+      };
+
+      return fetch("/api/employees", {method: "POST"})
+        .then(handleErrors)
+        .then((response) => response.results ? JSON.parse(response.results) : [])
+        .catch((error) => console.error("При получении списка сотрудников что то пошло не так", error));
+    },
+
     setView(newVal: number) {
       Persistence.set(Storage.View, newVal);
       this.view = newVal;
@@ -201,6 +217,14 @@ export default () => new Vue({
       // make the right edge "stick" to the scroll bar. force3D: true improves performance
       gsap.set(".employees-list__item", {transformOrigin: "right center", force3D: true});
     },
+
+    delay() {
+      const delay = new Promise((resolve) => {
+        setTimeout(() => resolve(""), 200);
+      });
+
+      return delay.then();
+    },
   },
 
   watch: {
@@ -212,7 +236,11 @@ export default () => new Vue({
     },
   },
 
-  mounted() {
+  async mounted() {
+    this.employeeItems = await this.fetchEmployees();
+
+    await this.delay();
+
     if (shouldRestore) {
       const scrollPosition = Persistence.get(Storage.Scroll);
 
@@ -221,6 +249,8 @@ export default () => new Vue({
       }
     }
 
+    console.log("this.employeeItems");
+    console.log(this.employeeItems);
     Persistence.clear();
     Persistence.set(Storage.Items, JSON.stringify(this.employeeItems));
 
