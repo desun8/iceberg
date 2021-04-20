@@ -1,0 +1,104 @@
+.teeth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teeth {
+  --shadow: -5px 4px 15px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 2px 4px 15px rgba(0, 0, 0, 0.4);
+
+  position: relative;
+  width: 162px;
+  height: 220px;
+  margin-bottom: 75px;
+}
+
+.teeth__main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("images/teeth/main.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.teeth__left {
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 140px;
+  height: 204px;
+  background-image: url("images/teeth/left.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 155px;
+  filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
+}
+
+.teeth__left-small {
+  position: absolute;
+  bottom: -2px;
+  left: -6px;
+  width: 57px;
+  height: 185px;
+  background-image: url("images/teeth/left-small.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 63px;
+  filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
+}
+
+.teeth__right {
+  position: absolute;
+  bottom: -6px;
+  right: 2px;
+  width: 150px;
+  height: 230px;
+  background-image: url("images/teeth/right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 155px;
+}
+
+.teeth__right-small {
+  position: absolute;
+  top: 28px;
+  right: -3px;
+  width: 38px;
+  height: 128px;
+  background-image: url("images/teeth/right-small.svg");
+  background-repeat: no-repeat;
+  background-position: -8px -4px;
+  background-size: 55px;
+  filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.4));
+}
+
+.teeth__top-left {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 114px;
+  height: 38px;
+  background-image: url("images/teeth/top-left.svg");
+  background-repeat: no-repeat;
+  background-position: -4px -8px;
+  background-size: 130px;
+  filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.15));
+}
+
+.teeth__top-right {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  width: 95px;
+  height: 35px;
+  background-image: url("images/teeth/top-right.svg");
+  background-repeat: no-repeat;
+  background-position: -5px -8px;
+  background-size: 120px;
+  filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.4));
+}
