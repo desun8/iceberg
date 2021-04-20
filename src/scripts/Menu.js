@@ -22,8 +22,22 @@ class Dialog {
     this.initDialog();
   }
 
+  disablePageScroll() {
+    if (window.APP?.scrollbar) {
+      window.APP.scrollbar.updatePluginOptions('modal', { open: true });
+    }
+  }
+
+  enablePageScroll() {
+    if (window.APP?.scrollbar) {
+      window.APP.scrollbar.updatePluginOptions('modal', { open: false });
+    }
+  }
+
   handleShow() {
+    // TODO: убрать scrollLock, а метод disable/enablePageScroll вывести в модуль
     scrollLock.disablePageScroll(this.element);
+    this.disablePageScroll();
     this.fixGap();
     this.btnClose.classList.add('hamburger--close');
 
@@ -33,7 +47,9 @@ class Dialog {
   }
 
   handleHide() {
+    // TODO: убрать scrollLock, а метод disable/enablePageScroll вывести в модуль
     scrollLock.enablePageScroll(this.element);
+    this.enablePageScroll();
     this.btnClose.classList.remove('hamburger--close');
 
     if (this.btnOpen) {

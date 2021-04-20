@@ -1,0 +1,7 @@
+.scrollbar-track {
+  background-color: var(--c-sky-blue) !important;
+}
+
+.scrollbar-thumb {
+  background-color: var(--c-deep-blue) !important;
+}
