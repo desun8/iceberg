@@ -1,14 +1,21 @@
-import SmoothScroll from "./smoothScroll";
+import detectTouchScreen from "../utils/detectTouchScreen";
+import isDesktop from "../utils/isDesktop";
+import SmoothScroll from "./smoothScroll/SmoothScroll";
 
 export default () => {
-// служебные
+  // служебные
+  // set APP
   if (window.APP === undefined) {
     window.APP = {
-      scrollbar: undefined
+      scrollbar: undefined,
+      isDesktop: isDesktop(),
+      isTouchScreen: false,
     };
   }
 
-  SmoothScroll();
+  detectTouchScreen();
+
+  new SmoothScroll(document.querySelector("#scroll-container"));
 
 // компоненты
 }
