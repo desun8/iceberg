@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Айсберг</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="core.css">
+  <link rel="stylesheet" href="{{ css }}.css">
+</head>
+<body>
+<div id="scroll-container">
+  <include src="page-header.html"></include>
+
+  <include src="{{ content }}"></include>
+
+  <include src="page-footer.html"></include>
+</div>
+
+<include src="page-menu/index.html"></include>
+<include src="page-modal.html"></include>
+
+<script src="mockServiceWorker.js" type="module"></script>
+<script src="{{ js }}.js" type="module" async></script>
+
+<include src="template.html"></include>
+</body>
+</html>
