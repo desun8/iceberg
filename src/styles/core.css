@@ -6,7 +6,8 @@
 @import "./core/1-lib/a11y-dialog.css";
 @import "./core/1-lib/flatpickr.css"; /* datepicker */
 @import "./core/1-lib/choices.css"; /* select */
-@import "./core/1-lib/simplebar.css"; /* select */
+@import "./core/1-lib/simplebar.css"; /* custom scrollbar */
+@import "./core/1-lib/smooth-scroll.css"; /* smooth scroll with bar */
 
 /* BASE */
 @import "./core/2-base/scaffolding.css";

@@ -1,6 +1,8 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Scrollbar from "smooth-scrollbar";
+import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar';
+import { Data2d } from "smooth-scrollbar/interfaces";
+import isDesktop from "../utils/isDesktop";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,37 +17,56 @@ export default () => {
   document.body.style.overflow = "hidden";
   scroller.style.height = "100vh";
 
-  const bodyScrollBar = Scrollbar.init(scroller, {damping: 0.1, delegateTo: document, alwaysShowTracks: true});
+  // Отключение скролла body, когда открыта модалка
+  class ModalPlugin extends ScrollbarPlugin {
+    static pluginName = 'modal';
+
+    static defaultOptions = {
+      open: false,
+    };
+
+    transformDelta(delta: Data2d) {
+      return this.options.open ? { x: 0, y: 0 } : delta;
+    }
+  }
+
+  Scrollbar.use(ModalPlugin);
+
+  const scrollbar = Scrollbar.init(scroller, {damping: 0.1, delegateTo: document, alwaysShowTracks: isDesktop()});
+
+  window.APP.scrollbar = scrollbar;
+
 
   ScrollTrigger.scrollerProxy(scroller, {
     scrollTop(value) {
       if (arguments.length) {
         if (typeof value === "number") {
-          bodyScrollBar.scrollTop = value;
+          scrollbar.scrollTop = value;
         }
       }
 
-      return bodyScrollBar.scrollTop;
+      return scrollbar.scrollTop;
     },
   });
 
-  bodyScrollBar.addListener(ScrollTrigger.update);
+  scrollbar.addListener(ScrollTrigger.update);
 
   ScrollTrigger.defaults({scroller: scroller});
 
 
 // The actual animations and ScrollTriggers
-//   gsap.to('.employees-list__item', {
-//     rotation: 360,
-//     scrollTrigger: {
-//       trigger: ".employee-card",
-//       start: "top top",
-//       end: "bottom bottom",
-//       pin: true,
-//       scrub: true,
-//       markers: true
-//     }
-//   });
+  const elements = Array.from(document.querySelectorAll('.js-scrolltrigger-fadein'));
+  elements.forEach(element => {
+    gsap.from(element, {
+      y: 50,
+      alpha: 0,
+      scrollTrigger: {
+        trigger: element,
+        start: "top 70%",
+        markers: true,
+      },
+    });
+  })
 //
 //   gsap.from("section.red .text", {
 //     x: -500,

@@ -93,11 +93,25 @@ class Dialog {
     this.initDialog();
   }
 
+  disablePageScroll() {
+    if (window.APP?.scrollbar) {
+      window.APP.scrollbar.updatePluginOptions('modal', { open: true });
+    }
+  }
+
+  enablePageScroll() {
+    if (window.APP?.scrollbar) {
+      window.APP.scrollbar.updatePluginOptions('modal', { open: false });
+    }
+  }
+
   handleShow() {
     this.btnsClose.forEach((btn) => {
       btn.classList.add('hamburger--close');
     });
+    // TODO: убрать scrollLock, а метод disable/enablePageScroll вывести в модуль
     scrollLock.disablePageScroll(this.element);
+    this.disablePageScroll();
     document.documentElement.classList.add('dialog-open'); // firefox backdrop-filter fix
   }
 
@@ -105,7 +119,9 @@ class Dialog {
     this.btnsClose.forEach((btn) => {
       btn.classList.remove('hamburger--close');
     });
+    // TODO: убрать scrollLock, а метод disable/enablePageScroll вывести в модуль
     scrollLock.enablePageScroll(this.element);
+    this.enablePageScroll();
     document.documentElement.classList.remove('dialog-open'); // firefox backdrop-filter fix
   }
 
