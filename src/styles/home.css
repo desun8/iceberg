@@ -1,0 +1,14 @@
+/* LIB */
+@import "./home/1-lib/swiper-bundle.css";
+
+/* COMPONENTS */
+@import "./home/4-components/tour-360.css";
+@import "./home/4-components/teeth.css";
+@import "./home/4-components/block-hero/index.css";
+@import "./home/4-components/block-services/index.css";
+@import "./home/4-components/block-video/index.css";
+@import "./home/4-components/block-features/index.css";
+@import "./home/4-components/block-founder/index.css";
+@import "./home/4-components/block-quote/index.css";
+@import "./home/4-components/block-feedback/index.css";
+@import "./home/4-components/feedback-modal.css";

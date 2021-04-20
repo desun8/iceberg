@@ -1,15 +1,13 @@
 .block-hero {
   min-height: 100vh;
   margin-bottom: 50px;
-  padding-top: 120%;
-  background-color: var(--c-sky-blue__old);
+  padding-top: 164px;
+  background-color: #f9f9f9;
+  overflow: hidden;
 }
 
-.block-hero__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+.block-hero__teeth {
+  margin-bottom: 34px;
 }
 
 .block-hero__body {
