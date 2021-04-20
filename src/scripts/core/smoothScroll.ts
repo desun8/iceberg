@@ -8,7 +8,7 @@ export default () => {
   // Setup
   const scroller = document.querySelector("#scroll-container") as HTMLElement;
 
-  if (scroller === undefined) {
+  if (scroller === null) {
     return;
   }
 
