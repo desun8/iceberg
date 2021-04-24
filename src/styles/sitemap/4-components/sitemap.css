@@ -17,6 +17,7 @@
   border-radius: 15px;
 }
 
+/* TODO: заменять на .list (core компонент) */
 .sitemap-list {
   margin: 0;
   padding-left: 30px;

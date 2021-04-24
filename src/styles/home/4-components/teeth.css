@@ -1,8 +1,29 @@
 .teeth-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.teeth-btn {
+  position: relative;
+  z-index: 2;
+
+  justify-content: start;
+  gap: 12px;
+
+  width: 155px !important;
+  padding: 10px 25px;
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+.teeth-btn .btn__icon-new {
+  --image: url("images/icons/puzzle.svg");
+
+  width: 21px;
+  height: 21px;
 }
 
 .teeth {
@@ -101,4 +122,132 @@
   background-position: -5px -8px;
   background-size: 120px;
   filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.4));
+}
+
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .teeth {
+    margin-bottom: 150px;
+    transform-origin: 50% 0;
+    transform: scale(1.4);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .teeth-btn {
+    position: absolute;
+    bottom: 0;
+    left: var(--page-gap);
+  }
+
+  .teeth-container {
+    height: 450px;
+  }
+
+  .teeth {
+    margin-bottom: 0;
+    transform-origin: 50% 100%;
+    transform: scale(1.5);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .teeth-container {
+    position: static;
+    height: auto;
+  }
+  
+  .teeth-btn {
+    bottom: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .teeth {
+    width: 422px;
+    height: 572px;
+  
+    transform-origin: 0 50%;
+    transform: scale(0.8);
+  }
+
+  .teeth__main {
+    background-image: url("images/teeth/main.png");
+  }
+
+  .teeth__left {
+    bottom: -5px;
+    left: 5px;
+    width: 354px;
+    height: 520px;
+    background-image: url("images/teeth/left.svg");
+    background-position: -30px -28px;
+    background-size: 396px;
+    filter: drop-shadow(-10px 4px 15px rgba(0, 0, 0, 0.25));
+  }
+
+  .teeth__left-small {
+    position: absolute;
+    bottom: 5px;
+    left: -9px;
+    width: 148px;
+    height: 480px;
+    background-image: url("images/teeth/left-small.svg");
+    background-position: -16px -25px;
+    background-size: 172px;
+    filter: drop-shadow(-10px 4px 15px rgba(0, 0, 0, 0.2));
+  }
+
+  .teeth__right {
+    bottom: -4px;
+    right: 13px;
+    width: 310px;
+    height: 534px;
+    background-image: url("images/teeth/right.svg");
+    background-position: -78px -90px;
+    background-size: 405px;
+  }
+
+  .teeth__right-small {
+    top: 74px;
+    right: -2px;
+    width: 96px;
+    height: 332px;
+    background-image: url("images/teeth/right-small.svg");
+    background-position: -22px -15px;
+    background-size: 145px;
+    filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.4));
+  }
+
+  .teeth__top-left {
+    top: 5px;
+    left: 16px;
+    width: 298px;
+    height: 106px;
+    background-image: url("images/teeth/top-left.svg");
+    background-position: -11px -22px;
+    background-size: 346px;
+    filter: drop-shadow(10px 4px 15px rgba(0, 0, 0, 0.4));
+  }
+
+  .teeth__top-right {
+    top: 0;
+    right: 6px;
+    width: 247px;
+    height: 92px;
+    background-image: url("images/teeth/top-right.svg");
+    background-position: -12px -22px;
+    background-size: 316px;
+    filter: drop-shadow(10px 4px 15px rgba(0, 0, 0, 0.4));
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  .teeth {
+    transform: scale(1);
+  }
 }

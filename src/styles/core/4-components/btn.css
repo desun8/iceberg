@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  width: auto;
   padding: 16px var(--pd-x);
 
   font-size: 14px;
@@ -31,6 +31,10 @@
   --bg-c: var(--c-deep-blue);
 }
 
+.btn-full {
+  width: 100%;
+}
+
 .btn--tight {
   --pd-x: 25px;
 }
@@ -45,11 +49,17 @@
   --bg-c: #fff;
 }
 
+.btn--aqua {
+  --color: #fff;
+  --bg-c: var(--c-aqua);
+}
+
 .btn--pink {
   --color: #fff;
   --bg-c: var(--c-pink);
 }
 
+.btn--aqua:not(.btn--no-hover):hover,
 .btn--pink:not(.btn--no-hover):hover {
   /*--color: var(--c-deep-blue);*/
   --bg-c: var(--c-deep-blue);
@@ -61,6 +71,12 @@
   width: 50px;
   height: 50px;
   padding: 0;
+}
+
+.btn--center-sm {
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn--outline {
@@ -81,6 +97,23 @@
 }
 
 /* .btn--outline.btn--dark:not(.btn--no-hover):hover {} */
+
+.btn__icon-new {
+  --image: url("");
+  --bg-c: currentColor;
+  --bg-hover-c: currentColor;
+  
+  background-color: var(--bg-c);
+  mask-image: var(--image);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  /*transition: background-color var(--trans-dur);*/
+}
+
+.btn:not(.btn--no-hover):hover .btn__icon-new {
+  background-color: var(--bg-hover-c);
+}
 
 .btn__icon {
   fill: currentColor;
@@ -176,5 +209,9 @@
   .btn-top:hover .btn-top__circle {
     background-color: var(--c-deep-blue);
     transition-duration: calc(var(--trans-dur) * 2);
+  }
+  
+  .btn--center-sm {
+    margin-left: 0;
   }
 }

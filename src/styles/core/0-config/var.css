@@ -1,10 +1,11 @@
 body {
   --page-gap: 15px;
   --trans-dur: 0.3s;
-
+  --page-top-gap: 154px;
+  
   /* fonts */
   --letter-spacing: 0.08px;
-
+  
   /* colors */
   --c-light-grey: #f8f8f8;
   --c-deep-blue: #3c3d75;
@@ -14,6 +15,7 @@ body {
   --c-sky-blue__old: #abd8fd;
   --c-red: #f66;
   --c-pink: #ff9090;
+  --c-aqua: #6cb2c3;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -37,6 +39,7 @@ body {
 @media screen and (--desktop) {
   body {
     --page-gap: 50px;
+    --page-top-gap: 148px;
   }
 }
 

@@ -1,12 +1,5 @@
 .page-main {
-  padding-top: 154px;
+  padding-top: var(--page-top-gap);
   padding-left: var(--page-gap);
   padding-right: var(--page-gap);
-}
-
-/* noinspection CssInvalidMediaFeature */
-@media screen and (--desktop) {
-  .page-main {
-    padding-top: 148px;
-  }
 }

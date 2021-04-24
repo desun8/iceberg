@@ -1,0 +1,32 @@
+.list {
+  margin: 0;
+  padding-left: 30px;
+  list-style: circle;
+}
+
+.list__item {
+  margin-bottom: 22px;
+  font-size: 18px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.list__item::marker {
+  color: var(--c-pink);
+}
+
+.list__item:last-child {
+  margin-bottom: 0;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .list__item {
+    margin-bottom: 28px;
+    font-size: 24px;
+  }
+
+  .list__item--hover:hover {
+    color: var(--c-pink);
+    transition: color var(--trans-dur);
+  }
+}
