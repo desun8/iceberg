@@ -1,26 +1,11 @@
 <div class="service-card">
   <div class="service-card__img">
-    <picture class="service-card__picture">
-      <!--    Mobile      -->
-      <source type="image/webp" media="(max-width: 500px)" srcset="images/{{ img }}-320.webp">
-      <source media="(max-width: 500px)" srcset="images/{{ img }}-320.jpg">
-      <!--     Other     -->
-      <source type="image/webp" srcset="images/{{ img }}.webp">
-      <!--            <source srcset="images/{{ img }}.jpg">-->
-      <!--    Сюда можно вставлять ссылку на оригинал      -->
-      <img src="images/{{ img }}.jpg" width="256" height="256" alt="" loading="lazy">
-    </picture>
   </div>
 
   <div class="service-card__body">
     <h3 class="service-card__title">{{ title }}</h3>
     <p class="service-card__describe">{{ describe }}</p>
-    <a href="#" class="service-card__link  btn  btn--dark  btn--circle" aria-label="Подробнее">
-      <svg class="btn__icon  btn__icon--rotate-90" width="9" height="16">
-        <path d="M3.847.68c0-.375.3-.68.67-.68.37 0 .67.305.67.68v14.342c0 .376-.3.68-.67.68a.675.675 0 01-.67-.68V.68z"/>
-        <path d="M.196 11.912a.688.688 0 010-.963.663.663 0 01.948 0l3.83 3.89a.688.688 0 010 .962.663.663 0 01-.947 0l-3.83-3.89z"/>
-        <path d="M8.804 11.912a.688.688 0 000-.963.663.663 0 00-.948 0l-3.788 3.846a.688.688 0 000 .963.663.663 0 00.947 0l3.789-3.846z"/>
-      </svg>
+    <a href="#" class="service-card__link" aria-label="Подробнее.">
     </a>
   </div>
 </div>

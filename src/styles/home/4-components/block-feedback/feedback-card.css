@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   height: 0;
-  margin-bottom: 100px;
+  margin-bottom: 110px;
   padding-top: 100%;
   border-radius: 50%;
   overflow: hidden;
@@ -23,35 +23,22 @@
   pointer-events: none;
 }
 
-.feedback-card__img-describe {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 22px;
-  z-index: 2;
-  color: #fff;
-  text-align: center;
-}
-
-.feedback-card__body {
-  text-align: center;
-}
-
 .feedback-card__title {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+  font-size: 16px;
   letter-spacing: var(--letter-spacing);
 }
 
 .feedback-card__type {
   display: inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
   line-height: 1.3;
   font-weight: 300;
   font-style: italic;
 }
 
 .feedback-card__text {
-  margin-bottom: 30px;
+  margin-bottom: 38px;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -80,14 +67,6 @@
     margin-bottom: 0;
     padding-top: 100%;
   }
-  
-  .feedback-card__img-describe {
-    bottom: 42px;
-  }
-
-  .feedback-card__body {
-    text-align: left;
-  }
 
   .feedback-card__title {
     margin-bottom: 10px;
@@ -100,7 +79,7 @@
   }
 
   .feedback-card__text {
-    margin-bottom: 60px;
+    margin-bottom: 32px;
     font-size: 1em;
   }
 }

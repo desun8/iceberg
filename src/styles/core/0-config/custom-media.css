@@ -7,7 +7,10 @@
 @custom-media --pre-tablet (width >= 34em); /* 554 */
 
 @custom-media --tablet (width >= 48em); /* 768px */
-@custom-media --tablet-lg (width >= 64em); /* 768px */
+@custom-media --tablet-lg (width >= 64em); /* 1024px */
+
+@custom-media --like-ipad-pro (width >= 64em) and (width <= 80em) and (height >= 1000px); /* 1024px */
+
 @custom-media --desktop (width >= 68.75em); /* 1100 */
 @custom-media --desktop-md (width >= 88em); /* 1408 */
 @custom-media --desktop-lg (width >= 100em); /* 1600 */

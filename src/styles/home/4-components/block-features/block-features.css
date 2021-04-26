@@ -1,5 +1,27 @@
 .block-features {
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   padding: 0 var(--page-gap);
   overflow: hidden;
+}
+
+.block-features__title {
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .block-features__title {
+    margin-bottom: 75px;
+    font-size: 48px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--like-ipad-pro) {
+  .block-features {
+    margin-bottom: 100px;
+  }
 }

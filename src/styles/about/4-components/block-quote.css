@@ -1,10 +1,10 @@
-.block-quote {
+.quote-banner {
   margin-bottom: 20px;
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
-  .block-quote {
+  .quote-banner {
     margin-bottom: 100px;
   }
 }

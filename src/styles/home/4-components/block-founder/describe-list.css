@@ -6,7 +6,7 @@
 
 .describe-list__title {
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: var(--letter-spacing);
 }
@@ -23,6 +23,7 @@
   .describe-list {
     position: relative;
     padding-top: 20px;
+    margin-bottom: 65px;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(50% - 98px), 1fr));  /* 50% - grid-column-gap */
@@ -41,7 +42,8 @@
   }
 
   .describe-list__title {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
   }
 
   .describe-list__describe {

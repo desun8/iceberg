@@ -1,7 +1,7 @@
 .block-hero {
   min-height: 100vh;
   padding-top: var(--page-top-gap);
-  background-color: #f9f9f9;
+  background-color: var(--c-grey);
   overflow: hidden;
 }
 
@@ -48,7 +48,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
   }
 
   .block-hero__title {
@@ -63,31 +62,29 @@
   .block-hero {
     display: grid;
     grid-template-columns: repeat(2, minmax(1px, 1fr));
-    align-content: start;
-    min-height: 0;
+    align-content: center;
     padding-bottom: 30px;
   }
-  
+
   .block-hero__teeth {
     margin-bottom: 0;
   }
-  
+
   .block-hero__body {
     position: relative;
-    justify-content: flex-start;
     margin-bottom: 0;
     padding: 0;
   }
-  
+
   .block-hero__title,
   .block-hero__text {
     text-align: left;
   }
-  
+
   .block-hero__text {
     margin-left: 0;
   }
-  
+
   .list {
     padding-left: 20px;
   }
@@ -97,9 +94,6 @@
 @media screen and (--desktop) {
   .block-hero {
     position: relative;
-    min-height: 100vh;
-    margin-bottom: 150px;
-    align-content: center;
   }
 
   .block-hero__body {
@@ -112,7 +106,7 @@
   .block-hero__body .btn {
     align-self: flex-start;
   }
-  
+
   .block-hero__title {
     font-size: 55px;
   }
@@ -120,8 +114,14 @@
   .block-hero__text {
     margin-bottom: 30px;
   }
-  
+
   .block-hero__list {
     margin-bottom: 30px;
+  }
+}
+
+@media (min-height: 1000px) {
+  .block-hero {
+    min-height: 50vh;
   }
 }
