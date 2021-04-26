@@ -1,13 +1,6 @@
 .footer-contacts {
-  margin-bottom: 35px;
-  padding-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
-}
-
-.footer-contacts__title {
-  margin-bottom: 30px;
-  font-size: 26px;
-  letter-spacing: var(--letter-spacing);
 }
 
 .footer-contacts .btn-top {

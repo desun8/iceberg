@@ -84,7 +84,7 @@
   .service-card:hover {
     --shadow-alpha: 0.1;
     color: #fff;
-    background-color: var(--c-deep-blue);
+    background-color: var(--c-blue-deep);
   }
 
   .service-card__img {

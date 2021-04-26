@@ -22,9 +22,9 @@
   left: 0;
   margin-top: 0;
   padding: 10px;
-  color: var(--c-deep-blue);
+  color: var(--c-blue-deep);
   background: #fff;
-  border: 1px solid var(--c-deep-blue);
+  border: 1px solid var(--c-blue-deep);
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

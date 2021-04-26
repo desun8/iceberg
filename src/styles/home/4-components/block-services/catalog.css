@@ -8,7 +8,12 @@
 }
 
 .catalog-banner__noise {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("images/pattern-noise.png") round 32px;
 }
 
 .catalog-banner__bg {
@@ -57,24 +62,13 @@
     align-items: center;
 
     margin: 0;
-    padding: 0 var(--pd-x);
+    padding: 0 0 0 var(--pd-x);
     text-align: left;
     border-radius: 20px;
     overflow: hidden;
 
     transition-property: color;
     transition-duration: var(--trans-dur);
-  }
-
-  .catalog-banner__noise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-
-    /*display: block;*/
-    opacity: 0;
   }
 
   .catalog-banner__bg,
@@ -88,6 +82,8 @@
     height: 100%;
     margin: 0;
     background-image: url("images/catalog-banner-wave--large.svg");
+    background-size: 1050px;
+    background-position: -120px 100%;
   }
 
   .catalog__body {
@@ -108,13 +104,13 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-md) {
   .catalog-banner {
-    --pd-x: 8vw;
+    --pd-x: min(8vw, 150px);
   }
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-lg) {
-  .catalog-banner {
-    --pd-x: min(16vw, 290px);
+  .catalog-banner__bg {
+    background-position-x: center;
   }
 }

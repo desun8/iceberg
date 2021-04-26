@@ -3,6 +3,7 @@
 
 /* COMPONENTS */
 @import "./core/4-components/list.css";
+@import "./core/4-components/btn-to-top.css";
 @import "./home/4-components/tour-360.css";
 @import "./home/4-components/teeth.css";
 @import "./home/4-components/block-hero/index.css";

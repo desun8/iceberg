@@ -41,7 +41,7 @@ const togglePageHeader = (isReset) => {
 class FooterModal {
   static toggleVisibility(modal, isShow, isConsultation = false) {
     const footerHeader = document.querySelector('.footer-header');
-    const footerMap = document.querySelector('.footer-map'); // firefox backdrop-filter fix
+    const footerImage = document.querySelector('.footer-image'); // firefox backdrop-filter fix
 
     if (isShow) {
       modal.classList.add('is-active');
@@ -52,16 +52,16 @@ class FooterModal {
       if (isConsultation) {
         modal.classList.add('is-full');
         note.style.display = '';
-        footerMap.classList.add('is-blur'); // firefox backdrop-filter fix
+        footerImage.classList.add('is-blur'); // firefox backdrop-filter fix
       } else {
         modal.classList.remove('is-full');
         note.style.display = 'none';
-        footerMap.classList.remove('is-blur'); // firefox backdrop-filter fix
+        footerImage.classList.remove('is-blur'); // firefox backdrop-filter fix
       }
     } else {
       modal.classList.remove('is-active');
       footerHeader.classList.remove('is-small');
-      footerMap.classList.remove('is-blur'); // firefox backdrop-filter fix
+      footerImage.classList.remove('is-blur'); // firefox backdrop-filter fix
     }
   }
 

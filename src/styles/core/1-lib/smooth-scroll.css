@@ -1,11 +1,11 @@
 .scrollbar-track {
   width: 2px !important;
-  background-color: var(--c-sky-blue) !important;
+  background-color: var(--c-blue-sky) !important;
 }
 
 .scrollbar-thumb {
   width: 100% !important;
-  background-color: var(--c-deep-blue) !important;
+  background-color: var(--c-blue-deep) !important;
 }
 
 /* noinspection CssInvalidMediaFeature */

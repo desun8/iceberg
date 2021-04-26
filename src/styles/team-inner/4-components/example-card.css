@@ -3,7 +3,7 @@
 
   position: relative;
   padding: 42px 15px 40px;
-  background-color: var(--c-sky-blue);
+  background-color: var(--c-blue-sky);
   border-radius: 20px;
   overflow: hidden;
 
@@ -19,7 +19,7 @@
 
 .example-card:hover {
   color: #fff;
-  background-color: var(--c-deep-blue-darken);
+  background-color: var(--c-blue-deep-darken);
 }
 
 .example-card:hover .example-card__icon {
@@ -27,7 +27,7 @@
 }
 
 .example-card:hover .example-card__hover-bg {
-  --bg-c: var(--c-deep-blue);
+  --bg-c: var(--c-blue-deep);
   opacity: 1;
 }
 
@@ -55,7 +55,7 @@
   bottom: 22px;
 
   padding: 5px 18px;
-  color: var(--c-deep-blue);
+  color: var(--c-blue-deep);
   background-color: #fff;
   font-size: 12px;
   font-weight: 500;
@@ -90,7 +90,7 @@
   position: absolute;
   z-index: 1;
 
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
   mask-repeat: no-repeat;
   mask-position: right center;
   mask-size: contain;
@@ -171,7 +171,7 @@
 }
 
 .example-card__hover-bg {
-  --bg-c: var(--c-sky-blue);
+  --bg-c: var(--c-blue-sky);
 
   position: absolute;
   width: 100%;

@@ -38,7 +38,7 @@
   width: 50px;
   height: 50px;
   color: inherit;
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
   border: 1px solid #fff;
   border-radius: 50%;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
@@ -53,7 +53,7 @@
 @media screen and (--tablet-lg) {
   .tour-360 {
     width: auto;
-    color: var(--c-deep-blue);
+    color: var(--c-blue-deep);
   }
 
   .tour-360__wrapper {

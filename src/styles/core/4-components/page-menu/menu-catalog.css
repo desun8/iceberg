@@ -7,7 +7,7 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .menu-catalog {
-    --bd: 1px solid var(--c-light-grey);
+    --bd: 1px solid var(--c-grey-light);
 
     position: relative;
     z-index: 15;

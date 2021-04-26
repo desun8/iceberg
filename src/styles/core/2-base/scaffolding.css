@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  color: var(--c-deep-blue);
+  color: var(--c-blue-deep);
   font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
 }
 

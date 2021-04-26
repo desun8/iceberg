@@ -7,13 +7,13 @@ body {
   --letter-spacing: 0.08px;
 
   /* colors */
-  --c-light-grey: #f8f8f8;
+  --c-grey-light: #f8f8f8;
   --c-grey: #f8f8f8;
-  --c-deep-blue: #3c3d75;
-  --c-deep-blue-darken: #33386f;
-  --c-light-blue: #e9edf8;
-  --c-sky-blue: #edf0f8;
-  --c-sky-blue__old: #abd8fd;
+  --c-blue-deep: #3c3d75;
+  --c-blue-deep-darken: #33386f;
+  --c-blue-light: #e9edf8;
+  --c-blue-sky: #edf0f8;
+  --c-blue-sky-old: #abd8fd;
   --c-red: #f66;
   --c-pink: #ff9090;
   --c-aqua-light: #abdde9;

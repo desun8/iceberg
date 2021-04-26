@@ -33,7 +33,7 @@
     grid-template-rows: auto 1fr;
     grid-gap: 24px;
     padding: 55px 60px;
-    background-color: var(--c-light-blue);
+    background-color: var(--c-blue-light);
   }
 
   .page-modal-footer__form [data-active="false"] {
@@ -48,7 +48,7 @@
   .page-modal-footer__close {
     justify-content: start;
     padding: 0;
-    color: var(--c-deep-blue);
+    color: var(--c-blue-deep);
     background: none;
     font-size: 14px;
     line-height: 1.5;

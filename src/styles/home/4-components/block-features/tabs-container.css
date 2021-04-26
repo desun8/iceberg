@@ -39,14 +39,14 @@
   /* CARD */
   .tabs-container .feature-card {
     background-color: #fff;
-    border: 1px solid var(--c-light-blue);
+    border: 1px solid var(--c-blue-light);
 
     transition-property: background-color;
     transition-duration: var(--trans-dur);
   }
 
   .tabs-container .is-active .feature-card {
-    background-color: var(--c-light-blue);
+    background-color: var(--c-blue-light);
   }
 
   .tabs-container .feature-card__img {

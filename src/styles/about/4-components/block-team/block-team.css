@@ -1,7 +1,7 @@
 .block-team {
   margin-bottom: 40px;
   padding: 0 var(--page-gap) 40px;
-  background-color: var(--c-light-blue);
+  background-color: var(--c-blue-light);
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -15,7 +15,7 @@
     margin-bottom: 180px;
     padding: 110px var(--deep-gap);
   }
-  
+
   .block-team .content {
     padding-left: min(3vw, 56px);
     padding-right: min(3vw, 56px);
@@ -28,11 +28,11 @@
     grid-template-columns: min(45%, 500px) 1fr;
     grid-gap: 100px;
   }
-  
+
   .block-team__slider {
     grid-column: 2/3;
   }
-  
+
   .block-team .content {
     grid-row: 1/2;
   }

@@ -5,17 +5,17 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  color: var(--c-deep-blue);
+  color: var(--c-blue-deep);
   background-color: #e1e1e8;
   border-radius: 50%;
-  
+
   transition-property: color, background-color;
   transition-duration: var(--trans-dur);
 }
 
 .btn-slider:hover {
   color: #fff;
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
 }
 
 .btn-slider__icon {
@@ -30,7 +30,7 @@
   height: 100%;
   transform: rotate(90deg) scale(-1);
   stroke: currentColor;
-  
+
   stroke-dashoffset: 1000; /* 1000 = прогресс 0% /--/ 849 = 100% */
   stroke-dasharray: 1000;
 }

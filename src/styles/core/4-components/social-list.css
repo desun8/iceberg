@@ -16,7 +16,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--desktop) {
+@media screen and (--tablet-lg) {
   .social-list {
     grid-auto-flow: row;
     grid-gap: 10px;

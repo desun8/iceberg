@@ -1,0 +1,64 @@
+.footer-image {}
+
+.footer-image__wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: calc(435 / 445 * 100%);
+  overflow: hidden;
+}
+
+.footer-image__picture-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* фикс блура в сафари */
+  width: 200%;
+  height: 200%;
+  transform-origin: 0 0;
+  transform: scale(0.5) translateZ(0.01px);
+
+  background-image: url("images/footer-girl.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: calc(50% + 6px) center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .footer-image {
+    grid-column: 2/3;
+    position: relative;
+    margin-bottom: 0;
+    background-color: #33386f;
+  }
+
+  .footer-image__wrapper {
+    height: 100%;
+    padding-top: 0;
+    border-radius: 0;
+  }
+
+  .footer-image__picture-bg {
+    background-image: url("images/footer-girl--large.svg");
+    background-size: 80%;
+    background-position-x: center;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  .footer-image__picture-bg {
+    background-size: contain;
+    background-position-y: -25px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .footer-image__picture-bg {
+    background-image: url("images/footer-girl--large.svg");
+    background-size: 75%;
+    background-position-x: right;
+  }
+}

@@ -4,7 +4,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: min(80%, 450px);
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar::before {

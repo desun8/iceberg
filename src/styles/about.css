@@ -19,21 +19,21 @@
 
 .page-header .hamburger {
   --color: #fff;
-  --bg-c: var(--c-deep-blue);
+  --bg-c: var(--c-blue-deep);
 }
 
 /* TODO: Лучше переделать. Все зависит от того, как будет на беке собираться шаблон */
 .page-header button[data-type="consultation"] {
-  --color: var(--c-deep-blue);
-  --bg-c: var(--c-deep-blue);
+  --color: var(--c-blue-deep);
+  --bg-c: var(--c-blue-deep);
 }
 
 .page-header .header__btn-down {
-  --color: var(--c-deep-blue);
-  --bg-c: var(--c-deep-blue);
+  --color: var(--c-blue-deep);
+  --bg-c: var(--c-blue-deep);
 }
 
 .page-header .social-list__link {
   --color: #fff;
-  --bg-c: var(--c-deep-blue);
+  --bg-c: var(--c-blue-deep);
 }

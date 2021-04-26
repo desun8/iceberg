@@ -81,7 +81,7 @@
 .flatpickr-current-month span.cur-month,
 span.flatpickr-weekday,
 span.flatpickr-day {
-  color: var(--c-deep-blue);
+  color: var(--c-blue-deep);
 }
 
 .flatpickr-day.selected,
@@ -102,10 +102,10 @@ span.flatpickr-day {
 .flatpickr-day.selected.nextMonthDay,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
-  background: var(--c-deep-blue);
+  background: var(--c-blue-deep);
   box-shadow: none;
   color: #fff;
-  border-color: var(--c-deep-blue);
+  border-color: var(--c-blue-deep);
 }
 
 .flatpickr-day.inRange,

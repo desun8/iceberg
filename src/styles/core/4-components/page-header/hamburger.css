@@ -14,7 +14,7 @@
 
 .hamburger--close {
   border: 1px solid currentColor;
-  border-color: var(--c-deep-blue);
+  border-color: var(--c-blue-deep);
 }
 
 .hamburger--close .hamburger__line {

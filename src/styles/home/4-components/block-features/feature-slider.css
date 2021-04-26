@@ -15,7 +15,7 @@
   width: auto;
   height: 4px;
   margin: 0;
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
   border-radius: 10px;
   opacity: 0.3;
   transition-property: opacity;

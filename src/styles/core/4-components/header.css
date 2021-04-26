@@ -36,6 +36,13 @@
   position: absolute;
 }
 
+.header__btn--a11y .btn__icon-new {
+  --image: url("images/icons/accessible.svg");
+
+  width: 22px;
+  height: 22px;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--only-mobile) {
   .header__btn {
@@ -46,6 +53,10 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--only-sm-screen) {
   .header__btn-down {
+    display: none;
+  }
+
+  .header__btn--form {
     display: none;
   }
 

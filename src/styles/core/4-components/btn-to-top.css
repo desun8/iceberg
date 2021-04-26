@@ -1,0 +1,25 @@
+.btn-to-top {
+  position: absolute;
+  left: var(--page-gap);
+}
+
+.btn-to-top .btn__icon-new {
+  --image: url("images/icons/arrow.svg");
+
+  width: 8px;
+  height: 16px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .btn-to-top {
+    left: 20px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop) {
+  .block-feedback .btn-to-top {
+    left: 40px;
+  }
+}

@@ -2,7 +2,7 @@
   display: grid;
   grid-auto-flow: column;
   gap: 14px;
-  
+
   width: fit-content;
   margin-bottom: 54px;
 }
@@ -17,21 +17,21 @@
 
 .team-tabs__btn {
   padding: 18px 48px;
-  color: var(--c-deep-blue);
-  background-color: var(--c-sky-blue);
-  
+  color: var(--c-blue-deep);
+  background-color: var(--c-blue-sky);
+
   font-size: 16px;
   line-height: 1.4;
   text-transform: capitalize;
   border-radius: 15px;
-  
+
   transition-property: color, background-color;
   transition-duration: var(--trans-dur);
 }
 
 .team-tabs__btn.is-active {
   color: #fff;
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -51,50 +51,50 @@
     gap: 0;
     margin-bottom: 184px;
   }
-  
+
   .team-tabs__item:first-child {
     padding-left: 0;
   }
-  
+
   .team-tabs__item:last-child {
     padding-right: 0;
   }
-  
+
   .team-tabs__btn {
     --pd-x: 30px;
-    
+
     position: relative;
-    
+
     padding-right: var(--pd-x);
     padding-left: var(--pd-x);
     color: rgba(60, 61, 117, 0.8);
     background-color: transparent;
     font-weight: 300;
   }
-  
+
   .team-tabs__btn::after {
     content: '';
     position: absolute;
     left: var(--pd-x);
     right: var(--pd-x);
     bottom: 20px; /* padding-y */
-    
+
     height: 1px;
     background-color: currentColor;
     transform-origin: 0 50%;
     transform: scaleX(0);
     transition: transform var(--trans-dur);
   }
-  
+
   .team-tabs__btn.is-active {
-    color: var(--c-deep-blue);
-    background-color: var(--c-sky-blue);
+    color: var(--c-blue-deep);
+    background-color: var(--c-blue-sky);
   }
-  
+
   .team-tabs__btn:not(.is-active):hover {
-    color: var(--c-deep-blue);
+    color: var(--c-blue-deep);
   }
-  
+
   .team-tabs__btn:not(.is-active):hover::after {
     transform: scaleX(1);
   }

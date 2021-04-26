@@ -30,7 +30,7 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  color: var(--c-deep-blue);
+  color: var(--c-blue-deep);
   background-color: #e1e1e8;
   border-radius: 50%;
 
@@ -40,7 +40,7 @@
 
 .feedback-slider__btn:hover {
   color: #fff;
-  background-color: var(--c-deep-blue);
+  background-color: var(--c-blue-deep);
 }
 
 .feedback-slider__btn--next .icon,

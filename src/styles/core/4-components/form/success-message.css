@@ -31,7 +31,7 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .success-message {
-    background-color: var(--c-light-blue);
+    background-color: var(--c-blue-light);
   }
 
   .success-message__wrapper {

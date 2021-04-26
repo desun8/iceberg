@@ -1,7 +1,7 @@
 .btn {
   --pd-x: 42px;
-  --color: var(--c-deep-blue);
-  --bg-c: var(--c-sky-blue);
+  --color: var(--c-blue-deep);
+  --bg-c: var(--c-blue-sky);
   --bdrs: 100px;
 
   display: inline-grid;
@@ -28,7 +28,7 @@
 
 .btn:not(.btn--no-hover):hover {
   --color: #fff;
-  --bg-c: var(--c-deep-blue);
+  --bg-c: var(--c-blue-deep);
 }
 
 .btn--full-w {
@@ -41,11 +41,11 @@
 
 .btn--dark {
   --color: #fff;
-  --bg-c: var(--c-deep-blue);
+  --bg-c: var(--c-blue-deep);
 }
 
 .btn--dark:not(.btn--no-hover):hover {
-  --color: var(--c-deep-blue);
+  --color: var(--c-blue-deep);
   --bg-c: #fff;
 }
 
@@ -59,10 +59,15 @@
   --bg-c: var(--c-pink);
 }
 
+.btn--white {
+  --color: var(--c-blue-deep-darken);
+  --bg-c: #fff;
+}
+
 .btn--aqua:not(.btn--no-hover):hover,
 .btn--pink:not(.btn--no-hover):hover {
   /*--color: var(--c-deep-blue);*/
-  --bg-c: var(--c-deep-blue);
+  --bg-c: var(--c-blue-deep);
 }
 
 .btn--circle {
@@ -93,7 +98,7 @@
 }
 
 .btn--outline.btn--dark {
-  --color: var(--c-deep-blue);
+  --color: var(--c-blue-deep);
   --bg-c: var(--color);
 }
 
@@ -149,7 +154,7 @@
 @media screen and (--only-mobile) {
   .btn--dark-sm {
     --color: #fff;
-    --bg-c: var(--c-deep-blue);
+    --bg-c: var(--c-blue-deep);
   }
 
   .btn__icon {
@@ -207,7 +212,7 @@
   }
 
   .btn-top:hover .btn-top__circle {
-    background-color: var(--c-deep-blue);
+    background-color: var(--c-blue-deep);
     transition-duration: calc(var(--trans-dur) * 2);
   }
 

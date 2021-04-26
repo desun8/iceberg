@@ -2,7 +2,6 @@
   position: relative;
   margin-bottom: 74px;
   padding: 0 var(--page-gap);
-  overflow: hidden;
 }
 
 .block-feedback__title {
@@ -10,6 +9,10 @@
   font-size: 28px;
   letter-spacing: var(--letter-spacing);
   text-align: center;
+}
+
+.block-feedback .btn-to-top {
+  bottom: -57px;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -23,11 +26,19 @@
     font-size: 48px;
     font-weight: 600;
   }
+
+  .block-feedback .btn-to-top {
+    bottom: -110px;
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-md) {
   .block-feedback {
     padding: 0 var(--deep-gap);
+  }
+
+  .block-feedback .btn-to-top {
+    bottom: -88px;
   }
 }
