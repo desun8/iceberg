@@ -12,10 +12,10 @@ core();
 
 // карусель особенности
 const initFeatureCarousel = () => {
-  let carouselFeature;
+  let carouselFeature: CarouselFeature | TabsFeature | undefined;
 
-  const elm = document.querySelector('.feature-slider');
-  const wrapper = elm.querySelector('.features-list');
+  const elm = document.querySelector('.feature-slider')!;
+  const wrapper = elm.querySelector('.features-list')!;
   const slides = wrapper.querySelectorAll('.features-list__item');
 
   const initSmScreen = () => {
@@ -38,8 +38,8 @@ initFeatureCarousel();
 
 // карусель отзывы
 const initFeedbackCarousel = () => {
-  const elm = document.querySelector('.feedback-slider');
-  const wrapper = elm.querySelector('.feedback-list');
+  const elm = document.querySelector('.feedback-slider')!;
+  const wrapper = elm.querySelector('.feedback-list')!;
   const slides = wrapper.querySelectorAll('.feedback-list__item');
 
   const carouselFeedback = new CarouselFeedback(elm, wrapper, slides);
