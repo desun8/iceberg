@@ -43,6 +43,12 @@
   line-height: 1.5;
 }
 
+.feedback-card__text.truncate {
+  --line: 10;
+  --line-height: 1.5em;
+  --max-h: calc(var(--line-height) * (var(--line) * 1.2));
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
   .feedback-card__img {
