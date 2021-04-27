@@ -14,7 +14,7 @@ export default () => {
     }
   };
 
-  const isLargeHeightScreen = window.matchMedia('(min-height: 1000px)');
+  const isLargeHeightScreen = window.matchMedia('(min-height: 1000px)').matches;
 
   const triggerStart = isLargeHeightScreen ? "top top" : "bottom bottom"
 
