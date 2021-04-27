@@ -121,7 +121,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--desktop-sm) {
+@media screen and (--laptop-sm) {
   .form__title {
     margin-bottom: 0;
     font-size: 26px;

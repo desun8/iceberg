@@ -12,6 +12,7 @@
 @custom-media --like-ipad-pro (width >= 64em) and (width <= 80em) and (height >= 1000px); /* 1024px */
 
 @custom-media --desktop (width >= 68.75em); /* 1100 */
+@custom-media --desktop-sm (width >= 78em); /* 1248 */
 @custom-media --desktop-md (width >= 88em); /* 1408 */
 @custom-media --desktop-lg (width >= 100em); /* 1600 */
 @custom-media --desktop-fullhd (width >= 120em); /* 1920 */
@@ -27,7 +28,7 @@
 @custom-media --w448 (width >= 28em); /* 448 */
 
 @custom-media --h900 (height >= 56.25em); /* 900 */
-@custom-media --desktop-sm  (--desktop) and (height < 47.5em); /* 760 */
+@custom-media --laptop-sm  (--desktop) and (height < 47.5em); /* 760 */
 
 /* desktop first */
 /* @custom-media --desktop-md (width <= 90em); */

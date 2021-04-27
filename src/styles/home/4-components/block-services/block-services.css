@@ -50,10 +50,6 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--tablet) {
-}
-
-/* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
   .block-services::before {
     filter: drop-shadow(10px -4px 20px rgba(0, 0, 0, 0.25));
@@ -94,5 +90,12 @@
 
     transition-property: transform, box-shadow;
     transition-duration: var(--trans-dur);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-fullhd) {
+  .block-services__list {
+    grid-template-columns: repeat(auto-fill, minmax(min(30%, var(--card-size)), 1fr));
   }
 }

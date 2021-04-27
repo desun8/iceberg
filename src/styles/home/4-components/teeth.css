@@ -42,47 +42,60 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("images/teeth/main.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
+.no-webp .teeth__main {
+  background-image: image-set(
+    url("images/teeth/main.png") 1x,
+    url("images/teeth/main@2x.png") 2x
+  );
+}
+
+.webp .teeth__main {
+  background-image: image-set(
+    url("images/teeth/main.webp") 1x,
+    url("images/teeth/main@2x.webp") 2x
+  );
+}
+
 .teeth__left {
   position: absolute;
-  bottom: 0;
-  left: -4px;
+  bottom: -6px;
+  left: -2px;
   width: 140px;
   height: 204px;
   background-image: url("images/teeth/left.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 155px;
+  background-size: 138px;
   filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
 }
 
 .teeth__left-small {
   position: absolute;
   bottom: -2px;
-  left: -6px;
+  left: -3px;
   width: 57px;
   height: 185px;
   background-image: url("images/teeth/left-small.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 63px;
+  background-size: 60px;
   filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
 }
 
 .teeth__right {
   position: absolute;
-  bottom: -6px;
-  right: 2px;
+  bottom: -12px;
+  right: -12px;
   width: 150px;
   height: 230px;
   background-image: url("images/teeth/right.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 155px;
+  background-size: 135px;
 }
 
 .teeth__right-small {
@@ -93,8 +106,8 @@
   height: 128px;
   background-image: url("images/teeth/right-small.svg");
   background-repeat: no-repeat;
-  background-position: -8px -4px;
-  background-size: 55px;
+  background-position: center;
+  background-size: 44px;
   filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.4));
 }
 
@@ -106,8 +119,8 @@
   height: 38px;
   background-image: url("images/teeth/top-left.svg");
   background-repeat: no-repeat;
-  background-position: -4px -8px;
-  background-size: 130px;
+  background-position: center;
+  background-size: 110px;
   filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.15));
 }
 
@@ -119,11 +132,10 @@
   height: 35px;
   background-image: url("images/teeth/top-right.svg");
   background-repeat: no-repeat;
-  background-position: -5px -8px;
-  background-size: 120px;
+  background-position: center;
+  background-size: 96px;
   filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.4));
 }
-
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
@@ -131,6 +143,14 @@
     margin-bottom: 150px;
     transform-origin: 50% 0;
     transform: scale(1.4);
+  }
+
+  .no-webp .teeth__main {
+    background-image: url("images/teeth/main--large.png");
+  }
+
+  .webp .teeth__main {
+    background-image: url("images/teeth/main--large.webp");
   }
 }
 
@@ -151,6 +171,20 @@
     transform-origin: 50% 100%;
     transform: scale(1.5);
   }
+
+  .no-webp .teeth__main {
+    background-image: image-set(
+      url("images/teeth/main--large.png") 1x,
+      url("images/teeth/main--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__main {
+    background-image: image-set(
+      url("images/teeth/main--large.webp") 1x,
+      url("images/teeth/main--large@2x.webp") 2x
+    );
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -159,7 +193,7 @@
     position: static;
     height: auto;
   }
-  
+
   .teeth-btn {
     bottom: 30px;
     padding-top: 16px;
@@ -169,13 +203,9 @@
   .teeth {
     width: 422px;
     height: 572px;
-  
+
     transform-origin: 0 50%;
     transform: scale(0.8);
-  }
-
-  .teeth__main {
-    background-image: url("images/teeth/main.png");
   }
 
   .teeth__left {
@@ -183,9 +213,7 @@
     left: 5px;
     width: 354px;
     height: 520px;
-    background-image: url("images/teeth/left.svg");
-    background-position: -30px -28px;
-    background-size: 396px;
+    background-size: 360px;
     filter: drop-shadow(-10px 4px 15px rgba(0, 0, 0, 0.25));
   }
 
@@ -195,30 +223,24 @@
     left: -9px;
     width: 148px;
     height: 480px;
-    background-image: url("images/teeth/left-small.svg");
-    background-position: -16px -25px;
-    background-size: 172px;
+    background-size: 160px;
     filter: drop-shadow(-10px 4px 15px rgba(0, 0, 0, 0.2));
   }
 
   .teeth__right {
-    bottom: -4px;
-    right: 13px;
+    bottom: -6px;
+    right: 4px;
     width: 310px;
     height: 534px;
-    background-image: url("images/teeth/right.svg");
-    background-position: -78px -90px;
-    background-size: 405px;
+    background-size: 340px;
   }
 
   .teeth__right-small {
     top: 74px;
-    right: -2px;
+    right: -3px;
     width: 96px;
     height: 332px;
-    background-image: url("images/teeth/right-small.svg");
-    background-position: -22px -15px;
-    background-size: 145px;
+    background-size: 115px;
     filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.4));
   }
 
@@ -227,9 +249,7 @@
     left: 16px;
     width: 298px;
     height: 106px;
-    background-image: url("images/teeth/top-left.svg");
-    background-position: -11px -22px;
-    background-size: 346px;
+    background-size: 300px;
     filter: drop-shadow(10px 4px 15px rgba(0, 0, 0, 0.4));
   }
 
@@ -238,9 +258,7 @@
     right: 6px;
     width: 247px;
     height: 92px;
-    background-image: url("images/teeth/top-right.svg");
-    background-position: -12px -22px;
-    background-size: 316px;
+    background-size: 245px;
     filter: drop-shadow(10px 4px 15px rgba(0, 0, 0, 0.4));
   }
 }

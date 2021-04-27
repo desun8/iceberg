@@ -56,6 +56,10 @@ export default () => {
   timeline.reverse(-1);
   timeline.reversed(true);
 
+  window.addEventListener("load", () => {
+    timeline.reversed(!timeline.reversed());
+  });
+
   btn.addEventListener("click", (event: Event) => {
     const element = event.currentTarget as HTMLButtonElement;
     let newText = null;
