@@ -1,12 +1,19 @@
 .quote-banner {
-  --clip-top: 90px;
-  --clip-right: 63px;
-
   position: relative;
   margin-bottom: 55px;
+}
+
+.quote-banner__bg {
+  --clip-top: 75px;
+  --clip-right: 65px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-color: var(--c-pink);
   clip-path: polygon(0% 0, calc(100% - var(--clip-top)) 0, 100% var(--clip-right), 100% 100%, 0 100%);
-  overflow: hidden;
 }
 
 .quote-banner__noise {
@@ -22,8 +29,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 90px;
-  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+  width: 75px;
+  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+  transform: scaleX(-1);
 }
 
 .quote-banner__body {
@@ -48,13 +56,24 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet) {
+  .quote-banner__bg {
+    --clip-top: 75.5px;
+    --clip-right: 65.2px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
   .quote-banner {
-    --clip-top: 149px;
-    --clip-right: 104px;
-
     margin: 0 var(--page-gap) 136px;
     padding: 104px var(--inner-gap) 85px;
+  }
+
+  .quote-banner__bg {
+    --clip-top: 150px;
+    --clip-right: 128.2px;
+
     border-radius: 20px;
     clip-path: polygon(var(--clip-top) 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 var(--clip-right));
   }
@@ -62,8 +81,7 @@
   .quote-banner__conner {
     left: 0;
     width: 150px;
-    height: 150px;
-    transform: scaleX(-1);
+    transform: none;
   }
 
   .quote-banner__body {
@@ -85,13 +103,12 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-md) {
-  .quote-banner {
-    --clip-top: 189px;
-    --clip-right: 131px;
+  .quote-banner__bg {
+    --clip-top: 214px;
+    --clip-right: 183px;
   }
 
   .quote-banner__conner {
-    width: 190px;
-    height: 190px;
+    width: 214px;
   }
 }
