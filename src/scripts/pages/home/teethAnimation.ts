@@ -1,8 +1,9 @@
 import gsap from "gsap";
 
 export default () => {
-  const container = document.querySelector("#teeth")!;
+  const isDesktop = window.APP.isDesktop;
 
+  const container = document.querySelector("#teeth")!;
   const teethMain = container.querySelector(".teeth__main")!;
   const teethLeft = container.querySelector(".teeth__left")!;
   const teethRight = container.querySelector(".teeth__right")!;
@@ -10,69 +11,87 @@ export default () => {
   const teethRightSmall = container.querySelector(".teeth__right-small")!;
   const teethTopLeft = container.querySelector(".teeth__top-left")!;
   const teethTopRight = container.querySelector(".teeth__top-right")!;
-
   const btn = container.querySelector(".teeth-btn")!;
 
-  const isDesktop = window.APP.isDesktop;
+  const createTeethPartsAnimation = () => {
+    const positions = {
+      left: {
+        x: isDesktop ? -260 : -104,
+        y: 58,
+      },
+      leftSmall: {
+        x: isDesktop ? -110 : -45,
+        y: isDesktop ? -70 : -20,
+      },
+      leftTop: {
+        x: isDesktop ? -80 : -24,
+        y: isDesktop ? -70 : -24,
+      },
+      right: {
+        x: isDesktop ? 230 : 92,
+        y: isDesktop ? 90 : 46,
+      },
+      rightSmall: {
+        x: isDesktop ? 100 : 40,
+        y: 0,
+      },
+      rightTop: {
+        x: isDesktop ? 150 : 54,
+        y: isDesktop ? -50 : -21,
+      },
+    };
 
-  const positions = {
-    left: {
-      x: isDesktop ? -260 : -104,
-      y: 58,
-    },
-    leftSmall: {
-      x: isDesktop ? -110 : -45,
-      y: isDesktop ? -70 : -20,
-    },
-    leftTop: {
-      x: isDesktop ? -80 : -24,
-      y: isDesktop ? -70 : -24,
-    },
-    right: {
-      x: isDesktop ? 230 : 92,
-      y: isDesktop ? 90 : 46,
-    },
-    rightSmall: {
-      x: isDesktop ? 100 : 40,
-      y: 0,
-    },
-    rightTop: {
-      x: isDesktop ? 150 : 54,
-      y: isDesktop ? -50 : -21,
-    },
+    const duration = 1.2;
+    const ease = "sine.inOut";
+
+    const timeline = gsap.timeline();
+    timeline.to(teethLeft, {...positions.left, duration, ease}, 0);
+    timeline.to(teethLeftSmall, {...positions.leftSmall, duration, ease}, 0);
+    timeline.to(teethTopLeft, {...positions.leftTop, duration, ease}, 0);
+    timeline.to(teethRight, {...positions.right, duration, ease}, 0);
+    timeline.to(teethRightSmall, {...positions.rightSmall, duration, ease}, 0);
+    timeline.to(teethTopRight, {...positions.rightTop, duration, ease}, 0);
+
+    return timeline;
+  };
+  const createTeethIconsAnimation = () => {
+    const icons = Array.from(teethMain.querySelectorAll(".teeth__icon"));
+
+    const timeline = gsap.timeline({repeat: -1, paused: true});
+    icons.forEach(icon => {
+      const duration = 0;
+
+      timeline.to(icon, {alpha: 1, duration});
+      timeline.to(icon, {alpha: 0, duration}, "+=0.4");
+    });
+
+    return timeline;
   };
 
-  const duration = 1.2;
-  const ease = "sine.inOut";
+  const teethPartsAnimation = createTeethPartsAnimation();
+  teethPartsAnimation.reverse(-1);
+  teethPartsAnimation.reversed(true);
 
-  const timeline = gsap.timeline();
-  timeline.to(teethLeft, {...positions.left, duration, ease}, 0);
-  timeline.to(teethLeftSmall, {...positions.leftSmall, duration, ease}, 0);
-  timeline.to(teethTopLeft, {...positions.leftTop, duration, ease}, 0);
-  timeline.to(teethRight, {...positions.right, duration, ease}, 0);
-  timeline.to(teethRightSmall, {...positions.rightSmall, duration, ease}, 0);
-  timeline.to(teethTopRight, {...positions.rightTop, duration, ease}, 0);
+  const teethIconsAnimation = createTeethIconsAnimation();
 
-  timeline.reverse(-1);
-  timeline.reversed(true);
-
-  window.addEventListener("load", () => {
-    timeline.reversed(!timeline.reversed());
-  });
 
   btn.addEventListener("click", (event: Event) => {
     const element = event.currentTarget as HTMLButtonElement;
     let newText = null;
 
-    timeline.reversed(!timeline.reversed());
+    teethPartsAnimation.reversed(!teethPartsAnimation.reversed());
 
-    if (timeline.reversed()) {
+    if (teethPartsAnimation.reversed()) {
       newText = element.dataset.forward || newText;
     } else {
       newText = element.dataset.backward || newText;
     }
 
     element.lastChild!.nodeValue = newText;
+  });
+  window.addEventListener("load", () => {
+    teethPartsAnimation.reversed(!teethPartsAnimation.reversed());
+    teethIconsAnimation.play();
   });
 
   // drag

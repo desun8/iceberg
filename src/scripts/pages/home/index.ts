@@ -2,7 +2,6 @@ import teethAnimation from "./teethAnimation";
 import fixedHero from "./fixedHero";
 
 export default () => {
-  console.log("SUKA");
   teethAnimation();
   fixedHero();
 

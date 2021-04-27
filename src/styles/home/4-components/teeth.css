@@ -60,6 +60,131 @@
   );
 }
 
+.teeth__icon-container {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66px;
+  height: 200px;
+}
+
+.teeth__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  opacity: 0;
+}
+
+.no-webp .teeth__icon--1 {
+  background-image: image-set(
+    url("images/teeth/heart-1.png") 1x,
+    url("images/teeth/heart-1@2x.png") 2x
+  );
+}
+
+.webp .teeth__icon--1 {
+  background-image: image-set(
+    url("images/teeth/heart-1.webp") 1x,
+    url("images/teeth/heart-1@2x.webp") 2x
+  );
+}
+
+.teeth__icon--2 {
+  top: -8px;
+}
+
+.no-webp .teeth__icon--2 {
+  background-image: image-set(
+    url("images/teeth/heart-2.png") 1x,
+    url("images/teeth/heart-2@2x.png") 2x
+  );
+}
+
+.webp .teeth__icon--2 {
+  background-image: image-set(
+    url("images/teeth/heart-2.webp") 1x,
+    url("images/teeth/heart-2@2x.webp") 2x
+  );
+}
+
+.teeth__icon--3 {
+  top: -6px;
+}
+
+.no-webp .teeth__icon--3 {
+  background-image: image-set(
+    url("images/teeth/heart-3.png") 1x,
+    url("images/teeth/heart-3@2x.png") 2x
+  );
+}
+
+.webp .teeth__icon--3 {
+  background-image: image-set(
+    url("images/teeth/heart-3.webp") 1x,
+    url("images/teeth/heart-3@2x.webp") 2x
+  );
+}
+
+.teeth__icon--4 {
+  top: -20px;
+}
+
+.no-webp .teeth__icon--4 {
+  background-image: image-set(
+    url("images/teeth/heart-4.png") 1x,
+    url("images/teeth/heart-4@2x.png") 2x
+  );
+}
+
+.webp .teeth__icon--4 {
+  background-image: image-set(
+    url("images/teeth/heart-4.png") 1x,
+    url("images/teeth/heart-4@2x.png") 2x
+  );
+}
+
+.teeth__icon--5 {
+  top: -10px;
+}
+
+.no-webp .teeth__icon--5 {
+  background-image: image-set(
+    url("images/teeth/heart-5.png") 1x,
+    url("images/teeth/heart-5@2x.png") 2x
+  );
+}
+
+.webp .teeth__icon--5 {
+  background-image: image-set(
+    url("images/teeth/heart-5.png") 1x,
+    url("images/teeth/heart-5@2x.png") 2x
+  );
+}
+
+.teeth__icon--6 {
+  top: -12px;
+}
+
+.no-webp .teeth__icon--6 {
+  background-image: image-set(
+    url("images/teeth/heart-6.png") 1x,
+    url("images/teeth/heart-6@2x.png") 2x
+  );
+}
+
+.webp .teeth__icon--6 {
+  background-image: image-set(
+    url("images/teeth/heart-6.png") 1x,
+    url("images/teeth/heart-6@2x.png") 2x
+  );
+}
+
 .teeth__left {
   position: absolute;
   bottom: -6px;
@@ -185,6 +310,90 @@
       url("images/teeth/main--large@2x.webp") 2x
     );
   }
+
+  .no-webp .teeth__icon--1 {
+    background-image: image-set(
+      url("images/teeth/heart-1--large.png") 1x,
+      url("images/teeth/heart-1--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__icon--1 {
+    background-image: image-set(
+      url("images/teeth/heart-1--large.webp") 1x,
+      url("images/teeth/heart-1--large@2x.webp") 2x
+    );
+  }
+
+  .no-webp .teeth__icon--2 {
+    background-image: image-set(
+      url("images/teeth/heart-2--large.png") 1x,
+      url("images/teeth/heart-2--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__icon--2 {
+    background-image: image-set(
+      url("images/teeth/heart-2--large.webp") 1x,
+      url("images/teeth/heart-2--large@2x.webp") 2x
+    );
+  }
+
+  .no-webp .teeth__icon--3 {
+    background-image: image-set(
+      url("images/teeth/heart-3--large.png") 1x,
+      url("images/teeth/heart-3--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__icon--3 {
+    background-image: image-set(
+      url("images/teeth/heart-3--large.webp") 1x,
+      url("images/teeth/heart-3--large@2x.webp") 2x
+    );
+  }
+
+  .no-webp .teeth__icon--4 {
+    background-image: image-set(
+      url("images/teeth/heart-4--large.png") 1x,
+      url("images/teeth/heart-4--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__icon--4 {
+    background-image: image-set(
+      url("images/teeth/heart-4--large.webp") 1x,
+      url("images/teeth/heart-4--large@2x.webp") 2x
+    );
+  }
+
+  .no-webp .teeth__icon--5 {
+    background-image: image-set(
+      url("images/teeth/heart-5--large.png") 1x,
+      url("images/teeth/heart-5--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__icon--5 {
+    background-image: image-set(
+      url("images/teeth/heart-5--large.webp") 1x,
+      url("images/teeth/heart-5--large@2x.webp") 2x
+    );
+  }
+
+  .no-webp .teeth__icon--6 {
+    background-image: image-set(
+      url("images/teeth/heart-6--large.png") 1x,
+      url("images/teeth/heart-6--large@2x.png") 2x
+    );
+  }
+
+  .webp .teeth__icon--6 {
+    background-image: image-set(
+      url("images/teeth/heart-6--large.webp") 1x,
+      url("images/teeth/heart-6--large@2x.webp") 2x
+    );
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -206,6 +415,15 @@
 
     transform-origin: 0 50%;
     transform: scale(0.8);
+  }
+
+  .teeth__icon-container {
+    top: 148px;
+    width: 180px;
+  }
+
+  .teeth__icon--1 {
+    top: 20px;
   }
 
   .teeth__left {
