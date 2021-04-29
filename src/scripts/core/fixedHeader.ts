@@ -14,6 +14,7 @@ enum ScrollDirection {
 export default () => {
   const headerElement = document.querySelector(".page-header")!;
   const headerContainer = headerElement.querySelector(".header__container")!;
+  const btnToTop = document.querySelector("#btn-to-top");
   const footerElement = document.querySelector(".page-footer");
   let clientHeight = document.documentElement.clientHeight + 200;
   const scrollbar = window.APP.scrollbar;
@@ -31,6 +32,7 @@ export default () => {
   let currScrollTop = 0;
   let isHeaderPinned = false;
   let isFooterVisible = false;
+  let isBtnVisible = false;
   const setHeaderY = gsap.quickSetter(headerElement, "y", "px");
 
   const pinHeader = (isNative = true) => {
@@ -74,6 +76,43 @@ export default () => {
     });
   };
 
+  const toggleBtnVisible = (shouldShow: boolean) => {
+    if (btnToTop) {
+      if (shouldShow) {
+        if (isBtnVisible) return;
+
+        isBtnVisible = true;
+        gsap.killTweensOf(btnToTop);
+
+        gsap.set(btnToTop, {
+          x: 0,
+          y: 60,
+          alpha: 0,
+        });
+        gsap.to(btnToTop, {
+          y: 0,
+          alpha: 1,
+          duration: 0.4,
+        });
+      } else {
+        if (!isBtnVisible) return;
+
+        gsap.killTweensOf(btnToTop);
+
+        gsap.to(btnToTop, {
+          alpha: 0,
+          y: 60,
+          duration: 0.2,
+          onComplete() {
+            gsap.set(btnToTop, {x: -200, y: 0});
+
+            isBtnVisible = false;
+          },
+        });
+      }
+    }
+  };
+
   const toggleHeader = (scrollTop: number) => {
     currScrollTop = scrollTop;
     const direction = currScrollTop > prevScrollTop ? ScrollDirection.Down : ScrollDirection.Up;
@@ -85,11 +124,14 @@ export default () => {
         }
 
         pinHeader(isNativeScroll);
+        toggleBtnVisible(true);
       } else {
         resetStyles(isNativeScroll);
+        toggleBtnVisible(false);
       }
     } else {
       unpinHeader(isNativeScroll);
+      toggleBtnVisible(false);
     }
 
     prevScrollTop = currScrollTop;

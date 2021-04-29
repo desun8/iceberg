@@ -3,6 +3,13 @@
   left: var(--page-gap);
 }
 
+#btn-to-top.btn-to-top {
+  position: fixed;
+  bottom: var(--page-gap);
+  transform: translateX(-500px);
+  z-index: 5;
+}
+
 .btn-to-top .btn__icon-new {
   --image: url("images/icons/arrow.svg");
 
@@ -15,11 +22,19 @@
   .btn-to-top {
     left: 20px;
   }
+
+  #btn-to-top.btn-to-top {
+    bottom: 20px;
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
-  .block-feedback .btn-to-top {
+  .btn-to-top {
     left: 40px;
+  }
+
+  #btn-to-top.btn-to-top {
+    bottom: 40px;
   }
 }

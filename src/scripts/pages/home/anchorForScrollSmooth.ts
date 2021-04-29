@@ -1,6 +1,6 @@
 // Фикс якорных ссылок под "smooth-scrollbar.js"
 export default () => {
-  const linksToTop: HTMLAnchorElement[] | [] = Array.from(document.querySelectorAll("a[href='#page-top']"));
+  const linksToTop: HTMLAnchorElement[] | [] = Array.from(document.querySelectorAll("a[href='#scroll-container']"));
 
   if (linksToTop.length) {
     linksToTop.forEach(link => {
