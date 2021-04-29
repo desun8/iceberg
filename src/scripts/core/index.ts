@@ -1,6 +1,7 @@
 import detectTouchScreen from "../utils/detectTouchScreen";
 import isDesktop from "../utils/isDesktop";
 import SmoothScroll from "./smoothScroll/SmoothScroll";
+import fixedHeader from "./fixedHeader";
 
 export default () => {
   // служебные
@@ -16,6 +17,7 @@ export default () => {
   detectTouchScreen();
 
   new SmoothScroll(document.querySelector("#scroll-container"));
+  fixedHeader();
 
 // компоненты
 }
