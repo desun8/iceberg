@@ -35,6 +35,11 @@ class SmoothScroll {
   private addStyles() {
     document.body.style.overflow = "hidden";
     this.element!.style.height = "100vh";
+    const scrollContent = this.element!.querySelector(".scroll-content") as HTMLElement;
+
+    if (scrollContent) {
+    scrollContent.style.willChange = "transform";
+    }
   }
 
   private addToGlobal() {
