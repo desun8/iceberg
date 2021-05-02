@@ -1,12 +1,14 @@
 .list {
+  --item-mb: 18px;
+
   margin: 0;
   padding-left: 30px;
   list-style: circle;
 }
 
 .list__item {
-  margin-bottom: 22px;
-  font-size: 18px;
+  margin-bottom: var(--item-mb);
+  font-size: inherit;
   letter-spacing: var(--letter-spacing);
 }
 
@@ -20,12 +22,7 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
-  .list__item {
-    margin-bottom: 28px;
-    font-size: 24px;
-  }
-
-  .list__item--hover:hover {
+  .list__item:hover a {
     color: var(--c-pink);
     transition: color var(--trans-dur);
   }
