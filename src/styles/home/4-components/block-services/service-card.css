@@ -35,45 +35,56 @@
 
 .service-card__icon::after {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 400%;
+  height: 500%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  /*
+   * хак для safari
+   * убирает блур у бг свг
+  */
+  transform-origin: 0 0;
+  transform: scale(0.25) translate3d(0, -50%, 0.01px);
 }
 
 .service-card__icon--flower::after {
-  content: url("images/service/icon-flower.svg");
-  top: 4px;
-  max-width: 92px;
+  content: "";
+  top: 51%;
+  background-image: url("images/service/icon-flower.svg");
 }
 
 .service-card__icon--cup::after {
-  content: url("images/service/icon-cup.svg");
-  max-width: 97px;
+  content: "";
+  top: 55%;
+  background-image: url("images/service/icon-cup.svg");
 }
 
 .service-card__icon--hand::after {
-  content: url("images/service/icon-hand.svg");
-  top: 6px;
-  max-width: 106px;
+  content: "";
+  top: 60%;
+  background-image: url("images/service/icon-hand.svg");
 }
 
 .service-card__icon--apple::after {
-  content: url("images/service/icon-apple.svg");
-  top: -11px;
-  max-width: 117px;
+  content: "";
+  top: 40%;
+  background-image: url("images/service/icon-apple.svg");
 }
 
 .service-card__icon--teeth::after {
-  content: url("images/service/icon-teeth.svg");
-  top: -8px;
-  max-width: 96px;
+  content: "";
+  top: 55%;
+  background-image: url("images/service/icon-teeth.svg");
 }
 
 .service-card__icon--castle::after {
-  content: url("images/service/icon-castle.svg");
-  top: -4px;
-  max-width: 102px;
+  content: "";
+  top: 55%;
+  background-image: url("images/service/icon-castle.svg");
 }
 
 .service-card__body {
@@ -172,61 +183,57 @@
     --size-mod: 0.6;
     --width: 1px;
 
-    width: calc(var(--width) * var(--size-mod));
-    max-width: unset;
-    height: auto;
+    width: calc(var(--width) * var(--size-mod) * 4);
+    height: 1000%;
+    background-size: 100%;
   }
 
   .service-card__icon--flower::after {
     --width: 400px;
 
-    content: url("images/service/icon-flower--large.svg");
     top: 50%;
     left: -50px;
-    transform: translateY(-50%);
+    background-image: url("images/service/icon-flower--large.svg");
   }
 
   .service-card__icon--cup::after {
     --width: 386px;
 
-    content: url("images/service/icon-cup--large.svg");
     top: 40%;
-    left: -80px;
-    transform: translateY(-50%);
+    left: -55px;
+    background-image: url("images/service/icon-cup--large.svg");
   }
 
   .service-card__icon--hand::after {
     --width: 207px;
 
-    content: url("images/service/icon-hand--large.svg");
-    top: 45%;
-    left: -30px;
+    top: 86%;
+    left: -20px;
+    background-image: url("images/service/icon-hand--large.svg");
   }
 
   .service-card__icon--apple::after {
     --width: 620px;
 
-    content: url("images/service/icon-apple--large.svg");
-    top: 0;
-    left: -130px;
-    transform: translateY(-50%);
+    top: -10%;
+    left: -150px;
+    background-image: url("images/service/icon-apple--large.svg");
   }
 
   .service-card__icon--teeth::after {
     --width: 450px;
 
-    content: url("images/service/icon-teeth--large.svg");
     top: 5%;
     left: -80px;
-    transform: translateY(-50%);
+    background-image: url("images/service/icon-teeth--large.svg");
   }
 
   .service-card__icon--castle::after {
     --width: 247px;
 
-    content: url("images/service/icon-castle--large.svg");
-    top: 38%;
+    top: 78%;
     left: -30px;
+    background-image: url("images/service/icon-castle--large.svg");
   }
 
   .service-card__body {
@@ -260,36 +267,9 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
-  .service-card__icon--flower::after {
-    left: auto;
-    right: -90px;
-  }
-
-  .service-card__icon--cup::after {
-    left: auto;
-    right: -70px;
-  }
-
-  .service-card__icon--hand::after {
-    left: auto;
-    right: -5px;
-  }
-
-  .service-card__icon--apple::after {
-    top: -20%;
-    left: auto;
-    right: -120px;
-  }
-
-  .service-card__icon--teeth::after {
-    top: 0;
-    left: auto;
-    right: -100px;
-  }
-
   .service-card__icon--castle::after {
-    left: auto;
-    right: -40px;
+    top: 82%;
+    left: -10px;
   }
 }
 
@@ -300,18 +280,20 @@
   }
 
   .service-card__icon--apple::after {
-    top: -10%;
-    right: -180px;
+    left: -120px;
   }
 
   .service-card__icon--hand::after {
-    top: 25px;
-    right: 15px;
+    top: 75%;
+    left: 0;
+  }
+
+  .service-card__icon--teeth::after {
+    left: -40px;
   }
 
   .service-card__icon--castle::after {
-    top: 10%;
-    right: -50px;
+    left: 45px;
   }
 }
 
@@ -333,32 +315,30 @@
 
   .service-card__icon--flower::after {
     top: 60%;
-    right: -160px;
+    left: -10px;
   }
 
   .service-card__icon--cup::after {
-    top: 60%;
-    right: -140px;
+    top: 55%;
+    left: -30px;
   }
 
   .service-card__icon--hand::after {
-    top: 45px;
-    right: -14px;
+    top: 78%;
+    left: -20px;
   }
 
   .service-card__icon--apple::after {
-    top: 10%;
-    right: -210px;
+    top: 0;
+    left: -140px;
   }
 
   .service-card__icon--teeth::after {
-    top: 15%;
-    right: -160px;
+    top: 20%;
   }
 
   .service-card__icon--castle::after {
-    top: 20%;
-    right: -45px;
+    left: -25px;
   }
 
   .service-card__title {
@@ -388,33 +368,22 @@
     --size-mod: 1;
   }
 
-  .service-card__icon--flower::after {
-    top: 50%;
-    right: -210px;
-  }
-
   .service-card__icon--hand::after {
-    top: -15px;
-    right: 15px;
+    top: 58%;
+    left: -35px;
   }
 
   .service-card__icon--cup::after {
     top: 40%;
-    right: -170px;
   }
 
   .service-card__icon--apple::after {
     top: -10%;
-    right: -270px;
-  }
-
-  .service-card__icon--teeth::after {
-    right: -190px;
+    left: -165px;
   }
 
   .service-card__icon--castle::after {
-    top: -10%;
-    right: -65px;
+    left: -15px;
   }
 
   .service-card__title {
