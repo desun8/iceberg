@@ -53,8 +53,6 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
   .catalog-banner {
-    --pd-x: 5vw;
-
     position: relative;
     display: grid;
     grid-template-columns: 560px 1fr;
@@ -62,7 +60,7 @@
     align-items: center;
 
     margin: 0;
-    padding: 0 0 0 var(--pd-x);
+    padding: 0 0 0 var(--inner-gap);
     text-align: left;
     border-radius: 20px;
     overflow: hidden;
@@ -98,13 +96,6 @@
 
   .catalog-banner__describe {
     font-size: 16px;
-  }
-}
-
-/* noinspection CssInvalidMediaFeature */
-@media screen and (--desktop-md) {
-  .catalog-banner {
-    --pd-x: min(8vw, 150px);
   }
 }
 
