@@ -34,3 +34,11 @@
     padding-top: 210px;
   }
 }
+
+@media screen and (min-width: 64em) and (max-height: 1000px) {
+  .footer-contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

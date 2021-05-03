@@ -65,11 +65,6 @@
     border-radius: 42px 42px 0 0;
   }
 
-  /*.block-services__list {*/
-
-  /*  margin-bottom: 50px;*/
-
-  /*}*/
   .block-services__title {
     margin-bottom: 90px;
     font-size: 36px;
@@ -94,7 +89,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--desktop-fullhd) {
+@media screen and (--desktop-md) {
   .block-services__list {
     grid-template-columns: repeat(auto-fill, minmax(min(30%, var(--card-size)), 1fr));
   }

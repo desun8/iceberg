@@ -1,7 +1,7 @@
 .btn {
   --pd-x: 42px;
   --color: var(--c-blue-deep);
-  --bg-c: var(--c-blue-sky);
+  --bg-c: #fff;
   --bdrs: 100px;
 
   display: inline-grid;
@@ -28,7 +28,7 @@
 
 .btn:not(.btn--no-hover):hover {
   --color: #fff;
-  --bg-c: var(--c-blue-deep);
+  --bg-c: var(--c-pink);
 }
 
 .btn--full-w {
@@ -44,11 +44,6 @@
   --bg-c: var(--c-blue-deep);
 }
 
-.btn--dark:not(.btn--no-hover):hover {
-  --color: var(--c-blue-deep);
-  --bg-c: #fff;
-}
-
 .btn--aqua {
   --color: #fff;
   --bg-c: var(--c-aqua);
@@ -59,15 +54,25 @@
   --bg-c: var(--c-pink);
 }
 
-.btn--white {
+.btn--blue-sky {
   --color: var(--c-blue-deep-darken);
-  --bg-c: #fff;
+  --bg-c: var(--c-blue-sky);
 }
 
 .btn--aqua:not(.btn--no-hover):hover,
 .btn--pink:not(.btn--no-hover):hover {
   /*--color: var(--c-deep-blue);*/
   --bg-c: var(--c-blue-deep);
+}
+
+.btn--dark-hover:not(.btn--no-hover):hover {
+  --color: #fff;
+  --bg-c: var(--c-blue-deep);
+}
+
+.btn--white-hover:not(.btn--no-hover):hover {
+  --color: var(--c-blue-deep);
+  --bg-c: #fff;
 }
 
 .btn--circle {

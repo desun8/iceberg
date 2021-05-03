@@ -63,6 +63,8 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(1px, 1fr));
     align-content: center;
+    padding-left: var(--page-gap);
+    padding-right: var(--page-gap);
     padding-bottom: 30px;
   }
 
@@ -72,6 +74,7 @@
 
   .block-hero__body {
     position: relative;
+    justify-self: end;
     margin-bottom: 0;
     padding: 0;
   }
@@ -98,7 +101,7 @@
 
   .block-hero__body {
     justify-content: center;
-    max-width: 620px;
+    max-width: 700px;
 
     padding: 0;
   }

@@ -86,3 +86,9 @@
     z-index: 2;
   }
 }
+
+@media screen and (min-width: 64em) and (max-height: 1000px) {
+  .page-footer {
+    min-height: 100vh;
+  }
+}

@@ -16,6 +16,10 @@ button {
   cursor: pointer;
 }
 
+a {
+  transition: all var(--trans-dur);
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
   body {

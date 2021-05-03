@@ -38,7 +38,7 @@ class TabsFeature extends Carousel {
     }
 
     imgs.forEach((img) => {
-      const clone = img.cloneNode();
+      const clone = img.cloneNode(true);
       clone.className = '';
       clone.classList.add('feature-slider__img');
 
@@ -48,6 +48,8 @@ class TabsFeature extends Carousel {
       this.slidesImg.push(clone);
 
       parent.appendChild(clone);
+
+      console.log(clone);
     });
   }
 
