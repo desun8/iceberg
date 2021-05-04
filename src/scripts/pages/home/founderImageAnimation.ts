@@ -9,7 +9,7 @@ export default () => {
 
   if (parentElement && imageElement) {
     gsap.set(imageElement, {
-      scale: 0.1,
+      scale: 0.75,
       transformOrigin: "100% 50%",
     })
 

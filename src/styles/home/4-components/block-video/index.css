@@ -88,6 +88,7 @@
 
   .block-video__wrapper {
     border-radius: 20px;
+    mask-image: radial-gradient(white, black); /* фикс для safari */
   }
 
   .block-video__body {
