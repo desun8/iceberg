@@ -5,12 +5,12 @@ export default () => {
 
   const container = document.querySelector("#teeth")!;
   const teethMain = container.querySelector(".teeth__main")!;
-  const teethLeft = container.querySelector(".teeth__left")!;
-  const teethRight = container.querySelector(".teeth__right")!;
-  const teethLeftSmall = container.querySelector(".teeth__left-small")!;
-  const teethRightSmall = container.querySelector(".teeth__right-small")!;
-  const teethTopLeft = container.querySelector(".teeth__top-left")!;
-  const teethTopRight = container.querySelector(".teeth__top-right")!;
+  const teethLeft = container.querySelector(".teeth__part--left")!;
+  const teethRight = container.querySelector(".teeth__part--right")!;
+  const teethLeftSmall = container.querySelector(".teeth__part--left-small")!;
+  const teethRightSmall = container.querySelector(".teeth__part--right-small")!;
+  const teethTopLeft = container.querySelector(".teeth__part--top-left")!;
+  const teethTopRight = container.querySelector(".teeth__part--top-right")!;
   const btn = container.querySelector(".teeth-btn")!;
 
   const createTeethPartsAnimation = () => {
@@ -62,7 +62,7 @@ export default () => {
       const duration = 0;
 
       timeline.to(icon, {alpha: 1, duration});
-      timeline.to(icon, {alpha: 0, duration}, "+=0.4");
+      timeline.to(icon, {alpha: 0, duration}, "+=0.8");
     });
 
     return timeline;
@@ -82,9 +82,9 @@ export default () => {
     teethPartsAnimation.reversed(!teethPartsAnimation.reversed());
 
     if (teethPartsAnimation.reversed()) {
-      newText = element.dataset.forward || newText;
-    } else {
       newText = element.dataset.backward || newText;
+    } else {
+      newText = element.dataset.forward || newText;
     }
 
     element.lastChild!.nodeValue = newText;
