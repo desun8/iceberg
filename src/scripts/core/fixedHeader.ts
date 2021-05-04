@@ -12,7 +12,7 @@ enum ScrollDirection {
 }
 
 export default () => {
-  const headerElement = document.querySelector(".page-header")!;
+  const headerElement = document.querySelector(".page-header") as HTMLElement;
   const headerContainer = headerElement.querySelector(".header__container")!;
   const btnToTop = document.querySelector("#btn-to-top");
   const footerElement = document.querySelector(".page-footer");
@@ -42,7 +42,8 @@ export default () => {
     isHeaderPinned = true;
 
     if (isNative) {
-      gsap.set(headerElement, {position: "fixed"});
+      headerElement.style.position = "fixed";
+      headerElement.style.zIndex = "10";
     }
 
     headerElement.classList.add("is-fixed");
@@ -52,7 +53,8 @@ export default () => {
 
   const resetStyles = (isNative: boolean) => {
     if (isNative) {
-      gsap.set(headerElement, {position: "absolute"});
+      headerElement.style.position = "";
+      headerElement.style.zIndex = "";
     } else {
       setHeaderY(0);
     }

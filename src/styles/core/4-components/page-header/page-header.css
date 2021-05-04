@@ -1,1 +1,6 @@
-.page-header {}
+/*.page-header {}*/
+
+.page-header.is-pinned {
+  position: fixed !important;
+  z-index: 1;
+}

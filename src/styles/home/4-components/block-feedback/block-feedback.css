@@ -1,7 +1,7 @@
 .block-feedback {
   position: relative;
-  margin-bottom: 74px;
   padding: 0 var(--page-gap);
+  padding-bottom: 74px;
 }
 
 .block-feedback__title {
@@ -18,7 +18,7 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet-lg) {
   .block-feedback {
-    margin-bottom: 170px;
+    padding-bottom: 170px;
   }
 
   .block-feedback__title {
@@ -35,7 +35,8 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-md) {
   .block-feedback {
-    padding: 0 var(--deep-gap);
+    padding-left: var(--deep-gap);
+    padding-right: var(--deep-gap);
   }
 
   .block-feedback .btn-to-top {
