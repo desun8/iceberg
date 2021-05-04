@@ -26,7 +26,7 @@
   background-color: #f8f8f8;
   overflow: hidden;
   z-index: 2; /* Временный фикс для решение проблемы перекрытия "волной" на внутренней странице */
-  mask-image: radial-gradient(white, black); /* фикс для сафари */
+  mask-image: radial-gradient(white, black); /* фикс для safari */
 }
 
 .employee-picture__icon {

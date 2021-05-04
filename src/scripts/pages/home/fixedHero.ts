@@ -29,20 +29,27 @@ export default () => {
     element.style.right = "0";
     element.style.position = "fixed";
     mainElement.style.paddingTop = `${elementHeight}px`;
+    headerElement.classList.add("is-pinned");
 
-    if (isNativeScroll) {
-      headerElement.classList.add("is-pinned");
-    } else {
+    if (!isNativeScroll) {
       headerElement.style.zIndex = "1";
       scrollbar!.addListener((status: Status) => {
         const posY = status.offset.y;
 
-        if (posY <= clientHeight + 200) {
+        if (posY <= clientHeight) {
+          element.style.display = "";
+          element.style.visibility = "";
+
           element.style.willChange = "transform";
-          element.style.transform = `translateY(${posY}px)`;
-          headerElement.style.transform = `translateY(${posY}px)`;
+          headerElement.style.willChange = "transform";
+          element.style.transform = `translate3d(0, ${posY}px, 0)`;
+          headerElement.style.transform = `translate3d(0, ${posY}px, 0)`;
         } else {
+          element.style.display = "none"; // немного улучшает производительность в safari
+          element.style.visibility = "hidden"; // немного улучшает производительность в safari
+
           element.style.willChange = "auto";
+          headerElement.style.willChange = "auto";
         }
       });
     }

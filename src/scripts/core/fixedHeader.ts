@@ -43,9 +43,9 @@ export default () => {
 
     if (isNative) {
       headerElement.style.position = "fixed";
-      headerElement.style.zIndex = "10";
     }
 
+    headerElement.style.zIndex = "10";
     headerElement.classList.add("is-fixed");
     gsap.set(headerContainer, {y: -200});
     gsap.to(headerContainer, {y: 0});
@@ -54,11 +54,11 @@ export default () => {
   const resetStyles = (isNative: boolean) => {
     if (isNative) {
       headerElement.style.position = "";
-      headerElement.style.zIndex = "";
     } else {
       setHeaderY(0);
     }
 
+    headerElement.style.zIndex = "";
     headerElement.classList.remove("is-fixed");
     gsap.set(headerContainer, {y: 0});
 

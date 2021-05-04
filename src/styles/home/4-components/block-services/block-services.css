@@ -1,6 +1,5 @@
 .block-services {
   position: relative;
-  background-color: var(--c-grey);
   z-index: 5;
 }
 

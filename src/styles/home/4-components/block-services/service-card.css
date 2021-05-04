@@ -145,14 +145,13 @@
     left: 0;
     background-color: #fff;
     border-radius: inherit;
-    filter: drop-shadow(20px 20px 50px rgba(0, 0, 0, 0.1));
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transition: opacity var(--trans-dur);
   }
 
   .service-card:hover::after {
     opacity: 1;
-    will-change: opacity;
   }
 
   .service-card__container {

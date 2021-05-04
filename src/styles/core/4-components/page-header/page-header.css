@@ -4,3 +4,10 @@
   position: fixed !important;
   z-index: 1;
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .page-header.is-pinned {
+    position: absolute;
+  }
+}

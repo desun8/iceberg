@@ -1,0 +1,13 @@
+.home-wrapper {
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .home-wrapper {
+    border-radius: 42px 42px 0 0;
+  }
+}
