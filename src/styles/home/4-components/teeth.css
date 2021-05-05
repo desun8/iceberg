@@ -199,6 +199,8 @@
   background-image: url("images/teeth/left.svg");
   background-size: 142px;
   filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
+  
+  border: 1px solid darkgreen;
 }
 
 .teeth__part--left-small {
@@ -207,6 +209,8 @@
   background-image: url("images/teeth/left-small.svg");
   background-size: 60px;
   filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
+  
+  border: 1px solid sandybrown;
 }
 
 .teeth__part--right {
@@ -214,6 +218,8 @@
   right: -19px;
   background-image: url("images/teeth/right.svg");
   background-size: 136px;
+  
+  border: 1px solid darkviolet;
 }
 
 .teeth__part--right-small {
@@ -222,6 +228,8 @@
   background-image: url("images/teeth/right-small.svg");
   background-size: 44px;
   filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.4));
+  
+  border: 1px solid firebrick;
 }
 
 .teeth__part--top-left {
@@ -230,6 +238,8 @@
   background-image: url("images/teeth/top-left.svg");
   background-size: 110px;
   filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.15));
+  
+  border: 1px solid darkturquoise;
 }
 
 .teeth__part--top-right {
@@ -238,6 +248,8 @@
   background-image: url("images/teeth/top-right.svg");
   background-size: 96px;
   filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.4));
+  
+  border: 1px solid orchid;
 }
 
 /* noinspection CssInvalidMediaFeature */
