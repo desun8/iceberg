@@ -133,6 +133,7 @@ export default () => {
         if (event.target === dragItem) {
           active = true;
           dragItem.style.willChange = "transform";
+          dragItem.style.backgroundColor = "rgba(0,0,0,0.3)"
         }
       }
 
@@ -142,6 +143,7 @@ export default () => {
 
         active = false;
         dragItem.style.willChange = "";
+        dragItem.style.backgroundColor = ""
       }
 
       function drag(this: HTMLElement, event: MouseEvent) {
