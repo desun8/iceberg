@@ -194,62 +194,66 @@
 }
 
 .teeth__part--left {
-  bottom: -14px;
-  left: -12px;
+  bottom: -9px;
+  left: -14px;
+  width: 160px;
+  height: 215px;
+
   background-image: url("images/teeth/left.svg");
-  background-size: 142px;
-  filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
-  
-  border: 1px solid darkgreen;
+  background-size: 151px;
 }
 
 .teeth__part--left-small {
-  bottom: -16px;
-  left: -56px;
+  bottom: -4px;
+  left: -15px;
+  width: 70px;
+  height: 190px;
+
   background-image: url("images/teeth/left-small.svg");
-  background-size: 60px;
-  filter: drop-shadow(-5px 4px 15px rgba(0, 0, 0, 0.15));
-  
-  border: 1px solid sandybrown;
+  background-size: 66px;
 }
 
 .teeth__part--right {
-  bottom: -8px;
-  right: -19px;
+  bottom: -12px;
+  right: -12px;
+  width: 150px;
+  height: 230px;
+
   background-image: url("images/teeth/right.svg");
-  background-size: 136px;
-  
-  border: 1px solid darkviolet;
+  background-size: 138px;
 }
 
 .teeth__part--right-small {
-  top: -22px;
-  right: -65px;
+  top: 20px;
+  right: -8px;
+  width: 50px;
+  height: 145px;
+
   background-image: url("images/teeth/right-small.svg");
-  background-size: 44px;
-  filter: drop-shadow(2px 4px 15px rgba(0, 0, 0, 0.4));
-  
-  border: 1px solid firebrick;
+  background-size: 46px;
 }
 
 .teeth__part--top-left {
-  top: -90px;
-  left: -18px;
+  top: -30px;
+  left: -12px;
+  width: 150px;
+  height: 100px;
+
   background-image: url("images/teeth/top-left.svg");
   background-size: 110px;
+  background-position-y: 30px;
   filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.15));
-  
-  border: 1px solid darkturquoise;
 }
 
 .teeth__part--top-right {
-  top: -93px;
-  right: -32px;
+  top: -10px;
+  right: -7px;
+  width: 115px;
+  height: 55px;
+
   background-image: url("images/teeth/top-right.svg");
-  background-size: 96px;
-  filter: drop-shadow(5px 4px 15px rgba(0, 0, 0, 0.4));
-  
-  border: 1px solid orchid;
+  background-size: 110px;
+  background-position-y: 5px;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -417,44 +421,53 @@
   }
 
   .teeth__part--left {
-    bottom: -34px;
-    left: -33px;
-    background-size: 368px;
-    filter: drop-shadow(-10px 4px 15px rgba(0, 0, 0, 0.25));
+    bottom: -28px;
+    left: -27px;
+    width: 396px;
+    height: 570px;
+    background-size: 396px;
   }
 
   .teeth__part--left-small {
-    bottom: -45px;
-    left: -145px;
-    background-size: 160px;
-    filter: drop-shadow(-10px 4px 15px rgba(0, 0, 0, 0.2));
+    bottom: -15px;
+    left: -30px;
+    width: 170px;
+    height: 495px;
+    background-size: 175px;
   }
 
   .teeth__part--right {
-    bottom: -28px;
-    right: -53px;
-    background-size: 344px;
+    bottom: -21px;
+    right: -10px;
+    width: 340px;
+    height: 575px;
+    background-size: 360px;
   }
 
   .teeth__part--right-small {
-    top: -42px;
-    right: -165px;
-    background-size: 126px;
-    filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.4));
+    top: 60px;
+    right: -20px;
+    width: 125px;
+    height: 390px;
+    background-size: 130px;
   }
 
   .teeth__part--top-left {
-    top: -230px;
-    left: -45px;
-    background-size: 300px;
-    filter: drop-shadow(10px 4px 15px rgba(0, 0, 0, 0.4));
+    top: -18px;
+    left: 6px;
+    width: 330px;
+    height: 150px;
+    background-size: 310px;
+    background-position-y: 15px;
   }
 
   .teeth__part--top-right {
-    top: -241px;
-    right: -84px;
-    background-size: 254px;
-    filter: drop-shadow(10px 4px 15px rgba(0, 0, 0, 0.4));
+    top: -9px;
+    right: -8px;
+    width: 265px;
+    height: 110px;
+    background-size: 270px;
+    background-position-y: center;
   }
 }
 

@@ -1,9 +1,9 @@
 import gsap from "gsap";
 
-const consoleStyle = (background: string) => `
-  background: ${background};
-  padding: 1em;
-  font-weight: 700`;
+enum AnimationDirection {
+  Forward,
+  Backward
+}
 
 export default () => {
   const isDesktop = window.APP.isDesktop;
@@ -18,91 +18,132 @@ export default () => {
   const teethTopRight = container.querySelector(".teeth__part--top-right") as HTMLElement;
   const btn = container.querySelector(".teeth-btn")!;
 
-  const createTeethPartsAnimation = () => {
-    const positions = {
-      left: {
-        x: isDesktop ? -260 : -104,
-        y: 58,
-      },
-      leftSmall: {
-        x: isDesktop ? -110 : -45,
-        y: isDesktop ? -70 : -20,
-      },
-      leftTop: {
-        x: isDesktop ? -80 : -24,
-        y: isDesktop ? -70 : -24,
-      },
-      right: {
-        x: isDesktop ? 230 : 92,
-        y: isDesktop ? 90 : 46,
-      },
-      rightSmall: {
-        x: isDesktop ? 100 : 40,
-        y: 0,
-      },
-      rightTop: {
-        x: isDesktop ? 150 : 54,
-        y: isDesktop ? -50 : -21,
-      },
+  const addBuildAnimation = () => {
+    const createTeethPartsAnimation = (direction: AnimationDirection) => {
+      const positions = {
+        left: {
+          x: isDesktop ? -260 : -104,
+          y: 58,
+        },
+        leftSmall: {
+          x: isDesktop ? -110 : -45,
+          y: isDesktop ? -70 : -20,
+        },
+        leftTop: {
+          x: isDesktop ? -80 : -24,
+          y: isDesktop ? -70 : -24,
+        },
+        right: {
+          x: isDesktop ? 230 : 92,
+          y: isDesktop ? 90 : 46,
+        },
+        rightSmall: {
+          x: isDesktop ? 100 : 40,
+          y: 0,
+        },
+        rightTop: {
+          x: isDesktop ? 150 : 54,
+          y: isDesktop ? -50 : -21,
+        },
+      };
+
+      const duration = 1.2;
+      const ease = "sine.inOut";
+
+      const timeline = gsap.timeline({paused: true});
+
+      if (direction === AnimationDirection.Forward) {
+        timeline.to(teethLeft, {...positions.left, duration, ease}, 0);
+        timeline.to(teethLeftSmall, {...positions.leftSmall, duration, ease}, 0);
+        timeline.to(teethTopLeft, {...positions.leftTop, duration, ease}, 0);
+        timeline.to(teethRight, {...positions.right, duration, ease}, 0);
+        timeline.to(teethRightSmall, {...positions.rightSmall, duration, ease}, 0);
+        timeline.to(teethTopRight, {...positions.rightTop, duration, ease}, 0);
+      } else {
+        const resetPosition = {x: 0, y: 0};
+
+        timeline.to(teethLeft, {...resetPosition, duration, ease}, 0);
+        timeline.to(teethLeftSmall, {...resetPosition, duration, ease}, 0);
+        timeline.to(teethTopLeft, {...resetPosition, duration, ease}, 0);
+        timeline.to(teethRight, {...resetPosition, duration, ease}, 0);
+        timeline.to(teethRightSmall, {...resetPosition, duration, ease}, 0);
+        timeline.to(teethTopRight, {...resetPosition, duration, ease}, 0);
+      }
+
+      return timeline;
+    };
+    const createTeethIconsAnimation = () => {
+      const icons = Array.from(teethMain.querySelectorAll(".teeth__icon"));
+
+      const timeline = gsap.timeline({repeat: -1, paused: true});
+      icons.forEach(icon => {
+        const duration = 0;
+
+        timeline.to(icon, {alpha: 1, duration});
+        timeline.to(icon, {alpha: 0, duration}, "+=0.8");
+      });
+
+      return timeline;
     };
 
-    const duration = 1.2;
-    const ease = "sine.inOut";
+    const teethPartsAnimationForward = createTeethPartsAnimation(AnimationDirection.Forward);
+    const teethPartsAnimationBackward = createTeethPartsAnimation(AnimationDirection.Backward);
+    const teethIconsAnimation = createTeethIconsAnimation();
 
-    const timeline = gsap.timeline();
-    timeline.to(teethLeft, {...positions.left, duration, ease}, 0);
-    timeline.to(teethLeftSmall, {...positions.leftSmall, duration, ease}, 0);
-    timeline.to(teethTopLeft, {...positions.leftTop, duration, ease}, 0);
-    timeline.to(teethRight, {...positions.right, duration, ease}, 0);
-    timeline.to(teethRightSmall, {...positions.rightSmall, duration, ease}, 0);
-    timeline.to(teethTopRight, {...positions.rightTop, duration, ease}, 0);
+    teethPartsAnimationForward.reverse(-1);
+    teethPartsAnimationForward.reversed(true);
 
-    return timeline;
-  };
-  const createTeethIconsAnimation = () => {
-    const icons = Array.from(teethMain.querySelectorAll(".teeth__icon"));
+    let animationDirection = AnimationDirection.Forward;
 
-    const timeline = gsap.timeline({repeat: -1, paused: true});
-    icons.forEach(icon => {
-      const duration = 0;
+    btn.addEventListener("click", (event: Event) => {
+      const element = event.currentTarget as HTMLButtonElement;
+      let newText = null;
 
-      timeline.to(icon, {alpha: 1, duration});
-      timeline.to(icon, {alpha: 0, duration}, "+=0.8");
+      const isForwardPlaying = teethPartsAnimationForward.isActive();
+      const isBackwardPlaying = teethPartsAnimationBackward.isActive();
+
+      if (animationDirection === AnimationDirection.Forward) {
+        if (isForwardPlaying) {
+          teethPartsAnimationForward.reversed(!teethPartsAnimationForward.reversed());
+        } else {
+          if (isBackwardPlaying) {
+            teethPartsAnimationBackward.reversed(!teethPartsAnimationBackward.reversed());
+          } else {
+            console.log("isBackwardPlaying");
+            console.log(isBackwardPlaying);
+            teethPartsAnimationBackward.invalidate();
+            teethPartsAnimationBackward.restart();
+          }
+        }
+
+        newText = element.dataset.backward || newText;
+        animationDirection = AnimationDirection.Backward;
+      } else {
+        if (isBackwardPlaying) {
+          teethPartsAnimationBackward.reversed(!teethPartsAnimationBackward.reversed());
+        } else {
+          if (isForwardPlaying) {
+            teethPartsAnimationForward.reversed(!teethPartsAnimationForward.reversed());
+          } else {
+            teethPartsAnimationForward.invalidate();
+            teethPartsAnimationForward.restart();
+          }
+        }
+
+        newText = element.dataset.forward || newText;
+        animationDirection = AnimationDirection.Forward;
+      }
+
+      element.lastChild!.nodeValue = newText;
     });
-
-    return timeline;
+    // Стартуем анимации, когда все загрузилось.
+    window.addEventListener("load", () => {
+      teethPartsAnimationForward.reversed(!teethPartsAnimationForward.reversed());
+      teethIconsAnimation.play();
+    });
   };
 
-  const teethPartsAnimation = createTeethPartsAnimation();
-  teethPartsAnimation.reverse(-1);
-  teethPartsAnimation.reversed(true);
-
-  const teethIconsAnimation = createTeethIconsAnimation();
-
-
-  btn.addEventListener("click", (event: Event) => {
-    const element = event.currentTarget as HTMLButtonElement;
-    let newText = null;
-
-    teethPartsAnimation.reversed(!teethPartsAnimation.reversed());
-
-    if (teethPartsAnimation.reversed()) {
-      newText = element.dataset.backward || newText;
-    } else {
-      newText = element.dataset.forward || newText;
-    }
-
-    element.lastChild!.nodeValue = newText;
-  });
-  window.addEventListener("load", () => {
-    teethPartsAnimation.reversed(!teethPartsAnimation.reversed());
-    teethIconsAnimation.play();
-  });
-
-
-  if (!window.APP.isTouchScreen) {
-    // DRAG v2
-    const addDrag = (dragItem: HTMLElement, container = teethMain) => {
+  const addDrag = (dragItem: HTMLElement) => {
       let shouldCheckTransform = true;
       let active = false;
       let currentX: number;
@@ -112,12 +153,13 @@ export default () => {
       let xOffset = 0;
       let yOffset = 0;
 
-      console.log("initial");
-      console.log(xOffset, yOffset);
+      const setX = gsap.quickSetter(dragItem, "x", "px");
+      const setY = gsap.quickSetter(dragItem, "y", "px");
+
 
       function dragStart(this: HTMLElement, event: MouseEvent) {
         if (shouldCheckTransform) {
-          const currentTransform = dragItem.style.transform.match(/[0-9]+/g);
+          const currentTransform = dragItem.style.transform.match(/-?[0-9]+/g);
 
           if (currentTransform && currentTransform.length === 2) {
             xOffset = parseInt(currentTransform[0]);
@@ -133,7 +175,7 @@ export default () => {
         if (event.target === dragItem) {
           active = true;
           dragItem.style.willChange = "transform";
-          dragItem.style.backgroundColor = "rgba(0,0,0,0.3)"
+          dragItem.style.zIndex = "1000";
         }
       }
 
@@ -143,7 +185,7 @@ export default () => {
 
         active = false;
         dragItem.style.willChange = "";
-        dragItem.style.backgroundColor = ""
+        dragItem.style.zIndex = "";
       }
 
       function drag(this: HTMLElement, event: MouseEvent) {
@@ -156,22 +198,27 @@ export default () => {
           xOffset = currentX;
           yOffset = currentY;
 
-          setTranslate(Math.floor(currentX), Math.floor(currentY), dragItem);
+          // setTranslate(Math.floor(currentX), Math.floor(currentY), dragItem);
+          setX(Math.floor(currentX));
+          setY(Math.floor(currentY));
         }
-      }
-
-      function setTranslate(xPos: number, yPos: number, el: HTMLElement) {
-        el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
       }
 
       dragItem.addEventListener("mousedown", dragStart, false);
       dragItem.addEventListener("mouseup", dragEnd, false);
       dragItem.addEventListener("mouseleave", dragEnd, false);
       dragItem.addEventListener("mousemove", drag, false);
+
+      // При клике на кнопку (запускает анимацию сборки/разборки)
+      btn.addEventListener("click", () => {
+        shouldCheckTransform = true;
+      });
     };
 
+  addBuildAnimation();
+
+  if (!window.APP.isTouchScreen) {
     const items = [teethRight, teethRightSmall, teethTopRight, teethLeft, teethLeftSmall, teethTopLeft];
-    // const items = [teethRight];
     items.forEach((element: HTMLElement) => {
       addDrag(element);
     });
