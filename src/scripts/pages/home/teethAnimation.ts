@@ -16,7 +16,9 @@ export default () => {
   const teethRightSmall = container.querySelector(".teeth__part--right-small") as HTMLElement;
   const teethTopLeft = container.querySelector(".teeth__part--top-left") as HTMLElement;
   const teethTopRight = container.querySelector(".teeth__part--top-right") as HTMLElement;
-  const btn = container.querySelector(".teeth-btn")!;
+  const btn = container.querySelector(".teeth-btn") as HTMLButtonElement;
+
+  let animationDirection = AnimationDirection.Forward;
 
   const addBuildAnimation = () => {
     const createTeethPartsAnimation = (direction: AnimationDirection) => {
@@ -92,8 +94,6 @@ export default () => {
 
     teethPartsAnimationForward.reverse(-1);
     teethPartsAnimationForward.reversed(true);
-
-    let animationDirection = AnimationDirection.Forward;
 
     btn.addEventListener("click", (event: Event) => {
       const element = event.currentTarget as HTMLButtonElement;
@@ -176,6 +176,9 @@ export default () => {
           active = true;
           dragItem.style.willChange = "transform";
           dragItem.style.zIndex = "1000";
+
+          btn.lastChild!.nodeValue = btn.dataset.forward || null;
+          animationDirection = AnimationDirection.Forward;
         }
       }
 
