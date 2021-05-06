@@ -79,6 +79,10 @@
   background: url("images/bg-wave-employee.svg") no-repeat center/250%;
 }
 
+.team-inner-bg-wave--second::after {
+  background-image: url("images/bg-wave-employee-pink.svg");
+}
+
 .team-inner-bg-wave-large {
   --bg-pos-x: 230%;
   --bg-pos-y: -120%;
@@ -107,6 +111,10 @@
   width: 400%;
   height: 400%;
   background: url("images/bg-wave-employee-large.svg") no-repeat var(--bg-pos-x) var(--bg-pos-y)/var(--bg-size);
+}
+
+.team-inner-bg-wave-large--second::after {
+  background-image: url("images/bg-wave-employee-pink-large.svg");
 }
 
 /* noinspection CssInvalidMediaFeature */
