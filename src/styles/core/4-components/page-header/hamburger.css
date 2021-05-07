@@ -9,13 +9,9 @@
 
   width: var(--size);
   height: var(--size);
-  border: 1px solid transparent;
 }
 
-.hamburger--close {
-  border: 1px solid currentColor;
-  border-color: var(--c-blue-deep);
-}
+/*.hamburger--close {}*/
 
 .hamburger--close .hamburger__line {
   --trfo-y: 50%;

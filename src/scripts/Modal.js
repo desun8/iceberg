@@ -175,6 +175,9 @@ class Open {
   }
 
   static iframe(modalPage, container) {
+    const iframe = container.querySelector('iframe');
+    iframe.src = iframe.dataset.src;
+
     showModalElm(modalPage, container);
 
     if (isDesktop()) {

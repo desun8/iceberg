@@ -38,15 +38,12 @@
 
   /* CARD */
   .tabs-container .feature-card {
-    background-color: #fff;
-    border: 1px solid var(--c-blue-light);
-
     transition-property: background-color;
     transition-duration: var(--trans-dur);
   }
 
   .tabs-container .is-active .feature-card {
-    background-color: var(--c-blue-light);
+    background-color: var(--c-grey);
   }
 
   .tabs-container .feature-card__img {

@@ -28,6 +28,7 @@
 .block-founder__title {
   margin-bottom: 32px;
   font-size: 28px;
+  font-weight: 600;
   letter-spacing: var(--letter-spacing);
   text-align: center;
 }

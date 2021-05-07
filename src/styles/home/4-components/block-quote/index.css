@@ -48,6 +48,7 @@
 .quote-banner__title {
   margin-bottom: 30px;
   font-size: 28px;
+  font-weight: 600;
 }
 
 .quote-banner__describe {
