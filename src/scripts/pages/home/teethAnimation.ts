@@ -136,11 +136,11 @@ export default () => {
 
       element.lastChild!.nodeValue = newText;
     });
-    // Стартуем анимации, когда все загрузилось.
-    window.addEventListener("load", () => {
+
+    setTimeout(() => {
       teethPartsAnimationForward.reversed(!teethPartsAnimationForward.reversed());
       teethIconsAnimation.play();
-    });
+    }, 400);
   };
 
   const addDrag = (dragItem: HTMLElement) => {
