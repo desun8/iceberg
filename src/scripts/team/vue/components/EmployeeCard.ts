@@ -20,7 +20,15 @@ const EmployeeCard = Vue.extend({
   },
   methods: {
     handleLinkClick() {
-      Persistence.set(Storage.Scroll, document.documentElement.scrollTop);
+      let scrollTop = 0;
+
+      if (window.APP.scrollbar) {
+        scrollTop = window.APP.scrollbar.offset.y;
+      } else {
+        scrollTop = document.documentElement.scrollTop;
+      }
+
+      Persistence.set(Storage.Scroll, scrollTop);
     },
   },
   template: `

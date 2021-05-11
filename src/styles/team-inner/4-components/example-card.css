@@ -38,14 +38,17 @@
 }
 
 .example-card__picture {
-  display: grid;
-  justify-content: center;
-  gap: 15px;
   margin-bottom: 20px;
 }
 
 .example-card__img-container {
+  --ratio: calc(126 / 410 * 100%);
+
   position: relative;
+  height: 0;
+  margin-bottom: 15px;
+  padding-top: var(--ratio);
+  overflow: hidden;
 }
 
 .example-card__img-container::after {
@@ -53,7 +56,6 @@
   position: absolute;
   left: 22px;
   bottom: 22px;
-
   padding: 5px 18px;
   color: var(--c-blue-deep);
   background-color: #fff;
@@ -62,11 +64,19 @@
   border-radius: 100px;
 }
 
+.example-card__img-container:last-of-type {
+  margin-bottom: 0;
+}
+
 .example-card__img {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   max-width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .example-card__body {
@@ -110,8 +120,6 @@
 
 .example-card__icon--apple {
   right: -17px;
-
-  /*bottom: 26px;*/
   bottom: 6px;
 
   width: 115px;
@@ -122,8 +130,6 @@
 
 .example-card__icon--castle {
   right: -25px;
-
-  /*bottom: 37px;*/
   bottom: 6px;
 
   width: 115px;
@@ -134,8 +140,6 @@
 
 .example-card__icon--cup {
   right: -15px;
-
-  /*bottom: 31px;*/
   bottom: 10px;
 
   width: 120px;
@@ -145,10 +149,7 @@
 }
 
 .example-card__icon--flower {
-  /*right: -18px;*/
   right: 0;
-
-  /*bottom: 32px;*/
   bottom: 8px;
 
   width: 120px;
@@ -158,10 +159,7 @@
 }
 
 .example-card__icon--hand {
-  /*right: 15px;*/
   right: 8px;
-
-  /*bottom: -12px;*/
   bottom: -25px;
 
   width: 78px;
@@ -232,6 +230,10 @@
 @media screen and (--desktop) {
   .example-card {
     padding: 42px 25px 40px;
+  }
+
+  .example-card__picture {
+    --ratio: calc(156 / 422 * 100%);
   }
 }
 

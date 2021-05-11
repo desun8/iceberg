@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.team-inner__container {
+  position: relative;
+}
+
 .team-inner__backward-link {
   position: absolute;
   left: 0;

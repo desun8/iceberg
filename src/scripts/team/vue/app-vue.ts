@@ -245,7 +245,11 @@ export default () => new Vue({
       const scrollPosition = Persistence.get(Storage.Scroll);
 
       if (scrollPosition) {
-        document.documentElement.scrollTop = +scrollPosition;
+        if (window.APP.scrollbar) {
+          window.APP.scrollbar.setMomentum(0, +scrollPosition);
+        } else {
+          document.documentElement.scrollTop = +scrollPosition;
+        }
       }
     }
 
