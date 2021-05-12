@@ -47,7 +47,7 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .page-modal {
-    background: rgb(237, 240, 248);
+    background: rgba(6, 7, 50, 0.7);
     backdrop-filter: blur(10px);
   }
 

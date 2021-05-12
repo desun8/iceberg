@@ -8,8 +8,8 @@
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar::before {
-  left: 0;
-  right: 0;
+  left: -1px;
+  right: -1px;
   width: 100%;
 }
 
