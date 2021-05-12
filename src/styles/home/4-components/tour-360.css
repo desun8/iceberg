@@ -39,7 +39,6 @@
   height: 50px;
   color: inherit;
   background-color: var(--c-blue-deep);
-  border: 1px solid #fff;
   border-radius: 50%;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
 }
@@ -73,7 +72,6 @@
 
   .tour-360__btn {
     background-color: transparent;
-    border: 0;
     box-shadow: none;
   }
 }
