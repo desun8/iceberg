@@ -2,18 +2,14 @@
   <div class="block-video__wrapper">
     <div class="block-video__bg-video">
       <video loop muted playsinline>
-        <!--      <source type="video/webm" src="./videos/avocado_oil.webm" media="all and (max-width: 480px)">-->
-        <source type="video/webm" src="./videos/avocado_oil.webm">
-        <source type="video/mp4" src="./videos/avocado_oil.mp4">
+        <source type="video/webm" src="/videos/home-mute.webm">
+        <source type="video/mp4" src="/videos/home-mute.mp4">
       </video>
     </div>
 
-    <video class="block-video__video" src="" controls preload="none" data-src="./videos/RickRoll.mp4"
-           data-webm="./videos/RickRoll.webm"></video>
-
     <div class="block-video__body">
       <h2 class="block-video__title">Познакомьтесь с нашей клиникой еще до посещения!</h2>
-      <button class="btn  btn--full-w  js-btn-fullscreen" type="button">
+      <button class="btn  btn--full-w  js-btn-fullscreen" type="button" data-video-src="/videos/home.mp4" data-video-webm="">
         <span class="btn__wrapper">Посмотреть видео</span>
       </button>
     </div>
