@@ -17,7 +17,12 @@ let plugins = [
   postcssImport(),
   postcssEasings(),
   postcssHoverMediaFeature(),
-  postcssPresetEnv({ stage: 0 }),
+  postcssPresetEnv({
+    stage: 0,
+    features: {
+      'focus-visible-pseudo-class': false
+    }
+  }),
 ];
 
 if (process.env.NODE_ENV === 'production') {

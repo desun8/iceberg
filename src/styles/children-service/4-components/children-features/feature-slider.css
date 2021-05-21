@@ -1,0 +1,21 @@
+.feature-slider__pagination {
+  position: unset;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 10px;
+}
+
+.feature-slider__pagination .swiper-pagination-bullet {
+  width: auto;
+  height: 4px;
+  margin: 0;
+  background-color: var(--c-blue-deep);
+  border-radius: 10px;
+  opacity: 0.3;
+  transition-property: opacity;
+  transition-duration: var(--trans-dur);
+}
+
+.feature-slider__pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}

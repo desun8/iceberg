@@ -1,0 +1,38 @@
+.children-welcome {
+  margin-bottom: 108px;
+}
+
+.children-welcome__hands {
+  --ratio: calc(228 / 318 * 100%);
+
+  width: 100%;
+  height: 0;
+  margin-bottom: 100px;
+  padding-top: var(--ratio);
+  background: url("/images/service/icon-hand.svg") no-repeat 6px center/contain;
+}
+
+.children-welcome__title {
+  position: relative;
+}
+
+.children-welcome__title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 95px;
+  background: image-set(
+    url("/images/children-service/welcome-title-bg.jpg") 1x,
+    url("/images/children-service/welcome-title-bg@2x.jpg") 2x
+  ) no-repeat center/contain;
+  z-index: -1;
+}
+
+.children-welcome__text {
+  margin-bottom: 32px;
+  line-height: 1.5;
+  text-align: center;
+}
