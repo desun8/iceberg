@@ -57,7 +57,7 @@ export default () => new Vue({
         // Если элемент подходит по типу,
         // то генерируем "key".
         if (isCorrect) {
-          (item as EmployeeWithKey).key = item.name + (Date.now() * Math.random());
+          (item as EmployeeWithKey).key = item.name + (Date.now() * Math.random() * Math.random());
           return true;
         }
 

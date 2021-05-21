@@ -1,4 +1,4 @@
-.footer-image {}
+/*.footer-image {}*/
 
 .footer-image__wrapper {
   position: relative;
@@ -19,7 +19,7 @@
   transform-origin: 0 0;
   transform: scale(0.5) translateZ(0.01px);
 
-  background-image: url("images/footer-girl.svg");
+  background-image: url("/images/footer-girl.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: calc(50% + 6px) center;
@@ -41,7 +41,7 @@
   }
 
   .footer-image__picture-bg {
-    background-image: url("images/footer-girl--large.svg");
+    background-image: url("/images/footer-girl--large.svg");
     background-size: 80%;
     background-position-x: center;
   }
@@ -57,7 +57,7 @@
 
 @media screen and (min-height: 1300px) {
   .footer-image__picture-bg {
-    background-image: url("images/footer-girl--large.svg");
+    background-image: url("/images/footer-girl--large.svg");
     background-size: 75%;
     background-position-x: right;
   }

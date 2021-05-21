@@ -36,7 +36,7 @@
   width: 14px;
   height: 14px;
   background-color: currentColor;
-  mask-image: url("images/icons/_arrow.svg");
+  mask-image: url("/images/icons/_arrow.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -80,11 +80,11 @@
   left: 0;
   width: 400%;
   height: 400%;
-  background: url("images/bg-wave-employee.svg") no-repeat center/250%;
+  background: url("/images/bg-wave-employee.svg") no-repeat center/250%;
 }
 
 .team-inner-bg-wave--second::after {
-  background-image: url("images/bg-wave-employee-pink.svg");
+  background-image: url("/images/bg-wave-employee-pink.svg");
 }
 
 .team-inner-bg-wave-large {
@@ -114,11 +114,11 @@
   left: 0;
   width: 400%;
   height: 400%;
-  background: url("images/bg-wave-employee-large.svg") no-repeat var(--bg-pos-x) var(--bg-pos-y)/var(--bg-size);
+  background: url("/images/bg-wave-employee-large.svg") no-repeat var(--bg-pos-x) var(--bg-pos-y)/var(--bg-size);
 }
 
 .team-inner-bg-wave-large--second::after {
-  background-image: url("images/bg-wave-employee-pink-large.svg");
+  background-image: url("/images/bg-wave-employee-pink-large.svg");
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -169,6 +169,10 @@
     display: inline-grid;
   }
 
+  .team-inner .page-title {
+    padding: 0 150px;
+  }
+
   .team-inner__title {
     margin-bottom: 75px;
     font-size: 48px;
@@ -190,6 +194,10 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop-md) {
+  .team-inner .page-title {
+    padding: 0 320px;
+  }
+
   .team-inner-bg-wave-large {
     --bg-pos-x: -45%;
     --bg-pos-y: 90%;
@@ -203,6 +211,7 @@
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
   }
 }
 

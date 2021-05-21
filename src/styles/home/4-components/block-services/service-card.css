@@ -54,37 +54,37 @@
 .service-card__icon--flower::after {
   content: "";
   top: 51%;
-  background-image: url("images/service/icon-flower.svg");
+  background-image: url("/images/service/icon-flower.svg");
 }
 
 .service-card__icon--cup::after {
   content: "";
   top: 55%;
-  background-image: url("images/service/icon-cup.svg");
+  background-image: url("/images/service/icon-cup.svg");
 }
 
 .service-card__icon--hand::after {
   content: "";
   top: 60%;
-  background-image: url("images/service/icon-hand.svg");
+  background-image: url("/images/service/icon-hand.svg");
 }
 
 .service-card__icon--apple::after {
   content: "";
   top: 40%;
-  background-image: url("images/service/icon-apple.svg");
+  background-image: url("/images/service/icon-apple.svg");
 }
 
 .service-card__icon--teeth::after {
   content: "";
   top: 55%;
-  background-image: url("images/service/icon-teeth.svg");
+  background-image: url("/images/service/icon-teeth.svg");
 }
 
 .service-card__icon--castle::after {
   content: "";
   top: 55%;
-  background-image: url("images/service/icon-castle.svg");
+  background-image: url("/images/service/icon-castle.svg");
 }
 
 .service-card__body {
@@ -192,7 +192,7 @@
 
     top: 50%;
     left: -50px;
-    background-image: url("images/service/icon-flower--large.svg");
+    background-image: url("/images/service/icon-flower--large.svg");
   }
 
   .service-card__icon--cup::after {
@@ -200,7 +200,7 @@
 
     top: 40%;
     left: -55px;
-    background-image: url("images/service/icon-cup--large.svg");
+    background-image: url("/images/service/icon-cup--large.svg");
   }
 
   .service-card__icon--hand::after {
@@ -208,7 +208,7 @@
 
     top: 86%;
     left: -20px;
-    background-image: url("images/service/icon-hand--large.svg");
+    background-image: url("/images/service/icon-hand--large.svg");
   }
 
   .service-card__icon--apple::after {
@@ -216,7 +216,7 @@
 
     top: -10%;
     left: -150px;
-    background-image: url("images/service/icon-apple--large.svg");
+    background-image: url("/images/service/icon-apple--large.svg");
   }
 
   .service-card__icon--teeth::after {
@@ -224,7 +224,7 @@
 
     top: 5%;
     left: -80px;
-    background-image: url("images/service/icon-teeth--large.svg");
+    background-image: url("/images/service/icon-teeth--large.svg");
   }
 
   .service-card__icon--castle::after {
@@ -232,7 +232,7 @@
 
     top: 78%;
     left: -30px;
-    background-image: url("images/service/icon-castle--large.svg");
+    background-image: url("/images/service/icon-castle--large.svg");
   }
 
   .service-card__body {

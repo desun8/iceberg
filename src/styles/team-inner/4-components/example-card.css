@@ -114,7 +114,7 @@
 
   width: 139px;
   height: 121px;
-  mask-image: url("images/icons/employee-case-teeth.svg");
+  mask-image: url("/images/icons/employee-case-teeth.svg");
   mask-size: 75%;
 }
 
@@ -124,7 +124,7 @@
 
   width: 115px;
   height: 132px;
-  mask-image: url("images/icons/employee-case-apple.svg");
+  mask-image: url("/images/icons/employee-case-apple.svg");
   mask-size: 70%;
 }
 
@@ -134,7 +134,7 @@
 
   width: 115px;
   height: 155px;
-  mask-image: url("images/icons/employee-case-castle.svg");
+  mask-image: url("/images/icons/employee-case-castle.svg");
   mask-size: 65%;
 }
 
@@ -144,7 +144,7 @@
 
   width: 120px;
   height: 92px;
-  mask-image: url("images/icons/employee-case-cup.svg");
+  mask-image: url("/images/icons/employee-case-cup.svg");
   mask-size: 65%;
 }
 
@@ -154,7 +154,7 @@
 
   width: 120px;
   height: 115px;
-  mask-image: url("images/icons/employee-case-flower.svg");
+  mask-image: url("/images/icons/employee-case-flower.svg");
   mask-size: 50%;
 }
 
@@ -164,7 +164,7 @@
 
   width: 78px;
   height: 122px;
-  mask-image: url("images/icons/employee-case-hand.svg");
+  mask-image: url("/images/icons/employee-case-hand.svg");
   mask-size: 75%;
 }
 
@@ -184,7 +184,7 @@
   height: 290px;
 
   background-color: var(--bg-c);
-  mask-image: url("images/bg-wave.svg");
+  mask-image: url("/images/bg-wave.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;

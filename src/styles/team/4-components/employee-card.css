@@ -56,7 +56,7 @@
   width: 12px;
   height: 12px;
   background-color: var(--c-blue-deep);
-  mask-image: url("images/icons/_chevron-center.svg");
+  mask-image: url("/images/icons/_chevron-center.svg");
   mask-repeat: no-repeat;
   mask-position: -1px center;
   mask-size: contain;

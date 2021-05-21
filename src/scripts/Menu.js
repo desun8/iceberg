@@ -1,7 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
 import A11yDialog from 'a11y-dialog';
 import scrollLock from 'scroll-lock';
-import Accordion from './accordion';
 import { mqIsDesktop } from './utils/mediaQueryEvent';
 
 class Dialog {
@@ -80,10 +79,6 @@ class Menu {
     this.btnClose = document.querySelector('.js-menu-close');
 
     this.dialog = new Dialog(this.element, this.btnOpen, this.btnClose).dialog;
-
-    this.accordionElm = this.element.querySelector('.accordion');
-    this.accordion = new Accordion(this.accordionElm);
-
     this.init();
   }
 
@@ -106,7 +101,6 @@ class Menu {
 
   init() {
     this.addEvents();
-    this.accordion.init();
   }
 }
 

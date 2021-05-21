@@ -8,8 +8,6 @@ import fullscreen from './scripts/block-video/fullscreen';
 import core from './core';
 import homeCore from './scripts/pages/home/index';
 
-core();
-
 // карусель особенности
 const initFeatureCarousel = () => {
   let carouselFeature: CarouselFeature | TabsFeature | undefined;
@@ -55,4 +53,5 @@ const initVideoBlock = () => {
 };
 initVideoBlock();
 
+core();
 homeCore();

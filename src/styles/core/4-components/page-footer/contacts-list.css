@@ -44,7 +44,7 @@
 }
 
 .contacts-address-list__item a::after {
-  content: url("images/icons/link.svg");
+  content: url("/images/icons/link.svg");
   display: inline-block;
   width: 12px;
   transform: translate(5px, 2px);

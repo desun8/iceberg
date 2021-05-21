@@ -37,7 +37,7 @@
 
   width: 22px;
   height: 40px;
-  background: url("images/icons/swipe.svg") no-repeat center / contain;
+  background: url("/images/icons/swipe.svg") no-repeat center / contain;
   animation: move 3s cubic-bezier(0.68, 0, 0.32, 1) backwards infinite;
   transform: translateX(5px);
   transition: opacity 0.2s;

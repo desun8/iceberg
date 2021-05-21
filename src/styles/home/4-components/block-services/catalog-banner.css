@@ -13,7 +13,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: url("images/pattern-noise.png") round 32px;
+  background: url("/images/pattern-noise.png") round 32px;
 }
 
 .catalog-banner__bg {
@@ -24,7 +24,7 @@
   margin-left: var(--margin-x);
   margin-right: var(--margin-x);
 
-  background-image: url("images/catalog-banner-wave.svg");
+  background-image: url("/images/catalog-banner-wave.svg");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 380px;
@@ -79,7 +79,7 @@
     justify-self: end;
     height: 100%;
     margin: 0;
-    background-image: url("images/catalog-banner-wave--large.svg");
+    background-image: url("/images/catalog-banner-wave--large.svg");
     background-size: 1050px;
     background-position: -120px 100%;
   }

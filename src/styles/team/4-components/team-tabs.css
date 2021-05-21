@@ -23,6 +23,7 @@
   font-size: 16px;
   line-height: 1.4;
   text-transform: capitalize;
+  white-space: nowrap;
   border-radius: 15px;
 
   transition-property: color, background-color;

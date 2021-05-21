@@ -22,7 +22,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: url("images/pattern-noise.png") round 32px;
+  background: url("/images/pattern-noise.png") round 32px;
 }
 
 .quote-banner__conner {

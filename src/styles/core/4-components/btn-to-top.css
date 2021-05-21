@@ -11,7 +11,7 @@
 }
 
 .btn-to-top .btn__icon-new {
-  --image: url("images/icons/arrow.svg");
+  --image: url("/images/icons/arrow.svg");
 
   width: 8px;
   height: 16px;
