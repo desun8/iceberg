@@ -40,7 +40,7 @@ const fullscreen = () => {
         videoElement.addEventListener("fullscreenchange", handleFullscreenchange);
         videoElement.addEventListener("webkitfullscreenchange", handleFullscreenchange);
       }
-    }
+    };
 
     // При клике запускаем видео и переходим во весь экран
     btn.addEventListener("click", () => {
@@ -52,6 +52,7 @@ const fullscreen = () => {
         }
 
         videoElement.src = (isSupportWebm && videoSrcWebm) ? videoSrcWebm : videoSrcMp4;
+        videoElement.style.display = "";
         videoElement.play();
 
         if (document.documentElement.requestFullscreen !== undefined) {
@@ -69,6 +70,7 @@ const fullscreen = () => {
       if (document.fullscreenElement === null || (document as MyDocument).webkitFullscreenElement === null) {
         e.currentTarget.pause();
         e.currentTarget.src = "";
+        e.currentTarget.style.display = "none";
         setZIndex(e.currentTarget, "");
       }
     };

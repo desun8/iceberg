@@ -113,3 +113,10 @@
     display: none;
   }
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (min-height: 1000px) {
+  #page-home .header__social {
+    display: none;
+  }
+}

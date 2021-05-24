@@ -16,20 +16,28 @@ class Feedback {
 
   static createElm(elm) {
     const {
-      imgSrcset, name, type, text,
+      imgSrcset,
+      name,
+      type,
+      text,
     } = elm.dataset;
+
+    let imgWrapper;
+    let img;
 
     const wrapper = document.createElement('div');
     wrapper.className = CSS_CLASS.wrapper;
 
-    const imgWrapper = document.createElement('div');
-    imgWrapper.className = CSS_CLASS.img;
+    if (imgSrcset) {
+      imgWrapper = document.createElement('div');
+      imgWrapper.className = CSS_CLASS.img;
 
-    const img = document.createElement('img');
-    img.srcset = imgSrcset;
-    img.width = 290;
-    img.height = 290;
-    img.loading = 'lazy';
+      img = document.createElement('img');
+      img.srcset = imgSrcset;
+      img.width = 290;
+      img.height = 290;
+      img.loading = 'lazy';
+    }
 
     const h3 = document.createElement('h3');
     h3.className = CSS_CLASS.name;
@@ -43,11 +51,14 @@ class Feedback {
     p.className = CSS_CLASS.text;
     p.innerText = text;
 
-    imgWrapper.appendChild(img);
-    wrapper.appendChild(imgWrapper);
     wrapper.appendChild(h3);
     wrapper.appendChild(span);
     wrapper.appendChild(p);
+
+    if (imgSrcset) {
+      imgWrapper.appendChild(img);
+      wrapper.appendChild(imgWrapper);
+    }
 
     return wrapper;
   }
