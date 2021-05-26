@@ -42,6 +42,7 @@ export default () => new Vue({
       observer: null,
       scrollTriggerInstance: null,
       employeeItems: null,
+      isEmptyType: false,
     };
   },
 
@@ -67,8 +68,11 @@ export default () => new Vue({
 
     employees(): EmployeeWithKey[] {
       if (this.filteredEmployees.length === 0) {
+        this.isEmptyType = true;
         return this.filteredEmployees;
       }
+
+      this.isEmptyType = false;
 
       return this.filteredEmployees.slice(0, this.view);
     },
@@ -253,10 +257,8 @@ export default () => new Vue({
       }
     }
 
-    console.log("this.employeeItems");
-    console.log(this.employeeItems);
-    Persistence.clear();
-    Persistence.set(Storage.Items, JSON.stringify(this.employeeItems));
+    // console.log("this.employeeItems");
+    // console.log(this.employeeItems);
 
     this.createObserver();
   },

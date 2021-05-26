@@ -91,6 +91,11 @@
   z-index: 1;
 }
 
+.preloader__empty {
+  position: absolute;
+  top: 0;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--tablet) {
   .preloader {

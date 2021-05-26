@@ -13,11 +13,5 @@ export default () => {
     import('./founderImageAnimation').then(({ default: founderImageAnimation }) => {
       founderImageAnimation();
     });
-
-    if (window.APP.scrollbar !== undefined) {
-      import('./anchorForScrollSmooth').then(({ default: anchorForScrollSmooth }) => {
-        anchorForScrollSmooth();
-      });
-    }
   }
 }

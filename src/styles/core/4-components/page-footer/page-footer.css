@@ -4,6 +4,7 @@
   padding: 0 var(--page-gap);
   color: #fff;
   background-color: var(--c-blue-deep-darken);
+  z-index: 10;
 }
 
 .page-footer__anchor {

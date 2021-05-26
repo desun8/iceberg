@@ -26,6 +26,7 @@ export type Data = {
   observer: null | IntersectionObserver;
   scrollTriggerInstance: ScrollTriggerInstance | null;
   employeeItems: Employee[] | null;
+  isEmptyType: boolean;
 }
 
 export enum Storage {

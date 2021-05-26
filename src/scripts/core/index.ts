@@ -19,6 +19,12 @@ export default () => {
   new SmoothScroll(document.querySelector("#scroll-container"));
   fixedHeader();
 
+  if (window.APP.scrollbar !== undefined) {
+    import('./smoothScroll/anchorForScrollSmooth').then(({ default: anchorForScrollSmooth }) => {
+      anchorForScrollSmooth();
+    });
+  }
+
 // компоненты
 }
 
