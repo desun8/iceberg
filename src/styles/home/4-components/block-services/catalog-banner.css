@@ -30,6 +30,11 @@
   background-size: 380px;
 }
 
+.catalog__body {
+  position: relative;
+  z-index: 2;
+}
+
 .catalog-banner__title {
   margin-bottom: 30px;
   font-size: 28px;
