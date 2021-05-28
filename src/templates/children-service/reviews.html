@@ -1,21 +1,55 @@
 <section class="children-reviews">
-  <h2 class="children-reviews__title"></h2>
+  <h2 class="children-reviews__title title">Что говорят родители?</h2>
 
-  <div class="children-reviews__controls">
-    <button class="prev" type="button">prev</button>
-    <button class="next" type="button">next</button>
-  </div>
+  <div class="children-reviews-slider">
+    <div class="children-reviews-slider__slides">
+      <article class="children-review">
+        <header class="children-review__header">
+          <h3 class="children-review__title">Татьяна</h3>
+          <!--
+            Атрибут datetime ожидает дату в формате yyyy-mm-dd
+            Если нет возможности так выводить, то замените на <span> и удалите атрибут datetime
+          -->
+          <time class="children-review__date" datetime="2011-11-18">20 Ноября 2020</time>
+        </header>
 
-  <div class="children-reviews__slider">
-    <article class="children-review">
-      <header class="children-review__header">
-        <h3 class="children-review__title"></h3>
-        <time class="children-review__date"></time>
-      </header>
+        <div class="children-review__describe">
+          <p>Спасибо Наталье Геннадьевне Клебановой и Чернышевой Юлии Николаевне, а так же всей команде, кто принимал участие в лечении моей дочки в наркозе. Очень рада что в Москве есть место, где можно.</p>
+        </div>
 
-      <div class="children-review__describe"></div>
+        <button class="children-review__more  btn  btn--dark">Раскрыть отзыв</button>
+      </article>
 
-      <button class="children-review__more">Раскрыть отзыв</button>
-    </article>
+      <article class="children-review">
+        <header class="children-review__header">
+          <h3 class="children-review__title">Галина</h3>
+          <!--
+            Атрибут datetime ожидает дату в формате yyyy-mm-dd
+            Если нет возможности так выводить, то замените на <span> и удалите атрибут datetime
+          -->
+          <time class="children-review__date" datetime="2011-11-18">20 Ноября 2021</time>
+        </header>
+
+        <div class="children-review__describe">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut delectus dolorem ducimus, ea libero
+            maiores modi nam, natus nihil officia optio placeat porro provident quidem tenetur, vitae voluptatibus
+            voluptatum.</p>
+          <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda consectetur eligendi, est porro possimus quae quaerat quasi quo, recusandae repudiandae saepe unde voluptas? Accusamus alias amet fuga nobis perferendis?</span><span>Aspernatur debitis dolorum fugiat libero magni molestias nesciunt quam, reiciendis repudiandae ullam? Asperiores deleniti, dolor ducimus excepturi id illum nostrum perspiciatis porro rem voluptate. Consequatur consequuntur neque nihil quas sequi?</span>
+          </p>
+        </div>
+
+        <button class="children-review__more  btn  btn--dark">Раскрыть отзыв</button>
+      </article>
+    </div>
+
+    <div class="children-reviews__controls  slider-controls">
+      <div class="slider-pagination" aria-label="Прогресс слайдера:"></div>
+      <button class="slider-btn  slider-btn--prev" type="button" aria-label="Предыдущий слайд."></button>
+      <button class="slider-btn  slider-btn--next" type="button" aria-label="Следующий слайд.">
+        <svg class="circle-progress-bar" width="50" height="50" aria-hidden="true">
+          <circle cx="25" cy="25" r="24.6" fill="transparent" stroke-width="1"></circle>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>

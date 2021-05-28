@@ -1,6 +1,8 @@
 export default () => {
   const accordionElements = Array.from(document.querySelectorAll(".js-accordion"));
 
+  console.log(accordionElements);
+
   accordionElements.forEach(element => {
     const btn = element.querySelector(".js-accordion-btn") as HTMLButtonElement;
     const content = element.querySelector(".js-accordion-content") as HTMLElement;

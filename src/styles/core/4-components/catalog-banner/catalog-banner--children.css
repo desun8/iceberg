@@ -1,0 +1,26 @@
+.catalog-banner--children {
+  margin-bottom: 50px;
+}
+
+.catalog-banner--children .catalog-banner__bg {
+  --margin-x: calc(var(--page-gap) * -1);
+
+  width: calc(100% + (var(--margin-x) * 2 * -1));
+  height: 200px;
+  margin-left: var(--margin-x);
+  margin-right: var(--margin-x);
+
+  background-image: url("/images/service/icon-hand.svg");
+  background-repeat: no-repeat;
+  background-position-x: calc(50% + 6px);
+  background-position-y: 15px;
+  background-size: 340px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--mobile-sm) {
+  .catalog-banner--children .catalog-banner__bg {
+    height: 220px;
+    background-size: 380px;
+  }
+}

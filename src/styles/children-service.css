@@ -3,6 +3,7 @@
 
 /* COMPONENTS */
 @import "./children-service/4-components/scaffolding.css";
+@import "./children-service/4-components/accordion.css";
 @import "./children-service/4-components/children-list.css";
 @import "./children-service/4-components/children-welcome.css";
 @import "./children-service/4-components/children-anchors.css";
@@ -17,3 +18,7 @@
 @import "./children-service/4-components/children-services/children-sticky-order.css";
 @import "./children-service/4-components/children-services/children-service.css";
 @import "./children-service/4-components/children-services/children-service-gallery.css";
+@import "./children-service/4-components/children-steps/index.css";
+@import "./children-service/4-components/qa.css";
+@import "./children-service/4-components/children-reviews/index.css";
+@import "./children-service/4-components/catalog-banner.css";

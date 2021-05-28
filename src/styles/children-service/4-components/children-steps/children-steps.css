@@ -1,0 +1,11 @@
+.children-steps {
+  margin-bottom: 60px;
+}
+
+.children-steps__img {
+  --margin: calc(var(--page-gap) * -1);
+
+  margin-right: var(--margin);
+  margin-left: var(--margin);
+  overflow: hidden;
+}
