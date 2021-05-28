@@ -1,0 +1,5 @@
+.children-steps-list {
+  display: grid;
+  gap: 30px;
+  counter-reset: steps-counter;
+}

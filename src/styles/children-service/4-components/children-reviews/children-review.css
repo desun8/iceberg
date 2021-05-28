@@ -1,0 +1,65 @@
+.children-review {
+  position: relative;
+  height: 440px;
+  padding: 40px 15px;
+  background-color: var(--c-blue-sky);
+  border-radius: 20px;
+  line-height: 1.8;
+}
+
+.children-review__header {
+  position: relative;
+  margin-bottom: 25px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.children-review__header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 32px;
+  height: 27px;
+  background: url("/images/icon-quote.svg") space center;
+}
+
+.children-review__title {
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.children-review__date {
+  color: var(--c-blue-deep-darken);
+}
+
+.children-review__title,
+.children-review__date {
+  padding-right: 60px;
+}
+
+.children-review__describe {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+
+.children-review__describe::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(233, 237, 248, 0) 0%, var(--c-blue-sky) 72%);
+}
+
+.children-review__more {
+  position: absolute;
+  right: 15px;
+  bottom: 40px;
+  left: 15px;
+  width: calc(100% - 30px);
+}

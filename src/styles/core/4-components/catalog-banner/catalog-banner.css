@@ -1,0 +1,55 @@
+.catalog-banner {
+  margin-left: calc(var(--page-gap) * -1);
+  margin-right: calc(var(--page-gap) * -1);
+  padding: 42px var(--page-gap) 0;
+  background-color: var(--c-aqua-light);
+  text-align: center;
+}
+
+.catalog-banner__noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("/images/pattern-noise.png") round 32px;
+}
+
+.catalog-banner__body {
+  position: relative;
+  z-index: 2;
+}
+
+.catalog-banner__title {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing);
+}
+
+.catalog-banner__describe {
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--tablet-lg) {
+  .catalog-banner__bg,
+  .catalog__body {
+    z-index: 2;
+  }
+
+  .catalog__body {
+    grid-column: 1/2;
+    padding: 58px 0 48px;
+  }
+
+  .catalog-banner__title {
+    margin-bottom: 15px;
+    font-size: 32px;
+  }
+
+  .catalog-banner__describe {
+    font-size: 16px;
+  }
+}

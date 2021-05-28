@@ -1,0 +1,50 @@
+<section class="children-features  js-scrolltrigger-fadein">
+  <div class="children-features__brush"></div>
+
+  <h2 class="children-features__title  title">Комплексный подход к вам и вашим детям</h2>
+
+  <div class="feature-slider">
+    <ul class="features-list  list-unstyled">
+      <li class="features-list__item">
+        <include
+          src="children-service/features/feature-card.html"
+          locals='{
+                "mask": "mask-1",
+                "img": "feature-1",
+                "alt": "",
+                "title": "Общение",
+                "describe": "Специалист беседует с малышом, расспрашивает, чем он интересуется, чтобы отвлечь ребенка."
+              }'
+        ></include>
+      </li>
+
+      <li class="features-list__item">
+        <include
+          src="children-service/features/feature-card.html"
+          locals='{
+                "mask": "mask-2",
+                "img": "feature-2",
+                "alt": "",
+                "title": "Осмотр",
+                "describe": "Врач проводит визуальное или рентгенологической обследование и назначает следующий визит для лечения."
+              }'
+        ></include>
+      </li>
+
+      <li class="features-list__item">
+        <include
+          src="children-service/features/feature-card.html"
+          locals='{
+                "mask": "mask-3",
+                "img": "feature-3",
+                "alt": "",
+                "title": "Обучение",
+                "describe": "Доктор показывает малышу, как нужно правильно чистить зубы, чтобы они оставались здоровыми и красивыми."
+              }'
+        ></include>
+      </li>
+    </ul>
+
+    <div class="feature-slider__pagination  swiper-pagination"></div>
+  </div>
+</section>

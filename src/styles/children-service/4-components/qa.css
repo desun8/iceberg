@@ -1,0 +1,8 @@
+.children-qa {
+  margin-bottom: 60px;
+}
+
+.children-qa__list {
+  display: grid;
+  gap: 14px;
+}

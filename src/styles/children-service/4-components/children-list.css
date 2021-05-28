@@ -1,0 +1,38 @@
+.children-list {
+  --marker-bg: var(--c-pink);
+  --marker-color: var(--c-blue-deep-darken);
+
+  display: grid;
+  gap: 15px;
+}
+
+.children-list__item {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+  font-weight: 500;
+}
+
+.children-list__item::before {
+  content: '';
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  background-color: var(--marker-bg);
+  border-radius: 50%;
+}
+
+.children-list__item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 23px;
+  height: 23px;
+  background-color: var(--marker-color);
+  mask: url("/images/children-service/icon-stroke.svg") no-repeat center/10px;
+}
+
+/*.children-services-anchors__link {}*/

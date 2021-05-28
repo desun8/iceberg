@@ -1,0 +1,17 @@
+.children-steps-list-item {
+  padding-left: 33px;
+}
+
+.children-steps-list-item__title {
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+.children-steps-list-item__title::before {
+  content: '0'counter(steps-counter);
+  counter-increment: steps-counter;
+  margin-right: 10px;
+  font-weight: 300;
+}
+
+/*.children-steps-list-item__describe {}*/

@@ -1,0 +1,53 @@
+.children-service {
+  margin-bottom: 20px;
+  padding: 20px 15px;
+  background-color: var(--c-blue-sky);
+  border-radius: 15px;
+}
+
+.children-service--blue-dark {
+  color: #fff;
+  background-color: var(--c-blue-deep-darken);
+}
+
+.children-service--pink {
+  background-color: var(--c-pink);
+}
+
+.children-service__title {
+  margin-bottom: 40px;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.children-service--accordion .children-service__title {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.children-service__list {
+  --marker-bg: var(--c-blue-deep-darken);
+  --marker-color: #fff;
+
+  margin-bottom: 40px;
+}
+
+.children-service--pink .children-service__list {
+  --marker-color: var(--c-pink);
+}
+
+.children-service--blue-dark .children-service__list {
+  --marker-bg: #fff;
+  --marker-color: var(--c-blue-deep-darken);
+}
+
+.children-service__text {
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.children-service__btns {
+  display: grid;
+  gap: 15px;
+}

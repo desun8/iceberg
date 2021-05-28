@@ -20,7 +20,7 @@ let plugins = [
   postcssPresetEnv({
     stage: 0,
     features: {
-      'postcss-focus-visible': false
+      'focus-visible-pseudo-class': false
     }
   }),
 ];

@@ -1,0 +1,60 @@
+.feature-card {
+  margin-bottom: 30px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.feature-card__img {
+  position: relative;
+  width: 100%;
+  height: 0;
+  margin-bottom: 40px;
+  padding-top: 100%;
+  mask: no-repeat center bottom/contain;
+  overflow: hidden;
+}
+
+.mask-1 .feature-card__img {
+  background-color: var(--c-pink);
+  mask-image: url("/images/children-service/mask-1.svg");
+}
+
+.mask-2 .feature-card__img {
+  background-color: var(--c-blue-deep-darken);
+  mask-image: url("/images/children-service/mask-2.svg");
+}
+
+.mask-3 .feature-card__img {
+  background-color: var(--c-aqua);
+  mask-image: url("/images/children-service/mask-3.svg");
+}
+
+.feature-card__picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.feature-card__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.feature-card__body {
+  position: relative;
+  text-align: center;
+}
+
+.feature-card__title {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.feature-card__describe {
+  line-height: 1.3;
+}
