@@ -1,4 +1,5 @@
 /* LIB */
+@import "./core/0-config/custom-media.css";
 @import "./home/1-lib/swiper-bundle.css";
 
 /* COMPONENTS */
