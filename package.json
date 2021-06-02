@@ -42,6 +42,7 @@
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "postcss": "^8.2.1",
+    "postcss-apply": "^0.12.0",
     "postcss-easings": "^3.0.1",
     "postcss-easy-import": "^3.0.0",
     "postcss-import": "^13.0.0",

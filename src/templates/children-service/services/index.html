@@ -1,4 +1,4 @@
-<section class="children-services  js-scrolltrigger-fadein">
+<section id="service-block" class="children-services  js-scrolltrigger-fadein">
   <div class="children-services__header">
     <div class="children-services__body">
       <h2 class="children-services__title  title">Мы предлагаем</h2>
@@ -23,7 +23,7 @@
 
   <div class="children-services__main">
     <div class="children-services__sticky-block">
-      <article class="children-service  children-service--blue-dark">
+      <article id="service-1" class="children-service  children-service--blue-dark">
         <h2 class="children-service__title">Лечение зубов во сне</h2>
         <ul class="children-service__list  children-list  list-unstyled">
           <li class="children-list__item">Очищение поверхности зубов</li>
@@ -50,14 +50,22 @@
         </div>
 
         <div class="children-service__btns">
-          <include src="components/btn-form-consultation.html"
-                   locals='{"class": "btn--full-w", "name": "Онлайн-консультация"}'></include>
-          <include src="components/btn-form-appointment.html"
-                   locals='{"class": "btn--full-w btn--pink"}'></include>
+          <include src="components/btn-form-consultation.html">
+            {
+              "class": "btn--full-w",
+              "name": "Онлайн-консультация"
+            }
+          </include>
+          <include src="components/btn-form-appointment.html">
+            {
+            "class": "btn--full-w btn--pink",
+            "text": "Записаться на прием"
+            }
+          </include>
         </div>
       </article>
 
-      <article class="children-service  children-service--pink">
+      <article id="service-2" class="children-service  children-service--pink">
         <h2 class="children-service__title">Съешь эти вкусные булочки</h2>
         <ul class="children-service__list  children-list  list-unstyled">
           <li class="children-list__item">Очищение поверхности зубов</li>
@@ -84,25 +92,50 @@
         </div>
 
         <div class="children-service__btns">
-          <include src="components/btn-form-consultation.html"
-                   locals='{"class": "btn--full-w", "name": "Онлайн-консультация"}'></include>
-          <include src="components/btn-form-appointment.html"
-                   locals='{"class": "btn--full-w btn--dark"}'></include>
+          <include src="components/btn-form-consultation.html">
+            {
+            "class": "btn--full-w",
+            "name": "Онлайн-консультация"
+            }
+          </include>
+          <include src="components/btn-form-appointment.html">
+            {
+            "class": "btn--full-w btn--dark",
+            "text": "Записаться на прием"
+            }
+          </include>
         </div>
       </article>
 
       <div class="children-sticky-order">
-        <span>Запишитесь на прием или получите бесплатную онлайн консультацию!</span>
-        <include src="components/btn-form-consultation.html"
-                 locals='{"class": "", "name": "Онлайн-консультация"}'></include>
-        <include src="components/btn-form-appointment.html" locals='{"class": "btn--aqua  btn--center-sm"}'></include>
+        <span class="children-sticky-order__text"><span
+          class="children-sticky-order__text-bolder">Запишитесь на прием</span> или получите бесплатную <span
+          class="children-sticky-order__text-bolder">онлайн консультацию!</span></span>
+
+        <div class="children-sticky-order__btns">
+          <include src="components/btn-form-consultation.html">
+            {
+            "class": "",
+            "name": "Онлайн-консультация"
+            }
+          </include>
+          <include src="components/btn-form-appointment.html">
+            {
+            "class": "btn--dark",
+            "text": "На прием"
+            }
+          </include>
+        </div>
       </div>
-      <div class="children-services-hand"></div>
+      <div class="children-services-hand">
+        <div class="children-services-hand__brush"></div>
+      </div>
     </div>
 
-    <article class="children-service  children-service--accordion  accordion js-accordion">
+    <article id="service-3" class="children-service  children-service--accordion  accordion js-accordion">
       <h2 class="children-service__title  accordion__head">
-        <button class="accordion__btn  js-accordion-btn" type="button" aria-expanded="false">Оу, это же аккордион!<span class="accordion__icon"></span>
+        <button class="accordion__btn  js-accordion-btn" type="button" aria-expanded="false">Оу, это же аккордион!<span
+          class="accordion__icon"></span>
         </button>
       </h2>
 
@@ -126,10 +159,60 @@
           тщательно очищаем поверхность зубов со всех сторон. Затем укрепляем эмаль фтором и кальцием.</p>
 
         <div class="children-service__btns">
-          <include src="components/btn-form-consultation.html"
-                   locals='{"class": "btn--full-w", "name": "Онлайн-консультация"}'></include>
-          <include src="components/btn-form-appointment.html"
-                   locals='{"class": "btn--full-w btn--dark"}'></include>
+          <include src="components/btn-form-consultation.html">
+            {
+            "class": "btn--full-w",
+            "name": "Онлайн-консультация"
+            }
+          </include>
+          <include src="components/btn-form-appointment.html">
+            {
+            "class": "btn--full-w btn--dark",
+            "text": "Записаться на прием"
+            }
+          </include>
+        </div>
+      </div>
+    </article>
+    <article id="service-4" class="children-service  children-service--accordion  accordion js-accordion">
+      <h2 class="children-service__title  accordion__head">
+        <button class="accordion__btn  js-accordion-btn" type="button" aria-expanded="false">Услуга №4<span
+          class="accordion__icon"></span>
+        </button>
+      </h2>
+
+      <div class="accordion__body  js-accordion-content">
+        <ul class="children-service__list  children-list  list-unstyled">
+          <li class="children-list__item">Очищение поверхности зубов</li>
+          <li class="children-list__item">Герметизация фиссур</li>
+          <li class="children-list__item">Укрепление эмали фтором</li>
+        </ul>
+        <p class="children-service__text">Даже если ребенок с раннего возраста приучен регулярно чистить зубы, в
+          домашних условиях полностью убрать налет практически невозможно. Он остается в труднодоступных местах и
+          может вызывать кариес. Для профилактики кариеса мы проводим профессиональную гигиену, в ходе которой
+          тщательно очищаем поверхность зубов со всех сторон. Затем укрепляем эмаль фтором и кальцием.</p>
+        <p class="children-service__text">Даже если ребенок с раннего возраста приучен регулярно чистить зубы, в
+          домашних условиях полностью убрать налет практически невозможно. Он остается в труднодоступных местах и
+          может вызывать кариес. Для профилактики кариеса мы проводим профессиональную гигиену, в ходе которой
+          тщательно очищаем поверхность зубов со всех сторон. Затем укрепляем эмаль фтором и кальцием.</p>
+        <p class="children-service__text">Даже если ребенок с раннего возраста приучен регулярно чистить зубы, в
+          домашних условиях полностью убрать налет практически невозможно. Он остается в труднодоступных местах и
+          может вызывать кариес. Для профилактики кариеса мы проводим профессиональную гигиену, в ходе которой
+          тщательно очищаем поверхность зубов со всех сторон. Затем укрепляем эмаль фтором и кальцием.</p>
+
+        <div class="children-service__btns">
+          <include src="components/btn-form-consultation.html">
+            {
+            "class": "btn--full-w",
+            "name": "Онлайн-консультация"
+            }
+          </include>
+          <include src="components/btn-form-appointment.html">
+            {
+            "class": "btn--full-w btn--dark",
+            "text": "Записаться на прием"
+            }
+          </include>
         </div>
       </div>
     </article>

@@ -5,10 +5,11 @@ import Swiper, {
 Swiper.use([Pagination, Navigation, Autoplay, EffectFade]);
 
 class Carousel {
-  constructor(elm, wrapper, slides) {
+  constructor(elm, wrapper, slides, controls = null) {
     this.elm = elm;
     this.wrapper = wrapper;
     this.slides = slides;
+    this.controls = controls;
     this.swiper = undefined;
     this.params = {
       effect: 'fade',

@@ -2,3 +2,50 @@
   gap: 20px;
   color: var(--c-blue-deep-darken);
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-services-anchors {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .children-services-anchors.children-list {
+    --marker-bg: var(--c-blue-sky);
+    --marker-color: var(--c-blue-deep-darken);
+  }
+
+  .children-services-anchors .children-list__item::before,
+  .children-services-anchors .children-list__item::after {
+    transition: all var(--trans-dur);
+  }
+
+  .children-services-anchors .children-list__link {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .children-services-anchors .children-list__link::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 8px;
+    height: 1px;
+    background-color: var(--c-blue-deep);
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+    transition: transform var(--trans-dur);
+  }
+
+  .children-services-anchors .children-list__item:hover {
+    --marker-bg: var(--c-pink);
+    --marker-color: #fff;
+  }
+
+  .children-services-anchors .children-list__item:hover .children-list__link::after {
+    transform: scaleX(1);
+  }
+}

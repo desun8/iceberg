@@ -1,3 +1,21 @@
 .children-features {
   margin-bottom: 70px;
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop) {
+  .children-features {
+    margin-bottom: 180px;
+  }
+
+  .children-features__title.title {
+    margin-bottom: 130px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .children-features {
+    @apply --wrapper;
+  }
+}

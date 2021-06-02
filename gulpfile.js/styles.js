@@ -10,6 +10,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const postcssImport = require('postcss-easy-import');
 const postcssHoverMediaFeature = require('postcss-hover-media-feature');
 const postcssEasings = require('postcss-easings');
+const apply = require('postcss-apply');
 const cssnano = require('cssnano');
 // const purgecss = require('@fullhuman/postcss-purgecss');
 
@@ -17,6 +18,7 @@ let plugins = [
   postcssImport(),
   postcssEasings(),
   postcssHoverMediaFeature(),
+  apply(),
   postcssPresetEnv({
     stage: 0,
     features: {

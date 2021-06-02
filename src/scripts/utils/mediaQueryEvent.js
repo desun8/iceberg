@@ -6,7 +6,7 @@ const consoleStyle = (background) => `
 
 export const mqIsDesktop = !smallScreen.matches;
 
-export const mediaQueryEvent = (cbMobile, cbDesktop) => {
+export const mediaQueryEvent = (cbMobile, cbDesktop, matchMediaObject = null) => {
   const handleTabletChange = (e) => {
     if (e.matches) {
       // eslint-disable-next-line no-console
@@ -19,6 +19,11 @@ export const mediaQueryEvent = (cbMobile, cbDesktop) => {
     }
   };
 
-  smallScreen.addEventListener('change', handleTabletChange);
-  handleTabletChange(smallScreen);
+  if (matchMediaObject) {
+    matchMediaObject.addEventListener('change', handleTabletChange);
+    handleTabletChange(matchMediaObject);
+  } else {
+    smallScreen.addEventListener('change', handleTabletChange);
+    handleTabletChange(smallScreen);
+  }
 };

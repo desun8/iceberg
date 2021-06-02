@@ -46,7 +46,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media (--tablet-lg) {
+@media (--tablet) {
   .children-anchors {
     display: none;
   }

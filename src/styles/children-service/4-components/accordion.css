@@ -40,3 +40,17 @@
 .accordion__body {
   padding-top: 40px;
 }
+
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .accordion {
+    padding: 50px 80px 50px 50px;
+    border-radius: 30px;
+  }
+
+  .accordion__head {
+    font-size: 32px;
+    text-align: left;
+  }
+}

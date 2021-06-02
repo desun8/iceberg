@@ -3,3 +3,17 @@
   gap: 30px;
   counter-reset: steps-counter;
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-steps-list {
+    gap: 100px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-fullhd) {
+  .children-steps-list {
+    transform: translateX(-65px);
+  }
+}

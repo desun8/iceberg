@@ -62,4 +62,13 @@
   bottom: 40px;
   left: 15px;
   width: calc(100% - 30px);
+  margin: 0 auto;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-review {
+    width: 560px;
+    height: 560px;
+  }
 }

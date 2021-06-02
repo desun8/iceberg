@@ -2,7 +2,67 @@
   margin-bottom: 60px;
 }
 
+.children-qa__hand {
+  display: none;
+  width: 100%;
+  max-width: 384px;
+  height: 657px;
+  background: url("/images/children-service/hand-teeth.svg") no-repeat center/contain;
+  transform: translateX(-50px);
+}
+
 .children-qa__list {
   display: grid;
   gap: 14px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-qa {
+    margin-bottom: 0;
+  }
+
+  .children-qa .wrapper {
+    display: grid;
+    grid-template-columns: calc(435 / 1430 * 100%) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'title list'
+      'image list';
+    align-items: start;
+  }
+
+  .children-qa__title {
+    grid-area: title;
+    max-width: 233px;
+  }
+
+  .children-qa__title.title {
+    margin-bottom: 0;
+  }
+
+  .children-qa__hand {
+    grid-area: image;
+    display: block;
+  }
+
+  .children-qa__list {
+    grid-area: list;
+    gap: 20px;
+    margin-bottom: 230px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-md) {
+  .children-qa__hand {
+    background-position-y: 50px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .children-qa {
+    @apply --wrapper;
+  }
 }
