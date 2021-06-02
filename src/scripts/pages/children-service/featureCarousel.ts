@@ -1,5 +1,6 @@
 import CarouselFeature from "../../Carousel/CarouselFeature";
 import { mediaQueryEvent } from "../../utils/mediaQueryEvent";
+import isScreenSm from "../../utils/isScreenSm";
 
 export default () => {
   let carouselFeature: CarouselFeature | undefined;
@@ -15,9 +16,13 @@ export default () => {
     carouselFeature.init();
   };
 
+  const smallScreen = isScreenSm();
+
   mediaQueryEvent(
     initSmScreen,
     () => {
       carouselFeature?.destroy();
-    });
+    },
+    smallScreen
+    );
 }

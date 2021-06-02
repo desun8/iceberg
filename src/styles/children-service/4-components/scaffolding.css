@@ -4,3 +4,34 @@
   font-weight: 600;
   text-align: center;
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .block-children-service .title {
+    margin-bottom: 45px;
+    font-size: 48px;
+    letter-spacing: 0.08px;
+    text-align: left;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  :root {
+    --wrapper: {
+      width: 100%;
+      max-width: 1430px;
+    };
+  }
+
+  .page-main {
+    padding-right: 0;
+    padding-left: 0;
+    overflow: hidden;
+  }
+
+  .block-children-service {
+    display: grid;
+    justify-items: center;
+  }
+}

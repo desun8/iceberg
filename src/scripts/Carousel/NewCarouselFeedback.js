@@ -1,4 +1,5 @@
 import Carousel from './Carousel';
+import isScreenSm from '../utils/isScreenSm';
 
 class NewCarouselFeedback extends Carousel {
   // private autoplay = 5000;
@@ -7,8 +8,8 @@ class NewCarouselFeedback extends Carousel {
   constructor(...props) {
     super(...props);
 
+    this.progressBar = this.controls.querySelector('.slider-btn--next .circle-progress-bar');
     this.autoplayDelay = 5000;
-    this.progressBar = this.elm.querySelector('.slider-btn--next .circle-progress-bar');
     this.progress = {
       from: 1000,
       to: 840,
@@ -17,6 +18,7 @@ class NewCarouselFeedback extends Carousel {
 
     this.start = undefined;
     this.rAF = undefined;
+    this.isScreenSm = isScreenSm().matches;
 
     this.animatedProgressBar = this.animatedProgressBar.bind(this);
 
@@ -54,43 +56,54 @@ class NewCarouselFeedback extends Carousel {
       slideChange: () => this.handleSlideChange(),
     };
 
-    const pagination = {
-      el: this.elm.querySelector('.slider-pagination'),
-      type: 'fraction',
-      renderFraction(currentClass, totalClass) {
-        return `<span class="${currentClass}"></span> \\ <span class="${totalClass}"></span>`;
-      },
-    };
+    let pagination;
+
+    console.log('this.isScreenLg');
+    console.log(this.isScreenSm);
+
+    if (this.isScreenSm) {
+      pagination = {
+        el: this.controls.querySelector('.slider-pagination'),
+        type: 'fraction',
+        renderFraction(currentClass, totalClass) {
+          return `<span class="${currentClass}"></span> \\ <span class="${totalClass}"></span>`;
+        },
+      };
+    } else {
+      pagination = {
+        el: this.controls.querySelector('.children-reviews > .slider-controls .slider-pagination'),
+        type: 'progressbar',
+      };
+    }
 
     const navigation = {
-      nextEl: this.elm.querySelector('.slider-btn--next'),
-      prevEl: this.elm.querySelector('.slider-btn--prev'),
+      nextEl: this.controls.querySelector('.slider-btn--next'),
+      prevEl: this.controls.querySelector('.slider-btn--prev'),
     };
+
+    if (this.isScreenSm) {
+      this.params = {
+        ...this.params,
+        loop: true,
+        autoplay: {
+          delay: this.autoplayDelay,
+          disableOnInteraction: false,
+        },
+        spaceBetween: 50,
+        on,
+      };
+    } else {
+      this.params = {
+        spaceBetween: 40,
+        slidesPerView: 'auto',
+        clickable: true,
+      };
+    }
 
     this.params = {
       ...this.params,
-      loop: true,
-      autoplay: {
-        delay: this.autoplayDelay,
-        disableOnInteraction: false,
-      },
-      breakpoints: {
-        320: {
-          spaceBetween: 50,
-        },
-        1024: {
-          spaceBetween: 200,
-        },
-        1220: {
-          spaceBetween: 300,
-        },
-        1550: {
-          spaceBetween: 400,
-        },
-      },
       navigation,
       pagination,
-      on,
     };
   }
 }

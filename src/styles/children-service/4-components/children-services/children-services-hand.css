@@ -1,0 +1,54 @@
+.children-services-hand {
+  position: relative;
+  width: 100%;
+  max-width: 345px;
+  height: 350px;
+  margin: 0 auto;
+}
+
+.children-services-hand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("/images/children-service/hand-teeth.svg") no-repeat calc(50% - 5px) calc(50% + 20px)/contain;
+}
+
+.children-services-hand__brush {
+  position: absolute;
+  top: calc(50% - 26px);
+  left: -40px;
+  width: 219px;
+  height: 372px;
+  background: url("/images/children-service/brush.svg") no-repeat center/contain;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-services-hand {
+    align-self: end;
+    width: 100%;
+    height: 460px;
+  }
+
+  .children-services-hand::before {
+    background-position-y: 80px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .children-services-hand {
+    width: 120%;
+    max-width: 450px;
+    height: 740px;
+    transform: translateX(65px);
+  }
+
+  .children-services-hand__brush {
+    width: calc(436px * 0.7);
+    height: calc(740px * 0.7);
+  }
+}

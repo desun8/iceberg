@@ -14,10 +14,10 @@ export default () => {
       founderImageAnimation();
     });
 
-    if (window.APP.scrollbar !== undefined) {
-      import('./anchorForScrollSmooth').then(({ default: anchorForScrollSmooth }) => {
-        anchorForScrollSmooth();
-      });
-    }
+    // if (window.APP.scrollbar !== undefined) {
+    //   import('./anchorForScrollSmooth').then(({ default: anchorForScrollSmooth }) => {
+    //     anchorForScrollSmooth();
+    //   });
+    // }
   }
 }

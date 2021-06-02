@@ -16,11 +16,15 @@
   font-weight: 500;
 }
 
+.children-list__item::before,
+.children-list__item::after {
+  width: 23px;
+  height: 23px;
+}
+
 .children-list__item::before {
   content: '';
   display: inline-block;
-  width: 23px;
-  height: 23px;
   background-color: var(--marker-bg);
   border-radius: 50%;
 }
@@ -29,10 +33,25 @@
   content: '';
   position: absolute;
   left: 0;
-  width: 23px;
-  height: 23px;
   background-color: var(--marker-color);
   mask: url("/images/children-service/icon-stroke.svg") no-repeat center/10px;
 }
 
 /*.children-services-anchors__link {}*/
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-list__item {
+    gap: 15px;
+  }
+
+  .children-list__item::before,
+  .children-list__item::after {
+    width: 40px;
+    height: 40px;
+  }
+
+  .children-list__item::after {
+    mask-size: 18px;
+  }
+}

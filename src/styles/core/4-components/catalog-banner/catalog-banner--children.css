@@ -2,7 +2,7 @@
   margin-bottom: 50px;
 }
 
-.catalog-banner--children .catalog-banner__bg {
+.catalog-banner--children .catalog-banner__bg-img {
   --margin-x: calc(var(--page-gap) * -1);
 
   width: calc(100% + (var(--margin-x) * 2 * -1));
@@ -17,10 +17,79 @@
   background-size: 340px;
 }
 
+.catalog-banner--children .catalog-banner__conner {
+  display: none;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media (--mobile-sm) {
-  .catalog-banner--children .catalog-banner__bg {
+  .catalog-banner--children .catalog-banner__bg-img {
     height: 220px;
     background-size: 380px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .catalog-banner--children {
+    margin-bottom: 200px;
+    padding-left: min(26%, 370px);
+  }
+
+  .catalog-banner--children .catalog-banner__bg {
+    --clip-top: 150px;
+    --clip-right: 128.2px;
+
+    clip-path: polygon(var(--clip-top) 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 var(--clip-right));
+  }
+
+  .catalog-banner--children .catalog-banner__bg-img {
+    width: 500px;
+    height: 150%;
+    background-position: 60px 80%;
+    background-size: 520px;
+    transform-origin: 50% 85%;
+    transform: rotate(-25deg);
+  }
+
+  .catalog-banner--children .catalog-banner__conner {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.25));
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-md) {
+  .catalog-banner--children .catalog-banner__bg {
+    --clip-top: 214px;
+    --clip-right: 183px;
+  }
+
+  .catalog-banner--children .catalog-banner__conner {
+    width: 214px;
+  }
+
+  .catalog-banner--children .catalog-banner__bg-img {
+    background-size: 600px;
+    background-position: 0 20px;
+    transform-origin: 60% 40%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .catalog-banner--children {
+    @apply --wrapper;
+  }
+
+  .catalog-banner--children .catalog-banner__bg-img {
+    width: 600px;
+    background-size: 700px;
+    background-position: 0 0;
+    transform-origin: 60% 30%;
   }
 }
