@@ -70,10 +70,14 @@
 /* noinspection CssInvalidMediaFeature */
 @media (--desktop-lg) {
   .children-steps {
-    /*@apply --wrapper;*/
-
     grid-template-columns: 610px minmax(50%, 1200px);
+    gap: 100px;
     width: 100%;
+    padding-left: calc((100vw - 1430px) / 2);
+  }
+
+  .children-steps__img {
+    margin: 0;
   }
 
   .children-steps__picture {

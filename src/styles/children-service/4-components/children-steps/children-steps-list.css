@@ -1,6 +1,11 @@
+.children-steps-list-wrapper {
+  position: relative;
+}
+
 .children-steps-list {
   display: grid;
   gap: 30px;
+  padding-left: 30px;
   counter-reset: steps-counter;
 }
 
@@ -8,12 +13,13 @@
 @media (--tablet-lg) {
   .children-steps-list {
     gap: 100px;
+    padding-left: 50px;
   }
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media (--desktop-fullhd) {
-  .children-steps-list {
-    transform: translateX(-65px);
+  .children-steps-list-wrapper {
+    transform: translateX(-120px);
   }
 }

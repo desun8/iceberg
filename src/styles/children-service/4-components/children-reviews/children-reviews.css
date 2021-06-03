@@ -30,7 +30,7 @@
 .slider-btn,
 .children-reviews-slider__controls .slider-btn {
   --icon-color: var(--c-blue-deep);
-  
+
   position: relative;
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@
   height: 100%;
   transform: rotate(90deg) scale(-1);
   stroke: currentColor;
-  
+
   stroke-dashoffset: 1000; /* 1000 = прогресс 0% /--/ 849 = 100% */
   stroke-dasharray: 1000;
 }
@@ -95,37 +95,37 @@
       'carousel carousel';
     margin-bottom: 250px;
   }
-  
+
   .children-reviews__title.title {
     grid-area: title;
     margin-bottom: 0;
   }
-  
+
   .children-reviews-slider {
     --margin-x: calc(var(--page-gap) * -1);
-    
+
     grid-area: carousel;
     width: calc(100% + (var(--page-gap) * 2));
     margin: 0 var(--margin-x);
     padding: 0 var(--page-gap);
   }
-  
+
   .children-reviews-slider__slides {
     /*display: grid;*/
-    
+
     /*grid-template-columns: repeat(auto-fill, 560px);*/
   }
-  
+
   .children-reviews > .slider-controls {
     grid-area: controls;
     display: grid;
     margin-top: 0;
   }
-  
+
   .children-reviews-slider__controls {
     display: none;
   }
-  
+
   .slider-pagination.swiper-pagination-progressbar {
     position: absolute;
     right: 0;
@@ -136,7 +136,7 @@
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.1);
   }
-  
+
   .slider-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
     background-color: #333570;
     border-radius: 10px;
@@ -147,5 +147,15 @@
 @media (--desktop-lg) {
   .children-reviews {
     @apply --wrapper;
+  }
+
+  .children-reviews-slider {
+    --page-gap: calc((100vw - 1430px) / 2);
+    --margin-x: calc(var(--page-gap) * -1);
+
+    grid-area: carousel;
+    width: calc(100% + (var(--page-gap) * 2));
+    margin: 0 var(--margin-x);
+    padding: 0 var(--page-gap);
   }
 }

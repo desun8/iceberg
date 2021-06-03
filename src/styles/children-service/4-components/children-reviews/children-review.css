@@ -71,4 +71,8 @@
     width: 560px;
     height: 560px;
   }
+
+  .children-review__describe {
+    height: 430px;
+  }
 }

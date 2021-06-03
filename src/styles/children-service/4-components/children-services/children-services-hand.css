@@ -19,7 +19,7 @@
 .children-services-hand__brush {
   position: absolute;
   top: calc(50% - 26px);
-  left: -40px;
+  left: -10px;
   width: 219px;
   height: 372px;
   background: url("/images/children-service/brush.svg") no-repeat center/contain;
@@ -36,6 +36,18 @@
   .children-services-hand::before {
     background-position-y: 80px;
   }
+
+  .children-services-hand__brush {
+    top: calc(50% + 16px);
+    left: -40px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop) {
+  .children-services-hand__brush {
+    left: -6px;
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -48,6 +60,7 @@
   }
 
   .children-services-hand__brush {
+    top: calc(50% - 16px);
     width: calc(436px * 0.7);
     height: calc(740px * 0.7);
   }

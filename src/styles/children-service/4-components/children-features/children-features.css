@@ -14,8 +14,42 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
+@media (--desktop-sm) {
+  .children-features {
+    max-width: 1180px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .children-features__title {
+    max-width: 814px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
 @media (--desktop-lg) {
   .children-features {
     @apply --wrapper;
+
+    max-width: 1180px;
+  }
+
+  .children-features__brush {
+    position: absolute;
+    top: 30%;
+    left: calc((100vw - 1180px) / -2);
+    width: calc(330px * 0.6);
+    height: calc(360px * 0.6);
+    background: url("/images/children-service/paint-brush.svg") no-repeat left top/cover;
+    transform-origin: 0 0;
+    transform: rotate(55deg) translateX(-50px);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-fullhd) {
+  .children-features__brush {
+    width: 330px;
+    height: 360px;
   }
 }

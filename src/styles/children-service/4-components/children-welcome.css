@@ -51,11 +51,15 @@
     padding: 0;
     width: 550px;
     height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   .children-welcome__body {
     grid-column: 1/2;
     grid-row: 1/2;
+    opacity: 0;
+    transform: translateY(15px);
   }
 
   .children-welcome__title.title {
@@ -75,7 +79,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media (--tablet-lg) and (max-height: 1000px) {
+@media (--tablet-lg) and (max-height: 1100px) {
   .children-welcome {
     min-height: calc(100vh - var(--page-top-gap));
     margin-bottom: 0;

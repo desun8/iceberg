@@ -21,7 +21,6 @@ export default () => {
 
   if (window.APP.isDesktop) {
     if (window.APP.scrollbar !== undefined) {
-      console.log("is smoothscroll");
       import('./smoothScroll/fixAnchors').then(({ default: fixAnchors }) => {
         fixAnchors();
       });
