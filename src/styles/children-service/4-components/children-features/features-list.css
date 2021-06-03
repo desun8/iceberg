@@ -24,3 +24,10 @@
     margin-bottom: 0;
   }
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-sm) {
+  .features-list {
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+}

@@ -79,3 +79,11 @@
     margin-bottom: 10px;
   }
 }
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .feature-card__body {
+    max-width: 280px;
+    text-align: left;
+  }
+}

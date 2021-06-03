@@ -1,6 +1,4 @@
-.children-steps-list-item {
-  padding-left: 33px;
-}
+/*.children-steps-list-item {}*/
 
 .children-steps-list-item--hand {
   position: relative;
@@ -55,12 +53,5 @@
 
   .children-steps-list-item__describe {
     padding-left: 70px; /* marker size -> width + margin-right */
-  }
-}
-
-/* noinspection CssInvalidMediaFeature */
-@media (--desktop-lg) {
-  .children-steps-list-item {
-    padding-left: 0;
   }
 }

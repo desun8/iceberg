@@ -19,17 +19,10 @@ export default () => {
   new SmoothScroll(document.querySelector("#scroll-container"));
   fixedHeader();
 
-
-  console.log("is desktop?");
-  console.log(window.APP.isDesktop);
-
   if (window.APP.isDesktop) {
-    console.log("is desktop");
     if (window.APP.scrollbar !== undefined) {
-      console.log("is smoothscroll");
       import('./smoothScroll/fixAnchors').then(({ default: fixAnchors }) => {
         fixAnchors();
-        console.log("init fix anchors");
       });
     }
   }
