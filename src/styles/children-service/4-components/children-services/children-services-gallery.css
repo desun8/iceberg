@@ -1,7 +1,84 @@
 .children-services-gallery {
   display: none;
+  position: relative;
+  width: 100%;
   padding-top: calc(496 / 782 * 100%);
-  border: 4px solid palevioletred;
+  height: 0;
+  border-radius: 10px;
+}
+
+.children-services-gallery__list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.children-services-gallery__item button {
+  height: 100%;
+}
+
+.children-services-gallery__item img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.children-services-gallery .swiper-pagination {
+  top: 15px;
+  left: 15px;
+  bottom: unset;
+  width: auto;
+  color: #fff;
+  font-size: 0;
+  font-weight: 700;
+}
+
+.children-services-gallery .swiper-pagination-total {
+  display: none;
+}
+
+.children-services-gallery .swiper-pagination-current {
+  font-size: 32px;
+}
+
+.children-services-gallery__button-next,
+.children-services-gallery__button-prev {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  z-index: 5;
+  opacity: 0;
+  transition-property: opacity, background-color;
+}
+
+.children-services-gallery:hover .children-services-gallery__button-next,
+.children-services-gallery:hover .children-services-gallery__button-prev {
+  opacity: 1;
+}
+
+.children-services-gallery__button-next::after,
+.children-services-gallery__button-prev::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  mask-image: url("/images/icons/_chevron-center.svg");
+  mask-repeat: no-repeat;
+  mask-position: -1px center;
+  mask-size: contain;
+  transform: rotate(180deg);
+}
+
+.children-services-gallery__button-prev {
+  left: 15px;
+  right: unset;
+}
+
+.children-services-gallery__button-prev::after {
+  transform: rotate(0deg);
 }
 
 /* noinspection CssInvalidMediaFeature */

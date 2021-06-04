@@ -20,6 +20,12 @@ welcomeAnimation();
 qaAnimation();
 handBrushAnimation();
 
+if (window.APP.isDesktop) {
+  import("./scripts/pages/children-service/serviceGallery").then(({default: serviceGallery}) => {
+    serviceGallery();
+  });
+}
+
 if (window.matchMedia("(min-width: 1600px)").matches) {
   import("./scripts/pages/children-service/featureBrushAnimation").then(({default: featureBrushAnimation}) => {
     featureBrushAnimation();
