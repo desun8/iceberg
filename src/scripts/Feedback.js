@@ -20,10 +20,13 @@ class Feedback {
       name,
       type,
       text,
+      datetime,
     } = elm.dataset;
 
     let imgWrapper;
     let img;
+
+    const feedbackType = datetime ? 'SERVICE' : 'HOME';
 
     const wrapper = document.createElement('div');
     wrapper.className = CSS_CLASS.wrapper;
@@ -43,7 +46,15 @@ class Feedback {
     h3.className = CSS_CLASS.name;
     h3.innerText = name;
 
-    const span = document.createElement('span');
+    let span;
+
+    if (feedbackType === 'SERVICE') {
+      span = document.createElement('time');
+      span.setAttribute('datetime', datetime);
+    } else {
+      span = document.createElement('span');
+    }
+
     span.className = CSS_CLASS.type;
     span.innerText = type;
 

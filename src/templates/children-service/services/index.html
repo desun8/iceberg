@@ -18,22 +18,34 @@
       </ul>
     </div>
 
-    <div class="children-services-gallery  swiper-container">
+    <div class="children-services-gallery  swiper-container" data-photoswipe-gallery>
       <ul class="children-services-gallery__list list-unstyled swiper-wrapper">
         <li class="children-services-gallery__item swiper-slide">
-          <button type="button" data-photoswiper-item><img src="/images/__dev-img-2.jpg" width="1048" height="699" alt=""></button>
+          <button type="button" data-photoswiper-item><img src="/images/__dev-img-2.jpg" width="1048" height="699"
+                                                           alt=""></button>
         </li>
         <li class="children-services-gallery__item swiper-slide">
-          <button type="button" data-photoswiper-item><img src="/images/__dev-img-3.jpg" width="1000" height="562" alt=""></button>
+          <button type="button" data-photoswiper-item><img src="/images/__dev-img-3.jpg" width="1000" height="562"
+                                                           alt=""></button>
         </li>
         <li class="children-services-gallery__item swiper-slide">
-          <button type="button" data-photoswiper-item><img src="/images/__dev-img.jpg" width="1200" height="800" alt=""></button>
+          <button type="button" data-photoswiper-item><img src="/images/__dev-img.jpg" width="1200" height="800" alt="">
+          </button>
+        </li>
+        <li class="children-services-gallery__item swiper-slide">
+          <button type="button" data-photoswiper-item><img src="/images/__dev-img-large.jpg" width="4000" height="6000"
+                                                           alt=""></button>
         </li>
       </ul>
 
-      <button class="children-services-gallery__button-prev  btn btn--dark btn--circle" type="button" aria-label="Предыдущий слайд."></button>
-      <button class="children-services-gallery__button-next  btn btn--dark btn--circle" type="button" aria-label="Следующий слайд."></button>
+      <button class="children-services-gallery__button-prev  slider-btn  slider-btn--prev  slider-btn--dark"
+              type="button" aria-label="Предыдущий слайд."></button>
+      <button class="children-services-gallery__button-next  slider-btn  slider-btn--dark" type="button"
+              aria-label="Следующий слайд."></button>
       <div class="swiper-pagination"></div>
+      <div class="progress-bar">
+        <div class="progress-bar__inner"></div>
+      </div>
     </div>
   </div>
 
@@ -59,17 +71,27 @@
           может вызывать кариес. Для профилактики кариеса мы проводим профессиональную гигиену, в ходе которой
           тщательно очищаем поверхность зубов со всех сторон. Затем укрепляем эмаль фтором и кальцием.</p>
 
-        <div class="children-service-gallery">
-          <div class="children-service-gallery__item" data-label="До/После">
-            <img src="" alt="">
+        <div class="children-service-gallery" data-photoswipe-gallery>
+          <div class="children-service-gallery__wrapper">
+            <div class="children-service-gallery__item" data-text="До/После">
+              <button type="button" data-photoswiper-item>
+                <img src="/images/__dev-img.jpg" width="1200" height="800" alt="" data-title="До">
+              </button>
+            </div>
+            <div class="children-service-gallery__item" data-text="До/После">
+              <button type="button" data-photoswiper-item>
+                <img src="/images/__dev-img-3.jpg" width="1000" height="562" alt="" data-title="После">
+              </button>
+            </div>
           </div>
+          <div class="swiper-scrollbar"></div>
         </div>
 
         <div class="children-service__btns">
           <include src="components/btn-form-consultation.html">
             {
-              "class": "btn--full-w",
-              "name": "Онлайн-консультация"
+            "class": "btn--full-w",
+            "name": "Онлайн-консультация"
             }
           </include>
           <include src="components/btn-form-appointment.html">
@@ -101,10 +123,30 @@
           может вызывать кариес. Для профилактики кариеса мы проводим профессиональную гигиену, в ходе которой
           тщательно очищаем поверхность зубов со всех сторон. Затем укрепляем эмаль фтором и кальцием.</p>
 
-        <div class="children-service-gallery">
-          <div class="children-service-gallery__item" data-label="До/После">
-            <img src="" alt="">
+        <div class="children-service-gallery" data-photoswipe-gallery>
+          <div class="children-service-gallery__wrapper">
+            <div class="children-service-gallery__item" data-text="До/После">
+              <button type="button" data-photoswiper-item>
+                <img src="/images/__dev-img.jpg" width="1200" height="800" alt="" data-title="До/После">
+              </button>
+            </div>
+            <div class="children-service-gallery__item" data-text="До/После">
+              <button type="button" data-photoswiper-item>
+                <img src="/images/__dev-img-3.jpg" width="1000" height="562" alt="" data-title="До/После">
+              </button>
+            </div>
+            <div class="children-service-gallery__item" data-text="До/После">
+              <button type="button" data-photoswiper-item>
+                <img src="/images/__dev-img-2.jpg" width="1048" height="699" alt="" data-title="До/После">
+              </button>
+            </div>
+            <div class="children-service-gallery__item" data-text="До/После">
+              <button type="button" data-photoswiper-item>
+                <img src="/images/employee-example-before.jpg" width="421" height="157" alt="" data-title="До/После">
+              </button>
+            </div>
           </div>
+          <div class="swiper-scrollbar"></div>
         </div>
 
         <div class="children-service__btns">

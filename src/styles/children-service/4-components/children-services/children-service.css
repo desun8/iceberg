@@ -1,5 +1,6 @@
 .children-service {
   position: relative;
+  display: grid;
   margin-bottom: 20px;
   padding: 20px 15px;
   background-color: var(--c-blue-sky);
@@ -57,6 +58,7 @@
   display: grid;
   gap: 15px;
   justify-content: center;
+  margin-top: 35px;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -84,6 +86,12 @@
   }
 
   .children-service__btns {
+    grid-auto-flow: column;
+    justify-content: start;
+    margin-top: 50px;
+  }
+
+  .children-service:not(.children-service--accordion) .children-service__btns {
     display: none;
   }
 }

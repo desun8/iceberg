@@ -42,7 +42,7 @@ class Constructor {
       modalContent = document.querySelector(".page-modal__content");
     }
 
-    const template = document.querySelector("template");
+    const template = document.querySelector("template#template-forms");
 
     const form = this.clone(template, "#template-form");
     form.id = `form-${formType}`;

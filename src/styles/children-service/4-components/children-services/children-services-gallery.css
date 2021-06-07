@@ -43,33 +43,14 @@
   font-size: 32px;
 }
 
-.children-services-gallery__button-next,
-.children-services-gallery__button-prev {
+.children-services-gallery__button-next.slider-btn,
+.children-services-gallery__button-prev.slider-btn {
   position: absolute;
   top: 50%;
   right: 15px;
   transform: translateY(-50%);
   z-index: 5;
   opacity: 0;
-  transition-property: opacity, background-color;
-}
-
-.children-services-gallery:hover .children-services-gallery__button-next,
-.children-services-gallery:hover .children-services-gallery__button-prev {
-  opacity: 1;
-}
-
-.children-services-gallery__button-next::after,
-.children-services-gallery__button-prev::after {
-  content: '';
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  mask-image: url("/images/icons/_chevron-center.svg");
-  mask-repeat: no-repeat;
-  mask-position: -1px center;
-  mask-size: contain;
-  transform: rotate(180deg);
 }
 
 .children-services-gallery__button-prev {
@@ -77,8 +58,28 @@
   right: unset;
 }
 
-.children-services-gallery__button-prev::after {
-  transform: rotate(0deg);
+.children-services-gallery:hover .children-services-gallery__button-next,
+.children-services-gallery:hover .children-services-gallery__button-prev {
+  opacity: 1;
+}
+
+.children-services-gallery .progress-bar {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  height: 3px;
+  background-color: rgba(82, 99, 140, 0.7);
+  border-radius: 10px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.children-services-gallery .progress-bar__inner {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: inherit;
 }
 
 /* noinspection CssInvalidMediaFeature */

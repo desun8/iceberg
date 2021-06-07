@@ -1,8 +1,8 @@
 import Swiper, {
-  Pagination, Navigation, Autoplay, EffectFade,
+  Pagination, Navigation, Autoplay, EffectFade, Scrollbar,
 } from 'swiper';
 
-Swiper.use([Pagination, Navigation, Autoplay, EffectFade]);
+Swiper.use([Pagination, Navigation, Autoplay, EffectFade, Scrollbar]);
 
 class Carousel {
   constructor(elm, wrapper, slides, controls = null) {

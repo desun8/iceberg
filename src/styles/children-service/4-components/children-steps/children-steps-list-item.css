@@ -1,4 +1,6 @@
-/*.children-steps-list-item {}*/
+.children-steps-list-item {
+  word-break: break-word;
+}
 
 .children-steps-list-item--hand {
   position: relative;

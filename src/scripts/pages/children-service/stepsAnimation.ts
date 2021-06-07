@@ -8,11 +8,12 @@ export default () => {
   const stepItemElms = Array.from(stepList.querySelectorAll(".children-steps-list-item")) as HTMLLIElement[];
   const stepProgressElms = Array.from(document.querySelectorAll(".step-progress"));
 
-  const listGap = parseFloat(getCssProp("gap", stepList));
+  const listGap = parseFloat(getCssProp("row-gap", stepList));
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: stepList,
+      start: "top 75%",
       once: true,
     },
   });
