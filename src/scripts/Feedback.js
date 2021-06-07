@@ -79,7 +79,7 @@ class Feedback {
       return;
     }
 
-    const template = document.querySelector('template');
+    const template = document.querySelector('template#template-feedbacks');
     // const feedback = this.createElm(this.clone(template), "#template-feedback");
     const feedback = this.createElm(this.clone(template, `#feedback-${id}`));
 
