@@ -16,26 +16,45 @@ class Feedback {
 
   static createElm(elm) {
     const {
-      imgSrcset, name, type, text,
+      imgSrcset,
+      name,
+      type,
+      text,
+      datetime,
     } = elm.dataset;
+
+    const feedbackType = datetime ? 'SERVICE' : 'HOME';
 
     const wrapper = document.createElement('div');
     wrapper.className = CSS_CLASS.wrapper;
 
-    const imgWrapper = document.createElement('div');
-    imgWrapper.className = CSS_CLASS.img;
+    let imgWrapper;
+    let img;
 
-    const img = document.createElement('img');
-    img.srcset = imgSrcset;
-    img.width = 290;
-    img.height = 290;
-    img.loading = 'lazy';
+    if (imgSrcset) {
+      imgWrapper = document.createElement('div');
+      imgWrapper.className = CSS_CLASS.img;
+
+      img = document.createElement('img');
+      img.srcset = imgSrcset;
+      img.width = 290;
+      img.height = 290;
+      img.loading = 'lazy';
+    }
 
     const h3 = document.createElement('h3');
     h3.className = CSS_CLASS.name;
     h3.innerText = name;
 
-    const span = document.createElement('span');
+    let span;
+
+    if (feedbackType === 'SERVICE') {
+      span = document.createElement('time');
+      span.setAttribute('datetime', datetime);
+    } else {
+      span = document.createElement('span');
+    }
+
     span.className = CSS_CLASS.type;
     span.innerText = type;
 
@@ -43,8 +62,11 @@ class Feedback {
     p.className = CSS_CLASS.text;
     p.innerText = text;
 
-    imgWrapper.appendChild(img);
-    wrapper.appendChild(imgWrapper);
+    if (imgSrcset) {
+      imgWrapper.appendChild(img);
+      wrapper.appendChild(imgWrapper);
+    }
+
     wrapper.appendChild(h3);
     wrapper.appendChild(span);
     wrapper.appendChild(p);
@@ -57,8 +79,7 @@ class Feedback {
       return;
     }
 
-    const template = document.querySelector('template');
-    // const feedback = this.createElm(this.clone(template), "#template-feedback");
+    const template = document.querySelector('template#template-feedbacks');
     const feedback = this.createElm(this.clone(template, `#feedback-${id}`));
 
     parent.innerHTML = '';

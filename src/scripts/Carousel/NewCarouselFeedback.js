@@ -56,7 +56,8 @@ class NewCarouselFeedback extends Carousel {
       slideChange: () => this.handleSlideChange(),
     };
 
-    let pagination;
+    let pagination = false;
+    let scrollbar = false;
 
     console.log('this.isScreenLg');
     console.log(this.isScreenSm);
@@ -70,9 +71,9 @@ class NewCarouselFeedback extends Carousel {
         },
       };
     } else {
-      pagination = {
-        el: this.controls.querySelector('.children-reviews > .slider-controls .slider-pagination'),
-        type: 'progressbar',
+      scrollbar = {
+        el: this.elm.querySelector('.swiper-scrollbar'),
+        draggable: true,
       };
     }
 
@@ -104,6 +105,7 @@ class NewCarouselFeedback extends Carousel {
       ...this.params,
       navigation,
       pagination,
+      scrollbar,
     };
   }
 }
