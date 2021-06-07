@@ -10,9 +10,11 @@ interface MyDocument extends Document {
   webkitFullscreenElement: any;
 }
 
+// В Safari 14.0.1 (mac) без префикса webkit не работает
+// Для safari 14.5.1 (ios) используется фикс - styleIOSFix (добавляем стиль)
 const fullscreen = () => {
   try {
-    // В Safari 14.0.1 (mac) без префикса webkit не работает
+    const FULLSCREEN_ELEMENT_ID = "fullscreenElement";
     const btn = document.querySelector(".js-btn-fullscreen") as HTMLButtonElement;
     let videoElement: MyHTMLVideoElement | null = null;
     const videoSrcMp4 = btn.dataset.videoSrc;
@@ -23,6 +25,20 @@ const fullscreen = () => {
       element.style.zIndex = value;
     };
 
+    // Скрываем элемент, если не в фуллскрине (если не работает событие)
+    const styleIOSFix = () => {
+      const styleElement = document.createElement("style");
+      document.head.appendChild(styleElement);
+
+      const styleSheet = styleElement.sheet!;
+
+      styleSheet.insertRule(
+        `#${FULLSCREEN_ELEMENT_ID}:not(:-webkit-full-screen) {
+          display: none;
+        }`,
+      );
+    };
+
     const createVideoElement = () => {
       const video = document.createElement("video");
       video.controls = true;
@@ -31,6 +47,7 @@ const fullscreen = () => {
       video.style.width = "100%";
 
       document.body.appendChild(video);
+      styleIOSFix();
 
       return video;
     };
