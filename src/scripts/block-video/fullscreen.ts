@@ -28,15 +28,8 @@ const fullscreen = () => {
     // Скрываем элемент, если не в фуллскрине (если не работает событие)
     const styleIOSFix = () => {
       const styleElement = document.createElement("style");
+      styleElement.innerHTML = `#${FULLSCREEN_ELEMENT_ID}:not(:-webkit-full-screen){display: none;}`;
       document.head.appendChild(styleElement);
-
-      const styleSheet = styleElement.sheet!;
-
-      styleSheet.insertRule(
-        `#${FULLSCREEN_ELEMENT_ID}:not(:-webkit-full-screen) {
-          display: none;
-        }`,
-      );
     };
 
     const createVideoElement = () => {
