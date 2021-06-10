@@ -9,6 +9,12 @@ a {
   text-decoration: none;
 }
 
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
 button:focus:not(:focus-visible),
 input:focus:not(:focus-visible),
 textarea:focus:not(:focus-visible) {
@@ -28,4 +34,12 @@ p {
 
 figure {
   margin: 0;
+}
+
+@supports selector(:focus:not(:focus-visible)) {
+  button:focus,
+  input:focus,
+  textarea:focus {
+    outline: unset;
+  }
 }

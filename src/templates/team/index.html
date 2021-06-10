@@ -57,8 +57,9 @@
                       appear>
       <div
         v-for="(employee, index) in employees"
-        v-bind:key="employee.key"
+        v-bind:key="employee.key + Math.random()"
         v-bind:data-index="index + 1"
+        v-bind:class="{'is-empty-placeholder': employee.isEmptyPlaceholder}"
         class="employees-list__item"
       >
         <employee-card v-bind:employee="employee"></employee-card>

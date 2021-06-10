@@ -67,14 +67,21 @@ export default () => new Vue({
     },
 
     employees(): EmployeeWithKey[] {
-      if (this.filteredEmployees.length === 0) {
+      let filteredEmployees = this.filteredEmployees;
+
+      if (filteredEmployees.length === 0) {
         this.isEmptyType = true;
-        return this.filteredEmployees;
+        return filteredEmployees;
+      }
+
+      if (filteredEmployees.length === 1) {
+        filteredEmployees = [...filteredEmployees, {...filteredEmployees[0], isEmptyPlaceholder: true}];
+
       }
 
       this.isEmptyType = false;
 
-      return this.filteredEmployees.slice(0, this.view);
+      return filteredEmployees.slice(0, this.view);
     },
   },
 
@@ -134,13 +141,29 @@ export default () => new Vue({
       });
     },
 
+    beforeLeave(el: any) {
+      gsap.set(el, {
+        y: 0,
+      })
+      // gsap.from(el, {
+      //   // alpha: 0,
+      //   y: 100,
+      //   duration: 0.6,
+      //   // delay,
+      //   // onComplete() {
+      //   //   done();
+      //   // },
+      // });
+    },
+
     leaveAnimation(el: any, done: () => void) {
       gsap.to(el, {
         alpha: 0,
         y: 100,
         duration: 0.6,
         onComplete() {
-          done();
+          setTimeout(() => done(), 200);
+          // done();
         },
       });
     },

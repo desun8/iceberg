@@ -9,12 +9,16 @@ export default () => {
   core();
   detectPointerType();
 
-  // меню
+  // МЕНЮ
   const menu = new Menu();
 
-  // модалка
-  // eslint-disable-next-line no-new
-  new Modal(menu);
+  // МОДАЛКА
+  // Делаем задержку для того, что зацикленная карусель делает дубли слайдов,
+  // и они не уже не имеют нужного события.
+  // По этому сначала инициализируем карусель, а потом модалки.
+  setTimeout(() => {
+    new Modal(menu);
+  }, 100);
 
   detectRestoreTeamState();
 };

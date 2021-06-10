@@ -16,7 +16,8 @@ export type EmployeeWithKey = {
   specialization: string,
   url: string,
   images: Images,
-  types: string[]
+  types: string[],
+  isEmptyPlaceholder?: boolean
 }
 
 export type Data = {

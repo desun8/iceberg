@@ -214,6 +214,9 @@ class Modal {
   }
 
   handleOpen(e) {
+    console.log('open review');
+    console.log(e.target);
+
     const { currentTarget } = e;
     // Определяем тип модалки (разница на декстопе):
     // • ФОРМА

@@ -5,6 +5,11 @@
   margin-bottom: 100px;
 }
 
+.employees-list__item.is-empty-placeholder {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .js-show-more-trigger {
   position: absolute;
   top: 100%;
