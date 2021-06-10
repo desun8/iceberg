@@ -6,25 +6,32 @@ const {
 const sourceMaps = require('gulp-sourcemaps');
 
 const postcss = require('gulp-postcss');
-const postcssPresetEnv = require('postcss-preset-env');
+// const postcssPresetEnv = require('postcss-preset-env');
 const postcssImport = require('postcss-easy-import');
 const postcssHoverMediaFeature = require('postcss-hover-media-feature');
 const postcssEasings = require('postcss-easings');
+const postcssMediaMinmax = require('postcss-media-minmax');
+const postcssCustomMedia = require('postcss-custom-media');
 const apply = require('postcss-apply');
 const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
+
 // const purgecss = require('@fullhuman/postcss-purgecss');
 
 let plugins = [
+  autoprefixer(),
   postcssImport(),
-  postcssEasings(),
+  postcssMediaMinmax(),
+  postcssCustomMedia(),
   postcssHoverMediaFeature(),
   apply(),
-  postcssPresetEnv({
-    stage: 0,
-    features: {
-      'focus-visible-pseudo-class': false
-    }
-  }),
+  postcssEasings(),
+  // postcssPresetEnv({
+  //   stage: 0,
+  //   features: {
+  //     'focus-visible-pseudo-class': false
+  //   }
+  // }),
 ];
 
 if (process.env.NODE_ENV === 'production') {
