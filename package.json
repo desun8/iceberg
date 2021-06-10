@@ -48,6 +48,7 @@
     "postcss-custom-media": "^7.0.8",
     "postcss-easings": "^3.0.1",
     "postcss-easy-import": "^3.0.0",
+    "postcss-image-set-function": "^3.0.1",
     "postcss-import": "^13.0.0",
     "postcss-media-minmax": "^4.0.0",
     "postcss-preset-env": "^6.7.0",
