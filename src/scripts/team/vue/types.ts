@@ -28,6 +28,7 @@ export type Data = {
   scrollTriggerInstance: ScrollTriggerInstance | null;
   employeeItems: Employee[] | null;
   isEmptyType: boolean;
+  hasMore: boolean;
 }
 
 export enum Storage {

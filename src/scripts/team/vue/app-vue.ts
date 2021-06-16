@@ -43,6 +43,7 @@ export default () => new Vue({
       scrollTriggerInstance: null,
       employeeItems: null,
       isEmptyType: false,
+      hasMore: true,
     };
   },
 
@@ -76,7 +77,9 @@ export default () => new Vue({
 
       if (filteredEmployees.length === 1) {
         filteredEmployees = [...filteredEmployees, {...filteredEmployees[0], isEmptyPlaceholder: true}];
-
+        this.hasMore = false;
+      } else {
+        this.hasMore = true;
       }
 
       this.isEmptyType = false;
@@ -141,21 +144,6 @@ export default () => new Vue({
       });
     },
 
-    beforeLeave(el: any) {
-      gsap.set(el, {
-        y: 0,
-      })
-      // gsap.from(el, {
-      //   // alpha: 0,
-      //   y: 100,
-      //   duration: 0.6,
-      //   // delay,
-      //   // onComplete() {
-      //   //   done();
-      //   // },
-      // });
-    },
-
     leaveAnimation(el: any, done: () => void) {
       gsap.to(el, {
         alpha: 0,
@@ -163,13 +151,13 @@ export default () => new Vue({
         duration: 0.6,
         onComplete() {
           setTimeout(() => done(), 200);
-          // done();
+          done();
         },
       });
     },
 
     unobserving(): void {
-      if (this.filteredEmployees.length === this.employees.length && this.observer !== null) {
+      if ((this.filteredEmployees.length === this.employees.length || !this.hasMore) && this.observer !== null) {
         const showMoreTrigger = this.$refs.showMoreTrigger as HTMLElement;
 
         if (showMoreTrigger) {
@@ -204,7 +192,7 @@ export default () => new Vue({
               console.log("loading next items");
 
               // Если отобразили все элементы, то удаляем обсервер
-              if (this.filteredEmployees.length === this.employees.length && this.observer !== null) {
+              if ((this.filteredEmployees.length === this.employees.length || !this.hasMore) && this.observer !== null) {
                 this.unobserving();
               }
             }
@@ -282,7 +270,6 @@ export default () => new Vue({
 
     // console.log("this.employeeItems");
     // console.log(this.employeeItems);
-
     this.createObserver();
   },
 
