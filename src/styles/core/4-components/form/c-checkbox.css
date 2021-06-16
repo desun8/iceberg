@@ -1,0 +1,59 @@
+.c-checkbox {
+  --checkmark-size: 40px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--checkmark-size);
+  color: inherit;
+  font-weight: 500;
+}
+
+.c-checkbox__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--checkmark-size);
+  height: var(--checkmark-size);
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  transition: border-color 0.3s ease;
+}
+
+.c-checkbox__label {
+  position: relative;
+  padding-left: calc(var(--checkmark-size) + 15px);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.c-checkbox__checkmark .path {
+  fill: currentColor;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.c-checkbox input:checked + .c-checkbox__checkmark .path {
+  opacity: 1;
+}
+
+.c-checkbox input:focus:not(:focus-visible) {
+  outline: none;
+  border-color: #fff;
+}
+
+.c-checkbox input:focus + .c-checkbox__checkmark,
+.c-checkbox:hover .c-checkbox__checkmark {
+  border-color: currentColor;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .c-checkbox__checkmark {
+    top: calc(50% - (var(--checkmark-size) / 2));
+  }
+}

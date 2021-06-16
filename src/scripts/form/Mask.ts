@@ -1,77 +1,92 @@
 // 🐼
 // инициализация инпут-маски
-import Inputmask from 'inputmask';
-import Validation from './Validation';
+import Inputmask from "inputmask";
+import Validation from "./Validation";
+import { FormElm } from "./types";
 
 class Mask {
-  static get regName() {
-    return '^[А-Яа-яA-Za-z]+( [А-Яа-яA-Za-z]+)*$';
-  }
-
   static get InputMask() {
     // Странно импортируется, скорее всего это проблемы сборщика.
     // Чтобы работало, нужно вызывать "Inputmask.default"
+    // @ts-ignore
     return Inputmask.default;
   }
 
   // убираем css класс ошибки
-  static onKeyDown(event) {
-    Validation.removeErrorClass(event.target);
+  static onKeyDown(event: Event) {
+    Validation.setErrorClass(event.target as FormElm, false);
   }
 
-  static name(input) {
+  static names(input: HTMLInputElement) {
     const {
-      InputMask,
       onKeyDown,
-      regName,
     } = this;
 
-    new InputMask({
-      regex: regName,
-      placeholder: '',
-      showMaskOnHover: false,
+    input.addEventListener("keypress", (event) => {
+      const isForbiddenKey = !/[а-я-]/i.test(event.key)
+
+      if (isForbiddenKey) {
+        event.preventDefault();
+      } else {
+        onKeyDown(event);
+      }
+    });
+  }
+
+  static cyrillic(input: HTMLInputElement) {
+    const {
       onKeyDown,
-    }).mask(input);
+    } = this;
+
+    input.addEventListener("keypress", (event) => {
+      const isForbiddenKey = !/[а-я\s\d.,-/\\]/i.test(event.key)
+
+      if (isForbiddenKey) {
+        event.preventDefault();
+      } else {
+        onKeyDown(event);
+      }
+    });
   }
 
   // Можно тут же для инпута устанавливать inputmode="tel"
   // Чтобы на тачах появлялась клавиатура для набора номера телефона
   // Или непосредственно в разметке это делать
-  static phone(input) {
+  static tel(input: HTMLInputElement) {
     const {
       InputMask,
       onKeyDown,
     } = this;
     new InputMask(
-      '+7 (999) 999-99-99', {
-        placeholder: 'x',
+      "+7 (999) 999-99-99", {
+        placeholder: "x",
         onKeyDown,
       },
     ).mask(input);
   }
 
-  static passportSeries(input) {
+  static documentSeries(input: HTMLInputElement) {
     const {
       InputMask,
       onKeyDown,
     } = this;
     new InputMask(
-      '9999[9]', {
-        placeholder: 'x',
+      "****[*]", {
+        placeholder: "x",
         greedy: false,
         onKeyDown,
       },
     ).mask(input);
   }
 
-  static passportNumber(input) {
+  static documentNumber(input: HTMLInputElement) {
     const {
       InputMask,
       onKeyDown,
     } = this;
     new InputMask(
-      '999999', {
-        placeholder: 'x',
+      "999999", {
+        placeholder: "x",
         onKeyDown,
       },
     ).mask(input);

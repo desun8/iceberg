@@ -1,0 +1,127 @@
+<main class="page-main">
+  <h1 class="page-title">Документы</h1>
+  <p class="page__describe">Нас объединяет общая движущая сила - желание помогать людям и сделать стоматологическую
+    травматологию в России лучшей в мире.</p>
+
+  <form class="form-doc" action="">
+    <section class="form-doc__section  form-doc__section--adult">
+      <div class="form-doc__container  form-doc__container--personal">
+        <h2 class="form-doc__title  cols-full">Ваши данные</h2>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="lastname">Фамилия</label>
+          <input id="lastname" type="text" name="lastname" placeholder="Фамилия" autocomplete="family-name"
+                 data-mask="name" data-validation="name" required>
+        </div>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="firstname">Имя</label>
+          <input id="firstname" type="text" name="name" placeholder="Имя" autocomplete="given-name" data-mask="name"
+                 data-validation="name" required>
+        </div>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="patronymic">Отчество</label>
+          <input id="patronymic" type="text" name="patronymic" placeholder="Отчество" autocomplete="additional-name"
+                 data-mask="name" data-validation="name"
+                 required>
+        </div>
+        <div class="form-doc__field  form-field">
+          <div class="custom-datepicker  has-placeholder" data-date="Дата рождения *">
+            <label for="birth-date" class="visually-hidden">Дата рождения</label>
+            <input id="birth-date" class="form__datepicker" type="date" name="birthday" placeholder="Дата рождения"
+                   autocomplete="bday" required data-validation="date" data-required="true">
+          </div>
+        </div>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" type="text" name="email" placeholder="Email" autocomplete="email" data-mask="email"
+                 data-validation="email" required>
+        </div>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="tel">Номер телефона</label>
+          <input id="tel" type="tel" inputmode="decimal" name="phone" placeholder="Номер телефона" autocomplete="tel"
+                 data-mask="tel" data-validation="tel" required>
+        </div>
+        <div class="form-doc__field  form-field  cols-full">
+          <label class="visually-hidden" for="comment">Комментарий</label>
+          <textarea id="comment" rows="3" name="message" placeholder="Комментарий"></textarea>
+        </div>
+      </div>
+
+      <div class="form-doc__container  form-doc__container--document">
+        <h2 class="form-doc__title  cols-full">Паспортные данные</h2>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="p-series">Серия</label>
+          <input id="p-series" type="text" inputmode="decimal" name="series" placeholder="Серия"
+                 data-mask="document-series" data-validation="document-series" required>
+        </div>
+        <div class="form-doc__field  form-field">
+          <label class="visually-hidden" for="p-number">Номер</label>
+          <input id="p-number" type="text" inputmode="decimal" name="number" placeholder="Номер"
+                 data-mask="document-number" data-validation="document-series" required>
+        </div>
+        <div class="form-doc__field  form-field">
+          <div class="custom-datepicker  has-placeholder" data-date="Дата выдачи *">
+            <label for="p-release" class="visually-hidden">Дата выдачи</label>
+            <input id="p-release" class="form__datepicker" type="date" name="document-release" placeholder="Дата выдачи"
+                   required data-validation="date" data-required="true">
+          </div>
+        </div>
+        <div class="form-doc__wrapper  cols-full  form-doc__wrapper  form-doc__wrapper--col-2">
+          <div class="form-doc__field  form-field  cols-half">
+            <label class="visually-hidden" for="p-place">Кем выдан</label>
+            <input id="p-place" type="text" placeholder="Кем выдан" data-mask="cyrillic" required>
+          </div>
+          <div class="form-doc__field  form-field  cols-half">
+            <label class="visually-hidden" for="p-reg">Адрес регистрации</label>
+            <input id="p-reg" type="text" placeholder="Адрес регистрации" data-mask="cyrillic" required>
+          </div>
+        </div>
+
+        <div class="form-doc__wrapper form-doc__wrapper--col-2  form-doc__wrapper--residence-block  cols-full">
+          <div class="form-doc__field  form-field  cols-1">
+          <div class="c-checkbox">
+            <input
+              id="document-residence"
+              class="visually-hidden"
+              type="checkbox"
+              name="document-same-residence"
+              required
+            />
+            <span class="c-checkbox__checkmark">
+              <svg width="16" height="12" fill="none">
+                <path class="path"
+                      d="M14.634.634a.8.8 0 011.132 1.132l-9.6 9.6a.8.8 0 01-1.132 0l-4-4a.8.8 0 011.132-1.132L5.6 9.67 14.634.634z"
+                      fill="#000"/>
+              </svg>
+            </span>
+            <label class="c-checkbox__label" for="document-residence">
+
+              <span>Адрес регистрации совпадает с адресом проживания</span>
+            </label>
+          </div>
+        </div>
+          <div class="form-doc__field  form-field  cols-2">
+          <label class="visually-hidden" for="p-residence">Адрес проживания</label>
+          <input id="p-residence" type="text" placeholder="Адрес проживания" name="document-residence"
+                 data-mask="cyrillic">
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-doc__section form-doc__section--children">
+
+    </section>
+
+    <section class="form-doc__section form-doc__section--submit">
+      <a class="form-doc__agreements" href="">* Нажимая на кнопку "Отправить" вы соглашаетесь на <span
+        class="underline">обработку персональных данных</span>.</a>
+
+      <div class="form-doc__btns">
+        <button class="btn btn--dark" type="submit">Отправить</button>
+        <button class="btn  js-add-child-form" type="button">Добавить данные ребенка</button>
+      </div>
+
+      <div class="form-doc__image"></div>
+    </section>
+  </form>
+</main>

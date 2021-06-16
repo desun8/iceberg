@@ -1,19 +1,52 @@
 .custom-datepicker {
-  color: #fff;
-  font-size: 14px;
+  width: 100%;
+
+  /*color: #fff;*/
+
+  /*font-size: 14px;*/
   line-height: 1;
   text-align: center;
-  border-radius: 50%;
+
+  /*border-radius: 50%;*/
 }
 
 .custom-datepicker::before {
   content: attr(data-date);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  padding: 17px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #fff;
+  border-radius: 100px;
+
+  /*z-index: 5;*/
 }
 
 .custom-datepicker.has-placeholder:not(.has-error)::before {
-  opacity: 0.6;
+  /*opacity: 0.6;*/
+}
+
+.custom-datepicker input {
+  color: transparent !important;
+  background-color: transparent !important;
+}
+
+.custom-datepicker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  width: 17px;
+  height: 17px;
+  background: url("/images/icons/calendar.svg") no-repeat center/17px;
+}
+
+.custom-datepicker input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
 }

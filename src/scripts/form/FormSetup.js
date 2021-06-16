@@ -49,8 +49,8 @@ class FormSetup {
   }
 
   addInputMask() {
-    Mask.name(this.$elm.name);
-    Mask.phone(this.$elm.phone);
+    Mask.names(this.$elm.name);
+    Mask.tel(this.$elm.phone);
   }
 
   // очистка значений полей
