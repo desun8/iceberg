@@ -4,7 +4,6 @@
 
 .children-steps-list-item--hand {
   position: relative;
-  padding-right: 90px;
 }
 
 .children-steps-list-item--hand::after {
@@ -15,7 +14,11 @@
   display: block;
   width: 117px;
   height: 200px;
-  background: url("/images/children-service/hand-teeth.svg") no-repeat 25px 30px/105px;
+  background: url("/images/children-service/hand-teeth-full.svg") no-repeat 25px 30px/105px;
+}
+
+.children-steps-list-item--hand .children-steps-list-item__describe {
+  padding-right: 90px;
 }
 
 .children-steps-list-item__title {

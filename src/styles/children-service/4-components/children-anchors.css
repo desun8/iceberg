@@ -2,6 +2,8 @@
   margin-bottom: 70px;
 }
 
+.children-anchors *::-webkit-scrollbar { display: none; }
+
 .children-anchors__wrapper {
   --margin-x: calc(var(--page-gap) * -1);
 
