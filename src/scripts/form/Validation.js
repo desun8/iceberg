@@ -16,17 +16,15 @@ class Validation {
   }
 
   static addErrorClass(input, isAdd) {
+    // console.log(input);
     if (isAdd) {
-      getErrorElm(input)
-        .classList
-        .add(this.errorClass);
+      // getErrorElm(input)
+      input.classList.add(this.errorClass);
     }
   }
 
   static removeErrorClass(input) {
-    getErrorElm(input)
-      .classList
-      .remove(this.errorClass);
+    input.classList.remove(this.errorClass);
   }
 
   static checkName(input) {
@@ -43,11 +41,15 @@ class Validation {
   static checkPhone(input) {
     // проверка на заполненность
     // подразумевается использование inputmask
-    const isValid = input.inputmask.isComplete();
+    let isValid = false;
 
-    this.addErrorClass(input, !isValid);
+    if (input.inputmask) {
+      isValid = input.inputmask.isComplete();
+      this.addErrorClass(input, !isValid);
 
-    console.warn('Проверка телефона', isValid);
+      console.warn('Проверка телефона', isValid);
+    }
+
     return isValid;
   }
 

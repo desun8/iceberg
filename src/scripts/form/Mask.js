@@ -43,7 +43,34 @@ class Mask {
       onKeyDown,
     } = this;
     new InputMask(
-      '+7 (999) 999 99 99', {
+      '+7 (999) 999-99-99', {
+        placeholder: 'x',
+        onKeyDown,
+      },
+    ).mask(input);
+  }
+
+  static passportSeries(input) {
+    const {
+      InputMask,
+      onKeyDown,
+    } = this;
+    new InputMask(
+      '9999[9]', {
+        placeholder: 'x',
+        greedy: false,
+        onKeyDown,
+      },
+    ).mask(input);
+  }
+
+  static passportNumber(input) {
+    const {
+      InputMask,
+      onKeyDown,
+    } = this;
+    new InputMask(
+      '999999', {
         placeholder: 'x',
         onKeyDown,
       },

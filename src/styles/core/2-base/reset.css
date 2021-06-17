@@ -4,6 +4,13 @@ button {
   border: 0;
 }
 
+input,
+textarea {
+  color: inherit;
+  font-family: inherit;
+  appearance: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;

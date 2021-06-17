@@ -25,6 +25,10 @@
 
 .flatpickr-current-month {
   position: static;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   padding: 0;
@@ -41,6 +45,18 @@
 }
 
 .flatpickr-current-month .numInputWrapper {
+  /*display: none;*/
+  width: auto;
+}
+
+.flatpickr-current-month .numInputWrapper .numInput.cur-year {
+  color: var(--c-blue-deep);
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.flatpickr-current-month .numInputWrapper .arrowUp,
+.flatpickr-current-month .numInputWrapper .arrowDown {
   display: none;
 }
 

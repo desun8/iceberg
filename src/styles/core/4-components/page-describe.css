@@ -1,0 +1,14 @@
+.page-describe {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .page-main--document .page-describe {
+    margin-bottom: 90px;
+  }
+}

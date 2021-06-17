@@ -1,0 +1,223 @@
+<main class="page-main  page-main--document">
+  <h1 class="page-title">Документы</h1>
+  <p class="page-describe">Нас объединяет общая движущая сила - желание помогать людям и сделать стоматологическую
+    травматологию в России лучшей в мире.</p>
+
+  <form class="document-form" action="">
+    <div class="document-form__section  document-form__section--adult">
+      <div class="document-form__container  document-form__container--personal">
+        <h2 class="document-form__title  col-full">Ваши данные</h2>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="lastname">Фамилия</label>
+          <input id="lastname" type="text" name="lastname" placeholder="Фамилия" autocomplete="family-name"
+                 data-mask="name" data-validation="name" required>
+        </div>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="firstname">Имя</label>
+          <input id="firstname" type="text" name="name" placeholder="Имя" autocomplete="given-name" data-mask="name"
+                 data-validation="name" required>
+        </div>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="patronymic">Отчество</label>
+          <input id="patronymic" type="text" name="patronymic" placeholder="Отчество" autocomplete="additional-name"
+                 data-mask="name" data-validation="name"
+                 required>
+        </div>
+        <div class="document-form__field  form-field">
+          <div class="custom-datepicker  has-placeholder" data-date="Дата рождения *">
+            <label for="birth-date" class="visually-hidden">Дата рождения</label>
+            <input id="birth-date" class="form__datepicker" type="date" name="birthday" placeholder="Дата рождения"
+                   autocomplete="bday" required data-mask="date" data-validation="date" data-required="true">
+          </div>
+        </div>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="email">Email</label>
+          <input id="email" type="text" name="email" placeholder="Email" autocomplete="email" data-mask="email"
+                 data-validation="email" required>
+        </div>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="tel">Номер телефона</label>
+          <input id="tel" type="tel" inputmode="decimal" name="phone" placeholder="Номер телефона" autocomplete="tel"
+                 data-mask="tel" data-validation="tel" required>
+        </div>
+        <div class="document-form__field  form-field  col-full">
+          <label class="visually-hidden" for="comment">Комментарий</label>
+          <textarea id="comment" rows="3" name="message" placeholder="Комментарий"></textarea>
+        </div>
+      </div>
+
+      <div class="document-form__container  document-form__container--document">
+        <h2 class="document-form__title  col-full">Паспортные данные</h2>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="p-series">Серия</label>
+          <input id="p-series" type="text" inputmode="decimal" name="series" placeholder="Серия"
+                 data-mask="document-series" data-validation="document-series" required>
+        </div>
+        <div class="document-form__field  form-field">
+          <label class="visually-hidden" for="p-number">Номер</label>
+          <input id="p-number" type="text" inputmode="decimal" name="number" placeholder="Номер"
+                 data-mask="document-number" data-validation="document-series" required>
+        </div>
+        <div class="document-form__field  form-field">
+          <div class="custom-datepicker  has-placeholder" data-date="Дата выдачи *">
+            <label for="p-release" class="visually-hidden">Дата выдачи</label>
+            <input id="p-release" class="form__datepicker" type="date" name="document-release" placeholder="Дата выдачи"
+                   required data-mask="date" data-validation="date" data-required="true">
+          </div>
+        </div>
+        <div class="col-full grid grid--col-2">
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="p-place">Кем выдан</label>
+            <input id="p-place" type="text" placeholder="Кем выдан" data-mask="cyrillic" data-validation="text" required>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="p-reg">Адрес регистрации</label>
+            <input id="p-reg" type="text" placeholder="Адрес регистрации" data-mask="cyrillic" data-validation="text" required>
+          </div>
+        </div>
+
+        <div class="col-full grid grid--col-2  grid--mt40  ">
+          <div class="document-form__field  form-field">
+            <div class="c-checkbox">
+              <input
+                id="document-residence"
+                class="visually-hidden"
+                type="checkbox"
+                name="document-same-residence"
+                required
+              />
+              <span class="c-checkbox__checkmark">
+              <svg width="16" height="12" fill="none">
+                <path class="path"
+                      d="M14.634.634a.8.8 0 011.132 1.132l-9.6 9.6a.8.8 0 01-1.132 0l-4-4a.8.8 0 011.132-1.132L5.6 9.67 14.634.634z"
+                      fill="#000"/>
+              </svg>
+            </span>
+              <label class="c-checkbox__label" for="document-residence">
+
+                <span>Адрес регистрации совпадает с адресом проживания</span>
+              </label>
+            </div>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="p-residence">Адрес проживания</label>
+            <input id="p-residence" type="text" placeholder="Адрес проживания" name="document-residence"
+                   data-mask="cyrillic">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="document-form__section document-form__section--children"></div>
+
+    <div class="document-form__section document-form__section--submit">
+      <a class="document-form__agreements" href="">* Нажимая на кнопку "Отправить" вы соглашаетесь на <span
+        class="underline">обработку персональных данных</span>.</a>
+
+      <div class="document-form__btns">
+        <button class="btn btn--dark" type="submit">Отправить</button>
+        <button class="btn  js-add-child-form" type="button">Добавить данные ребенка</button>
+      </div>
+
+      <div class="document-form__image"></div>
+    </div>
+  </form>
+
+  <section class="document-section">
+    <h2 class="document-section__title">Документы</h2>
+    <h2 class="document-section__title  document-section__title--lg">Ознакомиться с документами</h2>
+
+    <ul class="document-section-list  list-unstyled">
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link" target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, modi, ratione? Accusantium, aliquam amet cupiditate dolorum ducimus, ea esse ex, fugiat id ipsa itaque molestias mollitia obcaecati quas quis sint.</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid, beatae consectetur fuga impedit iusto modi nesciunt nihil, officiis pariatur provident quasi recusandae repudiandae, sed suscipit? Omnis pariatur rerum veritatis.</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab animi consectetur earum error esse obcaecati suscipit vero? Distinctio optio pariatur qui similique. Esse et, facilis minus quasi similique voluptatem?</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores aut commodi consectetur deleniti, dolorem expedita explicabo facere fugiat illo magni mollitia nam praesentium rem tenetur totam, velit voluptatem, voluptates?</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto asperiores blanditiis consequatur cupiditate facere fuga in ipsam magnam molestias nihil perferendis placeat quae quod, quos, reprehenderit sit veritatis voluptatem.</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">lorem</span></a>
+      </li>
+      <li class="document-section-list__item"><a href="" class="document-section-list__item-link"   target="_blank"><span
+        class="document-section-list__item-icon"></span><span class="document-section-list__item-name  truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci distinctio earum, fugiat impedit incidunt magnam nobis numquam quas totam voluptatum. Aperiam architecto dolore expedita ipsum nisi optio quibusdam quis vero.</span></a>
+      </li>
+    </ul>
+  </section>
+</main>
