@@ -6,7 +6,7 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
-@media screen and (--desktop) {
+@media screen and (--tablet-lg) {
   .page-title {
     font-size: 55px;
     font-weight: 700;

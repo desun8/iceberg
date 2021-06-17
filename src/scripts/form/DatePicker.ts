@@ -16,7 +16,12 @@ class DatePicker {
   constructor(private input: HTMLInputElement, private locale = "ru") {
     this.options = {
       locale: "ru",
+      altFormat: "d.m.Y",
+      altInput: true,
+      allowInput: true,
       monthSelectorType: "static",
+      maxDate: "today",
+      minDate: "1900",
       nextArrow: this.svgArrow,
       prevArrow: this.svgArrow,
       onReady: this.hook(this.onReady),
@@ -106,12 +111,13 @@ class DatePicker {
       } = this.flatpickr;
 
       if (!isMobile) {
-        this.createSpanMonth();
-        monthElements[0].style.display = "none";
-        const target = monthNav.querySelector(".flatpickr-current-month");
-        if (target) {
-          target.appendChild(this.spanMonth!);
-        }
+        // this.createSpanMonth();
+        // monthElements[0].classList.add("flatpickr-current-month");
+        // monthElements[0].style.display = "none";
+        // const target = monthNav.querySelector(".flatpickr-current-month");
+        // if (target) {
+        //   target.appendChild(this.spanMonth!);
+        // }
 
         this.onMonthChange();
       }

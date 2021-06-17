@@ -10,31 +10,33 @@
   /*border-radius: 50%;*/
 }
 
-.custom-datepicker::before {
-  content: attr(data-date);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: left;
-  padding: 17px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  background-color: #fff;
-  border-radius: 100px;
+/*.custom-datepicker::before {*/
+/*  content: attr(data-date);*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  text-align: left;*/
+/*  padding: 17px 30px;*/
+/*  font-size: 16px;*/
+/*  font-weight: 500;*/
+/*  background-color: #fff;*/
+/*  border-radius: 100px;*/
 
-  /*z-index: 5;*/
-}
+/*  !*z-index: 5;*!*/
+/*}*/
 
-.custom-datepicker.has-placeholder:not(.has-error)::before {
-  /*opacity: 0.6;*/
-}
+/*.custom-datepicker.has-placeholder:not(.has-error)::before {*/
+/*  opacity: 0.6;*/
+/*}*/
 
-.custom-datepicker input {
-  color: transparent !important;
-  background-color: transparent !important;
-}
+/*.custom-datepicker input {*/
+/*  color: transparent !important;*/
+/*  background-color: transparent !important;*/
+/*}*/
 
 .custom-datepicker::after {
   content: '';
@@ -45,6 +47,7 @@
   width: 17px;
   height: 17px;
   background: url("/images/icons/calendar.svg") no-repeat center/17px;
+  z-index: 2;
 }
 
 .custom-datepicker input[type="date"]::-webkit-calendar-picker-indicator {

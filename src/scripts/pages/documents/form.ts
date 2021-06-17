@@ -120,5 +120,5 @@ export default () => {
     });
   };
 
-  initFormSection(document.querySelector(".form-doc__section--adult")!);
+  initFormSection(document.querySelector(".document-form__section--adult")!);
 }

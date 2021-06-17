@@ -14,7 +14,7 @@ class Mask {
 
   // убираем css класс ошибки
   static onKeyDown(event: Event) {
-    Validation.setErrorClass(event.target as FormElm, false);
+    Validation.setClass(event.target as FormElm, false);
   }
 
   static names(input: HTMLInputElement) {
@@ -65,13 +65,33 @@ class Mask {
     ).mask(input);
   }
 
-  static documentSeries(input: HTMLInputElement) {
+  static date(input: HTMLInputElement) {
     const {
       InputMask,
       onKeyDown,
     } = this;
     new InputMask(
-      "****[*]", {
+      "99.99.9999", {
+        placeholder: "дд.мм.гггг",
+        onKeyDown,
+      },
+    ).mask(input);
+  }
+
+  static documentSeries(input: HTMLInputElement, type?: string) {
+    const {
+      InputMask,
+      onKeyDown,
+    } = this;
+
+    const mask = type === "document-birth" ? "**|-*|-*[*]" : "9999";
+
+    if (input.inputmask) {
+      input.inputmask.remove();
+    }
+
+    new InputMask(
+      mask, {
         placeholder: "x",
         greedy: false,
         onKeyDown,

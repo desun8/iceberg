@@ -1,5 +1,4 @@
-.team {
-}
+/*.team {}*/
 
 .team__describe {
   max-width: 880px;
@@ -11,7 +10,7 @@
 
 .team__filter {
   --margin-x: calc(var(--page-gap) * -1);
-  
+
   margin-left: var(--margin-x);
   margin-right: var(--margin-x);
 }
@@ -24,7 +23,7 @@
 @media screen and (--tablet-lg) {
   .team__filter {
     --margin-x: auto;
-  
+
     max-width: 1060px;
   }
 }

@@ -197,7 +197,18 @@
 
 .flatpickr-months .flatpickr-prev-month.flatpickr-disabled,
 .flatpickr-months .flatpickr-next-month.flatpickr-disabled {
-  display: none;
+  opacity: 0.4;
+}
+
+.flatpickr-months .flatpickr-prev-month.flatpickr-disabled:hover,
+.flatpickr-months .flatpickr-next-month.flatpickr-disabled:hover {
+  color: inherit;
+  cursor: not-allowed;
+}
+
+.flatpickr-months .flatpickr-prev-month.flatpickr-disabled:hover svg,
+.flatpickr-months .flatpickr-next-month.flatpickr-disabled:hover svg {
+  fill: currentColor;
 }
 
 .flatpickr-months .flatpickr-prev-month i,
