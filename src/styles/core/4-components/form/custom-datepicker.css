@@ -1,42 +1,8 @@
 .custom-datepicker {
   width: 100%;
-
-  /*color: #fff;*/
-
-  /*font-size: 14px;*/
   line-height: 1;
   text-align: center;
-
-  /*border-radius: 50%;*/
 }
-
-/*.custom-datepicker::before {*/
-/*  content: attr(data-date);*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  right: 0;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  text-align: left;*/
-/*  padding: 17px 30px;*/
-/*  font-size: 16px;*/
-/*  font-weight: 500;*/
-/*  background-color: #fff;*/
-/*  border-radius: 100px;*/
-
-/*  !*z-index: 5;*!*/
-/*}*/
-
-/*.custom-datepicker.has-placeholder:not(.has-error)::before {*/
-/*  opacity: 0.6;*/
-/*}*/
-
-/*.custom-datepicker input {*/
-/*  color: transparent !important;*/
-/*  background-color: transparent !important;*/
-/*}*/
 
 .custom-datepicker::after {
   content: '';
@@ -51,5 +17,39 @@
 }
 
 .custom-datepicker input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+  Прячем дефолтный placeholder (dd.mm.yyyy),
+  если нет значения.
+*/
+.custom-datepicker input[type="date"]:in-range::-webkit-datetime-edit-year-field,
+.custom-datepicker input[type="date"]:in-range::-webkit-datetime-edit-month-field,
+.custom-datepicker input[type="date"]:in-range::-webkit-datetime-edit-day-field,
+.custom-datepicker input[type="date"]:in-range::-webkit-datetime-edit-text {
+  color: transparent;
+}
+
+.custom-datepicker input[type="date"].has-value:in-range::-webkit-datetime-edit-year-field,
+.custom-datepicker input[type="date"].has-value:in-range::-webkit-datetime-edit-month-field,
+.custom-datepicker input[type="date"].has-value:in-range::-webkit-datetime-edit-day-field,
+.custom-datepicker input[type="date"].has-value:in-range::-webkit-datetime-edit-text {
+  color: inherit;
+}
+
+/* Отображаем placeholder, если нет значения */
+.custom-datepicker .flatpickr-input.flatpickr-mobile::before {
+  content: attr(data-placeholder);
+}
+
+.custom-datepicker .flatpickr-input.flatpickr-mobile.has-value::before {
+  content: none;
 }

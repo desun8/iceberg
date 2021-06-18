@@ -2,6 +2,8 @@ import flatpickr from "flatpickr";
 import RU from "flatpickr/dist/l10n/ru.js";
 import { Instance } from "flatpickr/dist/types/instance";
 import { Options } from "flatpickr/dist/types/options";
+import Mask from "./Mask";
+import { MaskType } from "./types";
 
 // @ts-ignore
 flatpickr.localize(RU);
@@ -26,8 +28,8 @@ class DatePicker {
       prevArrow: this.svgArrow,
       onReady: this.hook(this.onReady),
       onMonthChange: this.hook(this.onMonthChange),
-      onChange: this.hook(this.onChange),
     };
+
     this.init();
   }
 
@@ -83,41 +85,35 @@ class DatePicker {
     }
   }
 
-  // Обновляем значение инпута (визуальное)
-  onChange() {
-    if (this.flatpickr !== null) {
-      const {_input} = this.flatpickr;
-      const {value} = _input;
-      const parent = _input.parentElement!;
-      parent.dataset.date = this.formatDate(value);
-
-      // меняем opacity
-      if (parent.dataset.date === this.placeholder) {
-        parent.classList.add("has-placeholder");
-      } else {
-        parent.classList.remove("has-placeholder");
-      }
-    }
-  }
-
   onReady() {
     console.log("onReady -> this");
     console.log(this);
     if (this.flatpickr !== null) {
       const {
-        monthElements,
-        monthNav,
         isMobile,
       } = this.flatpickr;
 
-      if (!isMobile) {
-        // this.createSpanMonth();
-        // monthElements[0].classList.add("flatpickr-current-month");
-        // monthElements[0].style.display = "none";
-        // const target = monthNav.querySelector(".flatpickr-current-month");
-        // if (target) {
-        //   target.appendChild(this.spanMonth!);
-        // }
+      if (isMobile) {
+        const mobileInput = this.flatpickr.mobileInput;
+
+        if (mobileInput) {
+          mobileInput.dataset.placeholder = mobileInput.placeholder;
+
+          mobileInput.onchange = () => {
+            if (mobileInput.value) {
+              mobileInput.classList.add("has-value");
+            } else {
+              mobileInput.classList.remove("has-value");
+            }
+          };
+        }
+      } else {
+        const altInput = this.flatpickr.altInput;
+        const hasMask = this.input.dataset.validation;
+
+        if (altInput && hasMask === MaskType.Date) {
+          Mask.date(altInput);
+        }
 
         this.onMonthChange();
       }
