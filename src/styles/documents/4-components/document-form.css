@@ -247,6 +247,10 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media (--tablet-lg) {
+  .document-form {
+    margin-bottom: 160px;
+  }
+
   /* sections */
   .document-form__section {
     --bd-radius: 30px;

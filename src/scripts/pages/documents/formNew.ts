@@ -3,6 +3,7 @@ import { FormElm, InputElement, MaskType, TextAreaElement } from "../../form/typ
 import Validation from "../../form/Validation";
 import DatePicker from "../../form/DatePicker";
 import Submit from "../../form/Submit";
+import SuccessDocument from "../../form/SuccessDocument";
 
 const getTemplate = (id: number) => `
     <div id="child-form-${id}" class="child-form">
@@ -195,14 +196,6 @@ export default () => {
       case MaskType.Cyrillic:
         Mask.cyrillic(elm);
         break;
-      case MaskType.Date:
-        const input = elm.nextElementSibling as InputElement;
-
-        if (input) {
-          Mask.date(elm);
-          Mask.date(input);
-        }
-        break;
     }
   };
 
@@ -308,6 +301,10 @@ export default () => {
   const form = document.querySelector(".document-form") as HTMLFormElement;
   const childrenSection = form.querySelector(".document-form__section--children") as HTMLElement;
   const btnAddForm = form.querySelector(".js-add-child-form") as HTMLButtonElement;
+  const successBlock = document.querySelector(".document-success") as HTMLElement;
+  const successBtnShowForm = successBlock.querySelector(".js-show-form") as HTMLButtonElement;
+
+  const success = new SuccessDocument(successBlock, form);
 
   let idCount = 1;
 
@@ -319,12 +316,28 @@ export default () => {
     const url = form.action || "/document";
 
     Submit.send(getFormFieldElms(form), url, KEY);
+
+    (async () => {
+      // TODO: убрать условие для прода
+      if (0) {
+        await Submit.send(getFormFieldElms(form), url, KEY);
+      }
+
+      // Если отправка прошла без ошибок,
+      // то показываем блок с сообщение об успехе
+      await success.show();
+      // console.log('await Success.show end');
+    })();
   };
 
   btnAddForm.onclick = () => {
     addChildSection(idCount);
     idCount = idCount + 1;
   };
+
+  successBtnShowForm.onclick = () => {
+    success.hide();
+  }
 
   initFormSection(document.querySelector(".document-form__section--adult")!);
 }
