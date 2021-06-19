@@ -1,5 +1,5 @@
 import core from "./core";
-import formNew from "./scripts/pages/documents/formNew";
+import form from "./scripts/pages/documents/form";
 
 core();
-formNew();
+form();

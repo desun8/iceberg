@@ -1,123 +1,385 @@
 import Mask from "../../form/Mask";
+import { FormElm, InputElement, MaskType, TextAreaElement } from "../../form/types";
 import Validation from "../../form/Validation";
+import DatePicker from "../../form/DatePicker";
+import Submit from "../../form/Submit";
+import SuccessDocument from "../../form/SuccessDocument";
+import { Instance } from "flatpickr/dist/types/instance";
 
-enum MaskType {
-  Name = "name",
-  Email = "email",
-  Tel = "tel",
-  Series = "series",
-  Number = "number"
+interface DatePickerElement extends HTMLInputElement {
+  _flatpickr?: Instance;
 }
 
-type FormElm = HTMLInputElement | HTMLTextAreaElement;
+const getTemplate = (id: number) => `
+    <div id="child-form-${id}" class="child-form">
+        <div class="document-form__container  document-form__container--personal">
+          <div class="col-full" style="position: relative;">
+            <h2 class="document-form__title">Данные ребёнка - ${id}</h2>
+            <button class="document-form__btn-remove" type="button" aria-label="Удалить форму ребенка.">Удалить</button>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="lastname-${id}">Фамилия</label>
+            <input id="lastname-${id}" type="text" name="lastname" placeholder="Фамилия" autocomplete="family-name"
+                   data-mask="name" data-validation="name" required>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="firstname-${id}">Имя</label>
+            <input id="firstname-${id}" type="text" name="name" placeholder="Имя" autocomplete="given-name"
+                   data-mask="name"
+                   data-validation="name" required>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="patronymic-${id}">Отчество</label>
+            <input id="patronymic-${id}" type="text" name="patronymic" placeholder="Отчество"
+                   autocomplete="additional-name"
+                   data-mask="name" data-validation="name"
+                   required>
+          </div>
+          <div class="document-form__field  form-field">
+            <div class="custom-datepicker  has-placeholder" data-date="Дата рождения *">
+              <label for="birth-date-${id}" class="visually-hidden">Дата рождения</label>
+              <input id="birth-date-${id}" class="form__datepicker" type="date" name="birthday"
+                     placeholder="Дата рождения"
+                     autocomplete="bday" required data-mask="date" data-validation="date" data-required="true">
+            </div>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="email-${id}">Email</label>
+            <input id="email-${id}" type="text" name="email" placeholder="Email" autocomplete="email" data-mask="email"
+                   data-validation="email" required>
+          </div>
+          <div class="document-form__field  form-field">
+            <label class="visually-hidden" for="tel-${id}">Номер телефона</label>
+            <input id="tel-${id}" type="tel" inputmode="decimal" name="phone" placeholder="Номер телефона"
+                   autocomplete="tel"
+                   data-mask="tel" data-validation="tel" required>
+          </div>
+          <div class="document-form__field  form-field  col-full">
+            <label class="visually-hidden" for="comment-${id}">Комментарий</label>
+            <textarea id="comment-${id}" rows="3" name="message" placeholder="Комментарий"></textarea>
+          </div>
+        </div>
+
+        <div class="document-form__container  document-form__container--document">
+          <h2 class="document-form__title  col-full">Документ ребёнка</h2>
+          <div class="col-start-1 col-end-3 grid  grid--col-2">
+            <div class="document-form__field  document-form__field--radio  form-field  grid  grid--col-2">
+              <div class="c-checkbox">
+                <input
+                  id="document-passport-${id}"
+                  class="visually-hidden"
+                  type="radio"
+                  name="child-document-type-${id}"
+                  value="1"
+                  checked
+                  required
+                />
+                <span class="c-checkbox__checkmark">
+                <svg width="16" height="12" fill="none">
+                  <path class="path"
+                        d="M14.634.634a.8.8 0 011.132 1.132l-9.6 9.6a.8.8 0 01-1.132 0l-4-4a.8.8 0 011.132-1.132L5.6 9.67 14.634.634z"
+                        fill="#000"/>
+                </svg>
+              </span>
+                <label class="c-checkbox__label" for="document-passport-${id}">
+                  <span>Паспорт</span>
+                </label>
+              </div>
+              <div class="c-checkbox">
+                <input
+                  id="document-birth-${id}"
+                  class="visually-hidden"
+                  type="radio"
+                  name="child-document-type-${id}"
+                  value="2"
+                  required
+                />
+                <span class="c-checkbox__checkmark">
+                <svg width="16" height="12" fill="none">
+                  <path class="path"
+                        d="M14.634.634a.8.8 0 011.132 1.132l-9.6 9.6a.8.8 0 01-1.132 0l-4-4a.8.8 0 011.132-1.132L5.6 9.67 14.634.634z"
+                        fill="#000"/>
+                </svg>
+              </span>
+                <label class="c-checkbox__label" for="document-birth-${id}">
+                  <span>Свидетельство о рождении</span>
+                </label>
+              </div>
+            </div>
+            <div class="grid grid--col-2">
+              <div class="document-form__field  form-field">
+                <label class="visually-hidden" for="document-series-${id}">Серия</label>
+                <input id="document-series-${id}" type="text" inputmode="decimal" name="series" placeholder="Серия"
+                       data-mask="document-series" data-validation="document-series" required>
+              </div>
+              <div class="document-form__field  form-field">
+                <label class="visually-hidden" for="document-number-${id}">Номер</label>
+                <input id="document-number-${id}" type="text" inputmode="decimal" name="number" placeholder="Номер"
+                       data-mask="document-number" data-validation="document-series" required>
+              </div>
+            </div>
+          </div>
+          <div class="document-form__field  form-field">
+            <div class="custom-datepicker  has-placeholder" data-date="Дата выдачи *">
+              <label for="document-release-${id}" class="visually-hidden">Дата выдачи</label>
+              <input id="document-release-${id}" class="form__datepicker" type="date" name="document-release"
+                     placeholder="Дата выдачи"
+                     required data-mask="date" data-validation="date" data-required="true">
+            </div>
+          </div>
+          <div class="col-full  grid  grid--col-2">
+            <div class="document-form__field  form-field">
+              <label class="visually-hidden" for="document-place-${id}">Кем выдан</label>
+              <input id="document-place-${id}" type="text" placeholder="Кем выдан" data-mask="cyrillic" data-validation="text" required>
+            </div>
+            <div class="document-form__field  form-field">
+              <label class="visually-hidden" for="document-reg-${id}">Адрес регистрации</label>
+              <input id="document-reg-${id}" type="text" placeholder="Адрес регистрации" data-mask="cyrillic" data-validation="text" required>
+            </div>
+          </div>
+
+          <div class="col-full">
+            <div class="grid grid--col-2 grid--mt40">
+              <div class="document-form__field  form-field  col-start-1  col-end-2">
+                <div class="c-checkbox">
+                  <input
+                    id="document-residence-checkbox-${id}"
+                    class="visually-hidden"
+                    type="checkbox"
+                    name="document-same-residence"
+                    required
+                  />
+                  <span class="c-checkbox__checkmark">
+              <svg width="16" height="12" fill="none">
+                <path class="path"
+                      d="M14.634.634a.8.8 0 011.132 1.132l-9.6 9.6a.8.8 0 01-1.132 0l-4-4a.8.8 0 011.132-1.132L5.6 9.67 14.634.634z"
+                      fill="#000"/>
+              </svg>
+            </span>
+                  <label class="c-checkbox__label" for="document-residence-checkbox-${id}">
+
+                    <span>Адрес регистрации совпадает с адресом проживания</span>
+                  </label>
+                </div>
+              </div>
+              <div class="document-form__field  form-field  col-start-1  col-end-2">
+                <label class="visually-hidden" for="document-residence-${id}">Адрес проживания</label>
+                <input id="document-residence-${id}" type="text" placeholder="Адрес проживания"
+                       name="document-residence"
+                       data-mask="cyrillic">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="document-form__btn-remove" type="button" aria-label="Удалить форму ребенка.">Удалить</button>
+      </div>
+`;
 
 export default () => {
-  const addValidation = (elm: FormElm) => {
-    const addKeypressEvent = (elm: FormElm, keyRegex?: RegExp, stringRegex?: RegExp) => {
-      let prevValue = "";
+  const getFormFieldElms = (rootElm: HTMLElement) => {
+    const inputElms = Array.from(rootElm.querySelectorAll("input")) as InputElement[];
+    const textareaElms = Array.from(rootElm.querySelectorAll("textarea")) as TextAreaElement[];
 
-      elm.addEventListener("keypress", (event) => {
-        if (keyRegex) {
-          event.preventDefault();
+    return [...inputElms, ...textareaElms];
+  };
 
-          const key = (event as KeyboardEventInit).key!;
-          const elm = event.target as FormElm;
-          let tempValue = "";
-          let value = elm.value;
-          console.log(value);
-
-          if (keyRegex.test(key)) {
-            tempValue = value + key;
-
-            if (stringRegex) {
-              if (tempValue.match(stringRegex) !== null) {
-                elm.value = tempValue;
-                prevValue = value;
-              }
-            } else {
-              elm.value = tempValue;
-            }
-          }
-        }
-      });
-    };
-
-    const addBlurEvent = (elm: FormElm, validateRegex: RegExp) => {
-      let prevValue = "";
-
-      elm.addEventListener("blur", event => {
-        const elm = event.target as FormElm;
-        let value = elm.value;
-
-        if (value !== prevValue) {
-          prevValue = value;
-
-          const isValid = value.match(validateRegex) !== null;
-          if (!isValid) {
-            Validation.addErrorClass(elm, true);
-          }
-        }
-
-        console.log("change");
-      });
-    };
-
-    const maskType = elm.dataset.mask;
-
-    switch (maskType) {
+  const addMask = (elm: InputElement, type: string) => {
+    switch (type) {
       case MaskType.Name:
-        // addKeypressEvent(elm, /[а-я-]/i, /^[а-я]+-?(([а-я]+)?)*$/i);
-        // addBlurEvent(elm, /^[а-я]+-?(([а-я]+)?)*$/i);
-
-        // elm.addEventListener("keypress", e => {
-        //   console.log("keypress");
-        //   console.log("key: " + e.key);
-        //   console.log("value: " + e.target.value);
-        // });
-        elm.addEventListener("keypress", e => {
-          console.log("KEYPRESS");
-          console.log("key: " + e.key);
-          console.log("value: " + e.target.value);
-
-          if (!/[a-z-]/i.test(e.key)) {
-            e.preventDefault();
-          }
-        });
-        elm.addEventListener("keyup", e => {
-          console.log("KEYUP");
-          console.log("key: " + e.key);
-          console.log("value: " + e.target.value);
-        });
-        break;
-      case MaskType.Email:
-        // addKeypressEvent(elm, /[a-z0-9!#$%&'*+/=?^_`{|}@.~-]/i);
-        addBlurEvent(elm, /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]+)])/i);
+        Mask.names(elm);
         break;
       case MaskType.Tel:
         Mask.tel(elm);
-        elm.addEventListener("blur", () => Validation.checkTel(elm));
         break;
-      case MaskType.Series:
+      case MaskType.DocumentSeries:
         Mask.documentSeries(elm);
-        elm.addEventListener("blur", () => Validation.checkTel(elm));
         break;
-      case MaskType.Number:
+      case MaskType.DocumentNumber:
         Mask.documentNumber(elm);
-        elm.addEventListener("blur", () => Validation.checkTel(elm));
         break;
-      default:
+      case MaskType.Cyrillic:
+        Mask.cyrillic(elm);
         break;
     }
   };
 
+  const addBlurValidation = (elm: FormElm, type: string) => {
+    elm.addEventListener("blur", () => {
+      if (elm.value.length !== 0) {
+        Validation.check(type, elm);
+      }
+    });
+  };
+
   const initFormSection = (rootElm: HTMLElement) => {
-    const inputElms = Array.from(rootElm.querySelectorAll("input")) as HTMLInputElement[];
-    const textfieldElms = Array.from(rootElm.querySelectorAll("textarea")) as HTMLTextAreaElement[];
-    const fieldElms = [...inputElms, ...textfieldElms];
+    const fieldElms = getFormFieldElms(rootElm);
+    const seriesInput = fieldElms.find(input => input.dataset.validation === "document-series");
+
+    console.log(seriesInput);
 
     fieldElms.forEach(elm => {
-      addValidation(elm);
+      const isRequired = elm.required;
+      const isDateInput = elm.type === "date";
+      const typeMask = elm.dataset.mask;
+      const typeValidation = elm.dataset.validation;
+
+      if (isRequired) {
+        elm.placeholder = `${elm.placeholder} *`;
+      }
+
+      if (isDateInput) {
+        new DatePicker(elm as HTMLInputElement);
+
+        console.log((elm as DatePickerElement)._flatpickr);
+      }
+
+      if (typeMask && elm.tagName === "INPUT") {
+        addMask(elm as InputElement, typeMask);
+      }
+
+      if (typeValidation) {
+        addBlurValidation(elm, typeValidation);
+      }
+
+      // Если чекбокс "адрес регистрации === адрес проживания"
+      if (elm.type === "checkbox") {
+        const residenceInput = fieldElms.find(elm => elm.name === "document-residence");
+
+        if (residenceInput) {
+          elm.onchange = () => {
+            const isChecked = (elm as InputElement).checked;
+            residenceInput.disabled = isChecked;
+          };
+        }
+      }
+
+      if (elm.type === "radio" && (elm.value === "1" || elm.value === "2") && seriesInput) {
+        elm.onchange = () => {
+          const isPassport = elm.value === "1";
+          seriesInput.value = "";
+          Mask.documentSeries(<InputElement>seriesInput, isPassport ? "" : "document-birth");
+        };
+      }
     });
+  };
+
+  const addChildSection = (id: number) => {
+    if (!hasChildForm) {
+      hasChildForm = true;
+    }
+
+    formElm.classList.add("has-child");
+    childrenSection.insertAdjacentHTML("beforeend", getTemplate(id));
+
+    const childForm = document.querySelector(`#child-form-${id}`) as HTMLElement;
+
+    initFormSection(childForm);
+    removeChildSection(id);
+  };
+
+  const removeChildSection = (id: number) => {
+    const childForm = document.querySelector(`#child-form-${id}`) as HTMLElement;
+    const btnRemoveElms = Array.from(childForm.querySelectorAll(".document-form__btn-remove")) as HTMLButtonElement[];
+
+    if (btnRemoveElms.length) {
+      btnRemoveElms.forEach(btn => {
+        btn.onclick = () => {
+          let childFormElms = Array.from(document.querySelectorAll(".child-form"))!;
+
+          childForm.remove();
+
+          if (childFormElms.length === 1) {
+            formElm.classList.remove("has-child");
+            hasChildForm = false;
+          } else {
+            // Меняем заголовок формы, чтобы номер соответствовал количеству элементов.
+            // При этом id остается согласно idChildCount
+            childFormElms = Array.from(document.querySelectorAll(".child-form"))!;
+
+            childFormElms.forEach((formElm, index) => {
+              const titleElm = formElm.querySelector(".document-form__title")!;
+              let newText = titleElm.textContent!;
+              newText = newText.replace(/(- \d)$/, `- ${index + 1}`);
+
+              titleElm.textContent = newText;
+            });
+          }
+        };
+      });
+    }
+  };
+
+  const clearForm = (formElm: HTMLFormElement) => {
+    const formElms = getFormFieldElms(formElm);
+    formElms.forEach((elm) => {
+      // Если на инпуте используется маска,
+      // то value устанавливается через ее метод
+      if (elm.inputmask) {
+        elm.inputmask.setValue("");
+      } else {
+        elm.value = "";
+      }
+
+      if (elm.type === "checkbox") {
+        (<InputElement>elm).checked = false;
+      }
+
+      // Сбрасывается/очищается через методы кастомных полей
+      if (elm.tagName === "INPUT" && elm.classList.contains("form__datepicker") && (<DatePickerElement>elm)._flatpickr) {
+        // flatpickr
+        (<DatePickerElement>elm)._flatpickr!.clear();
+      }
+
+      Validation.clearClasses(elm);
+    });
+  };
+
+  const formElm = document.querySelector(".document-form") as HTMLFormElement;
+  const childrenSection = formElm.querySelector(".document-form__section--children") as HTMLElement;
+  const btnAddForm = formElm.querySelector(".js-add-child-form") as HTMLButtonElement;
+  const successBlock = document.querySelector(".document-success") as HTMLElement;
+  const successTextElm = successBlock.querySelector(".document-success__text") as HTMLElement;
+  const successBtnShowForm = successBlock.querySelector(".js-show-form") as HTMLButtonElement;
+
+  const success = new SuccessDocument(successBlock, formElm);
+
+  let idChildCount = 1;
+  let hasChildForm = false;
+  const successText = "Необходимо принести оригиналы документов: паспорт.";
+  const successTextChild = "Необходимо принести оригиналы документов: паспорт законного представителя и паспорт или свидетельство о рождении ребенка/ постановление органов опеки/свидетельство о государственной регистрации акта усыновления ст. 125 СК РФ.";
+
+  formElm.setAttribute("novalidate", "");
+
+  formElm.onsubmit = (event) => {
+    event.preventDefault();
+    const KEY = "";
+    const url = formElm.action || "/document";
+
+    Submit.send(getFormFieldElms(formElm), url, KEY);
+
+    (async () => {
+      // TODO: убрать условие для прода
+      if (0) {
+        await Submit.send(getFormFieldElms(formElm), url, KEY);
+      }
+
+      // Если отправка прошла без ошибок,
+      // то показываем блок с сообщение об успехе
+      successTextElm.textContent = hasChildForm ? successTextChild : successText;
+      await success.show();
+      // console.log('await Success.show end');
+    })();
+  };
+
+  btnAddForm.onclick = () => {
+    addChildSection(idChildCount);
+    idChildCount = idChildCount + 1;
+  };
+
+  successBtnShowForm.onclick = () => {
+    clearForm(formElm);
+    success.hide();
   };
 
   initFormSection(document.querySelector(".document-form__section--adult")!);
