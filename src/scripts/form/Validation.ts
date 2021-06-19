@@ -20,6 +20,11 @@ class Validation {
     return "is-success";
   }
 
+  static clearClasses(input: FormElm) {
+    this.removeClass(input, ValidationCSSClass.Success);
+    this.removeClass(input, ValidationCSSClass.Error);
+  }
+
   private static addClass(input: FormElm, type: ValidationCSSClass) {
     const className = type === ValidationCSSClass.Success ? this.successClass : this.errorClass;
     const elm = getFieldElm(input);
