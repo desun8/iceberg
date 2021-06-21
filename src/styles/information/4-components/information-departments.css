@@ -72,7 +72,7 @@
 /* noinspection CssInvalidMediaFeature */
 @media (--desktop-lg) {
   .information-departments {
-    --col-img: minmax(calc(538 / 1530 * 100% + ((100vw - 1530px) / 2)), 726px); /* % размер элемента в контейнере + размер "снаружи" */
+    --col-img: minmax(calc(538 / 1530 * 100% + ((100vw - 1540px) / 2)), 726px); /* % размер элемента в контейнере + размер "снаружи" */
     --col-text: minmax(calc(880 / 1530 * 100%), 910px);
 
     grid-template-columns: var(--col-text) var(--col-img);
@@ -96,5 +96,6 @@
 
   .information-departments__picture {
     width: 100%;
+    transform: none;
   }
 }
