@@ -1,0 +1,11 @@
+/* LIB */
+@import "./home/1-lib/swiper-bundle.css";
+@import "./core/1-lib/photoswipe.css";
+
+/* COMPONENTS */
+@import "information/4-components/describe-list.css";
+@import "information/4-components/information-name.css";
+@import "information/4-components/information-departments.css";
+@import "documents/4-components/document-section.css";
+@import "information/4-components/information-reviews.css";
+@import "information/4-components/information-review.css";

@@ -8,8 +8,9 @@
 .pswp {
   --gap-x: 0;
   --gap-y: 0;
-  --width: 100vw;
-  --height: 100vh;
+  --inner-gap: 10px;
+  --width: calc(100vw - ((var(--inner-gap) * 4) + (50px * 2)));
+  --height: 80vh;
   --space-x: calc((100vw - var(--width)) / 2);
   --space-y: calc((100vh - var(--height)) / 2);
 
@@ -242,27 +243,29 @@
 
   position: absolute;
   top: 50%;
-  left: var(--space-x);
+  left: 0;
   transform: translate3d(var(--x), var(--y), 0);
 }
 
 .pswp-btn--next {
   left: unset;
-  right: var(--space-x);
+  right: 0;
   transform: translate3d(calc(var(--x) * -1), var(--y), 0);
 }
 
 .pswp-title {
   --x: calc(var(--gap-x, 0) + var(--inner-gap, 0));
-  --y: calc(var(--gap-y, 0) - (20px + 24px));
+  --y: calc((var(--gap-y, 0) - (20px + 24px)) * -1);
 
   position: absolute;
-  top: var(--space-y);
-  left: var(--space-x);
-  transform: translate3d(var(--x), var(--y), 0);
+  bottom: var(--space-y);
+  left: var(--inner-gap);
+  right: var(--inner-gap);
+  transform: translate3d(0, var(--y), 0);
   color: #fff;
   font-size: 18px;
   line-height: 1;
+  text-align: center;
 }
 
 .pswp-close {
@@ -272,36 +275,26 @@
   position: absolute;
   top: var(--space-y);
   right: var(--space-x);
-  transform: translate3d(var(--x), var(--y), 0);
+  transform: translate3d(0, var(--y), 0);
 }
 
 .pswp-btn,
 .pswp-close,
 .pswp-title {
-  --inner-gap: 10px;
-
   z-index: 2;
 }
 
 /* noinspection CssInvalidMediaFeature */
 @media (--tablet-lg) {
   .pswp {
-    --width: 80vw;
-    --height: 80vh;
-  }
-
-  .pswp-btn {
     --inner-gap: 24px;
-  }
-
-  .pswp-title {
-    --inner-gap: 0px;
-    --y: calc(var(--gap-y, 0) - (20px + 18px));
   }
 
   .pswp-close {
     --inner-gap: calc(21px + 50px); /* 50px - button width */
     --x: calc((var(--gap-x, 0) - var(--inner-gap)) * -1);
     --y: var(--gap-y, 0);
+
+    transform: translate3d(var(--x), var(--y), 0);
   }
 }

@@ -3,3 +3,9 @@
   padding-left: var(--page-gap);
   padding-right: var(--page-gap);
 }
+
+.page-main--information {
+  max-width: 1530px;
+  margin-right: auto;
+  margin-left: auto;
+}

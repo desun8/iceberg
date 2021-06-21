@@ -1,0 +1,101 @@
+.information-departments {
+  margin-bottom: 70px;
+}
+
+.information-departments__title {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.information-departments__img {
+  --margin: calc(var(--page-gap) * -1 + 10px);
+
+  margin-right: var(--margin);
+  margin-left: var(--margin);
+  overflow: hidden;
+}
+
+.information-departments--left .information-departments__img {
+  --margin: calc(var(--page-gap) * -1);
+  transform: scaleX(-1);
+}
+
+.information-departments__picture {
+  width: 110%;
+  max-width: 458px;
+  height: auto;
+  transform: translateX(10px);
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet) {
+  .information-departments__picture {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .information-departments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    align-items: center;
+    margin-bottom: 100px;
+  }
+
+  .information-departments__title {
+    margin-bottom: 70px;
+    font-size: 32px;
+  }
+
+  .information-departments--left .information-departments__img {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-sm) {
+  .information-departments__img {
+    overflow: hidden;
+  }
+
+  .information-departments__picture {
+    width: 90%;
+    max-width: 826px;
+    height: auto;
+    transform: translateX(10px);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .information-departments {
+    --col-img: minmax(calc(538 / 1530 * 100% + ((100vw - 1530px) / 2)), 726px); /* % размер элемента в контейнере + размер "снаружи" */
+    --col-text: minmax(calc(880 / 1530 * 100%), 910px);
+
+    grid-template-columns: var(--col-text) var(--col-img);
+    width: 100%;
+    gap: 100px;
+  }
+
+  .information-departments--left {
+    grid-template-columns: var(--col-img) var(--col-text);
+    justify-content: end;
+  }
+
+  .information-departments__img {
+    margin-left: 0;
+  }
+
+  .information-departments--left .information-departments__img {
+    margin-right: 0;
+    margin-left: var(--margin);
+  }
+
+  .information-departments__picture {
+    width: 100%;
+  }
+}

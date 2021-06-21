@@ -99,6 +99,7 @@
 
 .slider-btn:hover {
   --bg-color: var(--c-blue-deep);
+  --icon-color: #fff;
 
   color: #fff;
 }

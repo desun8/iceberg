@@ -4,11 +4,11 @@ type GalleryItem = {
   src: string, // path to image
   w: number, // image width
   h: number, // image height
-  title?: string  // if you skip it, there won't be any caption
+  title: string  // if you skip it, there won't be any caption
 }
 
 interface PhotoSwipeItem extends PhotoSwipe.Item {
-  title?: string;
+  title: string;
 }
 
 export default () => {
@@ -39,8 +39,8 @@ export default () => {
       <span class="hamburger__line"></span>
       <span class="hamburger__line"></span>
 </button>
-      <button class="pswp-btn pswp-btn--prev  slider-btn slider-btn--dark slider-btn--prev" type="button" aria-label="Предыдущее изображение."></button>
-      <button class="pswp-btn pswp-btn--next  slider-btn slider-btn--dark" type="button" aria-label="Следующее изображение."></button>
+      <button class="pswp-btn pswp-btn--prev  slider-btn slider-btn--prev" type="button" aria-label="Предыдущее изображение."></button>
+      <button class="pswp-btn pswp-btn--next  slider-btn" type="button" aria-label="Следующее изображение."></button>
 </div>
     `;
     document.body.insertAdjacentHTML("beforeend", template);
@@ -54,7 +54,7 @@ export default () => {
       const src = imgElement.getAttribute("src")!;
       const width = parseFloat(imgElement.getAttribute("width")!);
       const height = parseFloat(imgElement.getAttribute("height")!);
-      const alt = imgElement.dataset.title || imgElement.getAttribute("alt")!;
+      const alt = imgElement.dataset.title || imgElement.getAttribute("alt")! || "";
 
       items.push({
         src: src,
@@ -102,9 +102,7 @@ export default () => {
       console.log(gallery.currItem);
       const {initialPosition, title} = gallery.currItem as PhotoSwipeItem;
 
-      if (title) {
-        galleryTitle.textContent = title;
-      }
+      galleryTitle.textContent = title;
 
       galleryElement.style.setProperty("--gap-x", `${initialPosition.x}px`);
       galleryElement.style.setProperty("--gap-y", `${initialPosition.y}px`);

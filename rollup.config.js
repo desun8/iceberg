@@ -52,6 +52,7 @@ export default {
     'src/team-inner.ts',
     'src/children-service.ts',
     'src/documents.ts',
+    'src/information.ts',
   ],
   output: {
     dir: 'dist',

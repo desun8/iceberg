@@ -5,6 +5,11 @@
   margin-bottom: 100px;
 }
 
+.document-section--information {
+  max-width: 100%;
+  margin-bottom: 62px;
+}
+
 .document-section__title {
   margin-bottom: 40px;
   font-size: 28px;
@@ -46,12 +51,20 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media (--tablet-lg) {
+  .document-section--information {
+    margin-bottom: 124px;
+  }
+
   .document-section__title {
     display: none;
     margin-bottom: 75px;
     font-size: 48px;
     line-height: 1.25;
     text-align: left;
+  }
+
+  .document-section--information .document-section__title {
+    display: block;
   }
 
   .document-section__title--lg {
@@ -62,6 +75,10 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 80px;
     row-gap: 32px;
+  }
+
+  .document-section--information .document-section-list {
+    grid-template-columns: 726px;
   }
 
   .document-section-list__item-link {

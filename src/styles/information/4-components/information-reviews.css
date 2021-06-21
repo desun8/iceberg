@@ -1,0 +1,100 @@
+.information-reviews {
+  margin-bottom: 75px;
+}
+
+.information-reviews__title {
+  margin-bottom: 40px;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 600;
+  text-align: center;
+}
+
+.information-reviews > .slider-controls {
+  display: none;
+}
+
+.information-reviews .swiper-scrollbar {
+  display: none;
+}
+
+.information-reviews-slider__controls {
+  margin-top: 25px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .information-reviews {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: 68px;
+    grid-template-areas:
+      'title controls'
+      'carousel carousel';
+    margin-bottom: 250px;
+  }
+
+  .information-reviews__title {
+    grid-area: title;
+    margin-bottom: 0;
+    font-size: 48px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .information-reviews-slider {
+    --margin-x: calc(var(--page-gap) * -1);
+
+    grid-area: carousel;
+    width: calc(100% + (var(--page-gap) * 2));
+    margin: 0 var(--margin-x);
+    padding: 0 var(--page-gap);
+    padding-bottom: 58px;
+  }
+
+  .information-reviews > .slider-controls {
+    grid-area: controls;
+    display: grid;
+  }
+
+  .information-reviews-slider__controls {
+    display: none;
+  }
+
+  .information-reviews-slider__controls .slider-pagination {
+    display: none;
+  }
+
+  .information-reviews-slider .swiper-scrollbar {
+    position: absolute;
+    right: var(--page-gap);
+    bottom: 0;
+    left: var(--page-gap);
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .information-reviews-slider .swiper-scrollbar .swiper-scrollbar-drag {
+    background-color: #333570;
+    border-radius: 10px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .information-reviews {
+    @apply --wrapper;
+  }
+
+  .information-reviews-slider {
+    --page-gap: calc((100vw - 1430px) / 2);
+    --margin-x: calc(var(--page-gap) * -1);
+  }
+}

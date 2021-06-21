@@ -1,0 +1,31 @@
+.information-name {
+  margin-bottom: 74px;
+}
+
+.information-name__title {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.information-name__container {
+  padding: 44px 20px;
+  background-color: var(--c-blue-sky);
+  border-radius: 15px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .information-name__title {
+    margin-bottom: 66px;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .information-name__container {
+    padding: 40px 50px;
+    border-radius: 20px;
+  }
+}
