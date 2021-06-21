@@ -10,11 +10,11 @@
   margin-left: var(--margin-x);
   margin-right: var(--margin-x);
 
-  background-image: url("/images/service/icon-hand.svg");
+  background-image: url("/images/children-service/icon-hand.svg");
   background-repeat: no-repeat;
-  background-position-x: calc(50% + 6px);
+  background-position-x: center;
   background-position-y: 15px;
-  background-size: 340px;
+  background-size: 300px;
 }
 
 .catalog-banner--children .catalog-banner__conner {
@@ -25,7 +25,7 @@
 @media (--mobile-sm) {
   .catalog-banner--children .catalog-banner__bg-img {
     height: 220px;
-    background-size: 380px;
+    background-size: 340px;
   }
 }
 
@@ -74,7 +74,7 @@
   }
 
   .catalog-banner--children .catalog-banner__bg-img {
-    background-size: 600px;
+    background-size: 580px;
     background-position: 0 20px;
     transform-origin: 60% 40%;
   }
@@ -88,8 +88,8 @@
 
   .catalog-banner--children .catalog-banner__bg-img {
     width: 600px;
-    background-size: 700px;
-    background-position: 0 0;
+    background-size: 680px;
+    background-position: -40px 70px;
     transform-origin: 60% 30%;
   }
 }

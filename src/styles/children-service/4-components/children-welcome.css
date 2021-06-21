@@ -9,7 +9,7 @@
   height: 0;
   margin-bottom: 100px;
   padding-top: var(--ratio);
-  background: url("/images/service/icon-hand.svg") no-repeat 6px center/contain;
+  background: url("/images/children-service/icon-hand.svg") no-repeat center/contain;
 }
 
 .children-welcome__title {
