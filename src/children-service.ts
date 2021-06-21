@@ -10,7 +10,6 @@ import handBrushAnimation from "./scripts/pages/children-service/handBrushAnimat
 import qaAnimation from "./scripts/pages/children-service/qaAnimation";
 import serviceCardGallery from "./scripts/pages/children-service/serviceCardGallery";
 import lightboxGallery from "./scripts/core/lightboxGallery";
-import borderImageAnimation from "./scripts/pages/children-service/borderImageAnimation";
 
 core();
 
@@ -24,7 +23,6 @@ welcomeAnimation();
 qaAnimation();
 handBrushAnimation();
 serviceCardGallery();
-borderImageAnimation();
 
 if (window.APP.isDesktop) {
   import("./scripts/pages/children-service/serviceGalleryCarousel").then(({default: serviceGallery}) => {
