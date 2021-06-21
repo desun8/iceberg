@@ -9,7 +9,7 @@
 }
 
 .information-departments__img {
-  --margin: calc(var(--page-gap) * -1 + 10px);
+  --margin: calc(var(--page-gap) * -1);
 
   margin-right: var(--margin);
   margin-left: var(--margin);
@@ -17,7 +17,6 @@
 }
 
 .information-departments--left .information-departments__img {
-  --margin: calc(var(--page-gap) * -1);
   transform: scaleX(-1);
 }
 
