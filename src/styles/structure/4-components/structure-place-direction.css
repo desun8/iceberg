@@ -10,12 +10,20 @@
 }
 
 /* noinspection CssInvalidMediaFeature */
+@media (--tablet) {
+  .structure-place-direction {
+    margin-bottom: 70px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
 @media (--tablet-lg) {
   .structure-place-direction {
     display: grid;
     grid-template-areas:
       'title tabs'
       'text text';
+    margin-bottom: 0;
   }
 
   .structure-place-direction__title {
