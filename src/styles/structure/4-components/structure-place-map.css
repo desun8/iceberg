@@ -5,21 +5,21 @@
   margin-right: calc(var(--page-gap) * -1);
   margin-left: calc(var(--page-gap) * -1);
   margin-bottom: 18px;
-  background-image: url("/images/structure/map-mask-border--large.png");
+  background-image: url("/images/structure/map-mask-border.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto 100%;
 }
 
 .structure-place--sky .structure-place-map__container {
-  background-image: url("/images/structure/map-mask-border--large.png");
+  background-image: url("/images/structure/map-mask-border--sky.png");
 }
 
 .structure-place-map__map {
   width: 100%;
   height: 412px;
   background-color: #f12;
-  mask: url("/images/structure/map-mask-large.png") no-repeat center/auto 100%;
+  mask: url("/images/structure/map-mask.svg") no-repeat center/auto 100%;
 }
 
 .structure-place-map__btns {
@@ -84,7 +84,6 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-image: url("/images/structure/map-mask-border--large.png");
     background-size: cover;
   }
 
@@ -94,7 +93,6 @@
 
     width: calc(var(--width) * var(--scale));
     height: calc(var(--height) * var(--scale));
-    mask-image: url("/images/structure/map-mask-large.png");
     mask-size: cover;
   }
 
