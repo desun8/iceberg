@@ -1,0 +1,40 @@
+.structure-place-direction {
+  margin-bottom: 10px;
+}
+
+.structure-place-direction__title {
+  margin-bottom: 36px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .structure-place-direction {
+    display: grid;
+    grid-template-areas:
+      'title tabs'
+      'text text'
+      'map map';
+  }
+
+  .structure-place-direction__title {
+    /*margin-bottom: 50px;*/
+    font-size: 42px;
+    text-align: left;
+    grid-area: title;
+  }
+
+  .structure-place-direction-tabs {
+    grid-area: tabs;
+  }
+
+  .structure-place-direction-content {
+    grid-area: text;
+  }
+
+  .structure-place-map {
+    grid-area: map;
+  }
+}

@@ -1,0 +1,65 @@
+.structure-place-direction-tabs {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 14px;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 40px;
+}
+
+input[type="radio"]#radio-direction-metro-0:checked ~ #metro-0,
+input[type="radio"]#radio-direction-car-0:checked ~ #car-0,
+input[type="radio"]#radio-direction-metro-1:checked ~ #metro-1,
+input[type="radio"]#radio-direction-car-1:checked ~ #car-1 {
+  display: block;
+}
+
+input[type="radio"]#radio-direction-metro-0:not(:checked) ~ #metro-0,
+input[type="radio"]#radio-direction-car-0:not(:checked) ~ #car-0,
+input[type="radio"]#radio-direction-metro-1:not(:checked) ~ #metro-1,
+input[type="radio"]#radio-direction-car-1:not(:checked) ~ #car-1 {
+  display: none;
+}
+
+input[type="radio"]#radio-direction-metro-0:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-metro-0"],
+input[type="radio"]#radio-direction-car-0:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-car-0"],
+input[type="radio"]#radio-direction-metro-1:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-metro-1"],
+input[type="radio"]#radio-direction-car-1:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-car-1"] {
+  --bg-c: #fff;
+}
+
+.structure-place--sky input[type="radio"]#radio-direction-metro-0:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-metro-0"],
+.structure-place--sky input[type="radio"]#radio-direction-car-0:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-car-0"],
+.structure-place--sky input[type="radio"]#radio-direction-metro-1:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-metro-1"],
+.structure-place--sky input[type="radio"]#radio-direction-car-1:checked ~ .structure-place-direction-tabs .structure-place-direction-tabs__link[for="radio-direction-car-1"] {
+  --bg-c: #fff;
+}
+
+.structure-place-direction-tabs__link {
+  --bg-c: transparent;
+
+  display: block;
+  padding: 18px 36px;
+  color: var(--c-blue-deep);
+  background-color: var(--bg-c);
+
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: nowrap;
+  border-radius: 15px;
+
+  transition-property: color, background-color;
+  transition-duration: var(--trans-dur);
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .structure-place-direction-tabs {
+    /*margin-bottom: 70px;*/
+  }
+  
+  .structure-place-direction-tabs__link {
+    padding: 20px 46px;
+  }
+}
