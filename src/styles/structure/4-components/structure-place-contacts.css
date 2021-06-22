@@ -1,0 +1,43 @@
+.structure-place-contacts {
+  display: none;
+  font-size: 16px;
+  letter-spacing: var(--letter-spacing);
+}
+
+.structure-place-order .structure-place-contacts {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.structure-place-contacts li {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+}
+
+.structure-place-order .structure-place-contacts li:first-child {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.structure-place-contacts__icon {
+  display: inline-block;
+  width: 13px;
+  height: 17px;
+  background-color: var(--c-pink);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+}
+
+.structure-place-contacts__icon--marker {
+  mask-image: url("/images/structure/icon-marker.svg");
+}
+
+.structure-place-contacts__icon--tel {
+  mask-image: url("/images/structure/icon-tel.svg");
+}
+
+.structure-place-contacts__icon--clock {
+  mask-image: url("/images/structure/icon-clock.svg");
+}

@@ -1,0 +1,116 @@
+<main class="page-main  page-main--structure">
+  <section class="welcome">
+    <div class="welcome__image"></div>
+
+    <div class="welcome__body">
+      <h2 class="welcome__title">Структура нашей компании</h2>
+      <p class="welcome__text">Лечение и восстановление зубов для нас - это не работа, а образ жизни. Мы оказываем
+        квалифицированную помощь как взрослым пациентам в лечении разного уровня сложности, так и совсем малышам,
+        которым нужна забота и положительный опыт.</p>
+
+      <include src="components/btn-form-appointment.html">
+        {
+        "class": "btn--aqua btn--center-sm",
+        "text": "Записаться на прием"
+        }
+      </include>
+    </div>
+  </section>
+
+  <section class="structure-place">
+    <h2 class="structure-place__title">Клиника “Щукинская”</h2>
+
+    <div class="structure-place__top">
+      <ul class="structure-place-contacts list-unstyled">
+        <li><span class="structure-place-contacts__icon"></span>Москва, ул. Щукинская, д. 2, под. 8</li>
+        <li><span class="structure-place-contacts__icon"></span>Пн-Вс: 09:00 – 21:00</li>
+        <li><span class="structure-place-contacts__icon"></span><a href="tel:+79093913251">+7 (909) 391-32-51</a></li>
+      </ul>
+
+      <div class="structure-place-order">
+        <ul class="structure-place-contacts list-unstyled">
+          <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--marker"></span>Москва, ул. Щукинская, д. 2, под. 8</li>
+          <li><span class="structure-place-contacts__icon"></span>Пн-Вс: 09:00 – 21:00</li>
+          <li><span class="structure-place-contacts__icon"></span><a href="tel:+79093913251">+7 (909) 391-32-51</a></li>
+        </ul>
+
+        <span class="structure-place-order__text"><span
+          class="structure-place-order__text-bolder">Запишитесь на прием</span> или получите бесплатную <span
+          class="structure-place-order__text-bolder">онлайн консультацию!</span></span>
+
+        <div class="structure-place-order__btns">
+          <include src="components/btn-form-consultation.html">
+            {
+            "class": "btn--blue-sky",
+            "name": "Онлайн-консультация"
+            }
+          </include>
+          <include src="components/btn-form-appointment.html">
+            {
+            "class": "btn--dark",
+            "text": "На прием"
+            }
+          </include>
+        </div>
+      </div>
+
+      <div class="structure-place__map">
+        <div class="structure-place-map"></div>
+        <div class="structure-place-direction">
+          <input type="radio" name="tab" id="radio-direction-metro-0" data-type="0" checked style="display: none;">
+          <input type="radio" name="tab" id="radio-direction-car-0" data-type="1" style="display: none;">
+
+          <ul class="structure-place-direction-tabs list-unstyled" role="tablist">
+            <li class="structure-place-direction-tabs__item" role="presentation">
+              <label for="radio-direction-metro-0" class="structure-place-direction-tabs__link" tabindex="0"
+                     data-tab="metro">На метро</label>
+            </li>
+            <li class="service-tabs__item" role="presentation">
+              <label for="radio-direction-car-0" class="structure-place-direction-tabs__link" tabindex="0"
+                     data-tab="car">На машине</label>
+            </li>
+          </ul>
+
+          <section id="metro-0" class="structure-place-direction-content" data-type="0" role="tabpanel"
+                   aria-labelledby="tab-A" aria-hidden="false">
+            <h3 class="structure-place-direction-content__title">От метро Щукинская</h3>
+            <p>Автобус #015 или Автобус #030
+              М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
+              метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
+
+            <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
+            <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
+              М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
+              шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
+
+            <p>Станция МЦК "Стрешнево", выход в сторону красногорского проезда до Волоколамского шоссе, повернуть
+              направо, дойти до подземного перехода и перейти на другую сторону. Из перехода налево до трамвайных путей,
+              далее по пешеходном 121 к ЖК комплексу "Доминанта"</p>
+
+            <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
+              паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
+          </section>
+
+          <section id="service-children" class="structure-place-direction-content" data-type="1"
+                   role="tabpanel"
+                   aria-labelledby="tab-B"
+                   aria-hidden="true">
+            <h3 class="structure-place-direction-content__title">От метро Щукинская</h3>
+            <p>Автобус #015 или Автобус #030
+              М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
+              метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
+
+            <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
+            <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
+              М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
+              шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
+
+            <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
+              паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>

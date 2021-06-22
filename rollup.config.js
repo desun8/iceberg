@@ -53,6 +53,7 @@ export default {
     'src/children-service.ts',
     'src/documents.ts',
     'src/information.ts',
+    'src/structure.ts',
   ],
   output: {
     dir: 'dist',

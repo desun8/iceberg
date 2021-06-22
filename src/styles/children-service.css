@@ -7,7 +7,7 @@
 @import "./children-service/4-components/scaffolding.css";
 @import "./children-service/4-components/accordion.css";
 @import "./children-service/4-components/children-list.css";
-@import "./children-service/4-components/children-welcome.css";
+@import "children-service/4-components/welcome.css";
 @import "./children-service/4-components/children-anchors.css";
 @import "./children-service/4-components/children-features/children-features.css";
 @import "./children-service/4-components/children-features/feature-slider.css";

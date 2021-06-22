@@ -1,0 +1,12 @@
+.structure-place {
+  margin: 0 calc(var(--page-gap) * -1);
+  padding: 44px var(--page-gap);
+  background-color: var(--c-blue-sky);
+}
+
+.structure-place__title {
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}

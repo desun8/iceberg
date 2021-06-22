@@ -1,0 +1,15 @@
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  :root {
+    --wrapper: {
+      width: 100%;
+      max-width: 1430px;
+    };
+  }
+
+  .page-main {
+    padding-right: 0;
+    padding-left: 0;
+    overflow: hidden;
+  }
+}
