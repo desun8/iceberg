@@ -1,4 +1,5 @@
 .structure-place {
+  position: relative;
   margin: 0 calc(var(--page-gap) * -1);
   padding: 44px var(--page-gap);
 }
@@ -25,11 +26,88 @@
     font-size: 48px;
     text-align: left;
   }
-  
+
   .structure-place__top {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     margin-bottom: 140px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-sm) {
+  .structure-place {
+    padding-bottom: 100px;
+  }
+
+  .structure-place::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 63%;
+    height: 0;
+    padding-top: calc(458 / 1078 * 100%);
+    background-color: var(--c-blue-sky);
+    mask: url("/images/structure/wave-bg.svg") no-repeat;
+  }
+
+  .structure-place--sky::before {
+    background-color: #fff;
+  }
+
+  .structure-place__wrapper {
+    position: relative;
+  }
+
+  .structure-place__title {
+    margin-bottom: 180px;
+  }
+
+  .structure-place__top {
+    grid-template-columns: 540px 1fr;
+    justify-content: end;
+    gap: 20px;
+    width: fit-content;
+    margin-left: auto;
+  }
+
+  .structure-place__map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+  }
+
+  .structure-place-map {
+    grid-row: 1/2;
+  }
+
+  .structure-place--mirror .structure-place-map {
+    grid-column: 2/3;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-md) {
+  .structure-place::before {
+    width: 56%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .structure-place__wrapper {
+    max-width: 1430px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-fullhd) {
+  .structure-place__map {
+    grid-template-columns: 1fr 650px;
+    justify-content: end;
   }
 }

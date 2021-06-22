@@ -18,122 +18,281 @@
   </section>
 
   <section class="structure-place  structure-place--sky">
-    <h2 class="structure-place__title">Клиника “Щукинская”</h2>
+    <div class="structure-place__wrapper">
+      <h2 class="structure-place__title">Клиника “Щукинская”</h2>
 
-    <div class="structure-place__top">
-      <ul class="structure-place-contacts list-unstyled">
-        <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--marker"></span>Москва, ул. Щукинская, д. 2, под. 8</li>
-        <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--clock"></span>Пн-Вс: 09:00 – 21:00</li>
-        <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--tel"></span><a href="tel:+79093913251">+7 (909) 391-32-51</a></li>
-      </ul>
-
-      <div class="structure-place-order">
+      <div class="structure-place__top">
         <ul class="structure-place-contacts list-unstyled">
           <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--marker"></span>Москва, ул.
             Щукинская, д. 2, под. 8
           </li>
-          <li>Пн-Вс: 09:00 – 21:00</li>
-          <li><a href="tel:+79093913251">+7 (909) 391-32-51</a></li>
+          <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--clock"></span>Пн-Вс: 09:00 –
+            21:00
+          </li>
+          <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--tel"></span><a
+            href="tel:+79093913251">+7 (909) 391-32-51</a></li>
         </ul>
 
-        <span class="structure-place-order__text"><span
-          class="structure-place-order__text-bolder">Запишитесь на прием</span> или получите бесплатную <span
-          class="structure-place-order__text-bolder">онлайн консультацию!</span></span>
+        <div class="structure-place-order">
+          <ul class="structure-place-contacts list-unstyled">
+            <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--marker"></span>Москва, ул.
+              Щукинская, д. 2, под. 8
+            </li>
+            <li>Пн-Вс: 09:00 – 21:00</li>
+            <li><a href="tel:+79093913251">+7 (909) 391-32-51</a></li>
+          </ul>
 
-        <div class="structure-place-order__btns">
-          <include src="components/btn-form-consultation.html">
-            {
-            "class": "btn--blue-sky",
-            "name": "Онлайн-консультация"
-            }
-          </include>
-          <include src="components/btn-form-appointment.html">
-            {
-            "class": "btn--dark",
-            "text": "На прием"
-            }
-          </include>
+          <span class="structure-place-order__text"><span
+            class="structure-place-order__text-bolder">Запишитесь на прием</span> или получите бесплатную <span
+            class="structure-place-order__text-bolder">онлайн консультацию!</span></span>
+
+          <div class="structure-place-order__btns">
+            <include src="components/btn-form-consultation.html">
+              {
+              "class": "",
+              "name": "Онлайн-консультация"
+              }
+            </include>
+            <include src="components/btn-form-appointment.html">
+              {
+              "class": "btn--dark",
+              "text": "На прием"
+              }
+            </include>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="structure-place__map">
-      <div class="structure-place-direction">
-        <h3 class="structure-place-direction__title">Как добраться</h3>
+      <div class="structure-place__map">
+        <div class="structure-place-direction">
+          <h3 class="structure-place-direction__title">Как добраться</h3>
 
-        <input type="radio" name="tab-0" id="radio-direction-metro-0" checked style="display: none;">
-        <input type="radio" name="tab-0" id="radio-direction-car-0" style="display: none;">
+          <input type="radio" name="tab-0" id="radio-direction-metro-0" checked style="display: none;">
+          <input type="radio" name="tab-0" id="radio-direction-car-0" style="display: none;">
 
-        <ul class="structure-place-direction-tabs list-unstyled" role="tablist">
-          <li class="structure-place-direction-tabs__item" role="presentation">
-            <label for="radio-direction-metro-0" class="structure-place-direction-tabs__link" tabindex="0">На
-              метро</label>
-          </li>
-          <li class="service-tabs__item" role="presentation">
-            <label for="radio-direction-car-0" class="structure-place-direction-tabs__link" tabindex="0">На
-              машине</label>
-          </li>
-        </ul>
+          <ul class="structure-place-direction-tabs list-unstyled" role="tablist">
+            <li class="structure-place-direction-tabs__item" role="presentation">
+              <label for="radio-direction-metro-0" class="structure-place-direction-tabs__link" tabindex="0">На
+                метро</label>
+            </li>
+            <li class="service-tabs__item" role="presentation">
+              <label for="radio-direction-car-0" class="structure-place-direction-tabs__link" tabindex="0">На
+                машине</label>
+            </li>
+          </ul>
 
-        <section id="metro-0" class="structure-place-direction-content" role="tabpanel"
-                 aria-labelledby="tab-A" aria-hidden="false">
-          <div class="structure-place-direction-content__body">
-            <h3 class="structure-place-direction-content__title">От метро Щукинская</h3>
-            <p>Автобус #015 или Автобус #030
-              М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
-              метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
+          <section id="metro-0" class="structure-place-direction-content" role="tabpanel"
+                   aria-labelledby="tab-A" aria-hidden="false">
+            <div class="structure-place-direction-content__body">
+              <h3 class="structure-place-direction-content__title">От метро Щукинская</h3>
+              <p>Автобус #015 или Автобус #030
+                М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
+                метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
 
-            <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
-            <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
-              М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
-              шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
+              <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
+              <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
+                М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
+                шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
 
-            <p>Станция МЦК "Стрешнево", выход в сторону красногорского проезда до Волоколамского шоссе, повернуть
-              направо, дойти до подземного перехода и перейти на другую сторону. Из перехода налево до трамвайных путей,
-              далее по пешеходном 121 к ЖК комплексу "Доминанта"</p>
+              <p>Станция МЦК "Стрешнево", выход в сторону красногорского проезда до Волоколамского шоссе, повернуть
+                направо, дойти до подземного перехода и перейти на другую сторону. Из перехода налево до трамвайных
+                путей,
+                далее по пешеходном 121 к ЖК комплексу "Доминанта"</p>
 
-            <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
-              паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
-          </div>
-
-          <div class="structure-place-direction-content__btns">
-            <button class="btn  btn--pink" type="button">Как проехать?</button>
-            <div class="link-wrapper">
-              <a href="" class="btn">Построить маршрут</a>
-              <span class="link-wrapper__describe">откроется Яндекс.Карта</span>
+              <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
+                паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
             </div>
-          </div>
-        </section>
 
-        <section id="car-0" class="structure-place-direction-content" data-type="1"
-                 role="tabpanel"
-                 aria-labelledby="tab-B"
-                 aria-hidden="true">
-          <h3 class="structure-place-direction-content__title">Из Владивостока</h3>
-          <p>Автобус #015 или Автобус #030
-            М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
-            метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
+            <div class="structure-place-direction-content__btns">
+              <button class="btn  btn--pink  js-btn-fullscreen" type="button" data-video-src="/videos/home.mp4"><span class="btn__icon-new  icon-play"></span>Как проехать?
+              </button>
+              <div class="link-wrapper">
+                <a href="" class="btn  btn--blue-sky"><span class="btn__icon-new icon-marker"></span>Построить маршрут</a>
+                <span class="link-wrapper__describe">откроется Яндекс.Карта</span>
+              </div>
+            </div>
+          </section>
 
-          <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
-          <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
-            М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
-            шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
+          <section id="car-0" class="structure-place-direction-content" data-type="1"
+                   role="tabpanel"
+                   aria-labelledby="tab-B"
+                   aria-hidden="true">
+            <div class="structure-place-direction-content__body">
+              <h3 class="structure-place-direction-content__title">Из Владивостока</h3>
+              <p>Автобус #015 или Автобус #030
+                М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
+                метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
 
-          <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
-            паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
-        </section>
-      </div>
+              <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
+              <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
+                М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
+                шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
 
-      <div class="structure-place-map">
-        <div class="structure-place-map__container">
-          <div class="structure-place-map__map"></div>
+              <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
+                паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
+            </div>
+
+            <div class="structure-place-direction-content__btns">
+              <button class="btn  btn--pink  js-btn-fullscreen" type="button" data-video-src="/videos/home.mp4"><span class="btn__icon-new  icon-play"></span>Как проехать?
+              </button>
+              <div class="link-wrapper">
+                <a href="" class="btn  btn--blue-sky"><span class="btn__icon-new icon-marker"></span>Построить маршрут</a>
+                <span class="link-wrapper__describe">откроется Яндекс.Карта</span>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class="structure-place-map__btns">
-          <button class="btn  btn--circle  btn--blue-sky" type="button">-</button>
-          <button class="btn  btn--circle  btn--blue-sky" type="button">+</button>
+
+        <div class="structure-place-map">
+          <div class="structure-place-map__container">
+            <div class="structure-place-map__map"></div>
+          </div>
+          <div class="structure-place-map__btns">
+            <button class="btn  btn--circle  btn--blue-sky  btn--minus" type="button"><span
+              class="btn__icon-new"></span></button>
+            <button class="btn  btn--circle  btn--blue-sky  btn--plus" type="button"><span class="btn__icon-new"></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="structure-place  structure-place--mirror">
+    <div class="structure-place__wrapper">
+      <h2 class="structure-place__title">Клиника “Октябрьская”</h2>
+
+      <div class="structure-place__top">
+        <ul class="structure-place-contacts list-unstyled">
+          <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--marker"></span>Якиманка район, ул. Крымский Вал, 3 ст2 (этаж 1, помещение 1, офис 101)</li>
+          <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--clock"></span>Пн-Вс: 09:00 –
+            21:00
+          </li>
+          <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--tel"></span><a
+            href="tel:+79093913251">+7 (909) 391-32-51</a></li>
+        </ul>
+
+        <div class="structure-place-order">
+          <ul class="structure-place-contacts list-unstyled">
+            <li><span class="structure-place-contacts__icon  structure-place-contacts__icon--marker"></span>Якиманка район, ул. Крымский Вал, 3 ст2 (этаж 1, помещение 1, офис 101)
+            </li>
+            <li>Пн-Вс: 09:00 – 21:00</li>
+            <li><a href="tel:+79093913251">+7 (909) 391-32-51</a></li>
+          </ul>
+
+          <span class="structure-place-order__text"><span
+            class="structure-place-order__text-bolder">Запишитесь на прием</span> или получите бесплатную <span
+            class="structure-place-order__text-bolder">онлайн консультацию!</span></span>
+
+          <div class="structure-place-order__btns">
+            <include src="components/btn-form-consultation.html">
+              {
+              "class": "",
+              "name": "Онлайн-консультация"
+              }
+            </include>
+            <include src="components/btn-form-appointment.html">
+              {
+              "class": "btn--dark",
+              "text": "На прием"
+              }
+            </include>
+          </div>
+        </div>
+      </div>
+
+      <div class="structure-place__map">
+        <div class="structure-place-direction">
+          <h3 class="structure-place-direction__title">Как добраться</h3>
+
+          <input type="radio" name="tab-1" id="radio-direction-metro-1" checked style="display: none;">
+          <input type="radio" name="tab-1" id="radio-direction-car-1" style="display: none;">
+
+          <ul class="structure-place-direction-tabs list-unstyled" role="tablist">
+            <li class="structure-place-direction-tabs__item" role="presentation">
+              <label for="radio-direction-metro-1" class="structure-place-direction-tabs__link" tabindex="0">На
+                метро</label>
+            </li>
+            <li class="service-tabs__item" role="presentation">
+              <label for="radio-direction-car-1" class="structure-place-direction-tabs__link" tabindex="0">На
+                машине</label>
+            </li>
+          </ul>
+
+          <section id="metro-1" class="structure-place-direction-content" role="tabpanel"
+                   aria-labelledby="tab-A" aria-hidden="false">
+            <div class="structure-place-direction-content__body">
+              <h3 class="structure-place-direction-content__title">От метро Щукинская</h3>
+              <p>Автобус #015 или Автобус #030
+                М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
+                метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
+
+              <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
+              <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
+                М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
+                шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
+
+              <p>Станция МЦК "Стрешнево", выход в сторону красногорского проезда до Волоколамского шоссе, повернуть
+                направо, дойти до подземного перехода и перейти на другую сторону. Из перехода налево до трамвайных
+                путей,
+                далее по пешеходном 121 к ЖК комплексу "Доминанта"</p>
+
+              <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
+                паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
+            </div>
+
+            <div class="structure-place-direction-content__btns">
+              <button class="btn  btn--pink    js-btn-fullscreen" type="button" data-video-src="/videos/home.mp4"><span class="btn__icon-new  icon-play"></span>Как проехать?
+              </button>
+              <div class="link-wrapper">
+                <a href="" class="btn  btn--blue-sky  btn--dark-hover"><span class="btn__icon-new icon-marker"></span>Построить маршрут</a>
+                <span class="link-wrapper__describe">откроется Яндекс.Карта</span>
+              </div>
+            </div>
+          </section>
+
+          <section id="car-1" class="structure-place-direction-content" data-type="1"
+                   role="tabpanel"
+                   aria-labelledby="tab-B"
+                   aria-hidden="true">
+            <div class="structure-place-direction-content__body">
+              <h3 class="structure-place-direction-content__title">Из Владивостока</h3>
+              <p>Автобус #015 или Автобус #030
+                М. ЩУКИНСКАЯ - (3 остановки) - Пехотная улица. (останавливается на Волоколамском шоссе, пройти прямо
+                метров 30, по ходу движения и повернуть направо, перейти через трамвайные пути)</p>
+
+              <h3 class="structure-place-direction-content__title">От метро Сокол</h3>
+              <p>Автобус #82, #412, #456, #904, #м1, #т70, #т80, #904к
+                М. СОКОЛ - (3 остановки) - Пехотная улица (останавливается на противоположной стороне на Волоколамском
+                шоссе, перейти через подземный переход, затем налево и направо, перейти через трамвайные пути)</p>
+
+              <p>ул Щукинская, д. 2, 8-й подъезд, в торце дома напротив остановки трамвая рядом с въездом в подземный
+                паркинг, левая коричневая дверь, в фойе направо белая дверь.</p>
+            </div>
+
+            <div class="structure-place-direction-content__btns">
+              <button class="btn  btn--pink  js-btn-fullscreen" type="button" data-video-src="/videos/home.mp4"><span class="btn__icon-new  icon-play"></span>Как проехать?
+              </button>
+              <div class="link-wrapper">
+                <a href="" class="btn  btn--blue-sky  btn--dark-hover"><span class="btn__icon-new icon-marker"></span>Построить маршрут</a>
+                <span class="link-wrapper__describe">откроется Яндекс.Карта</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="structure-place-map">
+          <div class="structure-place-map__container">
+            <div class="structure-place-map__map"></div>
+          </div>
+          <div class="structure-place-map__btns">
+            <button class="btn  btn--circle  btn--blue-sky  btn--minus" type="button"><span
+              class="btn__icon-new"></span></button>
+            <button class="btn  btn--circle  btn--blue-sky  btn--plus" type="button"><span class="btn__icon-new"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>

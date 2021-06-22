@@ -15,12 +15,10 @@
     display: grid;
     grid-template-areas:
       'title tabs'
-      'text text'
-      'map map';
+      'text text';
   }
 
   .structure-place-direction__title {
-    /*margin-bottom: 50px;*/
     font-size: 42px;
     text-align: left;
     grid-area: title;
@@ -33,8 +31,18 @@
   .structure-place-direction-content {
     grid-area: text;
   }
+}
 
-  .structure-place-map {
-    grid-area: map;
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-sm) {
+  .structure-place-direction {
+    grid-template-areas:
+      'title'
+      'tabs'
+      'text';
+  }
+
+  .structure-place-direction__title {
+    margin-bottom: 50px;
   }
 }
