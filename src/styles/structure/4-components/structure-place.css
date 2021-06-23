@@ -86,6 +86,10 @@
   .structure-place--mirror .structure-place-map {
     grid-column: 2/3;
   }
+
+  .structure-place--mirror .structure-place-map__map > * {
+    transform: scaleX(-1);
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */

@@ -51,6 +51,11 @@
   --image: url("/images/icons/plus.svg");
 }
 
+.structure-place-map *[class$=map-copyrights-promo],
+.structure-place-map *[class$=copyright__content] {
+  display: none;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media (--tablet) {
   .structure-place-map__container {
@@ -122,6 +127,7 @@
 
   .structure-place-map__btns {
     --scale: 0.3;
+    right: 75px;
   }
 }
 
@@ -136,6 +142,10 @@
 @media (--desktop-lg) {
   .structure-place-map {
     justify-content: center;
+  }
+
+  .structure-place-map__btns {
+    right: calc(var(--right) * var(--scale));
   }
 
   .structure-place-map,
