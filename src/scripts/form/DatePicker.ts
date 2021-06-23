@@ -9,7 +9,7 @@ import { MaskType } from "./types";
 flatpickr.localize(RU);
 
 class DatePicker {
-  private flatpickr: Instance | null = null;
+  flatpickr: Instance | null = null;
   private spanMonth: HTMLSpanElement | null = null;
   private readonly svgArrow = "<svg width=\"6\" height=\"6\"><path d=\"M1.777 1.11C.775 1.907.775 1.92.731 2.776l-.044.87.987.795c.545.427 1.046.78 1.09.78.059 0 .103-.338.103-.765 0-.693-.059-.796-.56-1.194l-.545-.427.56-.471c.516-.442.56-.53.501-1.267l-.044-.81-1.002.825zM4.281 1.155l-.957.736v1.783l.957.78c.53.428 1.032.767 1.09.767.06 0 .118-.34.118-.752 0-.707-.044-.81-.56-1.208l-.56-.427.56-.486c.502-.427.56-.56.56-1.193 0-.398-.058-.722-.132-.722-.074 0-.56.324-1.076.722z\"/></svg>";
   private readonly placeholder = "Дата";

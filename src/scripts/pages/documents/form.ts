@@ -147,7 +147,6 @@ const getTemplate = (id: number) => `
                     class="visually-hidden"
                     type="checkbox"
                     name="document-same-residence"
-                    required
                   />
                   <span class="c-checkbox__checkmark">
               <svg width="16" height="12" fill="none">
@@ -222,16 +221,34 @@ export default () => {
       const isRequired = elm.required;
       const isDateInput = elm.type === "date";
       const typeMask = elm.dataset.mask;
-      const typeValidation = elm.dataset.validation;
+      const typeValidation = elm.dataset.validation || "";
 
       if (isRequired) {
         elm.placeholder = `${elm.placeholder} *`;
       }
 
       if (isDateInput) {
-        new DatePicker(elm as HTMLInputElement);
+        const pickerInstance = new DatePicker(elm as HTMLInputElement);
 
-        console.log((elm as DatePickerElement)._flatpickr);
+        console.log(pickerInstance);
+        const pickerInput = pickerInstance.flatpickr?.altInput as HTMLInputElement;
+        const pickerMobileInput = pickerInstance.flatpickr?.mobileInput as HTMLInputElement;
+
+        if (pickerInput) {
+          pickerInput.addEventListener("blur", () => {
+            if (elm.value.length !== 0) {
+              Validation.check(typeValidation, elm);
+            }
+          });
+        }
+
+        if (pickerInput) {
+          pickerMobileInput.addEventListener("blur", () => {
+            if (elm.value.length !== 0) {
+              Validation.check(typeValidation, elm);
+            }
+          });
+        }
       }
 
       if (typeMask && elm.tagName === "INPUT") {

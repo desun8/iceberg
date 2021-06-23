@@ -6,7 +6,7 @@ import { FormElm } from "./types";
 class Submit {
   private static isValid(inputs: FormElm[] = []) {
     // обязательные поля устанавливаются через data-required
-    const requiredElms = inputs.filter((input) => input.required);
+    const requiredElms = inputs.filter((input) => input.required && input.id);
     // название типа для валидации хранится в data-name
     const isInvalid = !!requiredElms.filter((elm) => !Validation.check(elm.dataset.validation!, elm)).length;
     return !isInvalid;
