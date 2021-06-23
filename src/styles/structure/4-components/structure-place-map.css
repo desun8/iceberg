@@ -18,7 +18,6 @@
 .structure-place-map__map {
   width: 100%;
   height: 412px;
-  background-color: #f12;
   mask: url("/images/structure/map-mask.svg") no-repeat center/auto 100%;
 }
 
