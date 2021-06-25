@@ -43,6 +43,10 @@
   --bg-c: var(--c-pink);
 }
 
+.structure-place-order__btns .btn .md {
+  display: none;
+}
+
 /* noinspection CssInvalidMediaFeature */
 @media (--tablet-lg) {
   .structure-place-order {
@@ -59,6 +63,14 @@
 
   .structure-place-order__btns .btn {
     font-size: 14px;
+  }
+
+  .structure-place-order__btns .btn .xs {
+    display: none;
+  }
+
+  .structure-place-order__btns .btn .md {
+    display: inline;
   }
 }
 
