@@ -27,7 +27,7 @@
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(50% - 98px), 1fr));  /* 50% - grid-column-gap */
-    grid-column-gap: 98px;
+    grid-column-gap: 88px;
   }
 
   .describe-list::before {
