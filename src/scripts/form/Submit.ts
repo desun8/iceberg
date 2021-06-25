@@ -77,9 +77,9 @@ class Submit {
 
       // TODO: Закомментировать после проверки
       // проверка значений formData
-      for (const pair of formData.entries()) {
-        console.log(`${pair[0]}, ${pair[1]}`);
-      }
+      // for (const pair of formData.entries()) {
+      //   console.log(`${pair[0]}, ${pair[1]}`);
+      // }
 
       this.recaptcha(captchaKey, formData, (data) => this.fetch(url, data));
     } else {

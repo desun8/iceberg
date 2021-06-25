@@ -43,21 +43,6 @@ const getTemplate = (id: number) => `
                      autocomplete="bday" required data-mask="date" data-validation="date" data-required="true">
             </div>
           </div>
-          <div class="document-form__field  form-field">
-            <label class="visually-hidden" for="email-${id}">Email</label>
-            <input id="email-${id}" type="text" name="email" placeholder="Email" autocomplete="email" data-mask="email"
-                   data-validation="email" required>
-          </div>
-          <div class="document-form__field  form-field">
-            <label class="visually-hidden" for="tel-${id}">Номер телефона</label>
-            <input id="tel-${id}" type="tel" inputmode="decimal" name="phone" placeholder="Номер телефона"
-                   autocomplete="tel"
-                   data-mask="tel" data-validation="tel" required>
-          </div>
-          <div class="document-form__field  form-field  col-full">
-            <label class="visually-hidden" for="comment-${id}">Комментарий</label>
-            <textarea id="comment-${id}" rows="3" name="message" placeholder="Комментарий"></textarea>
-          </div>
         </div>
 
         <div class="document-form__container  document-form__container--document">
@@ -72,7 +57,6 @@ const getTemplate = (id: number) => `
                   name="child-document-type-${id}"
                   value="1"
                   checked
-                  required
                 />
                 <span class="c-checkbox__checkmark">
                 <svg width="16" height="12" fill="none">
@@ -92,7 +76,6 @@ const getTemplate = (id: number) => `
                   type="radio"
                   name="child-document-type-${id}"
                   value="2"
-                  required
                 />
                 <span class="c-checkbox__checkmark">
                 <svg width="16" height="12" fill="none">
@@ -213,7 +196,10 @@ export default () => {
 
   const initFormSection = (rootElm: HTMLElement) => {
     const fieldElms = getFormFieldElms(rootElm);
-    const seriesInput = fieldElms.find(input => input.dataset.validation === "document-series");
+    const seriesInput = fieldElms.find(input => input.dataset.mask === "document-series");
+    const numbersInput = fieldElms.find(input => input.dataset.mask === "document-number");
+
+    console.log(numbersInput);
 
     console.log(seriesInput);
 
@@ -242,7 +228,7 @@ export default () => {
           });
         }
 
-        if (pickerInput) {
+        if (pickerMobileInput) {
           pickerMobileInput.addEventListener("blur", () => {
             if (elm.value.length !== 0) {
               Validation.check(typeValidation, elm);
@@ -271,10 +257,12 @@ export default () => {
         }
       }
 
-      if (elm.type === "radio" && (elm.value === "1" || elm.value === "2") && seriesInput) {
+      if (elm.type === "radio" && (elm.value === "1" || elm.value === "2") && seriesInput && numbersInput) {
         elm.onchange = () => {
           const isPassport = elm.value === "1";
-          seriesInput.value = "";
+
+          [seriesInput, numbersInput].forEach(elm => clearField(elm));
+
           Mask.documentSeries(<InputElement>seriesInput, isPassport ? "" : "document-birth");
         };
       }
@@ -327,28 +315,32 @@ export default () => {
     }
   };
 
+  const clearField = (elm: FormElm) => {
+    // Если на инпуте используется маска,
+    // то value устанавливается через ее метод
+    if (elm.inputmask) {
+      elm.inputmask.setValue("");
+    } else {
+      elm.value = "";
+    }
+
+    if (elm.type === "checkbox") {
+      (<InputElement>elm).checked = false;
+    }
+
+    // Сбрасывается/очищается через методы кастомных полей
+    if (elm.tagName === "INPUT" && elm.classList.contains("form__datepicker") && (<DatePickerElement>elm)._flatpickr) {
+      // flatpickr
+      (<DatePickerElement>elm)._flatpickr!.clear();
+    }
+
+    Validation.clearClasses(elm);
+  };
+
   const clearForm = (formElm: HTMLFormElement) => {
     const formElms = getFormFieldElms(formElm);
     formElms.forEach((elm) => {
-      // Если на инпуте используется маска,
-      // то value устанавливается через ее метод
-      if (elm.inputmask) {
-        elm.inputmask.setValue("");
-      } else {
-        elm.value = "";
-      }
-
-      if (elm.type === "checkbox") {
-        (<InputElement>elm).checked = false;
-      }
-
-      // Сбрасывается/очищается через методы кастомных полей
-      if (elm.tagName === "INPUT" && elm.classList.contains("form__datepicker") && (<DatePickerElement>elm)._flatpickr) {
-        // flatpickr
-        (<DatePickerElement>elm)._flatpickr!.clear();
-      }
-
-      Validation.clearClasses(elm);
+      clearField(elm);
     });
   };
 
