@@ -89,6 +89,13 @@
 
 /* noinspection CssInvalidMediaFeature */
 @media (--desktop-lg) {
+  :root {
+    --wrapper: {
+      width: 100%;
+      max-width: 1430px;
+    };
+  }
+
   .information-reviews {
     @apply --wrapper;
   }

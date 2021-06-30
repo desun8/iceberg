@@ -6,7 +6,6 @@ const fs = require('fs-extra');
 
 function copyImages(cb) {
   fs.copy('src/images', 'dist/images', cb);
-  fs.copy('src/img', 'dist/img', cb);
 }
 
 function copyVideo(cb) {
