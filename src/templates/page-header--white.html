@@ -1,0 +1,32 @@
+<header class="page-header header header--white">
+  <div class="header__container">
+    <a href="#" class="header__logo">
+      <img src="./images/logo-white.svg" width="134" height="50" alt="Центр дентальной травматологии">
+    </a>
+
+    <span class="header__title">Центр дентальной травматологии</span>
+
+    <a href="" class="header__btn  header__btn--a11y  btn  btn--circle" aria-label="Версия для слабовидящих"><span
+      class="btn__icon-new" aria-hidden="true"></span></a>
+    <a href="tel:+70000000000" class="header__btn  btn  btn--tight">+7 (909) 391-32-51</a>
+
+    <include
+      src="components/btn-form-consultation.html"
+      locals='{
+      "class": "btn--tight header__btn header__btn--form",
+      "name": "Онлайн-консультация"
+    }'></include>
+
+    <button class="hamburger  btn  btn--circle  btn--pink  js-menu-open" type="button" aria-label="Меню">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </div>
+
+  <include
+    src="components/social-list.html"
+    locals='{
+     "class": "header__social",
+     "btnClass": ""
+    }'></include>
+</header>

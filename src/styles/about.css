@@ -1,39 +1,185 @@
-/*!* LIB *!*/
-/*@import "./main/1-lib/swiper-bundle.css";*/
+@import "./home/1-lib/swiper-bundle.css";
+@import "./core/1-lib/photoswipe.css";
+@import "./core/4-components/catalog-banner/catalog-banner.css";
+@import "./core/4-components/catalog-banner/catalog-banner--home.css";
+@import "./home/4-components/scaffolding.css";
+@import "./children-service/4-components/children-steps/index.css";
+@import "./children-service/4-components/children-services/children-services-gallery.css";
+@import "./children-service/4-components/children-services/children-service-gallery.css";
+@import "./about/4-components/about-styles.css";
 
-/*!* COMPONENTS *!*/
-/*@import "./about/4-components/swiper-controls.css";*/
-/*@import "./about/4-components/content.css";*/
-/*@import "./about/4-components/block-hero/block-hero.css";*/
-/*@import "./about/4-components/block-hero/hero-slider.css";*/
-/*@import "./about/4-components/block-introduction.css";*/
-/*@import "./about/4-components/block-team/block-team.css";*/
-/*@import "./about/4-components/block-team/team-slider.css";*/
-/*@import "./about/4-components/block-specialization.css";*/
-/*@import "./about/4-components/block-social-project.css";*/
-/*@import "./about/4-components/block-steps/block-steps.css";*/
-/*@import "./about/4-components/block-steps/steps-slider.css";*/
-/*@import "./main/4-components/block-quote/index.css";*/
-/*@import "./about/4-components/block-quote.css";*/
-/*@import "./about/4-components/block-slider.css";*/
+.home-wrapper {
+  padding-bottom: 100px;
+}
 
-/*.page-header .hamburger {*/
-/*  --color: #fff;*/
-/*  --bg-c: var(--c-blue-deep);*/
-/*}*/
+.about-hero {
+  min-height: 100vh;
+  height: auto;
+}
 
-/*!* TODO: Лучше переделать. Все зависит от того, как будет на беке собираться шаблон *!*/
-/*.page-header button[data-type="consultation"] {*/
-/*  --color: var(--c-blue-deep);*/
-/*  --bg-c: var(--c-blue-deep);*/
-/*}*/
+.children-steps {
+  padding-left: var(--page-gap);
+  padding-right: var(--page-gap);
+  margin-bottom: 0;
+  padding-bottom: 100px;
+}
 
-/*.page-header .header__btn-down {*/
-/*  --color: var(--c-blue-deep);*/
-/*  --bg-c: var(--c-blue-deep);*/
-/*}*/
+.catalog-banner {
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
 
-/*.page-header .social-list__link {*/
-/*  --color: #fff;*/
-/*  --bg-c: var(--c-blue-deep);*/
-/*}*/
+.children-services-gallery {
+  display: block;
+  width: calc(100% + (var(--page-gap) * 2));
+  margin-right: calc(var(--page-gap) * -1);
+  margin-left: calc(var(--page-gap) * -1);
+  padding-top: calc(320 / 375 * 100%);
+  border-radius: 0;
+}
+
+.team__info-text {
+  white-space: pre-line;
+}
+
+.special__certificate .btn__icon-new {
+  --image: url("/images/icons/_fullscreen.svg");
+
+  width: 14px;
+  height: 14px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .children-steps__title {
+    font-size: 48px;
+    text-transform: unset;
+  }
+
+  .children-steps-list-item__title {
+    display: flex;
+  }
+
+  .children-steps-list-item__title::before {
+    white-space: nowrap;
+  }
+
+  .certificate {
+    margin-bottom: 255px;
+  }
+
+  .team {
+    max-width: 1430px;
+    padding: 0 var(--page-gap);
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 200px;
+  }
+
+  .team-title {
+    max-width: 600px;
+  }
+
+  .team__wrapper {
+    gap: 80px;
+  }
+
+  .children-services-gallery {
+    grid-column: 2/3;
+    width: 100%;
+    margin: 0;
+    padding-top: calc(455 / 706 * 100%);
+    border-radius: 10px;
+  }
+
+  .catalog-banner {
+    margin: 0 var(--page-gap);
+  }
+
+  .catalog-banner--home .catalog-banner__bg-img {
+    background-size: 1050px 100%;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-sm) {
+  .special {
+    margin-bottom: 240px;
+    padding-top: 280px;
+    padding-right: var(--page-gap);
+    padding-left: var(--page-gap);
+  }
+
+  .special__container,
+  .thanks__container {
+    max-width: 1340px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .special::before,
+  .special::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    mask: url("/images/about/mask-wave.svg") no-repeat;
+  }
+
+  .special::before {
+    top: 0;
+    background-color: #fff;
+  }
+
+  .special::after {
+    bottom: -200px;
+    background-color: var(--c-blue-sky);
+  }
+
+  .thanks {
+    margin-bottom: 150px;
+  }
+
+  .thanks__container {
+    max-width: 1430px;
+    padding-right: calc(var(--page-gap) * 1.5);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-md) {
+  .children-services-gallery {
+    width: 706px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .children-steps {
+    padding-right: 0;
+    padding-left: calc((100vw - 1430px) / 2);
+    overflow: hidden;
+  }
+
+  .team {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .thanks__container {
+    padding-right: var(--page-gap);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-fullhd) {
+  .catalog-banner {
+    grid-template-columns: 940px 1fr;
+  }
+
+  .catalog-banner__describe {
+    padding-right: 250px;
+  }
+}

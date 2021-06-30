@@ -1,0 +1,159 @@
+<main class="js-home-main">
+  <section class="about-hero main">
+    <div class="main__wrapper">
+      <div class="main__info">
+        <div class="main__info-text">
+          <h1 class="main__title">Клиника Iceberg</h1>
+          <p class="main__subtitle">Нас объединяет общая движущая сила - желание помогать людям и сделать <br>
+            стоматологическую травматологию в России лучшей в мире</p>
+        </div>
+        <div class="main__slider">
+          <div class="main__slide"><img src="/images/about/img/teamslide.png" alt="команда"></div>
+          <div class="main__slide"><img src="/images/about/img/teamslide.png" alt="команда"></div>
+          <div class="main__slide"><img src="/images/about/img/teamslide.png" alt="команда"></div>
+
+          <a class="prev arrow" onClick="minusSlide()">
+            <svg class="icon" width="15" height="15">
+              <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"></rect>
+              <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"></rect>
+            </svg>
+          </a>
+          <a class="next arrow" onClick="plusSlide()">
+            <svg class="icon" width="15" height="15">
+              <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"></rect>
+              <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"></rect>
+            </svg>
+            <svg class="circle-progress-bar" width="50" height="50">
+              <circle class="circle-ring" cx="25" cy="25" r="24.6" fill="transparent" stroke-width="1"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="home-wrapper">
+    <section class="certificate  js-scrolltrigger-fadein">
+      <div class="certificate__info">
+        <p class="certificate__info-title">Наша клиника, основана в 2013 году и является ведущей частной клиникой в
+          стоматологической травматологии (IADT Fellow).</p>
+        <p class="certificate__info-subtitle">Мы ежегодно входим в <span>ТОП-5 рейтинга лучших клиник России</span> по
+          версии ИД “Коммерсант”.</p>
+      </div>
+
+      <div class="certificate__img">
+        <img src="/images/about/img/certificate.svg" alt="сертификат">
+      </div>
+    </section>
+
+    <section class="team  js-scrolltrigger-fadein">
+      <h2 class="team-title title">Мы гордимся своей командой</h2>
+      <div class="team__wrapper">
+        <div class="children-services-gallery  swiper-container" data-photoswipe-gallery>
+          <ul class="children-services-gallery__list list-unstyled swiper-wrapper">
+            <li class="children-services-gallery__item swiper-slide">
+              <button type="button" data-photoswiper-item><img src="/images/children-service/_dev/1.jpg" width="1000"
+                                                               height="667" alt=""></button>
+            </li>
+            <li class="children-services-gallery__item swiper-slide">
+              <button type="button" data-photoswiper-item><img src="/images/children-service/_dev/2.jpg" width="1000"
+                                                               height="667" alt=""></button>
+            </li>
+            <li class="children-services-gallery__item swiper-slide">
+              <button type="button" data-photoswiper-item><img src="/images/children-service/_dev/3.jpg" width="1000"
+                                                               height="667" alt=""></button>
+            </li>
+            <li class="children-services-gallery__item swiper-slide">
+              <button type="button" data-photoswiper-item><img src="/images/children-service/_dev/4.jpg" width="1000"
+                                                               height="667" alt=""></button>
+            </li>
+          </ul>
+
+          <button class="children-services-gallery__button-prev  slider-btn  slider-btn--prev  slider-btn--dark"
+                  type="button" aria-label="Предыдущий слайд."></button>
+          <button class="children-services-gallery__button-next  slider-btn  slider-btn--dark" type="button"
+                  aria-label="Следующий слайд."></button>
+          <div class="swiper-pagination"></div>
+          <div class="progress-bar">
+            <div class="progress-bar__inner"></div>
+          </div>
+        </div>
+
+        <div class="team__info">
+          <p class="team__info-text text">
+            Лечение и восстановление зубов для нас - это не работа, а образ жизни. Мы оказываем квалифицированную помощь
+            как взрослым пациентам в лечении разного уровня сложности, так и совсем малышам, которым нужна забота и
+            положительный опыт.<br>
+            Наши доктора - это детские стоматологи, терапевты и ортодонты, эндодонтисты, пародонтологи, ортопеды,
+            травматологи и челюстно-лицевые хирурги, которые всегда могут помочь вам и вашему ребенку в любых, даже
+            самых неоднозначных ситуациях.<br>
+            Ежедневно в нашей клинике <span>более 50 человек</span> трудятся над предоставлением лучшего лечения в
+            безопасной, комфортной среде. Наша команда повод для гордости - врачи-эксперты, к.м.н., многие из которых
+            являются лекторами международного уровня, наши доктора выступают на Российских и международных мероприятиях,
+            читают лекции и семинары в Мексике, США и Европе.
+          </p>
+
+          <a href="https://iceberg.dental/team/" class="team__info-btn btn btn--dark">Вся команда</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="special  js-scrolltrigger-fadein">
+      <div class="special__container">
+        <h2 class="special-title title">Мы специализируемся в травматологии</h2>
+        <div class="special__wrapper">
+          <div class="special__info">
+            <div class="special__info-text text">
+              В 2019 году владелец и руководитель клиники - Тишкина Ольга Сергеевна,
+              <span>получила статус IADT Fellow</span> за вклад в развитие мировой дентальной травматологии. Сейчас наша
+              клиника является лидером мнений в сфере стоматологической травматологии и нам направляют пациентов как
+              частные клиники, так и государственные медицинские организации. С уверенностью заявляем, что способны
+              восстановить первозданный вид улыбки даже в самых сложных случаях.
+
+              Главное, что нас объединяет - желание помогать людям и сделать стоматологическую травматологию в России
+              лучшей в мире.
+            </div>
+            <button class="special__info-btn  btn btn--dark">О травматологии</button>
+          </div>
+
+          <div class="special__certificate" data-photoswipe-gallery>
+            <img id="certificate" src="/images/about/img/certificate.png" alt="сертификат">
+            <button class="resize_btn  btn btn--circle btn--dark" data-photoswiper-item>
+              <span class="btn__icon-new"></span>
+              <!--      Изображение сертификата, которое открывается в лайтбоксе        -->
+              <img src="/images/about/img/certificate.png" width="560" height="416" hidden>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="thanks  js-scrolltrigger-fadein">
+      <div class="thanks__container">
+        <h2 class="thanks-title title">Спасаем зубы по<br> всему миру</h2>
+        <div class="thanks__wrapper">
+          <div class="thanks__img"><img src="/images/about/img/save.png" alt="спасизуб"></div>
+          <div class="thanks__info">
+            <div class="thanks__info-text text">
+              Мы создали социальный проект - сайт для пациентов <span>www.spasizub.ru</span> , которая информирует о
+              первой помощи и помогает сориентироваться как действовать при самых распространенных видах травм. Помогает
+              подобрать клинику с квалифицированными специалистами по вашему месту нахождения.
+              К нам уже присоединились клиники-партнеры в тринадцати городах России и проект продолжает расти.
+              <br><br>
+              Также работает <span>бесплатная горячая линия 24/7</span>. Если у вас или вашего ребенка произошла травма
+              -
+              вы в любой момент можете получить консультацию наших специалистов.
+              <br><br>
+              Сохраните номер нашей горячей линии себе в телефон прямо сейчас <span>8(499)951-03-03</span> в каком бы
+              городе вы не находились. Мы всегда на связи и готовы помочь.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <include src="about/steps.html"></include>
+
+    <include src="about/catalog-banner.html"></include>
+  </div>
+</main>
