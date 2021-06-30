@@ -401,7 +401,7 @@
 }
 
 .stages__content-link::before {
-  content: url('/images/about/img/dot.svg');
+  content: url("/images/about/img/dot.svg");
   position: absolute;
   display: block;
   width: 20px;
@@ -465,7 +465,7 @@
 }
 
 .consult-banner::after {
-  content: url('/images/about/img/bannerimg.png');
+  content: url("/images/about/img/bannerimg.png");
   position: absolute;
   top: 0;
   right: 0;
@@ -747,7 +747,7 @@
   }
 
   .consult-banner::after {
-    content: url('/images/about/img/bannerimg.png');
+    content: url("/images/about/img/bannerimg.png");
     top: 0;
     right: -190px;
   }
