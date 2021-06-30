@@ -1,3 +1,4 @@
+@import "./core/0-config/custom-media.css";
 @import "./home/1-lib/swiper-bundle.css";
 @import "./core/1-lib/photoswipe.css";
 @import "./core/4-components/catalog-banner/catalog-banner.css";
