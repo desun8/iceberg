@@ -74,6 +74,14 @@ export default () => {
     const galleryBtnPrev = galleryElement.querySelector(".pswp-btn--prev") as HTMLButtonElement;
     const galleryBtnNext = galleryElement.querySelector(".pswp-btn--next") as HTMLButtonElement;
 
+    if (items.length === 1) {
+      galleryBtnPrev.style.opacity = "0";
+      galleryBtnNext.style.opacity = "0";
+    } else {
+      galleryBtnPrev.style.opacity = "";
+      galleryBtnNext.style.opacity = "";
+    }
+
     // define options (if needed)
     const options = {
       index: index,
@@ -81,7 +89,7 @@ export default () => {
       closeOnScroll: false,
       maxSpreadZoom: 1,
       zoomEl: false,
-      scaleMode: 'fit'
+      scaleMode: "fit",
     };
 
     // Initializes and opens PhotoSwipe
@@ -92,7 +100,7 @@ export default () => {
       if ((e.target as HTMLElement).tagName !== "IMG") {
         gallery.close();
       }
-    }
+    };
     galleryBtnNext.onclick = gallery.next;
     galleryBtnPrev.onclick = gallery.prev;
 
