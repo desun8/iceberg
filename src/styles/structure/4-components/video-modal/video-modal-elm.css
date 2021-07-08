@@ -29,6 +29,22 @@
   object-fit: cover;
   object-position: center;
   border-radius: 20px;
+  background-color: #cecece;
+}
+
+.video-modal-elm__video-wrapper .play {
+  --size: 70px;
+  --center-pos: calc(50% - var(--size) / 2);
+
+  position: absolute;
+  top: var(--center-pos);
+  left: var(--center-pos);
+  width: var(--size);
+  height: var(--size);
+
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -36,5 +52,9 @@
   .video-modal-elm__video-wrapper {
     --width: 584;
     --height: 301;
+  }
+
+  .video-modal-elm__video-wrapper .play {
+    --size: 114px;
   }
 }

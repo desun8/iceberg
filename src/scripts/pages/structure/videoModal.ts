@@ -2,16 +2,7 @@ import A11yDialog from "a11y-dialog";
 // @ts-ignore
 import scrollLock from "scroll-lock";
 import SimpleBar from "simplebar";
-
-// const fixVideoPreview = (videoElm: HTMLVideoElement) => {
-//   const sourceElms = videoElm.querySelectorAll("source");
-//   sourceElms.forEach(elm => {
-//     elm.src = `${elm.src}#t=0.01`;
-//   });
-//
-//   videoElm.setAttribute("controls", "");
-//   videoElm.setAttribute("preload", "metadata");
-// };
+import { addCustomPlayBtn } from "./customVideo";
 
 const setupDialog = (dialogElm: Element) => {
   if (dialogElm && dialog === null) {
@@ -86,6 +77,7 @@ const dialogElm = document.querySelector("#video-modal")!;
 const dialogBody = dialogElm.querySelector(".page-modal__content") as HTMLElement;
 const btnsClose = dialogElm.querySelectorAll(".js-modal-close")!;
 const btnsOpen = document.querySelectorAll<HTMLButtonElement>(".js-video-modal-open");
+const videoElms = dialogElm.querySelectorAll<HTMLElement>(".video-modal-elm__video-wrapper");
 
 let dialog: A11yDialog = null!;
 let activeModalSection: HTMLElement;
@@ -100,6 +92,10 @@ btnsClose.forEach(btn => {
       dialog.hide();
     }
   });
+});
+
+videoElms.forEach(elm => {
+  addCustomPlayBtn(elm);
 });
 
 
