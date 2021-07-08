@@ -1,0 +1,40 @@
+.video-modal-elm {
+  margin-bottom: 54px;
+}
+
+.video-modal-elm__title {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.video-modal-elm__video-wrapper {
+  --width: 345;
+  --height: 345;
+  --ratio: calc(var(--height) / var(--width) * 100%);
+
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: var(--ratio);
+}
+
+.video-modal-elm__video-elm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet) {
+  .video-modal-elm__video-wrapper {
+    --width: 584;
+    --height: 301;
+  }
+}

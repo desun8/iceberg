@@ -8,3 +8,5 @@
 @import "./structure/4-components/structure-place-direction-tabs.css";
 @import "./structure/4-components/structure-place-direction-content.css";
 @import "./structure/4-components/structure-place-map.css";
+@import "./home/4-components/feedback-modal.css";
+@import "./structure/4-components/video-modal/index.css";
