@@ -104,6 +104,11 @@
   color: #fff;
 }
 
+.slider-btn--hover-pink:hover {
+  --bg-color: var(--c-pink);
+  --icon-color: #fff;
+}
+
 .slider-btn--dark:hover {
   --bg-color: var(--c-pink);
 }

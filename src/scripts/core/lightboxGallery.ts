@@ -39,8 +39,8 @@ export default () => {
       <span class="hamburger__line"></span>
       <span class="hamburger__line"></span>
 </button>
-      <button class="pswp-btn pswp-btn--prev  slider-btn slider-btn--prev" type="button" aria-label="Предыдущее изображение."></button>
-      <button class="pswp-btn pswp-btn--next  slider-btn" type="button" aria-label="Следующее изображение."></button>
+      <button class="pswp-btn pswp-btn--prev  slider-btn  slider-btn--hover-pink slider-btn--prev" type="button" aria-label="Предыдущее изображение."></button>
+      <button class="pswp-btn pswp-btn--next  slider-btn  slider-btn--hover-pink" type="button" aria-label="Следующее изображение."></button>
 </div>
     `;
     document.body.insertAdjacentHTML("beforeend", template);
