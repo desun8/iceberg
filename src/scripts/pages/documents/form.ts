@@ -19,18 +19,18 @@ const getTemplate = (id: number) => `
           </div>
           <div class="document-form__field  form-field">
             <label class="visually-hidden" for="lastname-${id}">Фамилия</label>
-            <input id="lastname-${id}" type="text" name="lastname" placeholder="Фамилия" autocomplete="family-name"
+            <input id="lastname-${id}" type="text" name="child[${id}][lastname]" placeholder="Фамилия" autocomplete="family-name"
                    data-mask="name" data-validation="name" required>
           </div>
           <div class="document-form__field  form-field">
             <label class="visually-hidden" for="firstname-${id}">Имя</label>
-            <input id="firstname-${id}" type="text" name="name" placeholder="Имя" autocomplete="given-name"
+            <input id="firstname-${id}" type="text" name="child[${id}][name]" placeholder="Имя" autocomplete="given-name"
                    data-mask="name"
                    data-validation="name" required>
           </div>
           <div class="document-form__field  form-field">
             <label class="visually-hidden" for="patronymic-${id}">Отчество</label>
-            <input id="patronymic-${id}" type="text" name="patronymic" placeholder="Отчество"
+            <input id="patronymic-${id}" type="text" name="child[${id}][patronymic]" placeholder="Отчество"
                    autocomplete="additional-name"
                    data-mask="name" data-validation="name"
                    required>
@@ -38,7 +38,7 @@ const getTemplate = (id: number) => `
           <div class="document-form__field  form-field">
             <div class="custom-datepicker  has-placeholder" data-date="Дата рождения *">
               <label for="birth-date-${id}" class="visually-hidden">Дата рождения</label>
-              <input id="birth-date-${id}" class="form__datepicker" type="date" name="birthday"
+              <input id="birth-date-${id}" class="form__datepicker" type="date" name="child[${id}][birthday]"
                      placeholder="Дата рождения"
                      autocomplete="bday" required data-mask="date" data-validation="date" data-required="true">
             </div>
@@ -54,7 +54,7 @@ const getTemplate = (id: number) => `
                   id="document-passport-${id}"
                   class="visually-hidden"
                   type="radio"
-                  name="child-document-type-${id}"
+                  name=child[${id}][child-document-type]"
                   value="1"
                   checked
                 />
@@ -74,7 +74,7 @@ const getTemplate = (id: number) => `
                   id="document-birth-${id}"
                   class="visually-hidden"
                   type="radio"
-                  name="child-document-type-${id}"
+                  name="child[${id}][child-document-type]"
                   value="2"
                 />
                 <span class="c-checkbox__checkmark">
@@ -92,12 +92,12 @@ const getTemplate = (id: number) => `
             <div class="grid grid--col-2">
               <div class="document-form__field  form-field">
                 <label class="visually-hidden" for="document-series-${id}">Серия</label>
-                <input id="document-series-${id}" type="text" inputmode="decimal" name="series" placeholder="Серия"
+                <input id="document-series-${id}" type="text" inputmode="decimal" name="child[${id}][series]" placeholder="Серия"
                        data-mask="document-series" data-validation="document-series" required>
               </div>
               <div class="document-form__field  form-field">
                 <label class="visually-hidden" for="document-number-${id}">Номер</label>
-                <input id="document-number-${id}" type="text" inputmode="decimal" name="number" placeholder="Номер"
+                <input id="document-number-${id}" type="text" inputmode="decimal" name="child[${id}][number]" placeholder="Номер"
                        data-mask="document-number" data-validation="document-series" required>
               </div>
             </div>
@@ -105,7 +105,7 @@ const getTemplate = (id: number) => `
           <div class="document-form__field  form-field">
             <div class="custom-datepicker  has-placeholder" data-date="Дата выдачи *">
               <label for="document-release-${id}" class="visually-hidden">Дата выдачи</label>
-              <input id="document-release-${id}" class="form__datepicker" type="date" name="document-release"
+              <input id="document-release-${id}" class="form__datepicker" type="date" name="child[${id}][document-release]"
                      placeholder="Дата выдачи"
                      required data-mask="date" data-validation="date" data-required="true">
             </div>
@@ -129,7 +129,7 @@ const getTemplate = (id: number) => `
                     id="document-residence-checkbox-${id}"
                     class="visually-hidden"
                     type="checkbox"
-                    name="document-same-residence"
+                    name="child[${id}][document-same-residence]"
                   />
                   <span class="c-checkbox__checkmark">
               <svg width="16" height="12" fill="none">
@@ -147,7 +147,7 @@ const getTemplate = (id: number) => `
               <div class="document-form__field  form-field  col-start-1  col-end-2">
                 <label class="visually-hidden" for="document-residence-${id}">Адрес проживания</label>
                 <input id="document-residence-${id}" type="text" placeholder="Адрес проживания"
-                       name="document-residence"
+                       name="child[${id}][document-residence]"
                        data-mask="cyrillic">
               </div>
             </div>
@@ -159,6 +159,14 @@ const getTemplate = (id: number) => `
 `;
 
 export default () => {
+  const replaceTitleNumber = (formElm: HTMLElement, newNumber: number) => {
+    const titleElm = formElm.querySelector(".document-form__title")!;
+    let newText = titleElm.textContent!;
+    newText = newText.replace(/(- \d)$/, `- ${newNumber}`);
+
+    titleElm.textContent = newText;
+  };
+
   const getFormFieldElms = (rootElm: HTMLElement) => {
     const inputElms = Array.from(rootElm.querySelectorAll("input")) as InputElement[];
     const textareaElms = Array.from(rootElm.querySelectorAll("textarea")) as TextAreaElement[];
@@ -199,10 +207,6 @@ export default () => {
     const seriesInput = fieldElms.find(input => input.dataset.mask === "document-series");
     const numbersInput = fieldElms.find(input => input.dataset.mask === "document-number");
 
-    console.log(numbersInput);
-
-    console.log(seriesInput);
-
     fieldElms.forEach(elm => {
       const isRequired = elm.required;
       const isDateInput = elm.type === "date";
@@ -216,7 +220,6 @@ export default () => {
       if (isDateInput) {
         const pickerInstance = new DatePicker(elm as HTMLInputElement);
 
-        console.log(pickerInstance);
         const pickerInput = pickerInstance.flatpickr?.altInput as HTMLInputElement;
         const pickerMobileInput = pickerInstance.flatpickr?.mobileInput as HTMLInputElement;
 
@@ -274,10 +277,16 @@ export default () => {
       hasChildForm = true;
     }
 
+    const childFormSize = Array.from(document.querySelectorAll(".child-form")).length;
+
     formElm.classList.add("has-child");
     childrenSection.insertAdjacentHTML("beforeend", getTemplate(id));
 
     const childForm = document.querySelector(`#child-form-${id}`) as HTMLElement;
+
+    if (idChildCount !== 1) {
+      replaceTitleNumber(childForm, childFormSize + 1)
+    }
 
     initFormSection(childForm);
     removeChildSection(id);
@@ -303,11 +312,7 @@ export default () => {
             childFormElms = Array.from(document.querySelectorAll(".child-form"))!;
 
             childFormElms.forEach((formElm, index) => {
-              const titleElm = formElm.querySelector(".document-form__title")!;
-              let newText = titleElm.textContent!;
-              newText = newText.replace(/(- \d)$/, `- ${index + 1}`);
-
-              titleElm.textContent = newText;
+              replaceTitleNumber(formElm as HTMLElement, index + 1);
             });
           }
         };

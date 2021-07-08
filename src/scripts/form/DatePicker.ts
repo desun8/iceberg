@@ -80,14 +80,11 @@ class DatePicker {
         const month = monthElements[0].innerText.trim();
         const text = DatePicker.getSpanText(month, currentYear);
         this.setSpanText(text);
-        console.log(text);
       }, 0);
     }
   }
 
   onReady() {
-    console.log("onReady -> this");
-    console.log(this);
     if (this.flatpickr !== null) {
       const {
         isMobile,
