@@ -14,6 +14,7 @@ export enum CheckType {
   Email = "email",
   Tel = "tel",
   Date = "date",
+  DateFeedback = "date-feedback",
   Select = "select",
   DocumentSeries = "document-series",
   DocumentNumber = "document-number"

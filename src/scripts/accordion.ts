@@ -1,13 +1,13 @@
 export default () => {
-  const accordionElements = Array.from(document.querySelectorAll(".js-accordion"));
-
-  console.log(accordionElements);
+  const accordionElements = Array.from(document.querySelectorAll(".js-accordion:not([data-accordion-init=''])")) as HTMLElement[];
 
   accordionElements.forEach(element => {
     const btn = element.querySelector(".js-accordion-btn") as HTMLButtonElement;
     const content = element.querySelector(".js-accordion-content") as HTMLElement;
 
     if (btn && content) {
+      element.dataset.accordionInit = "";
+
       const height = content.offsetHeight;
       const duration = 600;
 

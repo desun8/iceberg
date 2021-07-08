@@ -1,0 +1,210 @@
+.page-feedback-modal {
+  --main-color: #3b4180;
+  --second-color: #333570;
+}
+
+.page-feedback-modal .page-modal__content {
+  color: #fff;
+  background-color: var(--main-color);
+}
+
+.page-feedback-modal .page-modal__content-second {
+  display: none;
+}
+
+.page-feedback-modal .form__title {
+  text-align: center;
+}
+
+.page-feedback-modal .form__elm {
+  background-color: var(--second-color);
+}
+
+.page-feedback-modal .form__elm:focus,
+.page-feedback-modal .custom-select:focus,
+.page-feedback-modal select:focus {
+  outline: 0;
+  border-color: #fff;
+}
+
+.page-feedback-modal .form__field.has-error .form__elm {
+  border-color: var(--c-pink);
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .page-feedback-modal .page-modal__content[data-type="consultation"] .form-note {
+    display: none;
+  }
+
+  .page-feedback-modal .page-modal__content {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: #3b4180;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .page-feedback-modal .page-modal__content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40%; /* 1'st grid col */
+    width: 230px;
+    background-image: url("/images/footer-bg-wave.svg");
+    background-repeat: round;
+    background-size: contain;
+    filter: drop-shadow(20px 4px 10px rgba(0, 0, 0, 0.25));
+    z-index: 1;
+  }
+
+  .page-feedback-modal .page-modal__content-main {
+    display: flex;
+    align-items: center;
+    padding: 100px 60px 0;
+  }
+
+  .page-feedback-modal .page-modal__content-second {
+    display: flex;
+    width: 200%;
+    justify-content: center;
+    align-items: center;
+    background-color: #33386f;
+  }
+
+  .page-feedback-modal .page-modal__content[data-type="consultation"] .page-modal__content-second {
+    width: 100%;
+  }
+
+  .page-feedback-modal .page-modal__content-second .form-note {
+    display: none;
+  }
+
+  .page-feedback-modal .page-modal__content[data-type="consultation"] .page-modal__content-second .form-note {
+    display: block;
+  }
+
+  .feedback-modal-img {
+    grid-column: 2/3;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    background-color: #33386f;
+  }
+
+  .page-feedback-modal .page-modal__content[data-type="consultation"] .feedback-modal-img {
+    display: none;
+  }
+
+  .feedback-modal-img__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 0;
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .feedback-modal-img__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* фикс блура в сафари */
+    width: 200%;
+    height: 200%;
+    transform-origin: 0 0;
+    transform: scale(0.5) translateZ(0.01px);
+
+    background-image: url("/images/footer-girl--large.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+  }
+
+  .page-feedback-modal__note {
+    width: 100%;
+  }
+
+  .page-feedback-modal__note .form-note {
+    width: 45%;
+    height: 100%;
+    max-width: 580px;
+    max-height: 590px;
+    margin-right: auto;
+    margin-left: auto;
+    transform: translateX(100px);
+  }
+
+  .page-feedback-modal__note .simplebar-track.simplebar-vertical {
+    right: -30px;
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop) {
+  .page-feedback-modal .page-modal__header {
+    display: grid;
+  }
+  
+  .page-feedback-modal .page-modal__content {
+    grid-template-columns: 550px 1fr;
+  }
+
+  .page-feedback-modal .page-modal__content::after {
+    left: 540px; /* 1'st grid col */
+    width: 230px;
+  }
+
+  .feedback-modal-img {
+    transform: translateY(-1px);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .page-feedback-modal__note .form-note {
+    transform: translateX(0);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media screen and (--desktop-lg) {
+  .feedback-modal-img {
+    transform: translateY(0);
+  }
+
+  .feedback-modal-img__bg {
+    background-size: contain;
+    background-position-y: -25px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .feedback-modal-img__bg {
+    background-image: url("/images/footer-girl--large.svg");
+    background-size: 75%;
+    background-position-x: right;
+  }
+
+  .page-feedback-modal .page-modal__content::after {
+    background-image: url("/images/footer-bg-wave--tall.svg");
+  }
+}
+
+@media screen and (min-width: 64em) and (max-height: 1000px) {
+  .page-feedback-modal .page-modal__content {
+    min-height: 100vh;
+  }
+}

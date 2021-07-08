@@ -1,0 +1,25 @@
+.page-feedback-success {
+  position: fixed;
+  bottom: 60px;
+  right: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+  align-items: center;
+  width: 310px;
+  padding: 16px 20px 16px 36px;
+  color: #fff;
+  background-color: var(--c-blue-deep);
+  border-radius: 20px 0 0 20px;
+  transform: translateX(100%);
+  transition: transform var(--trans-dur);
+}
+
+.page-feedback-success.is-show {
+  transform: translateX(0);
+}
+
+.page-feedback-success__text {
+  font-weight: 500;
+  text-align: center;
+}

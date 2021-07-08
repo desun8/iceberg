@@ -4,6 +4,7 @@ import detectRestoreTeamState from "./scripts/detectRestoreTeamState";
 import core from "./scripts/core/index"
 import Modal from "./scripts/Modal";
 import Menu from "./scripts/Menu";
+import accordion from "./scripts/accordion";
 
 export default () => {
   core();
@@ -11,6 +12,8 @@ export default () => {
 
   // МЕНЮ
   const menu = new Menu();
+
+  accordion();
 
   // МОДАЛКА
   // Делаем задержку для того, что зацикленная карусель делает дубли слайдов,

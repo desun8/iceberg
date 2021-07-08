@@ -8,7 +8,7 @@ const isToday = (someDate: Date) => {
 };
 
 // если используются кастомные инпуты с обертками
-const getFieldElm = (input: FormElm) => input.closest(".form-field");
+const getFieldElm = (input: FormElm) => input.closest(".form-field") || input.closest(".form__field");
 
 // валидация
 class Validation {
@@ -110,7 +110,9 @@ class Validation {
     return isValid;
   }
 
-  static checkSelect(input: HTMLInputElement) {
+  static checkSelect(input: HTMLSelectElement) {
+    console.log("Check select");
+    console.log(input);
     const {value} = input;
     const isValid = !!value || value === "0";
 
@@ -122,7 +124,7 @@ class Validation {
 
   static checkDate(input: HTMLInputElement) {
     // проверка на заполненность
-    // дата < сегодня -> не валидна
+    // дата > сегодня -> не валидна
     const {value} = input; // yyyy-mm-dd
     console.log("Validation DATE");
     console.log("START");
@@ -137,6 +139,31 @@ class Validation {
 
     const date = new Date(value);
     const isValid = isToday(date) || date.getTime() < Date.now();
+
+    this.setValidationClass(input, isValid);
+
+    console.warn("Проверка даты", isValid);
+    console.log("END");
+    return isValid;
+  }
+
+  static checkDateFeedback(input: HTMLInputElement) {
+    // проверка на заполненность
+    // дата < сегодня -> не валидна
+    const {value} = input; // yyyy-mm-dd
+    console.log("Validation DATE");
+    console.log("START");
+    console.log(value);
+
+    if (!value) {
+      console.warn("Инпут-дата пустой", false);
+      this.setValidationClass(input, false);
+      console.log("END");
+      return false;
+    }
+
+    const date = new Date(value);
+    const isValid = isToday(date) || date.getTime() > Date.now();
 
     this.setValidationClass(input, isValid);
 
@@ -162,6 +189,7 @@ class Validation {
 
   static check(type: string, input: FormElm) {
     const isInputElm = input.tagName === "INPUT";
+
     switch (type) {
       case CheckType.Name:
         return isInputElm && this.checkNameStrong(input as InputElement);
@@ -174,9 +202,11 @@ class Validation {
       case CheckType.DocumentNumber:
         return isInputElm && this.checkInputMask(input as InputElement);
       case CheckType.Select:
-        return isInputElm && this.checkSelect(input as InputElement);
+        return this.checkSelect(input as HTMLSelectElement);
       case CheckType.Date:
         return isInputElm && this.checkDate(input as InputElement);
+      case CheckType.DateFeedback:
+        return isInputElm && this.checkDateFeedback(input as InputElement);
       case CheckType.Text:
         return this.checkText(input);
       default:

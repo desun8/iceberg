@@ -37,25 +37,8 @@
   border-radius: 10px;
 }
 
-.choices__list--dropdown .choices__item::after {
-  content: '';
-  position: absolute;
-  top: auto;
-  left: 10px;
-  right: 10px;
-  bottom: 0;
-  height: 1px;
-  background-color: #d3d3d3;
-  transform: none;
-  opacity: 1 !important;
-}
-
-.choices__list--dropdown .choices__item:last-child::after {
-  content: none;
-}
-
 .choices__list--dropdown .choices__item--selectable.is-highlighted {
-  background-color: #f7edff;
+  background-color: #edf0f8;
 }
 
 .choices__list--dropdown .choices__item--disable {

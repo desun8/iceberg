@@ -16,7 +16,7 @@ import Success from './Success';
 import Mask from './Mask';
 
 class FormSetup {
-  constructor(elm, datepickerInstance, selectInstance) {
+  constructor(elm, datepickerInstance, selectInstance, dialogInstance) {
     this.$elm = {
       form: elm,
       name: elm.querySelector('[name=name]'),
@@ -25,8 +25,8 @@ class FormSetup {
       date: elm.querySelector('[name=date]'),
       message: elm.querySelector('[name=message]'),
       successMessage: {
-        elm: elm.nextElementSibling,
-        btn: elm.nextElementSibling?.querySelector('button'),
+        elm: document.querySelector('#page-feedback-success'),
+        btn: document.querySelector('#page-feedback-success .page-feedback-success__close'),
       },
     };
     this.inputs = [
@@ -40,6 +40,8 @@ class FormSetup {
     // нужны для сброса кастомных полей
     this.datepickerInstance = datepickerInstance;
     this.selectInstance = selectInstance;
+
+    this.dialogInstance = dialogInstance;
 
     this.captchaKey = '6Ld-J0kaAAAAAP8EVz9EvYDlSEbbPUOEwi-WDfwG';
     this.submitUrl = this.$elm.form.action || '/ajax/form.php';
@@ -94,7 +96,9 @@ class FormSetup {
 
       // Если отправка прошла без ошибок,
       // то показываем блок с сообщение об успехе
-      await Success.show(this.$elm.form, this.$elm.successMessage.elm);
+      await this.dialogInstance.hide();
+      await this.reset();
+      await Success.show(this.$elm.successMessage.elm);
       // console.log('await Success.show end');
     })();
   }
@@ -110,7 +114,7 @@ class FormSetup {
 
     // Закрытие сообщения об успехе и отображение формы
     this.$elm.successMessage.btn.addEventListener('click', () => {
-      Success.hide(this.$elm.form, this.$elm.successMessage.elm);
+      Success.hide(this.$elm.successMessage.elm);
       this.reset();
     });
 

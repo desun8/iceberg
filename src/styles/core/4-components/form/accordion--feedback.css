@@ -1,0 +1,23 @@
+.accordion--feedback {
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.accordion--feedback .accordion__head {
+  margin-bottom: 40px;
+  padding: 20px 15px;
+  color: var(--c-blue-deep);
+  background-color: var(--c-blue-sky);
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 15px;
+}
+
+.accordion--feedback .accordion__icon {
+  background: var(--c-blue-deep) url("/images/icons/chevron-white.svg") no-repeat center 20px/14px;
+}
+
+.accordion--feedback .accordion__body {
+  padding-top: 0 !important;
+}

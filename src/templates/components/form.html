@@ -1,20 +1,20 @@
-<form id="template-form" action="https://formsubmit.co/apqwoqdsxpii@dropmail.me" class="form">
+<form id="template-form" action="https://formsubmit.co/apqwoqdsxpii@dropmail.me" class="form" novalidate>
   <h2 class="form__title">Напишите нам!</h2>
   <div class="form__field">
     <label for="form-name" class="form__label  visually-hidden">Имя</label>
-    <input id="form-name" type="text" class="form__elm  form__input" name="name" placeholder="Имя" data-name="name" data-required="true">
+    <input id="form-name" type="text" class="form__elm  form__input" name="name" placeholder="Имя" data-name="name" data-validation="text" required data-required="true">
   </div>
 
   <div class="form__field">
     <label for="form-phone" class="form__label  visually-hidden">Телефон</label>
     <input id="form-phone" type="text" inputmode="tel" class="form__elm  form__input" name="phone" placeholder="+7 (xxx) xxx xx xx" data-name="phone"
-           data-required="true">
+           data-validation="tel" required data-required="true">
   </div>
 
   <div class="form__field  form__field--col-2">
     <div class="form__elm  custom-select">
       <label for="form-select" class="form__label  visually-hidden">Выберите услугу</label>
-      <select id="form-select" class="form__select" name="type" data-name="select" data-required="true">
+      <select id="form-select" class="form__select" name="type" data-name="select" data-validation="select" required data-required="true">
         <option value="" disabled selected>Выберите услугу</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -30,7 +30,7 @@
     <div class="form__elm  custom-datepicker  has-placeholder" data-date="Дата">
       <label for="form-datepicker" class="form__label  visually-hidden">Дата</label>
       <input id="form-datepicker" class="form__datepicker" type="text" name="date"
-             placeholder="Выберите дату" data-name="date" data-required="true">
+             placeholder="Выберите дату" data-name="date" data-validation="date-feedback" required data-required="true">
     </div>
   </div>
 
@@ -40,11 +40,63 @@
               placeholder="Сообщение" data-name="message"></textarea>
   </div>
 
-  <span class="form__agreement">*Нажимая на кнопку "хочу узнать больше" вы соглашаетесь на <a href="#">обработку персональных данных</a>.</span>
+  <div id="template-form-note" class="form-note  accordion  accordion--feedback  js-accordion">
+    <h2 class="form-note__text  accordion__head">
+      <button class="accordion__btn  js-accordion-btn" type="button" aria-expanded="false">Чтобы встреча с доктором
+        прошла с максимальной пользой для Вас, важно соблюдать следующие
+        условия:<span class="accordion__icon"></span></button>
+    </h2>
 
-  <button class="form__submit  btn  btn--dark" type="submit">
+    <div class="accordion__body js-accordion-content">
+      <h2 class="form-note__title">При записи на онлайн-консультацию:</h2>
+
+      <ul class="form-note__list  list-unstyled">
+        <li class="form-note__item">Отправьте результаты Ваших предыдущих исследований (томограмму, рентгеновские
+          снимки,
+          фотографии) заранее, если
+          они есть на номер WA: +79853131550 нашему координатору встречи - Инессе
+        </li>
+
+        <li class="form-note__item">Запишите назначенный день/время в ежедневник и поставьте напоминание, чтобы не
+          забыть.
+        </li>
+
+        <li class="form-note__item">Необходимо установить приложение ZOOM и проверить работоспособность видео и аудио
+          устройств
+          заблаговременно
+        </li>
+
+        <li class="form-note__item">В день конференции проверьте устойчивость интернет-соединения.</li>
+      </ul>
+
+      <h2 class="form-note__title">Правила проведения:</h2>
+
+      <ul class="form-note__list  list-unstyled">
+        <li class="form-note__item">Онлайн-консультация проводится доктором. Услуга бесплатная.</li>
+
+        <li class="form-note__item">Мы уважаем Ваше время и время наших специалистов, поэтому график планируем заранее и
+          онлайн-встреча начинается
+          в строго назначенное время. В случае вашего опоздания, мы сможем ожидать вас в комнате 10 минут. После этого
+          конференция считается не состоявшейся.
+        </li>
+
+        <li class="form-note__item">Если у вас изменились планы, просим сообщить об этом заранее (минимум за 1 час),
+          чтобы мы смогли предложить это
+          время тому, кто ожидает
+        </li>
+
+        <li class="form-note__item">Если Вы НЕ отменили встречу и НЕ пришли на консультацию, мы сможем пригласить вас на
+          другое освободившееся
+          время без предварительной записи (поставить в лист ожидания)
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="form__agreement">*Нажимая на кнопку "Отправить" вы соглашаетесь на <a href="#">обработку персональных данных</a>.</span>
+
+  <button class="form__submit  btn" type="submit">
     <span class="btn__wrapper">
-      <svg width="18" height="16" class="btn__icon"><path d="M17.988.896c.088-.417-.313-.77-.704-.617L.34 6.894A.54.54 0 000 7.397a.54.54 0 00.337.504l4.76 1.88v5.922c0 .25.168.467.406.525a.524.524 0 00.593-.282l1.969-3.995 4.804 3.646c.292.222.713.08.819-.276C18.174.281 17.98.934 17.988.896zm-4.183 1.896L5.55 8.804 1.998 7.4l11.807-4.61zM6.152 9.69l7.196-5.24c-6.192 6.679-5.869 6.327-5.896 6.364-.04.056.07-.16-1.3 2.62V9.69zm6.745 4.585l-4.229-3.21 7.647-8.25-3.418 11.46z"/></svg>
       Отправить
     </span>
   </button>

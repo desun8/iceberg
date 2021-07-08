@@ -1,33 +1,21 @@
 // 🐼
 // отображение/скрытие блока с сообщением об отправке (успешной)
 // и очитска формы (лучше перенести?)
-import scrollLock from 'scroll-lock';
-import isDesktop from '../utils/isDesktop';
 
 class Success {
   static get modalElm() {
-    return document.querySelector('#page-modal');
+    return document.querySelector('#page-feedback-modal');
   }
 
-  static show(formElm, msgElm) {
-    // прокручиваем модалку в начало (вверх) и отключаем скролл
-    if (!isDesktop()) {
-      const { modalElm } = this;
-      modalElm.scrollTop = 0;
-      scrollLock.removeScrollableTarget(modalElm);
-    }
-
-    formElm.classList.add('is-hide');
+  static show(msgElm) {
     msgElm.classList.add('is-show');
+
+    setTimeout(() => {
+      Success.hide(msgElm);
+    }, 3000);
   }
 
-  static hide(formElm, msgElm) {
-    // возвращаем скролл
-    if (!isDesktop()) {
-      scrollLock.addScrollableTarget(this.modalElm);
-    }
-
-    formElm.classList.remove('is-hide');
+  static hide(msgElm) {
     msgElm.classList.remove('is-show');
   }
 }

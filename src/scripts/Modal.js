@@ -38,53 +38,6 @@ const togglePageHeader = (isReset) => {
   pageHeader.style.zIndex = isReset ? '' : 0;
 };
 
-class FooterModal {
-  static toggleVisibility(modal, isShow, isConsultation = false) {
-    const footerHeader = document.querySelector('.footer-header');
-    const footerImage = document.querySelector('.footer-image'); // firefox backdrop-filter fix
-
-    if (isShow) {
-      modal.classList.add('is-active');
-      footerHeader.classList.add('is-small');
-
-      const note = modal.querySelector('.page-modal-footer__note');
-
-      if (isConsultation) {
-        modal.classList.add('is-full');
-        note.style.display = '';
-        footerImage.classList.add('is-blur'); // firefox backdrop-filter fix
-      } else {
-        modal.classList.remove('is-full');
-        note.style.display = 'none';
-        footerImage.classList.remove('is-blur'); // firefox backdrop-filter fix
-      }
-    } else {
-      modal.classList.remove('is-active');
-      footerHeader.classList.remove('is-small');
-      footerImage.classList.remove('is-blur'); // firefox backdrop-filter fix
-    }
-  }
-
-  static scrollToBottom() {
-    window.scrollTo(0, document.body.scrollHeight);
-  }
-
-  static closeMenu(btn, cb) {
-    if (btn.closest('.page-menu')) {
-      cb();
-    }
-  }
-
-  static setup(type, modal, btn, close) {
-    const isConsultation = type === CONSULTATION;
-    this.closeMenu(btn, close);
-    this.toggleVisibility(modal, true, isConsultation);
-    // eslint-disable-next-line no-unused-expressions
-    isConsultation && initSimplebar(modal);
-    this.scrollToBottom();
-  }
-}
-
 class Dialog {
   constructor(element, btnsClose) {
     this.element = element;
@@ -133,7 +86,8 @@ class Dialog {
 }
 
 class Open {
-  static form(modalPage, modalFooter, formAppointment, formConsultation, btn, cbCloseMenu) {
+  // TODO: удалить
+  static form(modalPage, modalFooter, formAppointment, formConsultation, btn) {
     const isScreenSm = isDesktop();
     const modal = isScreenSm ? modalFooter : modalPage;
     const { type } = btn.dataset;
@@ -149,15 +103,6 @@ class Open {
         break;
       default:
         break;
-    }
-
-    if (isScreenSm) {
-      FooterModal.setup(
-        type,
-        modal,
-        btn,
-        cbCloseMenu,
-      );
     }
   }
 
@@ -207,16 +152,12 @@ class Modal {
     this.type = undefined;
 
     this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
     this.handleCloseDialog = this.handleCloseDialog.bind(this);
 
     this.addEvents();
   }
 
   handleOpen(e) {
-    console.log('open review');
-    console.log(e.target);
-
     const { currentTarget } = e;
     // Определяем тип модалки (разница на декстопе):
     // • ФОРМА
@@ -267,10 +208,6 @@ class Modal {
     }
   }
 
-  handleClose() {
-    FooterModal.toggleVisibility(this.footerModal, false);
-  }
-
   handleCloseDialog() {
     this.dialog.hide();
 
@@ -285,9 +222,7 @@ class Modal {
     });
 
     this.btnsClose.forEach((btn) => {
-      const isFooterModal = btn.closest('.page-modal-footer');
-
-      btn.addEventListener('click', isFooterModal ? this.handleClose : this.handleCloseDialog);
+      btn.addEventListener('click', this.handleCloseDialog);
     });
 
     this.pageModalBody.addEventListener('click', ({

@@ -25,6 +25,7 @@
     "@types/inputmask": "^5.0.0",
     "@types/lodash": "^4.14.168",
     "@types/photoswipe": "^4.1.1",
+    "@types/scroll-lock": "^2.1.0",
     "@types/simplebar": "^5.1.2",
     "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.13",

@@ -53,3 +53,30 @@
 .custom-datepicker .flatpickr-input.flatpickr-mobile.has-value::before {
   content: none;
 }
+
+.page-feedback-modal .custom-datepicker {
+  color: #fff;
+  font-size: 14px;
+  border-radius: 50%;
+}
+
+.page-feedback-modal .custom-datepicker::before {
+  content: attr(data-date);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.page-feedback-modal .custom-datepicker::after {
+  content: none;
+}
+
+.page-feedback-modal .custom-datepicker input {
+  color: transparent !important;
+  background-color: transparent !important;
+}
+
+.page-feedback-modal .custom-datepicker.has-placeholder:not(.has-error)::before {
+  opacity: 0.6;
+}

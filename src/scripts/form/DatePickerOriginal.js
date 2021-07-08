@@ -3,7 +3,7 @@ import RU from 'flatpickr/dist/l10n/ru.js';
 
 flatpickr.localize(RU);
 
-class DatePicker {
+class DatePickerOriginal {
   constructor(input, locale = 'ru') {
     this.input = input;
     this.spanMonth = undefined;
@@ -67,7 +67,7 @@ class DatePicker {
 
     setTimeout(() => {
       const month = monthElements[0].innerText.trim();
-      const text = DatePicker.getSpanText(month, currentYear);
+      const text = DatePickerOriginal.getSpanText(month, currentYear);
       this.setSpanText(text);
     }, 0);
   }
@@ -88,8 +88,6 @@ class DatePicker {
   }
 
   onReady() {
-    console.log('onReady -> this');
-    console.log(this);
     const {
       monthElements,
       monthNav,
@@ -114,7 +112,11 @@ class DatePicker {
 
   init() {
     this.flatpickr = flatpickr(this.input, this.options);
+
+    if (this.flatpickr.currentYearElement) {
+      this.flatpickr.currentYearElement.style.display = 'none';
+    }
   }
 }
 
-export default DatePicker;
+export default DatePickerOriginal;
