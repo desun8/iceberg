@@ -9,6 +9,11 @@
 @import "./children-service/4-components/children-services/children-service-gallery.css";
 @import "./about/4-components/about-styles.css";
 
+.page-header .hamburger:hover {
+  --color: var(--c-blue-deep);
+  --bg-c: #fff;
+}
+
 .home-wrapper {
   padding-bottom: 100px;
 }
@@ -16,6 +21,30 @@
 .about-hero {
   min-height: 100vh;
   height: auto;
+}
+
+.certificate {
+  position: relative;
+}
+
+.certificate::before,
+.certificate__container {
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+}
+
+.certificate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  filter: drop-shadow(10px -4px 20px rgba(0, 0, 0, 0.15));
+}
+
+.certificate__container {
+  position: relative;
 }
 
 .children-steps {
@@ -68,6 +97,15 @@
 
   .certificate {
     margin-bottom: 255px;
+  }
+
+  .certificate::before,
+  .certificate__container {
+    border-radius: 42px 42px 0 0;
+  }
+
+  .certificate::before {
+    filter: drop-shadow(10px -4px 20px rgba(0, 0, 0, 0.25));
   }
 
   .team {

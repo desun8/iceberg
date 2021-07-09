@@ -33,16 +33,21 @@
   </section>
 
   <div class="home-wrapper">
-    <section class="certificate  js-scrolltrigger-fadein">
-      <div class="certificate__info">
-        <p class="certificate__info-title">Наша клиника, основана в 2013 году и является ведущей частной клиникой в
-          стоматологической травматологии (IADT Fellow).</p>
-        <p class="certificate__info-subtitle">Мы ежегодно входим в <span>ТОП-5 рейтинга лучших клиник России</span> по
-          версии ИД “Коммерсант”.</p>
-      </div>
+    <section class="certificate">
+      <div class="certificate__container">
+        <div class="certificate__wrapper js-scrolltrigger-fadein">
+          <div class="certificate__info">
+            <p class="certificate__info-title">Наша клиника, основана в 2013 году и является ведущей частной клиникой в
+              стоматологической травматологии (IADT Fellow).</p>
+            <p class="certificate__info-subtitle">Мы ежегодно входим в <span>ТОП-5 рейтинга лучших клиник России</span>
+              по
+              версии ИД “Коммерсант”.</p>
+          </div>
 
-      <div class="certificate__img">
-        <img src="/images/about/img/certificate.svg" alt="сертификат">
+          <div class="certificate__img">
+            <img src="/images/about/img/certificate.svg" alt="сертификат">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -93,7 +98,7 @@
             читают лекции и семинары в Мексике, США и Европе.
           </p>
 
-          <a href="https://iceberg.dental/team/" class="team__info-btn btn btn--dark">Вся команда</a>
+          <a href="https://iceberg.dental/team/" class="team__info-btn btn btn--dark  btn--center-sm">Вся команда</a>
         </div>
       </div>
     </section>
@@ -103,16 +108,16 @@
         <h2 class="special-title title">Мы специализируемся в травматологии</h2>
         <div class="special__wrapper">
           <div class="special__info">
-            <div class="special__info-text text">
+            <p class="special__info-text text">
               В 2019 году владелец и руководитель клиники - Тишкина Ольга Сергеевна,
               <span>получила статус IADT Fellow</span> за вклад в развитие мировой дентальной травматологии. Сейчас наша
               клиника является лидером мнений в сфере стоматологической травматологии и нам направляют пациентов как
               частные клиники, так и государственные медицинские организации. С уверенностью заявляем, что способны
               восстановить первозданный вид улыбки даже в самых сложных случаях.
-
+              <br><br>
               Главное, что нас объединяет - желание помогать людям и сделать стоматологическую травматологию в России
               лучшей в мире.
-            </div>
+            </p>
             <button class="special__info-btn  btn btn--dark">О травматологии</button>
           </div>
 
@@ -154,6 +159,19 @@
 
     <include src="about/steps.html"></include>
 
-    <include src="about/catalog-banner.html"></include>
+    <section class="catalog-banner  catalog-banner--home  js-scrolltrigger-fadein">
+      <div class="catalog-banner__bg">
+        <div class="catalog-banner__noise"></div>
+      </div>
+
+      <div class="catalog-banner__body">
+        <h3 class="catalog-banner__title">К нам приезжают из других городов и стран!</h3>
+        <p class="catalog-banner__describe">Вы можете записаться на онлайн-консультацию с вашим будущим доктором, чтобы познакомиться, получить мнение эксперта и наметить дальнейший путь.</p>
+        <button class="catalog-banner__link  btn  btn--pink  btn--full-w  js-form-open" type="button">Записаться на консультацию</button>
+      </div>
+
+      <div class="catalog-banner__bg-img"></div>
+    </section>
+
   </div>
 </main>
