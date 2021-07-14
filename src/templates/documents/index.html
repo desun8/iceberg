@@ -13,7 +13,7 @@
     </div>
   </section>
 
-  <form class="document-form" action="">
+  <form class="document-form" action="/document">
     <div class="document-form__section  document-form__section--adult">
       <div class="document-form__container  document-form__container--personal">
         <h2 class="document-form__title  col-full">Ваши данные</h2>
@@ -78,11 +78,11 @@
         <div class="col-full grid grid--col-2">
           <div class="document-form__field  form-field">
             <label class="visually-hidden" for="p-place">Кем выдан</label>
-            <input id="p-place" type="text" placeholder="Кем выдан" data-mask="cyrillic" data-validation="text" required>
+            <input id="p-place" type="text" name="document-issued" placeholder="Кем выдан" data-mask="cyrillic" data-validation="text" required>
           </div>
           <div class="document-form__field  form-field">
             <label class="visually-hidden" for="p-reg">Адрес регистрации</label>
-            <input id="p-reg" type="text" placeholder="Адрес регистрации" data-mask="cyrillic" data-validation="text" required>
+            <input id="p-reg" type="text" name="document-registration-address" placeholder="Адрес регистрации" data-mask="cyrillic" data-validation="text" required>
           </div>
         </div>
 
@@ -94,6 +94,7 @@
                 class="visually-hidden"
                 type="checkbox"
                 name="document-same-residence"
+                value="true"
               />
               <span class="c-checkbox__checkmark">
               <svg width="16" height="12" fill="none">

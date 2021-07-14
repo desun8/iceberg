@@ -43,7 +43,7 @@ class FormSetup {
 
     this.dialogInstance = dialogInstance;
 
-    this.captchaKey = '6Ld-J0kaAAAAAP8EVz9EvYDlSEbbPUOEwi-WDfwG';
+    this.captchaKey = '6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf';
     this.submitUrl = this.$elm.form.action || '/ajax/form.php';
     this.formType = this.$elm.form.dataset.type;
 

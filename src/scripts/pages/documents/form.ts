@@ -1,5 +1,10 @@
 import Mask from "../../form/Mask";
-import { FormElm, InputElement, MaskType, TextAreaElement } from "../../form/types";
+import {
+  FormElm,
+  InputElement,
+  MaskType,
+  TextAreaElement,
+} from "../../form/types";
 import Validation from "../../form/Validation";
 import DatePicker from "../../form/DatePicker";
 import Submit from "../../form/Submit";
@@ -54,7 +59,7 @@ const getTemplate = (id: number) => `
                   id="document-passport-${id}"
                   class="visually-hidden"
                   type="radio"
-                  name=child[${id}][child-document-type]"
+                  name="child[${id}][child-document-type]"
                   value="1"
                   checked
                 />
@@ -113,11 +118,11 @@ const getTemplate = (id: number) => `
           <div class="col-full  grid  grid--col-2">
             <div class="document-form__field  form-field">
               <label class="visually-hidden" for="document-place-${id}">Кем выдан</label>
-              <input id="document-place-${id}" type="text" placeholder="Кем выдан" data-mask="cyrillic" data-validation="text" required>
+              <input id="document-place-${id}" type="text" name="child[${id}][document-issued]" placeholder="Кем выдан" data-mask="cyrillic" data-validation="text" required>
             </div>
             <div class="document-form__field  form-field">
               <label class="visually-hidden" for="document-reg-${id}">Адрес регистрации</label>
-              <input id="document-reg-${id}" type="text" placeholder="Адрес регистрации" data-mask="cyrillic" data-validation="text" required>
+              <input id="document-reg-${id}" type="text"  name="child[${id}][document-registration-address]" placeholder="Адрес регистрации" data-mask="cyrillic" data-validation="text" required>
             </div>
           </div>
 
@@ -130,6 +135,7 @@ const getTemplate = (id: number) => `
                     class="visually-hidden"
                     type="checkbox"
                     name="child[${id}][document-same-residence]"
+                    value="true"
                   />
                   <span class="c-checkbox__checkmark">
               <svg width="16" height="12" fill="none">
@@ -168,10 +174,47 @@ export default () => {
   };
 
   const getFormFieldElms = (rootElm: HTMLElement) => {
-    const inputElms = Array.from(rootElm.querySelectorAll("input")) as InputElement[];
-    const textareaElms = Array.from(rootElm.querySelectorAll("textarea")) as TextAreaElement[];
+    const inputElms = Array.from(
+      rootElm.querySelectorAll("input")
+    ) as InputElement[];
+    const textareaElms = Array.from(
+      rootElm.querySelectorAll("textarea")
+    ) as TextAreaElement[];
 
     return [...inputElms, ...textareaElms];
+  };
+
+  const getFormFieldElmsForSubmit = (rootElm: HTMLElement) => {
+    const inputElms = Array.from(
+      rootElm.querySelectorAll("input")
+    ) as InputElement[];
+    const textareaElms = Array.from(
+      rootElm.querySelectorAll("textarea")
+    ) as TextAreaElement[];
+
+    const filteredInputElms = inputElms.filter((input) => {
+      if (input.type === "radio") {
+        return input.checked;
+      }
+
+      if (input.type === "checkbox" && !input.required) {
+        if (input.checked) {
+          input.value = "true";
+        } else {
+          input.value = "";
+        }
+
+        return true;
+      }
+
+      if (input.name) {
+        return true;
+      }
+
+      return false;
+    });
+
+    return [...filteredInputElms, ...textareaElms];
   };
 
   const addMask = (elm: InputElement, type: string) => {
@@ -204,10 +247,14 @@ export default () => {
 
   const initFormSection = (rootElm: HTMLElement) => {
     const fieldElms = getFormFieldElms(rootElm);
-    const seriesInput = fieldElms.find(input => input.dataset.mask === "document-series");
-    const numbersInput = fieldElms.find(input => input.dataset.mask === "document-number");
+    const seriesInput = fieldElms.find(
+      (input) => input.dataset.mask === "document-series"
+    );
+    const numbersInput = fieldElms.find(
+      (input) => input.dataset.mask === "document-number"
+    );
 
-    fieldElms.forEach(elm => {
+    fieldElms.forEach((elm) => {
       const isRequired = elm.required;
       const isDateInput = elm.type === "date";
       const typeMask = elm.dataset.mask;
@@ -220,8 +267,10 @@ export default () => {
       if (isDateInput) {
         const pickerInstance = new DatePicker(elm as HTMLInputElement);
 
-        const pickerInput = pickerInstance.flatpickr?.altInput as HTMLInputElement;
-        const pickerMobileInput = pickerInstance.flatpickr?.mobileInput as HTMLInputElement;
+        const pickerInput = pickerInstance.flatpickr
+          ?.altInput as HTMLInputElement;
+        const pickerMobileInput = pickerInstance.flatpickr
+          ?.mobileInput as HTMLInputElement;
 
         if (pickerInput) {
           pickerInput.addEventListener("blur", () => {
@@ -250,7 +299,9 @@ export default () => {
 
       // Если чекбокс "адрес регистрации === адрес проживания"
       if (elm.type === "checkbox") {
-        const residenceInput = fieldElms.find(elm => elm.name === "document-residence");
+        const residenceInput = fieldElms.find(
+          (elm) => elm.name === "document-residence"
+        );
 
         if (residenceInput) {
           elm.onchange = () => {
@@ -260,13 +311,21 @@ export default () => {
         }
       }
 
-      if (elm.type === "radio" && (elm.value === "1" || elm.value === "2") && seriesInput && numbersInput) {
+      if (
+        elm.type === "radio" &&
+        (elm.value === "1" || elm.value === "2") &&
+        seriesInput &&
+        numbersInput
+      ) {
         elm.onchange = () => {
           const isPassport = elm.value === "1";
 
-          [seriesInput, numbersInput].forEach(elm => clearField(elm));
+          [seriesInput, numbersInput].forEach((elm) => clearField(elm));
 
-          Mask.documentSeries(<InputElement>seriesInput, isPassport ? "" : "document-birth");
+          Mask.documentSeries(
+            <InputElement>seriesInput,
+            isPassport ? "" : "document-birth"
+          );
         };
       }
     });
@@ -277,29 +336,89 @@ export default () => {
       hasChildForm = true;
     }
 
-    const childFormSize = Array.from(document.querySelectorAll(".child-form")).length;
+    const childFormSize = Array.from(document.querySelectorAll(".child-form"))
+      .length;
 
     formElm.classList.add("has-child");
     childrenSection.insertAdjacentHTML("beforeend", getTemplate(id));
 
-    const childForm = document.querySelector(`#child-form-${id}`) as HTMLElement;
+    const childForm = document.querySelector(
+      `#child-form-${id}`
+    ) as HTMLElement;
 
     if (idChildCount !== 1) {
-      replaceTitleNumber(childForm, childFormSize + 1)
+      replaceTitleNumber(childForm, childFormSize + 1);
     }
 
     initFormSection(childForm);
     removeChildSection(id);
+
+    // Fill form
+    (() => {
+      const inputElms = childForm?.querySelectorAll("input");
+
+      inputElms?.forEach((input) => {
+        switch (input.name) {
+          case `child[${id}][lastname]`:
+            input.value = "Иванов";
+            break;
+          case `child[${id}][name]`:
+            input.value = "Иван";
+            break;
+          case `child[${id}][patronymic]`:
+            input.value = "Иванович";
+            break;
+          case `child[${id}][birthday]`:
+            input.value = "1993-02-08";
+            break;
+          case `child[${id}][email]`:
+            input.value = "example@mail.com";
+            break;
+          case `child[${id}][phone]`:
+            input.inputmask!.setValue("1231231231");
+            break;
+          case `child[${id}][series]`:
+            input.value = "1234";
+            break;
+          case `child[${id}][number]`:
+            input.value = "123456";
+            break;
+          case `child[${id}][document-release]`:
+            input.value = "2008-06-14";
+            break;
+          case `child[${id}][document-issued]`:
+            input.value = "кем выдан";
+            break;
+          case `child[${id}][document-registration-address]`:
+            input.value = "адрес регистрации";
+            break;
+          // case `child[${id}][document-same-residence]`:
+          //   input.checked = true;
+          //   break;
+          // case `child[${id}][document-residence]`:
+          //   input.value = "адрес проживания"
+          //   break;
+          default:
+            break;
+        }
+      });
+    })();
   };
 
   const removeChildSection = (id: number) => {
-    const childForm = document.querySelector(`#child-form-${id}`) as HTMLElement;
-    const btnRemoveElms = Array.from(childForm.querySelectorAll(".document-form__btn-remove")) as HTMLButtonElement[];
+    const childForm = document.querySelector(
+      `#child-form-${id}`
+    ) as HTMLElement;
+    const btnRemoveElms = Array.from(
+      childForm.querySelectorAll(".document-form__btn-remove")
+    ) as HTMLButtonElement[];
 
     if (btnRemoveElms.length) {
-      btnRemoveElms.forEach(btn => {
+      btnRemoveElms.forEach((btn) => {
         btn.onclick = () => {
-          let childFormElms = Array.from(document.querySelectorAll(".child-form"))!;
+          let childFormElms = Array.from(
+            document.querySelectorAll(".child-form")
+          )!;
 
           childForm.remove();
 
@@ -309,7 +428,9 @@ export default () => {
           } else {
             // Меняем заголовок формы, чтобы номер соответствовал количеству элементов.
             // При этом id остается согласно idChildCount
-            childFormElms = Array.from(document.querySelectorAll(".child-form"))!;
+            childFormElms = Array.from(
+              document.querySelectorAll(".child-form")
+            )!;
 
             childFormElms.forEach((formElm, index) => {
               replaceTitleNumber(formElm as HTMLElement, index + 1);
@@ -334,7 +455,11 @@ export default () => {
     }
 
     // Сбрасывается/очищается через методы кастомных полей
-    if (elm.tagName === "INPUT" && elm.classList.contains("form__datepicker") && (<DatePickerElement>elm)._flatpickr) {
+    if (
+      elm.tagName === "INPUT" &&
+      elm.classList.contains("form__datepicker") &&
+      (<DatePickerElement>elm)._flatpickr
+    ) {
       // flatpickr
       (<DatePickerElement>elm)._flatpickr!.clear();
     }
@@ -350,37 +475,47 @@ export default () => {
   };
 
   const formElm = document.querySelector(".document-form") as HTMLFormElement;
-  const childrenSection = formElm.querySelector(".document-form__section--children") as HTMLElement;
-  const btnAddForm = formElm.querySelector(".js-add-child-form") as HTMLButtonElement;
-  const successBlock = document.querySelector(".document-success") as HTMLElement;
-  const successTextElm = successBlock.querySelector(".document-success__text") as HTMLElement;
-  const successBtnShowForm = successBlock.querySelector(".js-show-form") as HTMLButtonElement;
+  const childrenSection = formElm.querySelector(
+    ".document-form__section--children"
+  ) as HTMLElement;
+  const btnAddForm = formElm.querySelector(
+    ".js-add-child-form"
+  ) as HTMLButtonElement;
+  const successBlock = document.querySelector(
+    ".document-success"
+  ) as HTMLElement;
+  const successTextElm = successBlock.querySelector(
+    ".document-success__text"
+  ) as HTMLElement;
+  const successBtnShowForm = successBlock.querySelector(
+    ".js-show-form"
+  ) as HTMLButtonElement;
 
   const success = new SuccessDocument(successBlock, formElm);
 
   let idChildCount = 1;
   let hasChildForm = false;
   const successText = "Необходимо принести оригиналы документов: паспорт.";
-  const successTextChild = "Необходимо принести оригиналы документов: паспорт законного представителя и паспорт или свидетельство о рождении ребенка/ постановление органов опеки/свидетельство о государственной регистрации акта усыновления ст. 125 СК РФ.";
+  const successTextChild =
+    "Необходимо принести оригиналы документов: паспорт законного представителя и паспорт или свидетельство о рождении ребенка/ постановление органов опеки/свидетельство о государственной регистрации акта усыновления ст. 125 СК РФ.";
 
   formElm.setAttribute("novalidate", "");
 
   formElm.onsubmit = (event) => {
     event.preventDefault();
-    const KEY = "";
+    const KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
     const url = formElm.action || "/document";
 
-    Submit.send(getFormFieldElms(formElm), url, KEY);
+    // Submit.send(getFormFieldElms(formElm), url, KEY);
 
     (async () => {
-      // TODO: убрать условие для прода
-      if (0) {
-        await Submit.send(getFormFieldElms(formElm), url, KEY);
-      }
+      await Submit.send(getFormFieldElmsForSubmit(formElm), url, KEY);
 
       // Если отправка прошла без ошибок,
       // то показываем блок с сообщение об успехе
-      successTextElm.textContent = hasChildForm ? successTextChild : successText;
+      successTextElm.textContent = hasChildForm
+        ? successTextChild
+        : successText;
       await success.show();
       // console.log('await Success.show end');
     })();
@@ -397,4 +532,4 @@ export default () => {
   };
 
   initFormSection(document.querySelector(".document-form__section--adult")!);
-}
+};
