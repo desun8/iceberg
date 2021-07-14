@@ -70,6 +70,7 @@
     "a11y-dialog": "^5.4.2",
     "choices.js": "^9.0.1",
     "flatpickr": "^4.6.6",
+    "focus-visible": "^5.2.0",
     "gsap": "^3.6.1",
     "inputmask": "^5.0.5",
     "lodash": "^4.17.21",

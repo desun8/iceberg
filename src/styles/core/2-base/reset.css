@@ -30,6 +30,11 @@ textarea:focus:focus-visible {
   outline-style: auto;
 }
 
+[data-js-focus-visible] :focus:not([data-focus-visible-added]) {
+  outline-width: 0;
+  outline-style: none;
+}
+
 h1,
 h2,
 h3,

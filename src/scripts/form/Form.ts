@@ -5,6 +5,7 @@ import FormSetup from "./FormSetup";
 import { loadRecaptcha } from "./loadRecaptcha";
 import DatePickerOriginal from "./DatePickerOriginal";
 import A11yDialog from "a11y-dialog";
+import { CONSULTATION } from "./FormType";
 
 loadRecaptcha();
 
@@ -35,6 +36,12 @@ class Constructor {
     const form = this.clone(template, "#template-form") as HTMLFormElement;
     form.id = formId;
     form.dataset.type = `${formType.toUpperCase()}_FORM`;
+    
+    const title = form.querySelector(".form__title");
+
+    if (title && formType === CONSULTATION) {
+      title.textContent = "Записаться на онлайн-консультацию";
+    }
 
     const wrapper = this.createWrapper(formType);
     wrapper.appendChild(form);

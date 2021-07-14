@@ -1,11 +1,9 @@
 import core from "./core";
 import fixedHero from "./scripts/pages/about/fixedHero";
 import stepsAnimation from "./scripts/pages/children-service/stepsAnimation";
-import lightboxGallery from "./scripts/core/lightboxGallery";
 import serviceGalleryCarousel from "./scripts/pages/children-service/serviceGalleryCarousel";
 
 core();
-lightboxGallery();
 fixedHero();
 stepsAnimation();
 serviceGalleryCarousel();
@@ -104,3 +102,9 @@ const heroSlider = () => {
 }
 
 heroSlider();
+
+if (window.APP.isDesktop) {
+  import("./scripts/core/lightboxGallery").then(({default: lightboxGallery}) => {
+    lightboxGallery();
+  });
+}

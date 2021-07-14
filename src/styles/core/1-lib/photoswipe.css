@@ -238,13 +238,14 @@
 }
 
 .pswp-btn {
-  --x: calc(var(--gap-x, 0) + var(--inner-gap));
+  --x: calc(var(--gap-x, 0) + var(--inner-gap, 0));
   --y: -50%;
 
   position: absolute;
   top: 50%;
   left: 0;
   transform: translate3d(var(--x), var(--y), 0);
+  border: 1px solid var(--bg-c);
 }
 
 .pswp-btn--next {
@@ -291,7 +292,7 @@
   }
 
   .pswp-close {
-    --inner-gap: calc(21px + 50px); /* 50px - button width */
+    --inner-gap: calc(24px + 50px); /* 50px - button width */
     --x: calc((var(--gap-x, 0) - var(--inner-gap)) * -1);
     --y: var(--gap-y, 0);
 

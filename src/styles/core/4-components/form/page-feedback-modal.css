@@ -150,6 +150,10 @@
   .page-feedback-modal__note .simplebar-track.simplebar-vertical {
     right: -30px;
   }
+
+  .page-feedback-modal .form__title {
+    text-align: left;
+  }
 }
 
 /* noinspection CssInvalidMediaFeature */

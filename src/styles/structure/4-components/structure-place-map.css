@@ -93,7 +93,7 @@
 
   .structure-place-map__map {
     --width: 640px;
-    --height: 484px;
+    --height: 483px;
 
     width: calc(var(--width) * var(--scale));
     height: calc(var(--height) * var(--scale));

@@ -5,6 +5,7 @@ import core from "./scripts/core/index"
 import Modal from "./scripts/Modal";
 import Menu from "./scripts/Menu";
 import accordion from "./scripts/accordion";
+import "focus-visible";
 
 export default () => {
   core();

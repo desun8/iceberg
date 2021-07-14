@@ -8,11 +8,9 @@ import welcomeAnimation from "./scripts/pages/children-service/welcomeAnimation"
 import handBrushAnimation from "./scripts/pages/children-service/handBrushAnimation";
 import qaAnimation from "./scripts/pages/children-service/qaAnimation";
 import serviceCardGallery from "./scripts/pages/children-service/serviceCardGallery";
-import lightboxGallery from "./scripts/core/lightboxGallery";
 
 core();
 
-lightboxGallery();
 featureCarousel();
 reviewCarousel();
 stickyService();
@@ -25,6 +23,9 @@ serviceCardGallery();
 if (window.APP.isDesktop) {
   import("./scripts/pages/children-service/serviceGalleryCarousel").then(({default: serviceGallery}) => {
     serviceGallery();
+  });
+  import("./scripts/core/lightboxGallery").then(({default: lightboxGallery}) => {
+    lightboxGallery();
   });
 }
 
