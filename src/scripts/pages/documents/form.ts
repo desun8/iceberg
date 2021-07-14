@@ -299,12 +299,20 @@ export default () => {
 
       // Если чекбокс "адрес регистрации === адрес проживания"
       if (elm.type === "checkbox") {
+        
         const residenceInput = fieldElms.find(
-          (elm) => elm.name === "document-residence"
+          (elm) => elm.name.includes("document-residence")
         );
+
+        console.log("is residence input");
+        
 
         if (residenceInput) {
           elm.onchange = () => {
+            console.log("is change checkbox");
+            console.log("is checkbox checked: ", (elm as InputElement).checked);
+            
+            
             const isChecked = (elm as InputElement).checked;
             residenceInput.disabled = isChecked;
           };

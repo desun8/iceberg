@@ -191,6 +191,7 @@
   width: auto;
   margin-top: 40px;
   margin-right: auto;
+  margin-bottom: 0;
   margin-left: auto;
   background-color: transparent;
   color: inherit;
@@ -341,7 +342,7 @@
     position: absolute;
     right: 0;
     bottom: 30px;
-    width: 100%;
+    width: 40%;
     height: 300px;
     margin: 0;
     background-size: 420px;
