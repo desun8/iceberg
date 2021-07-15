@@ -115,14 +115,23 @@
 /* noinspection CssInvalidMediaFeature */
 @media screen and (--desktop) {
   .form {
-    max-width: 310px;
+    --max-w: 310px;
+
+    max-width: var(--max-w);
     margin: 0;
   }
 
   .form__title {
+    min-width: 400px;
     margin-bottom: 5px;
     font-size: 32px;
     letter-spacing: var(--letter-spacing);
+  }
+
+  .form__field,
+  .form__agreement,
+  .form__submit {
+    max-width: var(--max-w);
   }
 
   .form__submit {
