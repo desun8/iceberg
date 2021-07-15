@@ -1,0 +1,14 @@
+.page-fixed-social {
+  display: none;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 10;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) and (max-height: 1100px) {
+  .page-fixed-social {
+    display: block;
+  }
+}

@@ -15,13 +15,17 @@ export default () => {
   const headerElement = document.querySelector(".page-header") as HTMLElement;
   const headerContainer = headerElement.querySelector(".header__container")!;
   const btnToTop = document.querySelector("#btn-to-top");
+  const socialLinks = document.querySelector(".page-fixed-social");
   const footerElement = document.querySelector(".page-footer");
   let clientHeight = document.documentElement.clientHeight + 200;
   const scrollbar = window.APP.scrollbar;
   const isNativeScroll = scrollbar === undefined;
+  let dynamicSocialLinks = true;
 
   if (document.querySelector("#page-home")) {
     const heroBlock = document.querySelector(".block-hero") as HTMLElement;
+
+    dynamicSocialLinks = false;
 
     if (heroBlock) {
       clientHeight = heroBlock.offsetHeight + 200;
@@ -33,6 +37,7 @@ export default () => {
   let isHeaderPinned = false;
   let isFooterVisible = false;
   let isBtnVisible = false;
+  let isSocialVisible = true;
   const setHeaderY = gsap.quickSetter(headerElement, "y", "px");
 
   const pinHeader = (isNative = true) => {
@@ -76,6 +81,40 @@ export default () => {
         resetStyles(isNative);
       },
     });
+  };
+
+  const toggleSocialLinks = (shouldShow: boolean) => {
+    if (socialLinks && dynamicSocialLinks) {
+      if (shouldShow) {
+        if (isSocialVisible) return;
+
+        isSocialVisible = true;
+        gsap.killTweensOf(socialLinks);
+
+        gsap.set(socialLinks, {
+          y: 60,
+          alpha: 0,
+        });
+        gsap.to(socialLinks, {
+          y: 0,
+          alpha: 1,
+          duration: 0.4,
+        });
+      } else {
+        if (!isSocialVisible) return;
+
+        gsap.killTweensOf(socialLinks);
+
+        gsap.to(socialLinks, {
+          alpha: 0,
+          y: 60,
+          duration: 0.2,
+          onComplete() {
+            isSocialVisible = false;
+          },
+        });
+      }
+    }
   };
 
   const toggleBtnVisible = (shouldShow: boolean) => {
@@ -131,9 +170,17 @@ export default () => {
         resetStyles(isNativeScroll);
         toggleBtnVisible(false);
       }
+
+      if (!isNativeScroll) {
+        toggleSocialLinks(true);
+      }
     } else {
       unpinHeader(isNativeScroll);
       toggleBtnVisible(false);
+
+      if (!isNativeScroll) {
+        toggleSocialLinks(false);
+      }
     }
 
     prevScrollTop = currScrollTop;
