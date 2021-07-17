@@ -1,32 +1,37 @@
 <main class="js-home-main">
-  <section class="about-hero main">
-    <div class="main__wrapper">
-      <div class="main__info">
-        <div class="main__info-text">
-          <h1 class="main__title">Клиника Iceberg</h1>
-          <p class="main__subtitle">Нас объединяет общая движущая сила - желание помогать людям и сделать <br>
-            стоматологическую травматологию в России лучшей в мире</p>
-        </div>
-        <div class="main__slider">
-          <div class="main__slide"><img src="/images/about/img/teamslide.png" alt="команда"></div>
-          <div class="main__slide"><img src="/images/about/img/teamslide.png" alt="команда"></div>
-          <div class="main__slide"><img src="/images/about/img/teamslide.png" alt="команда"></div>
+  <section class="about-hero">
+    <div class="about-hero__wrapper">
+      <div class="about-hero__body">
+        <h1 class="about-hero__title">Клиника Iceberg</h1>
+        <span class="about-hero__text">Нас объединяет общая движущая сила - желание помогать людям и сделать стоматологическую травматологию в России лучшей в мире</span>
+      </div>
 
-          <a class="prev arrow" onClick="minusSlide()">
-            <svg class="icon" width="15" height="15">
-              <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"></rect>
-              <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"></rect>
+      <div class="about-hero-carousel  swiper-container">
+        <div class="about-hero-carousel__controls">
+          <button type="button" class="slider-btn  slider-btn--prev" aria-label="Предыдущий слайд."></button>
+          <button type="button" class="slider-btn  slider-btn--next" aria-label="Следующий слайд.">
+            <svg class="circle-progress-bar" width="50" height="50" aria-hidden="true">
+              <circle cx="25" cy="25" r="24.6" fill="transparent" stroke-width="1"></circle>
             </svg>
-          </a>
-          <a class="next arrow" onClick="plusSlide()">
-            <svg class="icon" width="15" height="15">
-              <rect width="1" height="10" rx=".5" transform="scale(1 -1) rotate(45 20.607 1.465)"></rect>
-              <rect width="1" height="10" rx=".5" transform="scale(-1 1) rotate(-45 -3.035 9.743)"></rect>
-            </svg>
-            <svg class="circle-progress-bar" width="50" height="50">
-              <circle class="circle-ring" cx="25" cy="25" r="24.6" fill="transparent" stroke-width="1"></circle>
-            </svg>
-          </a>
+          </button>
+        </div>
+
+        <div class="about-hero-carousel__slides  swiper-wrapper">
+          <div class="about-hero-carousel__slide  swiper-slide">
+            <div class="image-wrapper">
+              <img src="/images/about/carousel/img.png" alt="">
+            </div>
+          </div>
+          <div class="about-hero-carousel__slide  swiper-slide">
+            <div class="image-wrapper">
+              <img src="/images/__dev-img-3.jpg" alt="">
+            </div>
+          </div>
+          <div class="about-hero-carousel__slide  swiper-slide">
+            <div class="image-wrapper">
+              <img src="/images/__dev-img-2.jpg" alt="">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -166,8 +171,11 @@
 
       <div class="catalog-banner__body">
         <h3 class="catalog-banner__title">К нам приезжают из других городов и стран!</h3>
-        <p class="catalog-banner__describe">Вы можете записаться на онлайн-консультацию с вашим будущим доктором, чтобы познакомиться, получить мнение эксперта и наметить дальнейший путь.</p>
-        <button class="catalog-banner__link  btn  btn--pink  btn--full-w  js-form-open" type="button">Записаться на консультацию</button>
+        <p class="catalog-banner__describe">Вы можете записаться на онлайн-консультацию с вашим будущим доктором, чтобы
+          познакомиться, получить мнение эксперта и наметить дальнейший путь.</p>
+        <button class="catalog-banner__link  btn  btn--pink  btn--full-w  js-form-open" type="button">Записаться на
+          консультацию
+        </button>
       </div>
 
       <div class="catalog-banner__bg-img"></div>

@@ -1,0 +1,98 @@
+.about-hero {
+  min-height: 100vh;
+  height: auto;
+  padding-top: var(--page-top-gap);
+  color: #fff;
+  background: var(--c-blue-deep) url("/images/about/noise-pattern.png") center / 51px;
+}
+
+.about-hero__wrapper {
+  min-height: calc(100vh - var(--page-top-gap));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.about-hero__body {
+  flex-grow: 2;
+  display: grid;
+  align-content: center;
+  max-width: 730px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 var(--page-gap);
+  text-align: center;
+}
+
+.about-hero__title {
+  margin-bottom: 26px;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.about-hero__text {
+  line-height: 1.45;
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--tablet-lg) {
+  .about-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 0;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: cover;
+    background-image: image-set(
+      url("/images/about/about-header.jpg") 1x,
+      url("/images/about/about-header@2x.jpg") 2x
+    );
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("/images/about/noise-pattern.png") center / 51px;
+    opacity: 0.5;
+  }
+
+  .about-hero__wrapper {
+    min-height: 100%;
+  }
+
+  .about-hero__body {
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .about-hero__title {
+    margin-bottom: 30px;
+    font-size: 64px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .about-hero__text {
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing);
+  }
+}
+
+/* noinspection CssInvalidMediaFeature */
+@media (--desktop-lg) {
+  .about-hero {
+    padding-top: 200px;
+  }
+}
+
+@media (min-height: 1000px) {
+  .about-hero {
+    height: 50vh;
+  }
+}

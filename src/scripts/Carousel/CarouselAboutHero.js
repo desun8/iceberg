@@ -1,6 +1,6 @@
 import { NewCarousel } from './Carousel';
 
-class CarouselFeedback extends NewCarousel {
+class CarouselAboutHero extends NewCarousel {
   constructor(...props) {
     super(...props);
 
@@ -52,8 +52,8 @@ class CarouselFeedback extends NewCarousel {
     };
 
     const navigation = {
-      nextEl: this.elm.querySelector('.btn-slider--next'),
-      prevEl: this.elm.querySelector('.btn-slider--prev'),
+      nextEl: this.elm.querySelector('.slider-btn--next'),
+      prevEl: this.elm.querySelector('.slider-btn--prev'),
     };
 
     this.params = {
@@ -83,4 +83,4 @@ class CarouselFeedback extends NewCarousel {
   }
 }
 
-export default CarouselFeedback;
+export default CarouselAboutHero;

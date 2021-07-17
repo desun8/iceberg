@@ -8,6 +8,8 @@
 @import "./children-service/4-components/children-services/children-services-gallery.css";
 @import "./children-service/4-components/children-services/children-service-gallery.css";
 @import "./about/4-components/about-styles.css";
+@import "./about/4-components/about-hero.css";
+@import "./about/4-components/about-hero-carousel.css";
 
 .page-header .hamburger:hover {
   --color: var(--c-blue-deep);
@@ -16,11 +18,6 @@
 
 .home-wrapper {
   padding-bottom: 100px;
-}
-
-.about-hero {
-  min-height: 100vh;
-  height: auto;
 }
 
 .certificate {
