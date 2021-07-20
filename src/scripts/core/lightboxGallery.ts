@@ -35,7 +35,7 @@ export default () => {
     </div>
     
     <span class="pswp-title"></span>
-    <button class="pswp-close  hamburger hamburger--close  btn  btn--circle  btn--pink" type="button" aria-label="Закрыть.">
+    <button class="pswp-close  hamburger hamburger--close  btn  btn--circle  btn--pink  btn--sky-hover" type="button" aria-label="Закрыть.">
       <span class="hamburger__line"></span>
       <span class="hamburger__line"></span>
 </button>

@@ -76,6 +76,11 @@
   --bg-c: #fff;
 }
 
+.btn--sky-hover:not(.btn--no-hover):hover {
+  --color: var(--c-blue-deep);
+  --bg-c: var(--c-blue-sky);
+}
+
 .btn--circle {
   --bdrs: 50%;
 
