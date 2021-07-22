@@ -11,7 +11,7 @@ enum ScrollDirection {
   Down
 }
 
-export default () => {
+export default function fixedHeader() {
   const headerElement = document.querySelector(".page-header") as HTMLElement;
   const headerContainer = headerElement.querySelector(".header__container")!;
   const btnToTop = document.querySelector("#btn-to-top");

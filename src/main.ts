@@ -5,7 +5,7 @@ import TabsFeature from './scripts/Carousel/TabsFeature';
 import CarouselFeedback from './scripts/Carousel/CarouselFeedback';
 import autoplayVideo from './scripts/utils/autoplayVideo';
 import fullscreen from './scripts/block-video/fullscreen';
-import core from './core';
+import core from './initCore';
 import homeCore from './scripts/pages/home/index';
 
 // карусель особенности

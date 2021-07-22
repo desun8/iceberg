@@ -9,3 +9,9 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+@media (--tablet-lg) and (max-height: 100px) {
+  .page-main--sitemap {
+    min-height: 100vh;
+  }
+}

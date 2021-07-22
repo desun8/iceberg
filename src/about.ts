@@ -1,4 +1,4 @@
-import core from "./core";
+import core from "./initCore";
 import fixedHero from "./scripts/pages/about/fixedHero";
 import stepsAnimation from "./scripts/pages/children-service/stepsAnimation";
 import serviceGalleryCarousel from "./scripts/pages/children-service/serviceGalleryCarousel";

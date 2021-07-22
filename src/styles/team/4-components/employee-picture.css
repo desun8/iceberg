@@ -12,7 +12,7 @@
   --aspect-ratio: calc(486 / 440 * 100%);
   --pos-img: 0;
   --pos-mask: 105;
-  --mask-size: 132px;
+  --mask-size: 180px;
   --mask-pos-x: 0;
   --mask-pos-y: 0;
   --easeInOutQuart: cubic-bezier(0.76, 0, 0.24, 1);

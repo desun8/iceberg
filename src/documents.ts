@@ -1,5 +1,5 @@
 import { worker } from './mocks/browser';
-import core from './core';
+import core from './initCore';
 import form from './scripts/pages/documents/form';
 import { loadRecaptcha } from './scripts/form/loadRecaptcha';
 

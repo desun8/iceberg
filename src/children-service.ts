@@ -1,5 +1,5 @@
 import "simplebar";
-import core from "./core";
+import core from "./initCore";
 import featureCarousel from "./scripts/pages/children-service/featureCarousel";
 import reviewCarousel from "./scripts/pages/children-service/reviewCarousel";
 import stickyService from "./scripts/pages/children-service/stickyService";

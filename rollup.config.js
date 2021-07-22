@@ -46,6 +46,7 @@ if (isProduction) {
 
 export default {
   input: [
+    'src/core.ts',
     'src/main.ts',
     'src/about.ts',
     'src/team.ts',

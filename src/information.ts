@@ -1,4 +1,4 @@
-import core from "./core";
+import core from "./initCore";
 import information from "./scripts/pages/information/index";
 
 core();
