@@ -4,6 +4,7 @@ import scrollLock from "scroll-lock";
 import { APPOINTMENT, CONSULTATION } from "../form/FormType";
 import accordion from "../accordion";
 import SimpleBar from "simplebar";
+import Form from "../form/Form";
 
 let isAccordionInit = false;
 // Переключение видимости между модалками (типами - формы, отзыв, iframe)
@@ -19,6 +20,13 @@ const showModalElm = (parent: Element, visibleElm: HTMLElement) => {
   });
 };
 
+const createForms = () => {
+  if (formAppointment === null && formConsultation === null) {
+    formAppointment = new Form(APPOINTMENT, dialogFormContainer, dialog);
+    formConsultation = new Form(CONSULTATION, dialogFormContainer, dialog);
+  }
+};
+
 const setupDialog = (dialogElm: Element) => {
   if (dialogElm && dialog === null) {
     dialog = new A11yDialog(dialogElm);
@@ -28,13 +36,13 @@ const setupDialog = (dialogElm: Element) => {
 
     const disablePageScroll = () => {
       if (scrollbar) {
-        scrollbar.updatePluginOptions("modal", {open: true});
+        scrollbar.updatePluginOptions("modal", { open: true });
       }
     };
 
     const enablePageScroll = () => {
       if (scrollbar) {
-        scrollbar.updatePluginOptions("modal", {open: false});
+        scrollbar.updatePluginOptions("modal", { open: false });
       }
     };
 
@@ -65,10 +73,17 @@ const setupDialog = (dialogElm: Element) => {
 
     dialog.on("show", handleShow);
     dialog.on("hide", handleHide);
+
+    createForms();
   }
 };
 
-const openDialog = (dialogContainer: HTMLElement, formAppointment: any, formConsultation: any, btn: HTMLElement) => {
+const openDialog = (
+  dialogContainer: HTMLElement,
+  formAppointment: any,
+  formConsultation: any,
+  btn: HTMLElement
+) => {
   const type = btn.dataset.type;
   console.log("type");
   console.log(type);
@@ -77,11 +92,17 @@ const openDialog = (dialogContainer: HTMLElement, formAppointment: any, formCons
     case APPOINTMENT:
       formAppointment.init();
 
-      showModalElm(dialogContainer, dialogContainer.querySelector("div[data-type='form-appointment']")!);
+      showModalElm(
+        dialogContainer,
+        dialogContainer.querySelector("div[data-type='form-appointment']")!
+      );
       break;
     case CONSULTATION:
       formConsultation.init();
-      showModalElm(dialogContainer, dialogContainer.querySelector("div[data-type='form-consultation']")!);
+      showModalElm(
+        dialogContainer,
+        dialogContainer.querySelector("div[data-type='form-consultation']")!
+      );
 
       dialogContainer.dataset.type = "consultation";
       break;
@@ -98,27 +119,7 @@ const openDialog = (dialogContainer: HTMLElement, formAppointment: any, formCons
 const handleOpen = (event: Event) => {
   const target = event.currentTarget as HTMLButtonElement;
 
-  console.log(event);
-  if (formAppointment === null && formConsultation === null) {
-    import("../form/Form").then(({default: Form}) => {
-      formAppointment = new Form(APPOINTMENT, dialogFormContainer, dialog);
-      formConsultation = new Form(CONSULTATION, dialogFormContainer, dialog);
-
-      openDialog(
-        dialogBody,
-        formAppointment,
-        formConsultation,
-        target,
-      );
-    });
-  } else {
-    openDialog(
-      dialogBody,
-      formAppointment,
-      formConsultation,
-      target,
-    );
-  }
+  openDialog(dialogBody, formAppointment, formConsultation, target);
 
   if (dialog) {
     dialog.show();
@@ -126,8 +127,12 @@ const handleOpen = (event: Event) => {
 };
 
 const dialogElm = document.querySelector("#page-feedback-modal")!;
-const dialogBody = dialogElm.querySelector(".page-modal__content") as HTMLElement;
-const dialogFormContainer = dialogBody.querySelector(".page-modal__content-main")!;
+const dialogBody = dialogElm.querySelector(
+  ".page-modal__content"
+) as HTMLElement;
+const dialogFormContainer = dialogBody.querySelector(
+  ".page-modal__content-main"
+)!;
 const btnClose = dialogElm.querySelector(".js-modal-close")!;
 const btnsOpen = document.querySelectorAll<HTMLButtonElement>(".js-form-open");
 
@@ -135,15 +140,15 @@ let dialog: A11yDialog = null!;
 let formAppointment: any = null;
 let formConsultation: any = null;
 
-btnsOpen.forEach(btn => {
+btnsOpen.forEach((btn) => {
   btn.addEventListener("click", handleOpen);
 });
 
-console.log('btnClose');
+console.log("btnClose");
 console.log(btnClose);
 
 btnClose.addEventListener("click", () => {
-  console.log('click');
+  console.log("click");
   if (dialog) {
     dialog.hide();
   }
@@ -157,7 +162,10 @@ const initSimplebar = (parent: Element, target: Element = undefined!) => {
   });
 };
 
-initSimplebar(dialogBody, dialogBody.querySelector(".page-feedback-modal__note .js-simplebar")!);
+initSimplebar(
+  dialogBody,
+  dialogBody.querySelector(".page-feedback-modal__note .js-simplebar")!
+);
 
 export const initFeedbackModal = () => {
   setupDialog(dialogElm);
