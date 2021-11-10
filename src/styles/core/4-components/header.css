@@ -105,6 +105,11 @@
     padding: var(--pd-y) 40px;
   }
 
+  .page-menu .header__container,
+  .page-feedback-modal .header__container {
+    --pd-y-default: 42px;
+  }
+
   .header__title {
     width: auto;
     height: auto;
@@ -117,7 +122,9 @@
 
   .header__btn-down,
   .header__social {
-    bottom: calc(-100vh + (110px + 40px + 20px)); /* 100vh - (social-height + bottom + magic-number) */
+    bottom: calc(
+      -100vh + (110px + 40px + 20px)
+    ); /* 100vh - (social-height + bottom + magic-number) */
   }
 
   .header__btn-down {

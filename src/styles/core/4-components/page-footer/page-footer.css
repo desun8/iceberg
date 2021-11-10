@@ -1,7 +1,7 @@
 .page-footer {
   position: relative;
   display: grid;
-  padding: 0 var(--page-gap);
+  padding: 0 20px;
   color: #fff;
   background-color: var(--c-blue-deep-darken);
   z-index: 10;
@@ -34,7 +34,7 @@
   }
 
   .page-footer::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
