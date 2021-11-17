@@ -1,13 +1,14 @@
 import { rest } from 'msw';
 
-import jsonData from './data.json';
+import teamJson from './teamData.json';
 
 export const handlers = [
-  rest.post('/api/employees', (req, res, ctx) =>
+  rest.get('/api/employees', (req, res, ctx) =>
     res(
+      ctx.delay(2000),
       ctx.status(200),
       ctx.json({
-        results: JSON.stringify(jsonData),
+        results: JSON.stringify(teamJson),
         success: true,
       })
     )
