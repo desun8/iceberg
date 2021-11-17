@@ -26,256 +26,302 @@ const shouldRestore: boolean = (() => {
   return restore;
 })();
 
-const initialView = (shouldRestore && Persistence.get(Storage.View)) || INITIAL_VIEW_SIZE;
-const initialType = (shouldRestore && Persistence.get(Storage.Type)) || INITIAL_TYPE;
+const initialView =
+  (shouldRestore && Persistence.get(Storage.View)) || INITIAL_VIEW_SIZE;
+const initialType =
+  (shouldRestore && Persistence.get(Storage.Type)) || INITIAL_TYPE;
 
-export default () => new Vue({
-  el: "#app-team",
-  components: {
-    "employee-card": EmployeeCard,
-  },
-  data(): Data {
-    return {
-      selectedType: initialType,
-      viewStep: INITIAL_VIEW_SIZE,
-      view: +initialView,
-      observer: null,
-      scrollTriggerInstance: null,
-      employeeItems: null,
-      isEmptyType: false,
-      hasMore: true,
-    };
-  },
+export default () =>
+  new Vue({
+    el: "#app-team",
+    components: {
+      "employee-card": EmployeeCard,
+    },
+    data(): Data {
+      return {
+        selectedType: initialType,
+        viewStep: INITIAL_VIEW_SIZE,
+        view: +initialView,
+        observer: null,
+        scrollTriggerInstance: null,
+        employeeItems: null,
+        isEmptyType: false,
+        hasMore: true,
+        isFetching: false,
+      };
+    },
 
-  computed: {
-    filteredEmployees(): EmployeeWithKey[] | [] {
-      if (this.employeeItems === null) {
-        return [];
-      }
-
-      return (this.employeeItems.filter((item) => {
-        const isCorrect = item.types.some((type: string) => type === this.selectedType);
-
-        // Если элемент подходит по типу,
-        // то генерируем "key".
-        if (isCorrect) {
-          (item as EmployeeWithKey).key = item.name + (Date.now() * Math.random() * Math.random());
-          return true;
+    computed: {
+      filteredEmployees(): EmployeeWithKey[] | [] {
+        if (this.employeeItems === null) {
+          return [];
         }
 
-        return false;
-      }) as EmployeeWithKey[] | []);
+        return this.employeeItems.filter((item, index) => {
+          const isCorrect = item.types.some(
+            (type: string) => type === this.selectedType
+          );
+
+          // Если элемент подходит по типу,
+          // то генерируем "key".
+          if (isCorrect) {
+            (item as EmployeeWithKey).key =
+              item.name + "-" + Date.now() * Math.random() * Math.random();
+            return true;
+          }
+
+          return false;
+        }) as EmployeeWithKey[] | [];
+      },
+
+      employees(): EmployeeWithKey[] {
+        let filteredEmployees = this.filteredEmployees;
+
+        if (filteredEmployees.length === 0 && !this.isFetching) {
+          this.isEmptyType = true;
+          return filteredEmployees;
+        }
+
+        if (filteredEmployees.length === 1) {
+          filteredEmployees = [
+            ...filteredEmployees,
+            { ...filteredEmployees[0], isEmptyPlaceholder: true },
+          ];
+          this.hasMore = false;
+        } else {
+          this.hasMore = true;
+        }
+
+        this.isEmptyType = false;
+
+        return filteredEmployees.slice(0, this.view);
+      },
     },
 
-    employees(): EmployeeWithKey[] {
-      let filteredEmployees = this.filteredEmployees;
+    methods: {
+      fetchEmployees() {
+        this.isFetching = true;
+        this.isEmptyType = false;
 
-      if (filteredEmployees.length === 0) {
-        this.isEmptyType = true;
-        return filteredEmployees;
-      }
+        if (shouldRestore && Persistence.get(Storage.Items)) {
+          console.log("восстановление данных из sessionStorage");
+          const getSessionData = new Promise((resolve) => {
+            resolve("done");
+          });
 
-      if (filteredEmployees.length === 1) {
-        filteredEmployees = [...filteredEmployees, {...filteredEmployees[0], isEmptyPlaceholder: true}];
-        this.hasMore = false;
-      } else {
-        this.hasMore = true;
-      }
+          return getSessionData.then(() => {
+            this.isFetching = false;
 
-      this.isEmptyType = false;
+            return JSON.parse(
+              Persistence.get(Storage.Items) as string
+            ) as Employee[];
+          });
+        }
 
-      return filteredEmployees.slice(0, this.view);
-    },
-  },
+        const handleErrors = (response: Response) => {
+          if (!response.ok) {
+            throw Error(response.statusText);
+          }
 
-  methods: {
-    fetchEmployees() {
-      if (shouldRestore && Persistence.get(Storage.Items)) {
-        console.log("восстановление данных из sessionStorage");
-        const getSessionData = new Promise((resolve) => {
-          resolve("done");
+          return response.json();
+        };
+
+        return fetch("/api/employees")
+          .then(handleErrors)
+          .then((response) =>
+            response.results ? JSON.parse(response.results) : []
+          )
+          .catch((error) => {
+            this.isEmptyType = true;
+
+            console.error(
+              "При получении списка сотрудников что то пошло не так",
+              error
+            );
+          })
+          .finally(() => {
+            this.isFetching = false;
+          });
+      },
+
+      setView(newVal: number) {
+        Persistence.set(Storage.View, newVal);
+        this.view = newVal;
+      },
+
+      setSelectedType(newValue: string) {
+        Persistence.set(Storage.Type, newValue);
+        this.selectedType = newValue;
+        this.setView(this.viewStep);
+      },
+
+      handleClickTab(event: MouseEvent) {
+        const value = (event.currentTarget as HTMLButtonElement).value;
+        this.setSelectedType(value);
+      },
+
+      enterAnimation(el: any, done: () => void) {
+        const index = this.viewStep - (this.view - +el.dataset.index);
+        const delay = index * 0.4;
+
+        gsap.from(el, {
+          alpha: 0,
+          y: 100,
+          duration: 0.6,
+          delay,
+          onComplete() {
+            done();
+          },
+        });
+      },
+
+      leaveAnimation(el: any, done: () => void) {
+        gsap.to(el, {
+          alpha: 0,
+          y: 100,
+          duration: 0.6,
+          onComplete() {
+            setTimeout(() => done(), 200);
+            done();
+          },
+        });
+      },
+
+      unobserving(): void {
+        if (
+          (this.filteredEmployees.length === this.employees.length ||
+            !this.hasMore) &&
+          this.observer !== null
+        ) {
+          const showMoreTrigger = this.$refs.showMoreTrigger as HTMLElement;
+
+          if (showMoreTrigger) {
+            this.observer.unobserve(showMoreTrigger);
+          }
+
+          console.log("disconnect observer");
+        }
+      },
+
+      observing(): void {
+        if (this.observer !== null) {
+          const showMoreTrigger = this.$refs.showMoreTrigger as HTMLElement;
+
+          if (showMoreTrigger) {
+            this.observer.observe(showMoreTrigger);
+          }
+        }
+      },
+
+      createObserver(): void {
+        // Автоподгрузка списка.
+        // Меняем значение this.view.
+        this.observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const { isIntersecting } = entry;
+
+              if (isIntersecting) {
+                this.setView(this.view + this.viewStep);
+                // TODO: удалить
+                console.log("loading next items");
+
+                // Если отобразили все элементы, то удаляем обсервер
+                if (
+                  (this.filteredEmployees.length === this.employees.length ||
+                    !this.hasMore) &&
+                  this.observer !== null
+                ) {
+                  this.unobserving();
+                }
+              }
+            });
+          },
+          { threshold: [0.6, 0.8, 1] }
+        );
+
+        this.observing();
+      },
+
+      createScrollAnimation() {
+        if (this.scrollTriggerInstance !== null) {
+          this.scrollTriggerInstance.kill();
+        }
+
+        let proxy = { skew: 0 };
+        let skewSetter = gsap.quickSetter(
+          ".employees-list__item",
+          "skewY",
+          "deg"
+        ); // fast
+        let clamp = gsap.utils.clamp(-1, 1); // don't let the skew go beyond 20 degrees.
+
+        this.scrollTriggerInstance = ScrollTrigger.create({
+          onUpdate: (self) => {
+            let skew = clamp(self.getVelocity() / -300);
+            // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+            if (Math.abs(skew) > Math.abs(proxy.skew)) {
+              proxy.skew = skew;
+              gsap.to(proxy, {
+                skew: 0,
+                duration: 0.8,
+                overwrite: true,
+                onUpdate: () => skewSetter(proxy.skew),
+              });
+            }
+          },
         });
 
-        return getSessionData.then(() => JSON.parse(Persistence.get(Storage.Items) as string) as Employee[]);
-      }
+        // make the right edge "stick" to the scroll bar. force3D: true improves performance
+        gsap.set(".employees-list__item", {
+          transformOrigin: "right center",
+          force3D: true,
+        });
+      },
 
-      const handleErrors = (response: Response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
+      delay() {
+        const delay = new Promise((resolve) => {
+          setTimeout(() => resolve(""), 200);
+        });
+
+        return delay.then();
+      },
+    },
+
+    watch: {
+      selectedType(currValue, prevValue) {
+        if (currValue !== prevValue) {
+          this.unobserving();
+          this.observing();
         }
-
-        return response.json();
-      };
-
-      return fetch("/api/employees", {method: "POST"})
-        .then(handleErrors)
-        .then((response) => response.results ? JSON.parse(response.results) : [])
-        .catch((error) => console.error("При получении списка сотрудников что то пошло не так", error));
+      },
     },
 
-    setView(newVal: number) {
-      Persistence.set(Storage.View, newVal);
-      this.view = newVal;
-    },
+    async mounted() {
+      this.employeeItems = await this.fetchEmployees();
 
-    setSelectedType(newValue: string) {
-      Persistence.set(Storage.Type, newValue);
-      this.selectedType = newValue;
-      this.setView(this.viewStep);
-    },
+      await this.delay();
 
-    handleClickTab(event: MouseEvent) {
-      const value = (event.currentTarget as HTMLButtonElement).value;
-      this.setSelectedType(value);
-    },
+      if (shouldRestore) {
+        const scrollPosition = Persistence.get(Storage.Scroll);
 
-    enterAnimation(el: any, done: () => void) {
-      const index = this.viewStep - (this.view - +el.dataset.index);
-      const delay = index * 0.4;
-
-      gsap.from(el, {
-        alpha: 0,
-        y: 100,
-        duration: 0.6,
-        delay,
-        onComplete() {
-          done();
-        },
-      });
-    },
-
-    leaveAnimation(el: any, done: () => void) {
-      gsap.to(el, {
-        alpha: 0,
-        y: 100,
-        duration: 0.6,
-        onComplete() {
-          setTimeout(() => done(), 200);
-          done();
-        },
-      });
-    },
-
-    unobserving(): void {
-      if ((this.filteredEmployees.length === this.employees.length || !this.hasMore) && this.observer !== null) {
-        const showMoreTrigger = this.$refs.showMoreTrigger as HTMLElement;
-
-        if (showMoreTrigger) {
-          this.observer.unobserve(showMoreTrigger);
-        }
-
-        console.log("disconnect observer");
-      }
-    },
-
-    observing(): void {
-      if (this.observer !== null) {
-        const showMoreTrigger = this.$refs.showMoreTrigger as HTMLElement;
-
-        if (showMoreTrigger) {
-          this.observer.observe(showMoreTrigger);
-        }
-      }
-    },
-
-    createObserver(): void {
-      // Автоподгрузка списка.
-      // Меняем значение this.view.
-      this.observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const {isIntersecting} = entry;
-
-            if (isIntersecting) {
-              this.setView(this.view + this.viewStep);
-              // TODO: удалить
-              console.log("loading next items");
-
-              // Если отобразили все элементы, то удаляем обсервер
-              if ((this.filteredEmployees.length === this.employees.length || !this.hasMore) && this.observer !== null) {
-                this.unobserving();
-              }
-            }
-          });
-        },
-        {threshold: [0.6, 0.8, 1]},
-      );
-
-      this.observing();
-    },
-
-    createScrollAnimation() {
-      if (this.scrollTriggerInstance !== null) {
-        this.scrollTriggerInstance.kill();
-      }
-
-      let proxy = {skew: 0};
-      let skewSetter = gsap.quickSetter(".employees-list__item", "skewY", "deg"); // fast
-      let clamp = gsap.utils.clamp(-1, 1); // don't let the skew go beyond 20 degrees.
-
-      this.scrollTriggerInstance = ScrollTrigger.create({
-        onUpdate: (self) => {
-          let skew = clamp(self.getVelocity() / -300);
-          // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
-          if (Math.abs(skew) > Math.abs(proxy.skew)) {
-            proxy.skew = skew;
-            gsap.to(proxy, {
-              skew: 0,
-              duration: 0.8,
-              overwrite: true,
-              onUpdate: () => skewSetter(proxy.skew),
-            });
+        if (scrollPosition) {
+          if (window.APP.scrollbar) {
+            window.APP.scrollbar.setMomentum(0, +scrollPosition);
+          } else {
+            document.documentElement.scrollTop = +scrollPosition;
           }
-        },
-      });
-
-      // make the right edge "stick" to the scroll bar. force3D: true improves performance
-      gsap.set(".employees-list__item", {transformOrigin: "right center", force3D: true});
-    },
-
-    delay() {
-      const delay = new Promise((resolve) => {
-        setTimeout(() => resolve(""), 200);
-      });
-
-      return delay.then();
-    },
-  },
-
-  watch: {
-    selectedType(currValue, prevValue) {
-      if (currValue !== prevValue) {
-        this.unobserving();
-        this.observing();
-      }
-    },
-  },
-
-  async mounted() {
-    this.employeeItems = await this.fetchEmployees();
-
-    await this.delay();
-
-    if (shouldRestore) {
-      const scrollPosition = Persistence.get(Storage.Scroll);
-
-      if (scrollPosition) {
-        if (window.APP.scrollbar) {
-          window.APP.scrollbar.setMomentum(0, +scrollPosition);
-        } else {
-          document.documentElement.scrollTop = +scrollPosition;
         }
       }
-    }
 
-    // console.log("this.employeeItems");
-    // console.log(this.employeeItems);
-    this.createObserver();
-  },
+      // console.log("this.employeeItems");
+      // console.log(this.employeeItems);
+      this.createObserver();
+    },
 
-  updated() {
-    if (isDesktop()) {
-      this.createScrollAnimation();
-    }
-  }
-})
+    updated() {
+      if (isDesktop()) {
+        this.createScrollAnimation();
+      }
+    },
+  });

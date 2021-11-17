@@ -66,7 +66,8 @@
   height: var(--size);
   background: #fff;
   border-radius: 50%;
-  animation: var(--animation) 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite alternate;
+  animation: var(--animation) 2s cubic-bezier(0.21, 0.98, 0.6, 0.99) infinite
+    alternate;
   animation-fill-mode: both;
 }
 
@@ -94,6 +95,11 @@
 .preloader__empty {
   position: absolute;
   top: 0;
+  opacity: 0;
+}
+
+.preloader__empty.is-active {
+  opacity: 1;
 }
 
 /* noinspection CssInvalidMediaFeature */
@@ -102,6 +108,7 @@
     width: 512px;
     height: 512px;
     margin: 0 auto;
+    padding-top: 0;
   }
 }
 
